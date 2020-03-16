@@ -41,7 +41,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -119,7 +119,7 @@ twitter_username:  basd4g
 # description: "basd4g's memo"
 # keyword: "JavaScript TypeScript"
 
-sidebar-avatar: images/avatar.jpg
+sidebar-avatar: assets/images/avatar.jpg
 
 search:
   path: search.json
