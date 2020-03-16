@@ -1,5 +1,5 @@
 ---
-title: shell-script
+title: Shell Scriptにおける、カレントディレクトリの固定
 date: 2020-03-16 22:23:27
 tags: shell, bash, zsh, linux, osx
 ---
