@@ -1,8 +1,4 @@
-# *** Warning! Your custom domain is not using HTTPS yet ***
 # These rules will change if you change your site’s custom domains or HTTPS settings
 
-http://memo.basd4g.net/* https://memo.basd4g.net/:splat 301!
-
 # Redirect default Netlify subdomain to primary domain
-http://memo-basd4g-net.netlify.com/* https://memo.basd4g.net/:splat 301!
 https://memo-basd4g-net.netlify.com/* https://memo.basd4g.net/:splat 301!
