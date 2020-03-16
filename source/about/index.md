@@ -1,7 +1,10 @@
 ---
-title: About me
-date: "2020-03-14"
+layout: about
+title: About Me
+date: "2020-03-16 11:22:00"
 ---
+
+## About Me
 
 basd4gの雑多なメモ。
 
