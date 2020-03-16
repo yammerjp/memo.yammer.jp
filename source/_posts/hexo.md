@@ -44,7 +44,12 @@ $ git clone https://github.com/aircloud/hexo-theme-aircloud.git theme/air-cloud
 
 #### 自己紹介ページの追加
 
-`source/_posts/about.md`を次の内容で作成する
+```
+$ npx hexo new page about
+```
+
+`source/about/index.md`を次の内容に編集する。
+
 
 ```md
 ---
