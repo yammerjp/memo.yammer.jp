@@ -4,9 +4,7 @@ date: 2020-03-16 22:23:27
 tags: shell, bash, zsh, linux, osx
 ---
 
-## Shell Scriptにおける、カレントディレクトリの固定
-
-### 前提
+## 前提
 
 shell script内では、shell scriptを起動する前のカレントディレクトリが引き継がれる。
 
@@ -34,7 +32,7 @@ $ sh ../pwd.sh
 /Users/hoge/dir
 ```
 
-### 解決策
+## 解決策
 
 shell scriptの前方に、2行追加する。
 
@@ -65,17 +63,26 @@ $ sh ../pwd.sh
 /Users/hoge
 ```
 
-### その他の解決策
+## その他の解決策
 
 shell script内のpathを、`"$HOME"`などの変数を使って絶対パスで記載する。
 
-### まとめ
+## まとめ
 
 以下のテンプレートをshell scriptの先頭に追加すると良い。
 
 ```sample.sh
 #!/bin/sh
 SCRIPT_DIR=`dirname $0`
+cd $SCRIPT_DIR
+```
+
+## 追記 (2020/03/19)
+
+`$SCRIPT_DIR`にフルパスを格納するなら以下の通り
+
+```
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
 cd $SCRIPT_DIR
 ```
 
