@@ -21,3 +21,10 @@ $ npx hexo new hogehoge
 
 Automatically deploying on [memo.basd4g.net](https://memo.basd4g.net) with Netlify to merge master branch of [GitHub](https://github.com/basd4g/memo.basd4g.net).
 
+## Add post
+
+```sh
+$ npx hexo new post-title
+# or
+$ npm run new post-title
+```
