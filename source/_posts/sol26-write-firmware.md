@@ -1,7 +1,7 @@
 ---
 title: XpeiraZ3(SOL26) ROM焼きの手順
 date: 2020-03-28 02:04:21
-tags: android SOL26 rom焼き
+tags: android, SOL26, rom焼き
 ---
 
 PC内のデータを整理していたら過去に自分向けに書いていたメモが出てきたので、ここ記す形で移動する。
