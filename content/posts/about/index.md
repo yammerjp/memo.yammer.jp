@@ -1,11 +1,13 @@
 ---
 title: About Me
-date: 2020-03-16T11:22:00+09:00
+date: 2020-03-16T00:00:00+09:00
 ---
 
 ## About Me
 
-![avater](avater.jpg)
+<div style="text-align:center;">
+<img src="avatar.jpg" alt="avatar" />
+</div>
 
 basd4gの雑多なメモ。
 
