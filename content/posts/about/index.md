@@ -1,7 +1,7 @@
 ---
 layout: about
 title: About Me
-date: "2020-03-16 11:22:00"
+date: 2020-03-16T11:22:00+09:00
 ---
 
 ## About Me

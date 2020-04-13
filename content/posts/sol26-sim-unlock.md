@@ -1,6 +1,6 @@
 ---
 title: XpeiraZ3(SOL26) SIMロック解除の手順
-date: 2020-03-28 02:18:29
+date: 2020-03-28T02:18:29+09:00
 tags: android, SOL26, sim
 ---
 

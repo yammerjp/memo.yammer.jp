@@ -1,6 +1,6 @@
 ---
 title: XpeiraZ3(SOL26) ROM焼きの手順
-date: 2020-03-28 02:04:21
+date: 2020-03-28T02:04:21+09:00
 tags: android, SOL26, rom焼き
 ---
 
