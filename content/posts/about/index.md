@@ -6,6 +6,8 @@ date: "2020-03-16 11:22:00"
 
 ## About Me
 
+![avater](avater.jpg)
+
 basd4gの雑多なメモ。
 
 - twitter: [@basd4g](https://twitter.com/basd4g)
