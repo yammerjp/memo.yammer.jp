@@ -7,12 +7,12 @@ my memos web site with [Hexo](https://hexo.io).
 ```sh
 $ git clone https://github.com/basd4g/memo.basd4g.net.git
 $ cd memo.basd4g.net
-$ npm install
+$ yarn
 
-$ npm run server
+$ yarn server
 # check pages local
 
-$ npx hexo new hogehoge
+$ yarn new hogehoge
 # create new post "hogehoge"
 # edit source/_posts/hogehoge.md
 ```
@@ -21,10 +21,3 @@ $ npx hexo new hogehoge
 
 Automatically deploying on [memo.basd4g.net](https://memo.basd4g.net) with Netlify to merge master branch of [GitHub](https://github.com/basd4g/memo.basd4g.net).
 
-## Add post
-
-```sh
-$ npx hexo new post-title
-# or
-$ npm run new post-title
-```
