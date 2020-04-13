@@ -5,8 +5,13 @@
 ## Setup
 
 ```sh
-$ git clone https://github.com/basd4g/memo.basd4g.net.git
+$ git clone --recursive https://github.com/basd4g/memo.basd4g.net.git
 $ cd memo.basd4g.net
+
+# $ git clone https://github.com/basd4g/memo.basd4g.net.git
+# $ cd memo.basd4g.net
+# $ git submodule update --init --recursive
+
 $ yarn
 
 $ yarn server
