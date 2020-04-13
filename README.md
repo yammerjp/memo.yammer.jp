@@ -1,8 +1,8 @@
 # memo.basd4g.net
 
-my memos web site with [Hexo](https://hexo.io).
+[my memos web site](https://memo.basd4g.net) with [Hexo](https://hexo.io).
 
-## Run local
+## Setup
 
 ```sh
 $ git clone https://github.com/basd4g/memo.basd4g.net.git
