@@ -1,6 +1,6 @@
 ---
 title: vim-lspを使った、Vim上でのTypeScript(JavaScript)の補完の実現
-date: 2020-04-01 17:37:46
+date: 2020-04-01T17:37:46+09:00
 tags: vim, vim-lsp, lsp, typescript, javascript
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "dein.vimの導入"
-date: 2020-03-17 00:13:35
+date: 2020-03-17T00:13:35+09:00
 tags: vim, dein-vim, vim-plugin
 ---
 

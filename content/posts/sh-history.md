@@ -1,6 +1,6 @@
 ---
 title: "shellでhistoryを使う"
-date: 2020-03-26 00:13:29
+date: 2020-03-26T00:13:29+09:00
 tags: zsh shell
 ---
 
