@@ -1,7 +1,9 @@
 ---
 title: UbuntuをダウンロードしてInstallする
 date: 2020-03-21T23:18:47+09:00
-tags:
+keywords:
+ - linux
+ - ubuntu
 ---
 
 ## Download

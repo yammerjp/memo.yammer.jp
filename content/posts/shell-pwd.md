@@ -1,7 +1,12 @@
 ---
 title: Shell Scriptにおける、カレントディレクトリの固定
 date: 2020-03-16T22:23:27+09:00
-tags: shell, bash, zsh, linux, osx
+keywords:
+ - shell
+ - bash
+ - zsh
+ - linux
+ - osx
 ---
 
 ## 前提
