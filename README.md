@@ -9,13 +9,16 @@ $ brew install hugo # macOS
 # or
 $ sudo apt install -y hugo # Ubuntu
 
-$ git clone --recursive https://github.com/basd4g/memo.basd4g.net
+$ git clone https://github.com/basd4g/memo.basd4g.net
 $ cd memo.basd4g.net
+$ git submodule update --init --recursive
+# or
+# $ git clone --recursive https://github.com/basd4g/memo.basd4g.net && cd memo.basd4g.net
 
 # Running locally
 $ hugo server -D
 
 # Create new post
 $ hugo new posts/hoge.md
-
 ```
+
