@@ -5,7 +5,9 @@
 ## Setup
 
 ```sh
-$ brew install hugo
+$ brew install hugo # macOS
+# or
+$ sudo apt install -y hugo # Ubuntu
 
 $ git clone --recursive https://github.com/basd4g/memo.basd4g.net
 $ cd memo.basd4g.net
