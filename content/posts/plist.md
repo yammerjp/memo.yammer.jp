@@ -55,6 +55,21 @@ JSONに無い型(日付,バイナリ)が存在するので、完全な相互変�
 例として、あるplistをold-style ASCIIで表した表記を以下に示す。
 
 ```txt
+{
+    "boolean-example" = 0;
+    fuga =     {
+        p0y0p0y0 = 0;
+        punipuni = value;
+    };
+    hoge = helloworld;
+    wara =     (
+        {length = 8, bytes = 0x0123456789abcdef},
+        123,
+        "0.5",
+        1,
+        "2019-09-16 05:45:42 +0000"
+    );
+}
 ```
 
 #### XML
@@ -97,6 +112,7 @@ DOMツリーではこの仕様に注意する必要がありそう。
   <string>helloworld</string>
   <key>boolean-example</key>
   <false/>
+  <key>wara</key>
   <array>
     <data>
     ASNFZ4mrze8=
@@ -105,8 +121,8 @@ DOMツリーではこの仕様に注意する必要がありそう。
     <real>0.5</real>
     <true/>
     <date>2019-09-16T05:45:42Z</date>
-	</array>
-	<key>fuga</key>
+  </array>
+  <key>fuga</key>
   <dict>
     <key>punipuni</key>
     <string>value</string>
