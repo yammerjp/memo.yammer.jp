@@ -87,19 +87,6 @@ plistのデータ構造をXML形式で表現した形式。
 - バイナリ: `<data> ASNFZ4mrze8= </data>` (base64でエンコード済みの文字列)
 - 真偽値: `<true/>`または`<false/>`
 
-XMLのタグはあくまで、キーと、値の型のみを表す。
-(キーの中身を何にするかは各plistに委ねられている。)
-
-辞書型の表記は次のように、keyタグの中にkeyを書き、key閉じタグに続けてvalueを置く。
-DOMツリーではこの仕様に注意する必要がありそう。
-
-```xml
-<dict>
-  <key>keystring</key>
-  <string>valuestring</string>
-</dict>
-```
-
 XML形式の例として、先程示したplistをXMLで表した表記を以下に示す。
 
 ```xml
@@ -212,7 +199,7 @@ XML,binary形式のplistの文法をチェックするツール。
 
 data型を書き込むときは、文字列がそのままbyte列として読み込まれるらしい。
 よって書き込める値が制限される。
-ネストが深く`plutil`が使えないdata型の値を書き込む際は、xmlファイルに直接base64エンコードした文字列を書き込むなどすると良い。
+ネストが深い場所にあるdata型の値を書き込む際は、xmlファイルに直接base64エンコードした文字列を書き込むなどすると良い。
 
 date型を書き込むときは、`Mon Apr 20 20:52:00 2020 JST`のような形式を渡す。
 (PlistBuddyのdata型の値書き込みに関するドキュメントは見つけられなかったが、[darling](https://github.com/darlinghq/darling/blob/master/src/PlistBuddy/PlistBuddy.c)の実装を参考にして実験し見つけた。)
