@@ -77,13 +77,6 @@ JSONに無い型(日付,バイナリ)が存在するので、完全な相互変�
 plistのデータ構造をXML形式で表現した形式。
 前述のold-style ASCIIのように欠けた情報がなく、なおかつ人間にも読めるのでplistをこねくり回す際にはお世話になるだろう。
 
-```
-<dict>
-  <key>keystring</key>
-  <string>valuestring</string>
-</dict>
-```
-
 それぞれの型におけるxml上での表記は次の通り
 
 - 辞書: `<dict> <key>keystring</key> [value] (繰り返し) </dict>`
@@ -100,6 +93,13 @@ XMLのタグはあくまで、キーまたは値の型のみを表す。
 
 辞書型は次のように、keyタグの中にkeyを書き、key閉じタグに続けてvalueを置くといった表記になっている。
 DOMツリーではこの仕様に注意する必要がありそう。
+
+```xml
+<dict>
+  <key>keystring</key>
+  <string>valuestring</string>
+</dict>
+```
 
 例として、先程示したplistをXMLで表した表記を以下に示す。
 
@@ -148,6 +148,7 @@ DOMツリーではこの仕様に注意する必要がありそう。
 - [第3回 plist（プロパティリスト）とFoundation【前編】 - ITmedia](https://www.itmedia.co.jp/enterprise/articles/0705/14/news013_2.html)
 - [第4回 plist（プロパティリスト）とFoundation【後編】 - ITmedia](https://www.itmedia.co.jp/enterprise/articles/0705/30/news011.html)
 
+
 ### ツール
 
 plistを検証、確認、変更するコマンドラインツールが、Mac OS Xにはデフォルトでいくつか入っている。
@@ -157,9 +158,10 @@ plistを検証、確認、変更するコマンドラインツールが、Mac OS
 #### defaults
 
 User Defaultsを読み書きするためのツール
-詳しくは`man -help`や`man defaults`で見れるが、代表的な使い方を以下に記す。
 
-##### `$ defaults read [-g | -globalDomain] [ -d <domain> | -domain <domain> ] [<key>]`
+代表的な`read`,`write`,`import`,`export`のハマりどころを記す。
+
+- `$ defaults read`
 
 "ほぼ"old-style ASCII形式で、User Defaultsを標準出力に出力する。
 old-style ASCIIには型情報を含まないので、型のみを調べる`$ defaults read-type`もある。
@@ -167,39 +169,31 @@ old-style ASCIIには型情報を含まないので、型のみを調べる`$ de
 __出力は正しい文法のold-style ASCII形式のplistとは限らない。大きなサイズのdata型の値は、一部省略して出力され、この部分は文法規則に反する。__ 
 (これが原因で最初plistを正しく読み込めずに困った)
 
-オプションや`<key>`を渡さないと、AppleGlobalDomainを含むすべてのUser Defaultsを出力する。
-すべてのUser Defaultsを1コマンドでまとめて出力できるのは筆者の知る限り`$ defaults read`のみ。
+readの後ろに引数を渡さないとすべてドメインのUser Defaultsを出力する。
+1コマンドでまとめて出力できるのは筆者の知る限り`$ defaults read`のみ。
 
--gオプションをつけると、AppleGlobalDomainのplistを出力する。(どのドメインにも属さない、OSに関わるplist)
+ネストしている深い値を指定して読むことはできない。
 
--dオプションをつけると、ドメインを指定できる。これらのドメインはMacにインストールされている各アプリケーションを表し、指定したドメイン以下のplistを出力する。
-ドメインは`$ defaults domains`で知ることができる。
+- `$ defaults write`
 
-`<key>`を指定すると、そのkeyに対応する値に相当する部分のみのplistを出力する。
-入れ子になったplistの深い部分のキーを指定する方法は無い。(あったら教えてください)
-
-##### `$ defaults write [-g | -globalDomain] [ -d <domain> | -domain <domain> ] <key> [-string | -bool -integer | -real | -data | -date | -array | -dict ] <value>`
-
-`$ defaults write`に対応して、User Defaultsに値を書き込める。必ずkeyとvalueを指定する。
-
+引数にで値を指定して、User Defaultsに書き込める。
 型を区別するオプションを指定できる。
-オプションをつけないと例えば`true`などと書いても真偽値と解釈してくれない。
 
 data型は`-data`オプションをつけた上で、valueを16進数表記で記述する。
 
 date型は`-date`オプションをつけた上で、valueをISO8601形式で記述する。
 
-##### `$ defaults export <domain> [<key>]  - | <filepath>`
+ネストしている深い値を指定して書き込むことはできない。
+
+- `$ defaults export`
 
 特定のドメインのUser Defualtsをxml形式またはバイナリ形式で出力する。
-引数に`-`を与えると、xml形式で標準出力に、`<filepath>`を文字列で与えると、そのパスにbinaryで書き込む。
 
 ドメインは必ず指定する必要があり、`$ defaults read`のようにすべてのドメインのUser Defaultsを一括して出力することはできない。
 
-##### `$ defaults import <domain> [<key>]  - | <filepath>`
+- `$ defaults import`
 
-`$ defualts export`コマンドに対応し、User Defaultsに書き込める。
-引数に`-`を与えると、xml形式を標準から、`<filepath>`を文字列で与えると、そのパスのファイルをbinary形式として読み込む。
+xml形式またはバイナリ形式でUser Defaultsに書き込める。
 
 #### pl
 
@@ -215,7 +209,7 @@ XML,binary形式のplistの文法をチェックするツール。
 
 #### /usr/libexec/PlistBuddy
 
-ネストしている深い値を直接指定して読み書き/削除できるスグレモノ
+ネストしている深い値を直接指定して読み書き/削除できるスグレモノ。
 
 data型を書き込むときは、文字列がそのままbyte列として読み込まれるらしい。
 よって書き込める値が制限される。
@@ -228,12 +222,15 @@ PlistBuddyのdata型の値書き込みに関するドキュメントは見つけ
 
 今回作成した[pdef](https://github.com/basd4g/pdef)において、Swiftでplistを扱う際に肝になった部分を実装を交えて紹介する。
 
-ちなみにPythonでは[plistlib](https://docs.python.org/ja/3/library/plistlib.html)というものが使えるらしい。
+ちなみにPythonでは[plistlib](https://docs.python.org/ja/3/library/plistlib.html)が使えるようだ。
 
 ### plistファイル全体をNSDictionaryとして読み込む
 
 plistファイルをSwiftの変数として扱えるように取り込むのは非常に簡単。
 下記のサンプルコードのように一行で読み込める。
+
+ファイル形式がold-style ASCIIだろうがxmlだろうがbinaryだろうが、勝手に判断してよしなにしてくれる。
+(ただし[ハマりどころ](#defaults)に注意)
 
 ```swift
 // https://github.com/basd4g/pdef/blob/516f0215306b6ca206ebad646190ba74bd5d4b17/src/loadFile.swift
@@ -247,7 +244,7 @@ guard let plist = NSDictionary(contentsOfFile: path) else {
 }
 ```
 
-pdefをSwiftで実装したのは、plistを扱うのが楽だからだろうという目論見だったが、それが一番功を奏したのがこの部分。
+pdefをSwiftで実装したのはplistを扱うのが楽だろうからという目論見だったが、それが一番功を奏したのがこの部分。
 
 ### 型を判別する
 
@@ -308,10 +305,8 @@ func GetPlistType(value: Any) -> PlistType {
 
 Swiftでplistを扱うための情報を集めるのに時間がかかったので、まとめる記事を書くに至った。
 
-この記事に書かれた内容を実装して作った、User Defaults書き換えを支援するツールである[pdef](https://github.com/basd4g/pdef)も興味があれば使ってみてほしい。
-
 この記事は[Macの設定を自動化するdefaultsコマンドと、それを助けるpdef](#)(pdefの紹介記事)の余談と補足として作った。
-というわけでpdefに関して2記事も書いたわけである。
+ここまでの内容を実装して作った、User Defaults書き換えを支援するツールである[pdef](https://github.com/basd4g/pdef)も興味があれば使ってみてほしい。
 
 User DefaultsだけでなくProperty listをSwiftで扱う際に、どこから手をつけてよいかわからない人が概要を掴むのにこの記事が役立てば幸いだ。
 
