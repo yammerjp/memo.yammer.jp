@@ -44,7 +44,7 @@ JSONに無い型(日付,バイナリ)が存在するので、完全な相互変�
 
 ### 保存形式
 
-#### old-style ASCII
+#### old-style ASCII形式
 
 テキストベースで、可読性が高いのがこの形式。NeXT形式とも呼ばれる?。NeXTSTEP時代にできた。
 作られた当時、文字列、配列、ディクショナリ、そしてバイナリデータのみを表現できたらしい。
@@ -52,7 +52,7 @@ JSONに無い型(日付,バイナリ)が存在するので、完全な相互変�
 
 `$ defaults read`コマンドで出力される形式であり、現在では主にここでみられる。
 
-例として、あるplistをold-style ASCIIで表した表記を以下に示す。
+old-style ASCII形式の例として、あるplistをold-style ASCIIで表した表記を以下に示す。
 
 ```txt
 {
@@ -72,7 +72,7 @@ JSONに無い型(日付,バイナリ)が存在するので、完全な相互変�
 }
 ```
 
-#### XML
+#### XML形式
 
 plistのデータ構造をXML形式で表現した形式。
 前述のold-style ASCIIのように欠けた情報がなく、なおかつ人間にも読めるのでplistをこねくり回す際にはお世話になるだろう。
@@ -81,17 +81,17 @@ plistのデータ構造をXML形式で表現した形式。
 
 - 辞書: `<dict> <key>keystring</key> [value] (繰り返し) </dict>`
 - 配列: `<array> [vaule] (繰り返し) </array>`
-- 文字列: `<string>value</string>
+- 文字列: `<string>value</string>`
 - 数値(整数): `<integer>124234</integer>`
-- 数値(浮動小数点数): `<real>0.43</real>
+- 数値(浮動小数点数): `<real>0.43</real>`
 - 日付: `<date>2019-09-16T05:45:42Z</date>` (ISO8601と思われる)
 - バイナリ: `<data> ASNFZ4mrze8= </data>` (base64でエンコード済みの文字列)
 - 真偽値: `<true/>`または`<false/>`
 
-XMLのタグはあくまで、キーまたは値の型のみを表す。
-(キーを何にするかは各plistに委ねられている。)
+XMLのタグはあくまで、キーと、値の型のみを表す。
+(キーの中身を何にするかは各plistに委ねられている。)
 
-辞書型は次のように、keyタグの中にkeyを書き、key閉じタグに続けてvalueを置くといった表記になっている。
+辞書型の表記は次のように、keyタグの中にkeyを書き、key閉じタグに続けてvalueを置く。
 DOMツリーではこの仕様に注意する必要がありそう。
 
 ```xml
@@ -101,7 +101,7 @@ DOMツリーではこの仕様に注意する必要がありそう。
 </dict>
 ```
 
-例として、先程示したplistをXMLで表した表記を以下に示す。
+XML形式の例として、先程示したplistをXMLで表した表記を以下に示す。
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -133,7 +133,7 @@ DOMツリーではこの仕様に注意する必要がありそう。
 </plist>
 ```
 
-#### binary
+#### binary形式
 
 テキストベースではなく人間が用意に読めなくした代わりに、ファイルサイズの削減と読み書きを高速化ができる形式。
 
@@ -149,7 +149,7 @@ DOMツリーではこの仕様に注意する必要がありそう。
 - [第4回 plist（プロパティリスト）とFoundation【後編】 - ITmedia](https://www.itmedia.co.jp/enterprise/articles/0705/30/news011.html)
 
 
-### ツール
+### plistを操作できるデフォルトツール
 
 plistを検証、確認、変更するコマンドラインツールが、Mac OS Xにはデフォルトでいくつか入っている。
 
@@ -216,9 +216,9 @@ data型を書き込むときは、文字列がそのままbyte列として読み
 ネストが深く`plutil`が使えないdata型の値を書き込む際は、xmlファイルに直接base64エンコードした文字列を書き込むなどすると良い。
 
 date型を書き込むときは、`Mon Apr 20 20:52:00 2020 JST`のような形式を渡す。
-PlistBuddyのdata型の値書き込みに関するドキュメントは見つけられなかったが、[darling](https://github.com/darlinghq/darling/blob/master/src/PlistBuddy/PlistBuddy.c)の実装を参考にして実験し見つけた。
+(PlistBuddyのdata型の値書き込みに関するドキュメントは見つけられなかったが、[darling](https://github.com/darlinghq/darling/blob/master/src/PlistBuddy/PlistBuddy.c)の実装を参考にして実験し見つけた。)
 
-## Swiftでの実装
+## plistファイルを読み書きする際の、Swiftでの実装
 
 今回作成した[pdef](https://github.com/basd4g/pdef)において、Swiftでplistを扱う際に肝になった部分を実装を交えて紹介する。
 
