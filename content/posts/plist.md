@@ -166,7 +166,7 @@ User Defaultsを読み書きするためのツール
 "ほぼ"old-style ASCII形式で、User Defaultsを標準出力に出力する。
 old-style ASCIIには型情報を含まないので、型のみを調べる`$ defaults read-type`もある。
 
-__出力は正しい文法のold-style ASCII形式のplistとは限らない。大きなサイズのdata型の値は、一部省略して出力され、この部分は文法規則に反する。__ 
+__出力は正しい文法のold-style ASCII形式のplistとは限らない。大きなサイズのdata型の値は、一部省略して出力され、この部分は文法規則に反する。__
 (これが原因で最初plistを正しく読み込めずに困った)
 
 readの後ろに引数を渡さないとすべてドメインのUser Defaultsを出力する。
