@@ -1,7 +1,6 @@
 ---
 title: "非同期のまえに同期処理を通してPromiseとasync/awaitを理解する"
 date: 2020-05-19T16:50:47+09:00
-draft: true
 keywords:
  - Javascript
  - Promise
