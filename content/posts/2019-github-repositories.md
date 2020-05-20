@@ -89,6 +89,7 @@ TypeScriptで書いていたときは、最終的にブラウザでメモリの�
 夏インターンでNuxt.jsとTypeScriptを扱うと聞いたので、その準備としてそれらの勉強のために書籍やWebサイトを参考にサンプルアプリを作って動かしてみたリポジトリ群
 
 - [ts-nuxt-tutorial](https://github.com/basd4g/ts-nuxt-tutorial)
+- [green-turtle-org](https://github.com/basd4g/green-turtle-org)
 - [Typescript-tutorial1](https://github.com/basd4g/typescript-tutorial1)
 - [Typescript-tutorial2](https://github.com/basd4g/typescript-tutorial2)
 - [chapter02-qiita-post.nuxt-tutorial](https://github.com/basd4g/chapter02-qiita-post.nuxt-tutorial)
@@ -106,7 +107,6 @@ TypeScriptで書いていたときは、最終的にブラウザでメモリの�
 夏インターンで扱ったNuxt.jsを生かして何かをしようと作っていたアプリケーションとその残骸。
 
 - [green-turtle (ブログのソースコード)](https://github.com/basd4g/green-turtle)
-- [green-turtle-org](https://github.com/basd4g/green-turtle-org)
 - [nuxt.ts-blog](https://github.com/basd4g/nuxt.ts-blog)
 - [nuxt.ts-blog.org](https://github.com/basd4g/nuxt.ts-blog.org)
 - [nuxt.ts-template](https://github.com/basd4g/nuxt.ts-template)
