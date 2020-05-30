@@ -9,16 +9,22 @@ keywords:
  - 非同期
 ---
 
-JavaScriptといえば非同期処理はつきものだが非同期やPromiseと聞いて「うわ、」と思う人も多いのではないだろうか。
+JavaScript といえば非同期処理はつきものだが、非同期や Promise に苦手意識を持つ人も多いのではないだろうか。
 
-一度理解してしまえばそれほどでもないのだが、最初の理解のハードルは結構高いと思う。私も理解できずに悶絶した。C言語のポインタよりむずくないか？。。。
+これらの最初の理解のハードルは結構高いと思う。私も理解できずに悶絶した。C言語のポインタよりむずくないか？。。。
 
-この記事では一旦非同期のことは忘れまずは同期処理をテーマに、コールバック、Promise、async/awaitを説明する。
-非同期処理は記事の後半まで登場しない。Promiseはよくわからないという方や、一度挫折した方などにぜひ読んでもらいたい。
+この記事の前半では一旦非同期のことは忘れる。
+まず記事前半は、同期処理をテーマに、コールバック, Promise, async/await について説明する。
+記事の後半は、これらを非同期処理を交えて説明する。
+
+Promise はよくわからないという方や、一度挫折した方などにぜひ読んでもらいたい。
+
+(2020/05/30補足: [Qiita投稿](https://qiita.com/basd4g/items/b1c96de727a53c4b4698)に合わせて全体を修正済み。([旧版](https://github.com/basd4g/memo.basd4g.net/blob/979b5576e05cb97e453b5cd3731e3802a0dc6fca/content/posts/promise.md)))
 
 ## 対象読者
 
-- JavaScriptの基本的文法を知っている。(調べればわかる)
+- JavaScript の基本的文法を知っている。(調べればわかる)
+- 非同期処理, コールバック, Promise, async/awaitに苦手意識がある、よくわからない。
 
 JavaScriptを1行も読んだことも書いたこともない人、プログラミングをしたことのない人は対象としない。
 逆に少しでも読み書きできればオーケー、のつもり。
@@ -88,10 +94,9 @@ thisがbindされるかだとか他の違いは一旦忘れる。
 
 ### Step1-1 コールバック (同期関数)
 
-まずはコールバックについて。
-
 コールバックとは、関数自体を引数として与え、別の関数に実行してもらうしくみだ。
-電話を折り返すことに由来するようだがまさにそのとおり、関数自体を教えて「あとで都合が良くなったら実行しておいて」と押し付ける方式。
+電話を折り返すことに由来して名付けられた。
+由来の通り、関数自体を伝えて「あとで都合が良くなったら実行しておいて」と実行を押し付ける方式。
 
 ```js
 function callbackFunc() {
@@ -105,11 +110,11 @@ function callFunc ( func ) {
 callFunc( callbackFunc );
 ```
 
-ふつう、関数callbackFuncを実行するなら、`callbackFunc()`のようにするだろう。
-しかしここでは引数に渡すときは括弧をつけず、`callFunc( callbackFunc )` としている。
+ふつう、関数callbackFuncを実行するなら`callbackFunc()`のようにするだろう。
+しかし上記では括弧をつけず`callbackFunc` を引数として渡している。
 
-これは引数では関数自体を渡すだけで、callbackFuncは実行されない。
-そして、callFuncの中で渡された関数を実行してもらっている。
+括弧をつけないことで、引数として関数自体を渡すだけでその場では実行されない。
+後に callFunc 関数の中で、渡された関数 (`callbackFunc`)を実行してもらっている。
 
 この「関数自体を渡す」というのがコールバックの肝である。
 コールバックとは(戻り値の)値渡しではなく、関数自体の参照を渡しているという表現もできる。
@@ -120,18 +125,15 @@ callFunc( callbackFunc );
 callFunc( callbackFunc() );
 ```
 
-これでは、callbackFuncを実行して、その戻り値をcallFuncに渡すという意味になってしまう。
+これでは、callbackFunc 関数を実行し、その戻り値を callFunc 関数に引数として渡すという意味になってしまう。
 
 繰り返しになるが、コールバックは「関数自体を渡して」「あとで実行してもらう」しくみである。
 
-なんでこんな面倒なことをするかといえば非同期処理が関わってくるが、これはあとで説明する。
-
 参考: [Callback function(コールバック関数) MDN web docs](https://developer.mozilla.org/ja/docs/Glossary/Callback_function)
 
-#### (補足) アロー関数とコールバック
+#### (補足) コールバックとアロー関数
 
-ちなみに、この節の冒頭のコードだが、アロー関数を使ってこのようにも書ける
-
+ちなみに上述のコードはアロー関数を使って次のようにも書ける。
 ```js
 const callbackFunc = () => {
   console.log('callback');
@@ -155,46 +157,42 @@ callFunc( () => {
   console.log('callback');
 })
 ```
-
-こうなる。引数を指定する中で関数を定義してしまうのだ。
-このように関数自体を引数で渡すとき(すなわちコールバック関数をわたすとき)、アロー関数はシンプルにかける。
+引数を指定する中で関数を定義してしまうのだ。
+このように関数自体を引数で渡すとき(即ちコールバック関数を渡すとき)、アロー関数でシンプルにかける。
 
 ### Step1-2 Promise (同期関数)
 
-さて、コールバックを説明したら次はPromise。
+Promise は英語で「約束する」という意味だ。
+名前の通り、あとで値を返すことを約束するような動作をする。(約束を破ることもある。)
 
-promiseは英語で「約束する」という意味だ。
-その名の通り、あとで値を返すことを約束するような動作をする。(約束を破ることもある。)
+#### Promise の状態
 
-#### Promiseの状態
-
-Promiseには3つの状態がある。
+Promise には3つの状態がある。
 
 - pending ... 約束している状態(初期状態)
 - fulfilled ... 約束を守って値を返した状態
 - rejected ... 約束を破った状態
 
-Promiseオブジェクトはまずpendingで始まり、あとでfulfilledやrejectedに状態が変化する。
+Promise オブジェクトはまず pending で始まり、あとで fulfilled や rejected に状態が変化する。
 
-##### pending
+##### 状態: pending
 
 とりあえず約束してみる。
 
 ```js
 const promise = new Promise( (resolve, reject) => {
 });
+// 何もしない関数を、new Promise() に渡している。
 console.log( promise );
-// 早速コールバックが出てきてしまった。
-// ここでは第一引数resolveと第二引数rejectを受け取り何もしない関数を、new Promise()に渡している。
 ```
 
 pendingと表示されただろう。
 
-_ここでの変数`promise`は、Promiseの状態pendingといえる。_
+_ここでの変数`promise`は、Promise の状態 pending といえる。_
 
-##### fulfilled
+##### 状態: fulfilled
 
-次はfulfilledの状態を作ってみる。
+次は fulfilled の状態を作ってみる。
 
 ```js
 const promise = new Promise( (resolve, reject) => {
@@ -204,9 +202,9 @@ console.log( promise );
 // 実はresolve,rejectはそれぞれ、渡された(コールバック)関数を引数として受け取っている。
 ```
 
-Promise resolevedと表示されただろう。これがfulfilledである。
+Promise resoleved と表示されただろう。これが fulfilled である。
 
-実はfulfilledな状態は値を持つ。
+実は状態 fulfilled は値を持つ。
 
 ```js
 const promise = new Promise( (resolve, reject) => {
@@ -215,11 +213,11 @@ const promise = new Promise( (resolve, reject) => {
 console.log( promise );
 ```
 
-_ここでの変数`promise`は、Promiseの状態fulfilledであり、値`'hello'`を持つといえる。_
+_ここでの変数`promise`は、Promiseの状態 fulfilled であり、値`'hello'`を持つといえる。_
 
-##### rejected
+##### 状態: rejected
 
-rejectedもfulfilledと同様に値を持つ。
+rejected も fulfilled と同様に値を持つ。
 
 ```js
 const promise = new Promise( (resolve, reject) => {
@@ -228,9 +226,9 @@ const promise = new Promise( (resolve, reject) => {
 console.log( promise );
 ```
 
-_ここでの変数`promise`は、Promiseの状態rejectedであり、値`'hello'`を持つといえる。_
+_ここでの変数`promise`は、Promise の状態 rejected であり、値`'hello'`を持つといえる。_
 
-rejectedで渡される値(オブジェクト)は、Errorオブジェクトだったりする。
+rejected で渡される値(オブジェクト)は Error オブジェクトだったりする。
 
 ```js
 const promise = new Promise( (resolve, reject) => {
@@ -239,14 +237,12 @@ const promise = new Promise( (resolve, reject) => {
 console.log( promise );
 ```
 
-_ここでの変数`promise`は、Promiseの状態rejectedであり、値にErrorオブジェクトを持つといえる。_
+_ここでの変数`promise`は、Promise の状態 rejected であり、値に Error オブジェクトを持つといえる。_
 
 #### 状態の変化
 
-さてさて、Promiseに3つの状態があるのは説明したとおりだ。
-
 Promiseでは状態が変化する。
-初期状態ではpendingであるが、のちにfulfilledかrejectedになる。
+初期状態では pending であるが、のちに fulfilled や rejected になる。
 
 ```js
 const promise = new Promise( (resolve, reject) => {
@@ -262,19 +258,18 @@ const promise = new Promise( (resolve, reject) => {
 })
 ```
 
-現在は同期処理を行っているので、fulfilledまたはrejectされた状態に一瞬で変化してしまい見れない。
+現在は同期処理を行っているので、fulfill または reject された状態に一瞬で変化してしまい、 pending の状態をみることはできない。
 
-しかし厳密にはもともとはpendingで、第一引数resolveを実行するとfulfilledに、第二引数rejectを実行するとrejectに、それぞれ状態が移行する。
+しかし厳密にはもともとは pending で、 `resolve()`を実行すると fulfilled に、 `reject()` を実行すると rejected に、それぞれ状態が移行する。
 
-#### then/catchによるPromiseチェーン
+#### then/catch による Promise チェーン
 
-さて、Promiseには3状態あり、変化することがわかった。
-変化すると何ができるのか？
-それをこの節で説明する。
+さて、Promise には3状態あり、変化することがわかった。
+変化すると何ができるのか？ それをこの節で説明する。
 
-Promiseオブジェクトのメソッドに、thenとcatchがある。
+Promise オブジェクトのメソッドに、then と catch がある。
 
-これらはそれぞれ第一引数に関数をとり、promiseがfulfilledやrejectedの状態になると関数を実行する。
+これらはそれぞれ第一引数に関数をとり、Promise が fulfilled や rejected の状態になると引数関数を実行する。
 
 ```js
 const promise = new Promise( (resolve, reject) => {
@@ -298,9 +293,9 @@ promise.catch( arg => {
 })
 ```
 
-このようにして、`.`でつないでthen/catchメソッドを呼べば、それらを発火できる。
+このように`.`でつないで then/catch メソッドを呼べば、それらを発火できる。
 
-さらに、then/catchメソッドの戻り値にpromiseを与えてやれば、更に繋げられる。
+さらに、then/catch メソッドの戻り値に promise を与えてやれば、更に繋げられる。
 
 ```js
 const promise = new Promise( (resolve, reject) => {
@@ -323,48 +318,32 @@ promise
 // new Promise( resolve => { resolve('resolve!') }); と同じ。
 ```
 
+上述の通り、then メソッドの戻り値に Promise を渡すと、更に後ろに`.then()`を繋げられる。
+(`.catch()`も繋げられる。)
 
-ソースコードのように、thenメソッドの戻り値にPromiseを渡すと、更に後ろに`.then()`を繋げられる。
-(`.catch()`も繋げられる)
-
-このように、Promiseが解決(fulfill/reject)されたら`.then()`メソッドが発火し、
+このように、Promise が解決 (fulfill/reject) されたら`.then()`メソッドが発火し、
 `.then()`メソッドがPromiseを返すと、解決されたらさらに後ろの`.then()`メソッドが発火し、、、
 
-このように数珠つなぎに徐々にPromiseが渡っていくことをPromiseチェーンと呼ぶ。
-
-#### 即時にfulfill、rejectする
-
-先程出てきたが、すぐにfulfill/rejectを返すPromiseは、次のように書ける。
-
-```js
-// 次の二行は同じ。
-Promise.resolve('resolve!');
-new Promise( resolve => { resolve('resolve!') });
-
-// 次の二行は同じ。
-Promise.reject('reject..');
-new Promise( (resolve, reject) => { reject('reject..') });
-```
+このように数珠つなぎに徐々に Promise が渡ることを Promise チェーンと呼ぶ。
 
 <hr/>
 
-さてここまででPromiseを学んだ。
-なんでわざわざcallbackやPromiseなんてものを使うのか、その理由は非同期関数にあるので、読者の皆様にはややこしいことをしているようにしか見えないかもしれない。
+ここまでで Promise を学んだ。
+コールバックや Promise を使う理由は非同期関数にあるので、読者の皆様にはややこしいことをしているようにしか見えないかもしれない。
 
-本当はこのあたりで非同期関数について説明しPromiseのありがたみを理解していただくのもよいのだが、この記事はあくまで「まず同期関数で理解する。」ことが目的なので、非同期関数はもう少し後回しにする。
+本当はこのあたりで非同期関数について説明し Promise のありがたみを理解していただくのもよいのだが、この記事はあくまで「まず同期関数で理解する。」ことが目的であり、非同期関数はもう少し後回しにする。
 
 <hr/>
 
 ### Step1-3 async/await (同期関数)
 
-次はsync/awaitだ。
+次は sync/await だ。
 
 そのまえに説明すべきことが2つほどあるので補足。
 
 #### 補足: 即時関数
 
 即時関数は定義と同時に実行する関数だ。
-
 関数定義を括弧でくくると即時実行される。
 
 ```js
@@ -378,10 +357,10 @@ Hello();
 ( function () { console.log('hello') });
 ```
 
-#### 補足: async関数 (asnyc function)
+#### 補足: Async 関数 (asnyc function)
 
-関数定義の前にasyncとつけて定義する。
-asnyc関数の中でのみawaitが使える。
+関数定義の前に`async`とつけて定義する。
+Asnyc 関数の中でのみ await が使える。
 
 ```js
 // 例
@@ -399,10 +378,10 @@ async function func() {
 
 閑話休題。
 
-async/awaitはPromiseを生成する構文と言っていい。
-先程のthenを書かずともよくなる構文である。
+async/await は Promise を生成する構文と言っていい。
+先程の then を書かずともよくなる構文である。
 
-先程のPromiseのコードをもう一度示す。
+前節の Promise のコードを再掲する。
 
 ```js
 const promise = new Promise( (resolve, reject) => {
@@ -415,7 +394,7 @@ promise.then( arg => {
 })
 ```
 
-これをasync/awaitに書き直すと
+これを async/await に書き直すと
 
 ```js
 const promise = new Promise( (resolve, reject) => {
@@ -430,13 +409,13 @@ const promise = new Promise( (resolve, reject) => {
 ```
 
 このようになる。
-thenが消えたことがわかる。
+then が消えたことがわかる。
 
 (即時実行のasync関数を使っている。)
 
 <br/>
 
-もう一つ先程のコードを再掲しasync/awaitに書き換えてみる。
+もう一つ前節のコードを再掲し async/await に書き換えてみる。
 
 ```js
 const promise = new Promise( (resolve, reject) => {
@@ -456,7 +435,7 @@ promise
   })
 ```
 
-async/awaitに書き換えると
+async/await に書き換えると
 
 ```js
 const promise = new Promise( (resolve, reject) => {
@@ -472,11 +451,11 @@ const promise = new Promise( (resolve, reject) => {
 })
 ```
 
-今度はthenがなくなったことで短く書けたことが伝わるのではないか。
+今度は then がなくなったことで短く書けたことが伝わるのではないか。
 
-awaitが現れると、async関数内のawaitより後ろの部分がまるまるthen()の引数としてくるまれる、といった見方もできる。
+`await`が現れると、Async 関数内の`await`より後ろの部分が全て`then()`の引数として包まれる、といった見方もできる。
 
-以上のように、async/awaitはPromiseを簡潔に書く構文である。
+以上のように、async/await は Promise を簡潔に書く構文である。
 
 <br/>
 
@@ -495,8 +474,8 @@ async/awaitで簡潔にかけるなら、Promiseなんて理解しなくて良�
 
 うお、Promise出てきた。。。
 
-コードの内容はおいておいて、Promiseという単語が出てきたことに注目。
-解説は省くが、async/awaitはPromiseを完全には隠しきれていないのだ。
+コードの内容はおいておいて、Promise という単語が出てきたことに注目。
+解説は省くが、async/await は Promise を完全には隠しきれていないのだ。
 
 (気になる方はこの記事を読み終えてから[`Promise.all`](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)をみると良いだろう。
 
@@ -505,16 +484,16 @@ async/awaitで簡潔にかけるなら、Promiseなんて理解しなくて良�
 ## Step2 非同期処理
 
 さてさて、ここまで来ればゴールは近い。
-ここからは今まで苦労して覚えた謎構文Promiseとasnyc/awaitのありがたみがわかる章になる。
+この節では今まで苦労して覚えた謎構文 Promise と asnyc/await のありがたみがわかるようになる。
 
 ### Step2-1 同期関数と非同期関数
 
 同期関数と非同期関数について説明する。
 
 - 同期関数とは、中の処理が完了するまで待ってから戻り値を返す関数のこと
-- 非同期関数とは、中の処理にかかわらず、戻り地を返してしまう関数のこと
+- 非同期関数とは、中の処理にかかわらず、すぐに戻り値を返してしまう関数のこと
 
-JavaScriptの代表的な非同期関数に`setTimeOut()`がある。
+JavaScript の代表的な非同期関数に`setTimeOut()`がある。
 
 次のようなコードで考えてみよう。
 
@@ -525,12 +504,12 @@ setTimeOut( () => {
 console.log('world');
 ```
 
-JavaScriptは、普通は(同期関数は)、上から順番に1行ずつ実行される。
+JavaScript は、普通は(同期関数は)、上から順番に1行ずつ実行される。
 
-しかし上記のコードを実行するとworldが表示された後にhelloが表示される。
+しかし上記のコードを実行すると`world`が表示された後に`hello`が表示される。
 これは`setTimeOut()`関数が非同期関数だからだ。
 
-さっきのコードの書き方を少し変えてみる。
+書き方を少し変えてみる。
 
 ```js
 function Hello() { // 1
@@ -541,26 +520,23 @@ console.log('world') // 3
 ```
 
 さっきと同じ動作をするコードだ。
+
 コンピュータの気持ちになってみると
 
-1. Hello関数を定義するよ。Hello関数は実行されたら`'hello'`と表示するよ。まだ定義だけで実行しないよ。
-2. setTimeOut関数を実行するよ。Hello関数を1000ms後に実行することを登録するよ。__登録するだけで、すぐに戻り値を返すよ。__
+1. Hello 関数を定義するよ。Hello 関数は実行されたら`'hello'`と表示するよ。まだ定義だけで実行しないよ。
+2. setTimeOut 関数を実行するよ。Hello 関数を 1000ms 後に実行するとを登録するよ。__登録するだけで、すぐに戻り値を返すよ。__
 3. `'world'`と表示するよ。
 
-... しばらく(1000ms)経って ...
+... しばらく (1000ms) 経って ...
 
-4. Hello関数を実行するよ、`'hello'`と表示するよ。
+4. Hello 関数を実行するよ、`'hello'`と表示するよ。
 
-
-こんな流れである。
+このような順で動作する。
 同期関数はその行で処理が停止するのに対し、非同期関数はすぐに次の行が実行される。
-
-こうすると待っている1秒の間に他の処理も行えるので、たとえばサーバと通信して新しい情報を得る間にロード中の画面を表示するだとかが実現できる。
-逆に同期関数だと、サーバと通信している間画面が固まってしまい入力も受け付けないことになる。
 
 ## Step2-2 コールバック (非同期関数)
 
-さてさて、先程の例で非同期関数を実現してるのがコールバックだ。
+先程の例で非同期関数を実現してるのがコールバックだ。
 
 あとで実行して欲しい関数を引数で伝えておいて、ときが来たら実行する。
 
@@ -587,9 +563,9 @@ console.log('これはすぐに実行される');
 コールバック関数を呼ぶたびにネストが深くなってしまい読みづらい。
 
 俗に言うコールバック地獄である。
-たとえばこの例だと、どの秒数がどのsetTimeOutに対応するのかわかりづらい。
+たとえばこの例だと、どの秒数がどの setTimeOut に対応するのかわかりづらい。
 
-(上記の例は全て一つのsetTimeOutにまとめられるが)
+(上記の例は全て一つの setTimeOut にまとめられるが)
 実際には次のような状況が考えられる。
 
 1. サーバと通信して、記事のリストをとってくる。
@@ -601,13 +577,13 @@ console.log('これはすぐに実行される');
 
 ## Step2-3 Promise (非同期関数)
 
-そう、数珠つなぎならさっきのPromiseチェーンと相性が良い。
+そう、数珠つなぎならさっきの Promise チェーンと相性が良い。
 
 さっきの6秒待つ処理も
 
 ```js
-// 事前にPromise関数を作っておく。
-// ライブラリなどで用意されていたりするので、Promiseを使う側は作る必要はない。
+// 事前に Promise 関数を作っておく。
+// ライブラリなどで用意されていたりするので、Promise を使う側は作る必要はない。
 function setTimeOutPromise(time){
   return new Promise( resolve => {
     setTimeOut( resolve, 1000);
@@ -630,11 +606,6 @@ setTimeOutPromise(1000)
 })
 
 console.log('これはすぐに実行される');
-
-// () => { return 0 } 
-// 上記のような戻り値のみのアロー関数は、括弧とreturnを省略して
-// () => 0
-// とも書ける。
 ```
 
 ネストが解消されて、引数もコンパクトになって見やすくなった。
@@ -644,7 +615,7 @@ console.log('これはすぐに実行される');
 さらに async/awaitで書き直すと
 
 ```js
-// 事前にPromise関数を作っておく。
+// 事前に Promise 関数を作っておく。
 // さっきと同じ。
 function setTimeOutPromise(time){
   return new Promise( resolve => {
@@ -668,18 +639,18 @@ console.log('これはすぐに実行される');
 これは見やすい！
 非同期関数を同期的に書けるようになった。
 
-awaitの行で停止しているかのように動作する。
+await の行で停止しているかのように動作する。
 
 ## さいごに
 
-この記事で次の2つを押さえていれば、他の記事が格段に読みやすくなるだろう。
+本記事を読み次の2つを知れば、他の記事が格段に読みやすくなるだろう。
 
 - 同期処理と非同期処理の違い
 - 同期処理でPromiseがどういう動作をするか
 
-これからは「callback地獄を解決するためにPromiseチェーンがある」「async/awaitはPromiseの生成だ」などと書かれた他の記事も読めるのではなかろうか。
+これからは「コールバック地獄を解決するために Promise チェーンがある」「 async/await は Promise の生成だ」などと書かれた他の記事も読めるのではないだろうか。
 
-この記事を完全に理解できなくても、 読者の皆様はこれからJavaScriptの非同期処理を深める土台ができているのではないかと思う。
+この記事を完全に理解できなくても、 読者の皆様はこれから JavaScript の非同期処理を深める土台ができているのではないかと思う。
 
 ここまでの長文に付き合いいただきありがたい。
 
