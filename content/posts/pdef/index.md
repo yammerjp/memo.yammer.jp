@@ -62,7 +62,7 @@ diffで該当した部分を中心に、defaultsコマンドで指定する値�
 が、`$ defaults read`の出力結果を読むのが面倒なので、これを自動で行うツールを作成した。
 
 (`$ defaults read`の出力形式は、property list(old-style ascii)である。
-[(余談) UserDefaultsとplistについて](https://memo.basd4g.net/posts/plist/)として別記事にまとめたので、plistについてはこちらを参照してほしい。)
+[(余談) UserDefaultsとplistについて](/posts/plist/)として別記事にまとめたので、plistについてはこちらを参照してほしい。)
 
 ## pdefでシェルスクリプトを作る
 
@@ -135,3 +135,6 @@ $ pdef --domain com.apple.systemuiserver before.xml after.xml
 
 私のdefaultsコマンドを集めた[シェルスクリプトはこちら](https://github.com/basd4g/dotfiles/tree/master/bin/user-default)。
 
+---
+
+追記: (2020/10/04) plistへの記事リンクを相対リンクに修正

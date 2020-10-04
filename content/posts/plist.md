@@ -4,7 +4,7 @@ date: 2020-05-02T16:26:00+09:00
 tags: [ "macOS", "plist" ]
 ---
 
-Mac OS XのUser Defaultsを変更するためのシェルスクリプトを作るツール [pdef](https://github.com/basd4g/pdef)を制作した。(解説記事: [Macの設定を自動化するdefaultsコマンドと、それを助けるpdef](https://memo.basd4g.net/posts/pdef/))
+Mac OS XのUser Defaultsを変更するためのシェルスクリプトを作るツール [pdef](https://github.com/basd4g/pdef)を制作した。(解説記事: [Macの設定を自動化するdefaultsコマンドと、それを助けるpdef](/posts/pdef/))
 
 これを作る際にProperty listについて学んだことを記す。
 
@@ -292,8 +292,12 @@ func GetPlistType(value: Any) -> PlistType {
 
 Swiftでplistを扱うための情報を集めるのに時間がかかったので、まとめる記事を書くに至った。
 
-この記事は[Macの設定を自動化するdefaultsコマンドと、それを助けるpdef](https://memo.basd4g.net/posts/pdef/)(pdefの紹介記事)の余談と補足として作った。
+この記事は[Macの設定を自動化するdefaultsコマンドと、それを助けるpdef](/posts/pdef/)(pdefの紹介記事)の余談と補足として作った。
 ここまでの内容を実装して作った、User Defaults書き換えを支援するツールである[pdef](https://github.com/basd4g/pdef)も興味があれば使ってみてほしい。
 
 User DefaultsだけでなくProperty listをSwiftで扱う際に、どこから手をつけてよいかわからない人が概要を掴むのにこの記事が役立てば幸いだ。
+
+---
+
+追記: (2020/10/04) pdefの記事へのリンクを相対リンクに修正
 

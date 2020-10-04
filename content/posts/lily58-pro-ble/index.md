@@ -5,7 +5,7 @@ tags: [ "自作キーボード", "Lily58" ]
 ---
 
 
-[前回の記事で作った](https://memo.basd4g.net/posts/lily58-pro-build-log/)左右分割型の自作キーボード [Lily58 Pro](https://yuchi-kbd.hatenablog.com/entry/2018/12/23/214342) を Bluetooth に対応させ、無線で PC に接続できるように改造した。
+[前回の記事で作った](/posts/lily58-pro-build-log/)左右分割型の自作キーボード [Lily58 Pro](https://yuchi-kbd.hatenablog.com/entry/2018/12/23/214342) を Bluetooth に対応させ、無線で PC に接続できるように改造した。
 その作業記録。
 
 この記事では、無線化にあたり次のことを行う。
@@ -147,3 +147,7 @@ PC の Bluetooth 設定ページを見ると Lily58 が出現しているので�
 キーボードや無線化キットを設計したり情報をまとめたりしてくれている方々に感謝したい。
 
 両手で1万円くらいかけてわざわざ無線化したのは理由があるのだが、それはまた別記事で紹介することとする。
+
+---
+
+追記: (2020/10/04) lily58ビルドログへのリンクを相対リンクへ修正
