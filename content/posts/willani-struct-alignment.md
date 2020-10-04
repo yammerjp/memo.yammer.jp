@@ -118,10 +118,6 @@ struct hoge {
 
 以上。
 
-<br/>
-<br/>
-<br/>
-
 ちなみに `sizeof(struct hoge)` の値は `12` となる。
 
 - 参考: [データ構造アライメント - Wikipedia](https://ja.wikipedia.org/wiki/%E3%83%87%E3%83%BC%E3%82%BF%E6%A7%8B%E9%80%A0%E3%82%A2%E3%83%A9%E3%82%A4%E3%83%A1%E3%83%B3%E3%83%88) ... 日本語のわかりやすい解説。
