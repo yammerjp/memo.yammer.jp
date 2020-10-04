@@ -382,10 +382,18 @@ acronym {
   margin-top: 4px;
   margin-bottom: 24px;
 }
+.article-container .article.header {
+  margin-bottom: 0px;
+}
+
+.article.labels {
+  margin-bottom: 36px;
+  text-align: center;
+}
 
 .article.date {
   color: rgba(0,0,0,.5);
-  margin-top: 24px;
+  margin-top: 12px;
 }
 
 .tag,
@@ -405,11 +413,6 @@ acronym {
 .category {
   color: #fff;
   background-color: #eb7350;
-}
-
-.article.labels {
-  margin-bottom: 24px;
-  text-align: center;
 }
 
 .article.license,
