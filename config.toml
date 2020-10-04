@@ -50,7 +50,7 @@ inlineToolId = ""
 
 [params.nav]
 showCategories = false       # /categories/
-showTags = true             # /tags/
+showTags = false             # /tags/
 
 [params.assets]
 css = ["css/style.css"]
@@ -64,3 +64,11 @@ url = "/about"
 [[params.nav.custom]]
 title = "GitHub"
 url = "https://github.com/basd4g"
+
+[[params.nav.custom]]
+title = "Twitter"
+url = "https://twitter.com/basd4g"
+
+[[params.nav.custom]]
+title = "Home"
+url = "https://basd4g.net"
