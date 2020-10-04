@@ -52,6 +52,9 @@ inlineToolId = ""
 showCategories = true       # /categories/
 showTags = true             # /tags/
 
+[params.assets]
+css = ["css/style.css"]
+
 # custom navigation items
 
 [[params.nav.custom]]
