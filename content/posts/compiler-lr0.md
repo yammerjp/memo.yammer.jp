@@ -421,3 +421,11 @@ shiftする。
 
 以上より、与えられた文は、問題の文法規則から生成されることが示された。
 
+<style>
+.article.markdown-body table th {
+  min-width: 0px;
+}
+.article.markdown-body table td {
+  min-width: 0px;
+}
+</style>

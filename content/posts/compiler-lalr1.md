@@ -267,3 +267,12 @@ digraph G {
 ### ` i*i+*i`
 
 (略)
+
+<style>
+.article.markdown-body table th {
+  min-width: 0px;
+}
+.article.markdown-body table td {
+  min-width: 0px;
+}
+</style>
