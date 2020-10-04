@@ -6,7 +6,7 @@ date: 2020-03-16T00:00:00+09:00
 ## About Me
 
 <div style="text-align:center;">
-<img src="avatar.jpg" alt="avatar" />
+<img src="/img/icon-512x512.png" alt="avatar" />
 </div>
 
 basd4gの雑多なメモ。

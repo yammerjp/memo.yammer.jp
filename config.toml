@@ -59,7 +59,7 @@ css = ["css/style.css"]
 
 [[params.nav.custom]]
 title = "About"
-url = "/posts/about"
+url = "/about"
 
 [[params.nav.custom]]
 title = "GitHub"
