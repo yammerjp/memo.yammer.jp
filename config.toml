@@ -49,7 +49,7 @@ addThisId = ""
 inlineToolId = ""
 
 [params.nav]
-showCategories = true       # /categories/
+showCategories = false       # /categories/
 showTags = true             # /tags/
 
 [params.assets]

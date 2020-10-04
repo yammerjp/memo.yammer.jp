@@ -1,12 +1,7 @@
 ---
 title: "非同期のまえに同期処理を通してPromiseとasync/awaitを理解する"
 date: 2020-05-19T16:50:47+09:00
-keywords:
- - Javascript
- - Promise
- - async/await
- - callback
- - 非同期
+tags: [ "JavaScript", "非同期" ]
 ---
 
 JavaScript といえば非同期処理はつきものだが、非同期や Promise に苦手意識を持つ人も多いのではないだろうか。

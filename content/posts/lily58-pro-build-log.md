@@ -1,6 +1,7 @@
 ---
 title: "Lily58 を作って自作キーボードに入門した (Lily58 Pro Build Log)"
 date: 2020-08-14T01:55:25+09:00
+tags: [ "自作キーボード", "Lily58" ]
 ---
 
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">毎月一回、自作キーボードが作りたくなってカートに商品を入れるまでやる。あと一歩のところで踏みとどまる。</p>&mdash; けーすけ@やんまー (@basd4g) <a href="https://twitter.com/basd4g/status/1284673759593418752?ref_src=twsrc%5Etfw">July 19, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

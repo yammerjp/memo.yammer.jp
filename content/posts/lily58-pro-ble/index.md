@@ -1,6 +1,7 @@
 ---
 title: "Lily58 Pro を Bluetooth 対応し無線化する"
 date: 2020-08-14T02:07:01+09:00
+tags: [ "自作キーボード", "Lily58" ]
 ---
 
 

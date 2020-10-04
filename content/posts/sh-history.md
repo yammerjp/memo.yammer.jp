@@ -1,9 +1,7 @@
 ---
 title: "shellでhistoryを使う"
 date: 2020-03-26T00:13:29+09:00
-keywords:
- - zsh
- - shell
+tags: [ "zsh", "Shell" ]
 ---
 
 ## 過去に実行したコマンドを再度実行する

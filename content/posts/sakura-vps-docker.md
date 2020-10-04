@@ -1,11 +1,7 @@
 ---
 title: さくらのVPSとdocker環境構築 
 date: 2020-03-28T03:10:34+09:00
-keywords:
- - さくらのVPS
- - linux
- - CentOS
- - docker
+tags: [ "さくらのVPS", "Linux", "CentOS", "Docker" ]
 ---
 
 PCを整理していて発見したメモを移動して公開する。ファイルのタイムスタンプは2017/12/19。

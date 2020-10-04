@@ -1,11 +1,7 @@
 ---
 title: 数日前からCコンパイラを書き始めた。
 date: 2020-05-25T01:02:52+09:00
-keywords:
- - 日記
- - willani
- - C
- - コンパイラ
+tags: [ "コンパイラ", "willani", "日記", "C" ]
 ---
 
 数日前からCコンパイラを書き始めた。([GitHub](https://github.com/basd4g/willani))

@@ -1,11 +1,7 @@
 ---
 title: 自作コンパイラのセルフホストに挑戦中
 date: 2020-07-07T01:54:10+09:00
-keywords:
- - 日記
- - willani
- - C
- - コンパイラ
+tags: [ "コンパイラ", "willani", "日記", "C" ]
 ---
 
 以前の記事「[数日前からCコンパイラを書き始めた。](/posts/willani-start/)」「[自作Cコンパイラの途中経過](/posts/willani-compliperbook-finished/)」に続く記事。

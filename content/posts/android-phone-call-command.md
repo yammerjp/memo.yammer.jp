@@ -1,9 +1,7 @@
 ---
 title: androidの架電アプリによる各種制御プログラムの起動
 date: 2020-03-28T02:45:25+09:00
-keywords:
- - android
- - ROM焼き
+tags: [ "android", "ROM焼き" ]
 ---
 
 ## まえがき

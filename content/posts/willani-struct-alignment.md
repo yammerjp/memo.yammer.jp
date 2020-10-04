@@ -1,10 +1,7 @@
 ---
 title: "C言語の構造体メンバのアライメント (x86_64, Linux (System V ABI))"
 date: 2020-07-09T00:59:59+09:00
-keywords:
- - willani
- - C
- - コンパイラ
+tags: [ "コンパイラ", "willani", "日記", "C" ]
 ---
 
 System V ABI における構造体メンバのアライメントの方法を記す。

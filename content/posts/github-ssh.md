@@ -1,6 +1,7 @@
 ---
 title: "GitHubにsshでつなぐ"
 date: 2020-08-14T18:55:39+09:00
+tags: [ "git", "ssh", "Shell" ]
 ---
 
 以下、過去の自分用メモの移動。

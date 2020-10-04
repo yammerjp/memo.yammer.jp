@@ -1,6 +1,7 @@
 ---
 title: "(余談) User Defaultsとproperty list(plist)"
 date: 2020-05-02T16:26:00+09:00
+tags: [ "macOS", "plist" ]
 ---
 
 Mac OS XのUser Defaultsを変更するためのシェルスクリプトを作るツール [pdef](https://github.com/basd4g/pdef)を制作した。(解説記事: [Macの設定を自動化するdefaultsコマンドと、それを助けるpdef](https://memo.basd4g.net/posts/pdef/))

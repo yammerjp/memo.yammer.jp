@@ -1,10 +1,7 @@
 ---
 title: macOSでの各種設定を自動化するdefaultsコマンド
 date: 2020-04-13T21:57:37+09:00
-keywords:
- - macos
- - shell
- - dotfiles
+tags: [ "macOS", "Shell", "dotfiles", "plist" ]
 ---
 
 研究室や就職先などでのコンピュータのセットアップのために、3月頃から[dotfiles](https://github.com/basd4g/dotfiles)を構築している。

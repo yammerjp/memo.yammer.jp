@@ -1,6 +1,7 @@
 ---
 title: '積読本だった"Webを支える技術"を読んだ感想と、本を読むための心がけ'
 date: 2020-09-29T03:35:02+09:00
+tags: [ "本", "インターネット" ]
 ---
 
 [「Webを支える技術 HTTP, URI, HTML, そしてREST」](https://www.amazon.co.jp/Web%E3%82%92%E6%94%AF%E3%81%88%E3%82%8B%E6%8A%80%E8%A1%93-HTTP%E3%80%81URI%E3%80%81HTML%E3%80%81%E3%81%9D%E3%81%97%E3%81%A6REST-WEB-PRESS-plus/dp/4774142042)を改めて読み直した。
