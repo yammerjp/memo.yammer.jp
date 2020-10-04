@@ -4,10 +4,7 @@
 }
 
 html {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Microsoft YaHei', 'Segoe UI', 
-                Ubuntu, Roboto, Oxygen, Cantarell, 'Fira Sans', 'Droid Sans',
-                'Helvetica Neue', Helvetica, Arial, Verdana, 'Lucida Grande', 
-                sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  font-family: "SF Pro JP","SF Pro Text","SF Pro Icons","Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","メイリオ","Meiryo","ＭＳ Ｐゴシック","Helvetica Neue","Helvetica","Arial",sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.7;
@@ -288,7 +285,7 @@ acronym {
 }
 
 .date {
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .langs {
@@ -385,7 +382,6 @@ acronym {
 .article.header {
   text-align: center;
   margin-top: 4px;
-  margin-bottom: 24px;
 }
 
 .article.date {
@@ -396,16 +392,15 @@ acronym {
 .tag,
 .category {
   display: inline-block;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1;
   padding: 4px 6px;
   margin: 5px 5px 5px 0;
-  border-radius: 20px;
-  border: 1px solid #e6e6e6;
 }
 
 .tag {
-  color: #c41a16;
+  color: #888888;
+  /*font-style: italic;*/
 }
 
 .category {
@@ -413,7 +408,11 @@ acronym {
   background-color: #eb7350;
 }
 
-.article.labels,
+.article.labels {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
 .article.license,
 .article.navigation,
 .article.discussion,
@@ -491,7 +490,8 @@ acronym {
 
 .note.content,
 .article.markdown-body {
-  color: rgba(0,0,0,.65);
+  /*color: #000000;*/
+  color: rgba(0,0,0,0.75);
 }
 
 .note.list .item,
