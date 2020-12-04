@@ -774,3 +774,7 @@ acronym {
 .article.markdown-body .lntable tr>:first-child {
   border-right: 1px dashed #e6e6e6;
 }
+
+.twitter-tweet{
+	margin: 0 auto;
+}
