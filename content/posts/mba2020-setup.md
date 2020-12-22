@@ -1,0 +1,115 @@
+---
+title: "MacBookAir 2020 (M1) のセットアップ"
+date: 2020-12-22T14:24:01+09:00
+draft: true
+---
+
+Apple Silicon を搭載した MacBook Air を購入したのでセットアップをやっていく。
+そのメモ。
+
+2020/12/20現在では「`brew bundle`しておわり」というわけにはいかない。
+できる限りApple Silicon版のバイナリを使いたいので、各種ソフトウェアのビルド方法などを記録することにする。
+
+## Tips
+
+- `arch -x86_64` を先頭につけてコマンドを実行すると Rosseta2 上で実行してくれる。
+
+## ソフトウェアのインストール以前
+
+### macOS の設定
+
+- ライブ変換の無効化
+- OSのキーマップ設定を変更 (capslock -> esc)
+
+### ssh
+
+```sh
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+cd ~/.ssh
+ssh-keygen -t rsa -b 4096 -C "mymail@example.com"
+cat id_rsa.pub | pbcopy
+```
+
+[GitHub Settings](https://github.com/settings/keys) を開いて 'New SSH key' を追加
+
+### dotfiles
+
+```sh
+xcode-select --install
+curl -sL http://dot.basd4g.net | sh
+cd dotfiles
+make link
+vim
+```
+
+## ソフトウェアのインストール
+
+
+Web ページからパッケージをダウンロードしてインストールしたものは以下。
+
+- [Scroll Reverser](https://pilotmoon.com/scrollreverser/)
+- [Karabiner-Elements](https://karabiner-elements.pqrs.org/)
+- [Zoom](https://zoom.us/download#client_4meeting) (起動してログインの後、Apple Silicon版にアップデートするダイアログが出てくる)
+- [MacPorts](https://www.macports.org/install.php)
+- [Firefox](https://www.mozilla.org/ja/firefox/new/)
+
+ビルドするなどして導入したのは以下。
+
+### Homebrew (for Apple Silicon)
+
+```sh
+sudo mkdir /opt/homebrew
+sudo chown $USER /opt/homebrew
+curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C /opt/homebrew
+```
+
+### tmux
+
+```sh
+brew install --build-from-source tmux
+```
+
+### Node.js
+
+```
+sudo port install nvm # install nodejs version manager
+echo 'source /opt/local/share/nvm/init-nvm.sh' >> ~/.zshrc
+sudo port install git curl openssl automake
+nvm install v15
+```
+参考: [個人的 M1 mac 開発環境状況 2020/11/28更新 - Zenn.dev](https://zenn.dev/ioridev/articles/c74af379e4e73151790d)
+
+nodejsのビルドはそこそこ CPU パワーと時間を使う
+
+### Golang
+
+まずはIntel版をWebからダウンロードしてインストールする([The Go Programming Language](https://golang.org/))
+
+次に以下の手順でApple Silicon向けにビルドした後、Intel版を削除
+
+```sh
+go get golang.org/dl/gotip
+GODEBUG=asyncpreemptoff=1 GOARCH=arm64 ~/go/bin/gotip download
+echo "$HOME/sdk/gotip/bin/darwin_arm64" | sudo tee /etc/paths.d/go
+which go # check to be installed
+sudo rm -rf /usr/local/go
+```
+
+### peco
+
+```sh
+cd
+git clone https://github.com/peco/peco.git && cd peco
+make build
+mv ~/peco/releases/peco_darwin_arm64/peco /usr/local/bin/peco
+```
+
+### hugo
+
+```sh
+cd
+git clone https://github.com/gohugoio/hugo.com && cd hugo
+go build
+mv ~/hugo/hugo /usr/local/bin/hugo
+```
