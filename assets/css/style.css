@@ -409,20 +409,6 @@ acronym {
   font-weight: 700;
 }
 
-.note.title {
-  font-size: 20px;
-  font-weight: 700;
-  margin-left: 15px;
-}
-.note.title:before {
-  content: "#";
-  color: #aaaaaa;
-  font-weight: normal;
-  margin-left: -15px;
-  margin-right: 5px;
-}
-
-
 .note.date {
   color: rgba(0,0,0,.5);
 }
@@ -443,6 +429,22 @@ acronym {
 .note.labels {
   margin: 5px 0;
 }
+
+.note.title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-left: 15px;
+}
+.note.title:before {
+  content: "#";
+  color: #aaaaaa;
+  font-weight: normal;
+  margin-left: -15px;
+  margin-right: 5px;
+}
+
+
+
 
 .note.imgs {
   display: block;
