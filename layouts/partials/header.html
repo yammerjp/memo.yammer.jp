@@ -1,0 +1,20 @@
+<section id="header" class="site header">
+    <div class="header wrap">
+        <div class="header left-side">
+            <a class="site home" href="{{- `/` | relLangURL -}}">
+                {{- $logo := site.Params.logo -}}
+                {{- if $logo -}}
+                <img class="site logo" src="{{- $logo | relURL -}}" alt />
+                {{- end -}}
+                <span class="site name">{{- site.Title | safeHTML -}}</span>
+            </a>
+
+            {{- with site.Params.slogan -}}
+                <div class="site slogan"><span class="title">{{- . | safeHTML -}}</span></div>
+            {{- end -}}
+        </div>
+        <div class="header right-side">
+            {{- partial "navigation-items.html" site.Params.nav -}}
+        </div>
+    </div>
+</section>

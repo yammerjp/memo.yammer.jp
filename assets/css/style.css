@@ -243,7 +243,7 @@ acronym {
   overflow: hidden;
 }
 
-.header.wrap, #content, .site.slogan, .footer-wrap {
+.header.wrap, #content, .footer-wrap {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 24px;
@@ -263,32 +263,27 @@ acronym {
   /* background-position: bottom; にすると, safari において横幅が大きいときに1pxくらい下に隙間が表示されるバグを回避するために-1pxずらしている*/
   background-position: bottom -1px left 0px;
   margin-bottom: 24px;
-  padding-bottom: 12px;
+  padding-top: 24px;
+  min-height: 120px;
 }
 
 .header.wrap {
-  padding-top: 24px;
-  /* ヘッダのメニューを右寄せするために必要な指定 */
-  text-align: justify;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-/* ヘッダのメニューを右寄せするために必要な擬似要素 */
-.header.wrap::after {
-  display: inline-block;
-  content: "";
-  width: 100%;
+.header.left-side {
+  margin-right: auto;
 }
-
-.header.wrap>*,
-.nav.wrap>* {
-  margin-top: 4px;
+.header.right-side {
+  margin-left: auto;
 }
-
 .header.left-side,
 .header.right-side {
   display: inline-block;
   font-size: 17px;
   text-align: initial;
+  vertical-align: top;
 }
 
 .site.home:hover {
@@ -310,8 +305,6 @@ acronym {
 .site.slogan {
   font-size: 15px;
   line-height: 1.5;
-  padding-bottom: 24px;
-  margin: 0 auto;
 }
 
 .site.slogan .title {
@@ -323,13 +316,16 @@ acronym {
   display: inline-block;
   font-size: 15px;
   line-height: 1;
-  padding: 12px;
+  padding: 4px;
   margin: 4px;
   background-color: #ffffff;
-  border-radius: 30px;
-  border-width: 1px;
-  border-color: #ffffff;
-  border-style: solid;
+  border-radius: 100%;
+  width: 44px;
+  height: 44px;
+}
+
+.nav.item:last-child {
+  margin-right: -2px;
 }
 
 .footer {
@@ -338,7 +334,7 @@ acronym {
   margin-top: 36px;
   margin-bottom: 0;
   background-color: #a3d7ff;
-  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%22800%22%20height%3D%22132%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%20%3Cg%3E%20%3Ctitle%3Ebackground%3C%2Ftitle%3E%20%3Crect%20x%3D%22-1%22%20y%3D%22-1%22%20width%3D%22802%22%20height%3D%22134%22%20id%3D%22canvas_background%22%20fill%3D%22%23ffffff%22%2F%3E%20%3Cg%20id%3D%22canvasGrid%22%20display%3D%22none%22%3E%20%3Crect%20id%3D%22svg_1%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20x%3D%220%22%20y%3D%220%22%20stroke-width%3D%220%22%20fill%3D%22url(%23gridpattern)%22%2F%3E%20%3C%2Fg%3E%20%3C%2Fg%3E%20%3Cg%3E%20%3Ctitle%3ELayer%201%3C%2Ftitle%3E%20%3Crect%20stroke%3D%22%23000%22%20fill%3D%22%23a3d7ff%22%20stroke-width%3D%220%22%20stroke-opacity%3D%22null%22%20y%3D%2266%22%20width%3D%22800%22%20height%3D%2266%22%20id%3D%22svg_12%22%20x%3D%220.58824%22%2F%3E%20%3Crect%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%20stroke-opacity%3D%22null%22%20fill-opacity%3D%22null%22%20x%3D%22118.5%22%20y%3D%22196.45313%22%20width%3D%229%22%20height%3D%220%22%20id%3D%22svg_14%22%2F%3E%20%3Cellipse%20fill%3D%22%23ffffff%22%20stroke%3D%22%23000%22%20stroke-width%3D%220%22%20cx%3D%22208.5%22%20cy%3D%2228.45313%22%20id%3D%22svg_6%22%20rx%3D%22231%22%20ry%3D%22103%22%2F%3E%20%3Cellipse%20fill%3D%22%23a3d7ff%22%20stroke-width%3D%220%22%20cx%3D%22637.5%22%20cy%3D%22104.45313%22%20id%3D%22svg_10%22%20rx%3D%22231%22%20ry%3D%22103%22%2F%3E%20%3C%2Fg%3E%3C%2Fsvg%3E');
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%22800%22%20height%3D%22136%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%20%3Cg%3E%20%3Ctitle%3Ebackground%3C%2Ftitle%3E%20%3Crect%20fill%3D%22%23ffffff%22%20id%3D%22canvas_background%22%20height%3D%22138%22%20width%3D%22802%22%20y%3D%22-1%22%20x%3D%22-1%22%2F%3E%20%3Cg%20display%3D%22none%22%20id%3D%22canvasGrid%22%3E%20%3Crect%20fill%3D%22url(%23gridpattern)%22%20stroke-width%3D%220%22%20y%3D%220%22%20x%3D%220%22%20height%3D%22100%25%22%20width%3D%22100%25%22%20id%3D%22svg_1%22%2F%3E%20%3C%2Fg%3E%20%3C%2Fg%3E%20%3Cg%3E%20%3Ctitle%3ELayer%201%3C%2Ftitle%3E%20%3Crect%20stroke%3D%22%23000%22%20x%3D%220.58824%22%20id%3D%22svg_12%22%20height%3D%2278%22%20width%3D%22800%22%20y%3D%2266%22%20stroke-opacity%3D%22null%22%20stroke-width%3D%220%22%20fill%3D%22%23a3d7ff%22%2F%3E%20%3Crect%20id%3D%22svg_14%22%20height%3D%220%22%20width%3D%229%22%20y%3D%22196.45313%22%20x%3D%22118.5%22%20fill-opacity%3D%22null%22%20stroke-opacity%3D%22null%22%20stroke-width%3D%221.5%22%20stroke%3D%22%23000%22%20fill%3D%22none%22%2F%3E%20%3Cellipse%20ry%3D%22103%22%20rx%3D%22231%22%20id%3D%22svg_6%22%20cy%3D%2228.45313%22%20cx%3D%22208.5%22%20stroke-width%3D%220%22%20stroke%3D%22%23000%22%20fill%3D%22%23ffffff%22%2F%3E%20%3Cellipse%20ry%3D%22103%22%20rx%3D%22231%22%20id%3D%22svg_10%22%20cy%3D%22104.45313%22%20cx%3D%22637.5%22%20stroke-width%3D%220%22%20fill%3D%22%23a3d7ff%22%2F%3E%20%3C%2Fg%3E%3C%2Fsvg%3E');
   width:100%;
   background-size: 100%;
   /* background-position: bottom; にすると, safari において横幅が大きいときに1pxくらい下に隙間が表示されるバグを回避するために-1pxずらしている*/
@@ -349,8 +345,8 @@ acronym {
 .footer-wrap {
   display: block;
   text-align: right;
-  padding-top: 48px;
-  padding-bottom: 48px;
+  padding-top: 60px;
+  padding-bottom: 24px;
 }
 .footer-wrap a {
   color: #345583;
@@ -408,6 +404,7 @@ acronym {
 }
 
 .site.name {
+  margin-top: 0;
   font-size: 20px;
   font-weight: 700;
 }
@@ -797,4 +794,10 @@ acronym {
 .twitter-tweet{
 	margin: 0 auto;
   padding: 24px 0;
+}
+
+.nav.icon {
+  width: 36px;
+  height: 36px;
+  margin: 0;
 }

@@ -58,17 +58,25 @@ css = ["css/style.css"]
 # custom navigation items
 
 [[params.nav.custom]]
-title = "About"
 url = "/about"
+img = "/img/user.svg"
+alt = "自己紹介"
+
 
 [[params.nav.custom]]
-title = "GitHub"
+#title = "GitHub"
 url = "https://github.com/basd4g"
+img = "/img/github.svg"
+alt = "GitHub (@basd4g)"
 
 [[params.nav.custom]]
-title = "Twitter"
+#title = "Twitter"
 url = "https://twitter.com/basd4g"
+img = "/img/twitter.svg"
+alt = "Twitter (@basd4g)"
 
 [[params.nav.custom]]
-title = "Home"
+#title = "Home"
 url = "https://basd4g.net"
+img = "/img/home.svg"
+alt = "著者のWebサイト"
