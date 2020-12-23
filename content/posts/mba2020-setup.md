@@ -1,11 +1,13 @@
 ---
 title: "MacBookAir 2020 (M1) のセットアップ"
 date: 2020-12-22T14:24:01+09:00
-draft: true
+tags: [ "Mac", "AppleSilicon", "Setup" ]
 ---
 
 Apple Silicon を搭載した MacBook Air を購入したのでセットアップをやっていく。
 そのメモ。
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">m1 MacBook Air が届いたのでとりあえずたくさんアプリケーションやタブを連続起動して「はえ〜」ってやつをやりました。</p>&mdash; やんまー (@basd4g) <a href="https://twitter.com/basd4g/status/1340576122795266048?ref_src=twsrc%5Etfw">December 20, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 2020/12/20現在では「`brew bundle`しておわり」というわけにはいかない。
 できる限りApple Silicon版のバイナリを使いたいので、各種ソフトウェアのビルド方法などを記録することにする。
@@ -53,6 +55,10 @@ Web ページからパッケージをダウンロードしてインストール�
 - [Zoom](https://zoom.us/download#client_4meeting) (起動してログインの後、Apple Silicon版にアップデートするダイアログが出てくる)
 - [MacPorts](https://www.macports.org/install.php)
 - [Firefox](https://www.mozilla.org/ja/firefox/new/)
+- [Google Chrome](https://www.google.co.jp/chrome)
+
+([Vivaldi](https://vivaldi.com/ja/) はまだintel版しかないので、アップデートして欲しい。)
+
 
 ビルドするなどして導入したのは以下。
 
