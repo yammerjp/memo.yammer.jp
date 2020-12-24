@@ -32,15 +32,15 @@ tags: [ "JavaScript", "はてなブログ", "CI", "GitHub Actions" ]
 
 まずはてなブログの基本設定を開く。
 
-![はてなブログの基本設定を開く](./1.png)
+![はてなブログの基本設定を開く](./gimonfu-1.png)
 
 下へスクロールし、編集モードを Markdown モードにする。
 
-![編集モードを Markdown モードへ](./2.png)
+![編集モードを Markdown モードへ](./gimonfu-2.png)
 
 「変更する」ボタンを押して変更を反映する。
 
-![「変更する」ボタンを押して変更を反映する](./3.png)
+![「変更する」ボタンを押して変更を反映する](./gimonfu-3.png)
 
 (補足: 他のモードでも動作確認はしていないので、もし Markdown 記法以外を利用する場合はご自身で試して欲しい。
 
@@ -50,11 +50,11 @@ tags: [ "JavaScript", "はてなブログ", "CI", "GitHub Actions" ]
 
 まずはてなブログの詳細設定を開く。
 
-![詳細設定へ移動](./4.png)
+![詳細設定へ移動](./gimonfu-4.png)
 
 下へスクロールし、AtomPubの項目から、ユーザID, ブログID, APIキーを確認する。
 
-![APIキーをメモする](./5.png)
+![APIキーをメモする](./gimonfu-5.png)
 
 ## 3. GitHub リポジトリを作り、ワークフローに使う Secrets を登録する
 
@@ -66,11 +66,11 @@ tags: [ "JavaScript", "はてなブログ", "CI", "GitHub Actions" ]
 
 まずは、新しいリポジトリを作った後、Settings -> Secrets を開く
 
-![Secrets 登録画面を開く](./6.png)
+![Secrets 登録画面を開く](./gimonfu-6.png)
 
 ワークフローで使う Name と Value の組み合わせを5組登録する
 
-![Secrets の Name と Value を登録する](./7.png)
+![Secrets の Name と Value を登録する](./gimonfu-7.png)
 
 登録する内容は次の通り。
 例を参考に自分の文字列に置き換えてほしい。
@@ -89,9 +89,9 @@ tags: [ "JavaScript", "はてなブログ", "CI", "GitHub Actions" ]
 
 ワークフローは GitHub リポジトリのWebページ上からも追加できる。
 
-![新しいワークフローを追加する](./8.png)
+![新しいワークフローを追加する](./gimonfu-8.png)
 
-![記事をダウンロードするワークフローを追加する](./9.png)
+![記事をダウンロードするワークフローを追加する](./gimonfu-9.png)
 
 `.github/workflows/pull.yaml` に次の内容を記述する
 

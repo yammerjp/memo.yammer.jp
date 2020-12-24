@@ -119,3 +119,25 @@ git clone https://github.com/gohugoio/hugo.com && cd hugo
 go build
 mv ~/hugo/hugo /usr/local/bin/hugo
 ```
+
+### jq
+
+```sh
+brew install --build-from-source jq
+```
+
+### gh
+
+```
+cd
+git clone https://github.com/cli/cli.git && cd cli
+make
+mv bin/gh /usr/local.bin/gh
+```
+
+### mmv
+
+```
+cd
+git clone https://github.com
+```

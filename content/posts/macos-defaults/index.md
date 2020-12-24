@@ -102,7 +102,7 @@ $ diff before after
 
 GUIで設定する前後のプロパティリストを比較する。
 
-![プロパティリストを読み込むスクリーンショット](read.gif)
+![プロパティリストを読み込むスクリーンショット](macos-defaults-read.gif)
 
 ```sh
 $ defaults read > before
@@ -168,7 +168,7 @@ killall SystemUIServer
 
 実際に試してみると、反映されていることがわかる。
 
-![プロパティリストに書き込むスクリーンショット](write.gif)
+![プロパティリストに書き込むスクリーンショット](macos-defaults-write.gif)
 
 ## なぜdefaultsコマンドを使うのか
 
