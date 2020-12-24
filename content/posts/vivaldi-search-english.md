@@ -27,7 +27,7 @@ URLのクエリパラメータで検索結果の対象言語(`lr=lang_en`)と表
 
 Vivaldi では、URLの中に埋め込んだ%sが検索ワードに置換されて送信される。
 
-![vivaldiの検索エンジン設定画面](./vivaldi-settings-search.png)
+![vivaldiの検索エンジン設定画面](https://blob.basd4g.net/vivaldi-settings-search.png)
 
 ## 検索時
 
@@ -36,8 +36,8 @@ Vivaldi には検索エンジンにニックネームをつけることができ
 例えばブラウザのアドレスバーに `gj golang` と入力してエンターを押せば日本語の検索結果が、`ge golang` と入力してエンターを押せば英語の検索結果が表示される。
 
 
-![Googleでgolangと検索した結果 (日本語版)](./google-search-golang-ja.png)
-![Googleでgolangと検索した結果 (英語版)](./google-search-golang-en.png)
+![Googleでgolangと検索した結果 (日本語版)](https://blob.basd4g.net/google-search-golang-ja.png)
+![Googleでgolangと検索した結果 (英語版)](https://blob.basd4g.net/google-search-golang-en.png)
 
 便利。
 

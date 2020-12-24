@@ -26,7 +26,7 @@ Internet / The Internet とは、TCP/IPにより全世界を接続している�
 ISP (Internet Service Provider) のネットワーク内では、NOC (Network Operation Center) と呼ばれる施設を通じて接続し、ネットワークを構成している。 
 ISP 同士の接続には、2者間接続を行うプライベートピアリングや、多数の ISP を IX (Internet Exchange) を通じてつなぐ IP トランジットがある。
 
-![インターネットの構造](internet-tcpip-internet-construction.png)
+![インターネットの構造](https://blob.basd4g.net/internet-tcpip-internet-construction.png)
 
 画像はインターネットの構造を表した図。
 
@@ -39,7 +39,7 @@ TCP/IP とは、パケット交換プロトコルである IP (Internet Protocol
 インターネットで必要なプロトコルをまとめたものであることから、インターネットプロトコルスイートとも言われる。
 TCP/IP という語を使うとき、 TCP プロトコルと IP プロトコルだけを指しているわけではない。
 
-![TCP/IP に含むプロトコルの一例](internet-tcpip-internet-protocol-suite.png)
+![TCP/IP に含むプロトコルの一例](https://blob.basd4g.net/internet-tcpip-internet-protocol-suite.png)
 
 ### パケット交換ネットワーク
 
@@ -86,7 +86,7 @@ TCP/IP の仕様を議論する IETF (Internet Engineering Task Force) のメー
 
 また仕様や実装も公開されており、自由にアクセスできることもオープンであるという特徴を表している。
 
-![IETF のWebページ](internet-tcpip-ietf-maling-list.png)
+![IETF のWebページ](https://blob.basd4g.net/internet-tcpip-ietf-maling-list.png)
 
 画像は[IETF のあるWebページ](https://www.ietf.org/how/lists/)の冒頭部分である。
 画像下部分に書かれているように、IETF の議論には、どんな個人でも参加できる。
@@ -97,7 +97,7 @@ TCP/IP の仕様を議論する IETF (Internet Engineering Task Force) のメー
 TCP/IP は仕様策定時に実装することを念頭において進む。
 プロトコルの詳細仕様を決める際には既に通信できる実装が存在し、標準になる頃には既に製品に実装されている。
 
-![TCP/IP 標準化の手続き](internet-tcpip-tcpip-standardizatin.png)
+![TCP/IP 標準化の手続き](https://blob.basd4g.net/internet-tcpip-tcpip-standardizatin.png)
 
 画像はTCP/IP 標準化の手続きを図示したものである。
 
@@ -114,7 +114,7 @@ RFC には番号をがつけられており、一度 RFC になると改定す�
 そのため通し番号は大きくなり、プロトコルごとに番号の統一性があるわけでもないので人間にはわかりづらいところがある。
 これを助けるため、複数の RFC を指す STD (STanDard), FYI (For Your Information) などの文書単位もある。
 
-![rfc2616の冒頭](internet-tcpip-rfc2616.png)
+![rfc2616の冒頭](https://blob.basd4g.net/internet-tcpip-rfc2616.png)
 
 画像は [RFC2617](https://tools.ietf.org/html/rfc2616) の冒頭である。
 
@@ -133,7 +133,7 @@ IP が動作すればそれより下位層は何を使ってもよいし、 TCP 
 TCP/IP の階層モデルは、アプリケーション層、トランスポート層、インターネット層、リンク層の4階層から成る。
 OSI 参照モデル7階層に完全に対応するものではないが、対応するとしたらつぎのようになる。
 
-![OSI 参照モデルと TCP/IP 階層モデルの対応](internet-tcpip-tcpip-protocol-stack.png)
+![OSI 参照モデルと TCP/IP 階層モデルの対応](https://blob.basd4g.net/internet-tcpip-tcpip-protocol-stack.png)
 
 #### ハードウェア
 
@@ -261,7 +261,7 @@ SNMP (Simple Network Management Protocol) など。
 例えばWebページを閲覧する際は、サーバ側で HTML 文書に HTTP ヘッダを付加し、  TCP ヘッダを付加し、 IP ヘッダを付加し、イーサネットフレームのヘッダを付加し送信される。
 クライアントはイーサネットフレームのヘッダを解釈し、 IP ヘッダを解釈し、 TCP ヘッダを解釈し、 HTTP ヘッダを解釈し、 HTML 文章を画面に描画する。
 
-![実際の通信のカプセル化](internet-tcpip-encapsulation.png)
+![実際の通信のカプセル化](https://blob.basd4g.net/internet-tcpip-encapsulation.png)
 
 ## まとめ
 

@@ -103,7 +103,7 @@ $ bash patch.sh
 
 使用例として、メニューバーの音量アイコンを表示/非表示している様子。
 
-![使用例のスクリーンショット](pdef-demo.gif)
+![使用例のスクリーンショット](https://blob.basd4g.net/pdef-demo.gif)
 
 Mac上で設定を変更するときに、前後で`$ defaults read`でUser Defaultsの内容を書き出しておくと、pdefを使って再設定が楽にできるという算段である。
 
