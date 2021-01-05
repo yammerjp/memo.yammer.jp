@@ -1,7 +1,6 @@
 ---
 title: "2021年の目標「早寝早起き、本を読む」"
 date: 2021-01-02T16:08:22+09:00
-draft: true
 ---
 
 今年の目標は「早寝早起き、本を読む」とする。
@@ -84,7 +83,7 @@ draft: true
 </div>
 <div>
   <a href="#annotation-3" id="annotation-3-from">^3</a> ... 
-  これは<a href="https://twitter.com/hirox246">ひろゆき</a>氏の受け売りで、よく寝坊を回避するのは不可能である理由の説明に使われる。
+  これは<a target="_blank" href="https://twitter.com/hirox246">ひろゆき</a>氏の受け売りで、よく寝坊を回避するのは不可能である理由の説明に使われる。
 </div>
 <div>
   <a href="#annotation-4" id="annotation-4-from">^4</a> ... 
