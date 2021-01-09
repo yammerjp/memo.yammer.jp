@@ -78,12 +78,13 @@ brew install --build-from-source tmux
 
 ### Node.js
 
-```
+```sh
 sudo port install nvm # install nodejs version manager
 echo 'source /opt/local/share/nvm/init-nvm.sh' >> ~/.zshrc
 sudo port install git curl openssl automake
 nvm install v15
 ```
+
 参考: [個人的 M1 mac 開発環境状況 2020/11/28更新 - Zenn.dev](https://zenn.dev/ioridev/articles/c74af379e4e73151790d)
 
 nodejsのビルドはそこそこ CPU パワーと時間を使う
@@ -128,16 +129,40 @@ brew install --build-from-source jq
 
 ### gh
 
-```
+```sh
 cd
 git clone https://github.com/cli/cli.git && cd cli
 make
-mv bin/gh /usr/local.bin/gh
+mv bin/gh /usr/local/bin/gh
 ```
 
 ### mmv
 
-```
+```sh
 cd
-git clone https://github.com
+git clone https://github.com/itchyny/mmv.git && cd mmv
+make
+mv mmv /usr/local/bin/mmv
+```
+
+### ImageMagick
+
+[ImageMagick - Install from Source](https://imagemagick.org/script/install-source.php)
+
+```sh
+# libjpeg
+curl https://download.imagemagick.org/ImageMagick/download/delegates/jpegsrc.v9b.tar.gz -o jpegsrc.v9b.tar.gz
+tar xvf jpegsrc.v9b.tar.gz
+cd jpeg-9b
+./configure
+make
+sudo make install
+
+# image magick
+cd
+git clone https://github.com/ImageMagick/ImageMagick.git && cd ImageMagick
+git checkout　7.0.9-9
+./configure
+make
+sudo make install
 ```
