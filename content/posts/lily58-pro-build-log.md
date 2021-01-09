@@ -152,10 +152,10 @@ USBを刺す基板である Pro Micro はコネクタが折れやすいらしく
 
 ```sh
 # Ubuntu 20.04 LTS
-# apt で事前にいくつかのパッケージの導入が必要かも
 $ git clone git@github.com:qmk/qmk_firmware.git
 $ cd qmk_firmware
 $ make git-submodule
+$ ./util/qmk_install.sh # 必要なパッケージをインストール 時間がかかる
 $ sudo make lily58:default:avrdude
 # 次のような表示が出てきたら, キーボードのリセットボタンを押す
 # Detecting USB port, reset your controller now...
@@ -190,3 +190,7 @@ $ sudo make lily58:basd4g:avrdude
 
 組み立てるのも結構楽しいし、キーボードが左右で割れているのは新鮮だし、作って良かった。
 キーマップについてはまだまだ慣れていないし、使いながら改良していきたい。
+
+---
+
+2021/01/06 必要なパッケージのインストール手順を追記
