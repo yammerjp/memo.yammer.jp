@@ -22,3 +22,6 @@ $ hugo server -D
 $ hugo new posts/hoge.md
 ```
 
+## TODO
+
+On pre-commit, check to all markdown files' image link, upload images, and overwrite paths

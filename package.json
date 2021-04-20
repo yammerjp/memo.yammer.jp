@@ -1,0 +1,27 @@
+{
+  "name": "memo.basd4g.net",
+  "version": "1.0.0",
+  "description": "[my web site](https://memo.basd4g.net) with [Hugo](https://gohugo.io/)",
+  "main": "index.js",
+  "bin": {
+    "memo.basd4g.net": "upload.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/basd4g/memo.basd4g.net.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/basd4g/memo.basd4g.net/issues"
+  },
+  "homepage": "https://github.com/basd4g/memo.basd4g.net#readme",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.13.0",
+    "@aws-sdk/node-http-handler": "^3.12.0",
+    "aws-sdk": "^2.889.0"
+  }
+}
