@@ -1,6 +1,6 @@
 ---
 title: "Ubuntu20.04LTS DesktopにmacOSからVNCで接続する"
-date: 2020-12-01T18:17:21+09:00
+date: "2020-12-01T18:17:21+09:00"
 ---
 
 

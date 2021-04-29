@@ -1,6 +1,6 @@
 ---
-title: TELNETでHTTP通信する
-date: 2020-05-16T00:43:55+09:00
+title: "TELNETでHTTP通信する"
+date: "2020-05-16T00:43:55+09:00"
 tags: [ "Shell", "HTTP" ]
 ---
 

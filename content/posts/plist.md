@@ -1,6 +1,6 @@
 ---
 title: "(余談) User Defaultsとproperty list(plist)"
-date: 2020-05-02T16:26:00+09:00
+date: "2020-05-02T16:26:00+09:00"
 tags: [ "macOS", "plist" ]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "gimonfu で、はてなブログの記事を GitHub と同期する"
-date: 2020-06-14T21:23:06+09:00
+date: "2020-06-14T21:23:06+09:00"
 tags: [ "JavaScript", "はてなブログ", "CI", "GitHub Actions" ]
 ---
 

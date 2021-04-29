@@ -1,6 +1,6 @@
 ---
 title: npm publishの手順
-date: 2020-05-21T15:40:14+09:00
+date: "2020-05-21T15:40:14+09:00"
 tags: [ "JavaScript" ]
 ---
 

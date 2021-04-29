@@ -1,6 +1,6 @@
 ---
 title: "MacBookAir 2020 (M1) のセットアップ"
-date: 2020-12-22T14:24:01+09:00
+date: "2020-12-22T14:24:01+09:00"
 tags: [ "Mac", "AppleSilicon", "Setup" ]
 ---
 
