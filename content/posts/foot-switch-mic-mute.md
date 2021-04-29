@@ -85,8 +85,7 @@ __足元に置いたマウスの右クリックを検知し、マウス押下時
 Karabiner-Elementsはもともとキーボードの操作を書き換えるソフトウェアで、例えばCapsLockキーをCtrlキーに置き換えるだとか、Spaceキーを長押しするとShiftキーが押されたことにするといった設定ができる。
 ついでにマウスの入力も扱えるので、今回は特定のマウスがクリックされた時にコマンドを実行するよう設定ファイルを書くことにする。
 
-まず [Karabiner-Elements のサイト](https://karabiner-elements.pqrs.org) からファイルをダウンロードしインストールする。
-<a id="annotation-1-from" href="#annotation-1">^1</a>
+まず [Karabiner-Elements のサイト](https://karabiner-elements.pqrs.org) からファイルをダウンロードしインストールする。[^1]
 
 ![macOS 環境設定のセキュリティとプライバシーの項目で、Karabiner-Elementsによる入力監視を有効化する](https://blob.basd4g.net/foot-switch-mic-mute-security-and-privacy.png)
 
@@ -98,7 +97,7 @@ Karabiner-Elementsはもともとキーボードの操作を書き換えるソ�
 
 メニューバーの Karabiner-Elements アイコンをクリック > Preferences... > Devices タブを開く。
 
-この状態で足のスイッチにしたいマウス<a id="annotation-2-from" href="#annotation-2">^2</a> をコンピュータに挿して、新たに表示されたデバイスの行の左端のチェックボックスを有効にする。
+この状態で足のスイッチにしたいマウス[^2]をコンピュータに挿して、新たに表示されたデバイスの行の左端のチェックボックスを有効にする。
 他デバイスのチェックボックスを有効にすると、他デバイスの入力も奪って設定を反映してしまう可能性がある。
 入力を上書きしたいデバイスのみにチェックをいれること。
 
@@ -106,8 +105,7 @@ Karabiner-Elementsはもともとキーボードの操作を書き換えるソ�
 
 ### 3. 設定ファイルを記述
 
-`~/.config/karabiner/assets/complex_modifications/mouse_mic_mute.json` を作成し、次の内容を書き込む。
-<a id="annotation-3-from" href="#annotation-3">^3</a>
+`~/.config/karabiner/assets/complex_modifications/mouse_mic_mute.json` を作成し、次の内容を書き込む。[^3]
 
 ```json
 {
@@ -154,18 +152,8 @@ Karabiner-Elementsはもともとキーボードの操作を書き換えるソ�
 
 以上。
 
-<div style="margin-top:5em;"></div>
-
----
-
-補足
-
-<a id="annotation-1" href="#annotation-1-from">^1</a>
- ... `$ brew install karabiner-elements`でもインストールできるはず
-
-<a id="annotation-2" href="#annotation-2-from">^2</a>
- ... 今回は手元に壊れかけのマウスが有ったのでこれをスイッチとして使ったが、キーボードなどでも同様のことを実現できるはず。
+[^1]: `$ brew install karabiner-elements`でもインストールできるはず
+[^2]: 今回は手元に壊れかけのマウスが有ったのでこれをスイッチとして使ったが、キーボードなどでも同様のことを実現できるはず。
  また何も足で押さなくてもよくて、机の上にスイッチがあるとか既存のキーボードにショートカットキーを定義するとかでもよいかもしれない。
 
-<a id="annotation-3" href="#annotation-3-from">^3</a>
- ... 既にマウスに関する Karabiner-Elements の設定が存在する場合は、ぶつからないように、Vendor ID と Product ID をメモして設定に書き込むと良さそう。[参考までに私の設定ファイルはこれ。](https://github.com/basd4g/dotfiles/blob/cf0f3eaa6bce79b984cdcc53a42ed1ea65711f90/.config/karabiner/assets/complex_modifications/mouse_mic_mute.json)
+[^3]: 既にマウスに関する Karabiner-Elements の設定が存在する場合は、ぶつからないように、Vendor ID と Product ID をメモして設定に書き込むと良さそう。[参考までに私の設定ファイルはこれ。](https://github.com/basd4g/dotfiles/blob/cf0f3eaa6bce79b984cdcc53a42ed1ea65711f90/.config/karabiner/assets/complex_modifications/mouse_mic_mute.json)

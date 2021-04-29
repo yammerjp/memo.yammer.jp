@@ -10,9 +10,9 @@ date: 2020-11-18T02:47:11+09:00
 
 ## 設定内容
 
-URLのクエリパラメータで検索結果の対象言語(`lr=lang_en`)と表示言語(`hl=en`) <a id="annotation1-ref" href="#annotation1">^1</a> を指定できるので、それらを言語ごとに指定して別の検索エンジンとしてブラウザに登録する。
+URLのクエリパラメータで検索結果の対象言語(`lr=lang_en`)と表示言語(`hl=en`) [^1] を指定できるので、それらを言語ごとに指定して別の検索エンジンとしてブラウザに登録する。
 
-参考: [Request Format - Google Search Appliance Help](https://support.google.com/gsa/answer/6329265?hl=en) <a id="annotation2-ref" href="#annotation2">^2</a>
+参考: [Request Format - Google Search Appliance Help](https://support.google.com/gsa/answer/6329265?hl=en) [^2]
 
 今メインで使っているブラウザであるVivaldiを対象に設定方法を記すが、他のブラウザでも多分同じことが出来ると思う。
 (Vivaldi編と名乗っているが他のブラウザ編は多分公開されない。)
@@ -41,7 +41,5 @@ Vivaldi には検索エンジンにニックネームをつけることができ
 
 便利。
 
-## 注釈
-
-- <a id="annotation1" href="#annotation1-ref">^1</a>: 表示言語を変える必要は本来無いのだが、今どの言語で検索しているかわかりやすいので設定している。
-- <a id="annotation2" href="#annotation2-ref">^2</a>: このGoogleのドキュメントも日本語版は無いので、英語ロケールなら1ページ目の中にあったが日本語ロケールでは中々ヒットしない。
+[^1]: 表示言語を変える必要は本来無いのだが、今どの言語で検索しているかわかりやすいので設定している。
+[^2]: このGoogleのドキュメントも日本語版は無いので、英語ロケールなら1ページ目の中にあったが日本語ロケールでは中々ヒットしない。

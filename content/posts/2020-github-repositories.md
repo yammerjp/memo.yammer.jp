@@ -6,11 +6,11 @@ tags: [ "日記" ]
 
 今年コミットした GitHub のリポジトリを順にみながら2020年の個人開発を振り返ってみる。
 
-実は去年もやろうとしていた企画<a href="#annotation-1-from" id="annotation-1">^1</a>、今年こそ年内に公開するぞ。
+実は去年もやろうとしていた企画[^1]、今年こそ年内に公開するぞ。
 
 ## リポジトリ一覧の取得
 
-去年の記事では API を curl で取得していた<a href="#annotation-2-from" id="annotation-2">^2</a>が、今年は GitHub の公式 CLI である [gh](https://github.com/cli/cli) を使って取得することとする。
+去年の記事では API を curl で取得していた[^2]が、今年は GitHub の公式 CLI である [gh](https://github.com/cli/cli) を使って取得することとする。
 
 [jq](https://github.com/stedolan/jq) と gh をインストールし、 `~/.config/gh/config.yml` の aliases キーに、次のような内容を追記する。
 
@@ -48,7 +48,7 @@ gh repos | grep '2020' > repos.txt
 2019年10月から2020年1月にかけての iPhone アプリを開発する演習授業に合わせて作った、TypeScript 製の API サーバ。
 データベースを使ったサーバサイドアプリケーションを一人で作ったのは初めてで、サーバ内でどのような処理をしているか、また REST API とはどのようなものかなどの全体を知ることができた。
 
-ドキュメントは手書きしたがエンドポイントが意外と多く<a href="#annotation-3-from" id="annotation-3">^3</a>、書くのが大変で中身も整っておらず良い出来とは言えない。
+ドキュメントは手書きしたがエンドポイントが意外と多く[^3]、書くのが大変で中身も整っておらず良い出来とは言えない。
 今思えば Swagger などを使うべきだっただろう。
 
 認証系は簡素なもので「ID とパスワードの対で新規登録する」「ログイン時にアクセストークンを発行する」といった動作を自前で実装している。
@@ -85,7 +85,7 @@ Firebase Realtime Database も 全体を1つの JSON として扱うシンプル
 dotfiles とは `~/.vimrc` や `~/.bashrc` などの各アプリケーション向けの個人設定ファイルの総称で、よくホームディレクトリの中にドットで始まるファイル名で保存されることからこう呼ばれる。
 複数のコンピュータで設定を共有するために dotfiles を GitHub で管理する Tips があり、Qiita で知ってやってみたいと思っていたのだ。
 
-3月の春休みに、4月の研究室配属時に研究室のコンピュータのセットアップを爆速で終わらせることを目指して作り始めた。<a href="#annotation-4-from" id="annotation-4">^4</a>
+3月の春休みに、4月の研究室配属時に研究室のコンピュータのセットアップを爆速で終わらせることを目指して作り始めた。[^4]
 
 最もシンプルな dotfiles は 設定ファイルを別ディレクトリで git の管理下に置きホームディレクトリにシンボリックリンクを貼るものであるが、これにとどまらず様々な機能をもたせることもできる。
 私のリポジトリでは、アプリケーションの一括インストールや OS の設定変更、設定ファイルの自動配置などを行うスクリプトも一緒にまとめて管理している。
@@ -128,7 +128,7 @@ Hugo で出来ていて、最近デザインの変更と OGP 対応をした。
 - [basd4g/rss-republish.basd4g.net](https://github.com/basd4g/rss-republish.basd4g.net) : Republish RSS feeds with Vercel
 
 [個人のページ](https://basd4g.net)。
-最初は linktree<a href="#annotation-5-from" id="annotation-5">^5</a> を真似して SNS のユーザページのリンクなどを含む HTML と CSS だけのページをおいていた。
+最初は linktree[^5] を真似して SNS のユーザページのリンクなどを含む HTML と CSS だけのページをおいていた。
 最近作り変えて自己紹介と記事の一覧も表示している。
 
 ### はてなブログ
@@ -222,22 +222,13 @@ OSS などの他人の書いたコードを読む機会が全然なくて、ど�
 
 ものを作るのは楽しい。
 今年ほど時間の余裕がないだろうが、来年も新しいことを学ぶためにも何か作りたい。
-作りたいものは50個くらいある<a href="#annotation-6-from" id="annotation-6">^6</a> 。
+作りたいものは50個くらいある[^6]。
 
 以上。
 
----
-
-<div>
-<a href="#annotation-1" id="annotation-1-from">^1</a> ... <a href="/posts/2019-github-repositories/" >リポジトリで振り返る2019年 – memo.basd4g.net</a>
-</div><div>
-<a href="#annotation-2" id="annotation-2-from">^2</a> ... 去年のように API をcurlで叩くなら、basic 認証ではなくアクセストークンで行う必要がありそう。<a target="_blank" href="https://github.blog/2020-07-30-token-authentication-requirements-for-api-and-git-operations/">Basic認証は廃止されたはず</a>。
-</div><div>
-<a href="#annotation-3" id="annotation-3-from">^3</a> ... <a target="_blank" href="https://github.com/basd4g/lovelab-api/blob/master/documents/specification/detail/index.md">lovelab-api のドキュメント</a>
-</div><div>
-<a href="#annotation-4" id="annotation-4-from">^4</a> ... 結局新型コロナウィルス感染症の影響でリモートになったので研究室のコンピュータをセットアップすることはないまま卒業しそうである。
-</div><div>
-<a href="#annotation-5" id="annotation-5-from">^5</a> ... <a target="_blank" href="https://linktr.ee">linktree</a> は SNS の自分のページへのリンクなどをまとめて表示する Webページを作成できるサービス。
-</div><div>
-<a href="#annotation-6" id="annotation-6-from">^6</a> ... 自分のメモの中に作りたいアプリケーションのネタ帳があり、そこに書かれた数。
-</div>
+[^1]: [リポジトリで振り返る2019年 – memo.basd4g.net](/posts/2019-github-repositories/)
+[^2]: 去年のように API をcurlで叩くなら、basic 認証ではなくアクセストークンで行う必要がありそう。[Basic認証は廃止されたはず。](https://github.blog/2020-07-30-token-authentication-requirements-for-api-and-git-operations/)
+[^3]: [lovelab-api のドキュメント](https://github.com/basd4g/lovelab-api/blob/master/documents/specification/detail/index.md)
+[^4]: 結局新型コロナウィルス感染症の影響でリモートになったので研究室のコンピュータをセットアップすることはないまま卒業しそうである。
+[^5]: [linktree](https://linktr.ee) は SNS の自分のページへのリンクなどをまとめて表示する Webページを作成できるサービス。
+[^6]: 自分のメモの中に作りたいアプリケーションのネタ帳があり、そこに書かれた数。

@@ -496,7 +496,7 @@ acronym {
 .article.navigation,
 .article.discussion,
 .article.share {
-  margin-top: 24px;
+  margin-top: 56px;
 }
 
 .article.discussion {
@@ -804,4 +804,8 @@ acronym {
   width: 36px;
   height: 36px;
   margin: 0;
+}
+
+.article.markdown-body > .footnotes {
+  margin-top: 56px;
 }

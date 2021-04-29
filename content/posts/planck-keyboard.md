@@ -12,7 +12,7 @@ tags: [ "自作キーボード" ]
 
 [Drop + OLKB Planck Mechanical Keyboard Kit V6 | Drop](https://drop.com/buy/planck-mechanical-keyboard)
 
-いわゆる 40%<a href="#annotation-1-from" id="annotation-1">^1</a> と言われる分類で格子配列<a href="#annotation-2-from" id="annotation-2">^2</a> のキーボードキット。
+いわゆる 40%[^1] と言われる分類で格子配列[^2] のキーボードキット。
 キー数が少なく(4x12個) コンパクトなキーボードである。
 
 スイッチを取り付ける基盤である PCB と PCB に装着するケースのセットで販売されていて、アメリカの共同購入サイト [Drop (Massdrop, Inc.)](https://drop.com/home) で購入できる。
@@ -95,13 +95,13 @@ Planck Keyboard は組み立ても簡単で、作りもしっかりしている�
 一緒に [TALP KEYBOARD](https://talpkeyboard.stores.jp) で買ったキーキャップの質感と色味も絶妙で、やさしい見た目になった。
 
 キースイッチに選んだ Gateron 茶軸の押し心地もとても良い。
-スイッチを押すとストンと素直に下まで落ちてくれるし、別のキーボードに使っている Kailh ロープロファイル<a href="#annotation-3-from" id="annotation-3">^3</a> のスイッチに比べてに比べて深く沈み込むのも良い。
-いままでは薄型の Kailh Choc のほうが自分に合っているかなと思っていたけど、今回 Cherry MX 互換<a href="#annotation-4-from" id="annotation-4">^4</a> のキースイッチを使ってみて、すでに持っているキーボードもキースイッチを変えたくなってきた。
+スイッチを押すとストンと素直に下まで落ちてくれるし、別のキーボードに使っている Kailh ロープロファイル[^3]のスイッチに比べてに比べて深く沈み込むのも良い。
+いままでは薄型の Kailh Choc のほうが自分に合っているかなと思っていたけど、今回 Cherry MX 互換[^4]のキースイッチを使ってみて、すでに持っているキーボードもキースイッチを変えたくなってきた。
 
-尊師スタイル<a href="#annotation-5-from" id="annotation-5">^5</a> で使うために、短い USB ケーブルも合わせて買った。
+尊師スタイル[^5]で使うために、短い USB ケーブルも合わせて買った。
 Planck Keyboard にはキーボード裏に貼る滑り止めの足が付属するが、これを貼らずに裏面が平らなまま Mac の 内蔵キーボード上に載せると、載せた上の Planck Keyboard をタイプしても内蔵キーボードは反応しないで使える。
 
-前年に [Lily58 というキーボードを作って](https://memo.basd4g.net/posts/lily58-pro-build-log/)からというもの、row-staggered<a href="#annotation-6-from" id="annotation-6">^6</a> なキーボードに違和感を感じるようになって、持ち運びのしやすい格子配列のキーボードを欲していた。
+前年に [Lily58 というキーボードを作って](https://memo.basd4g.net/posts/lily58-pro-build-log/)からというもの、row-staggered[^6] なキーボードに違和感を感じるようになって、持ち運びのしやすい格子配列のキーボードを欲していた。
 Planck Keyboard を手に入れたおかげで気軽にこたつにキーボードを持ち込むことが出来て、こたつ PC 時間が捗りそう。
 
 ![Macの上に置いたPlanck Keyboard](https://blob.basd4g.net/planck-on-macbook.jpg)
@@ -112,35 +112,9 @@ Planck Keyboard を手に入れたおかげで気軽にこたつにキーボー�
 - [qmk\_firmware/readme.md at master · qmk/qmk\_firmware](https://github.com/qmk/qmk_firmware/blob/master/keyboards/planck/readme.md)
 - [PlanckキーボードをMacでカスタマイズしてみよう。　＜導入編＞ - leopardgeckoのブログ](https://leopardgecko.hatenablog.com/entry/2017/09/13/234549)
 
----
-
-<div>
-  <a href="#annotation-1" id="annotation-1-from">^1</a>
-  ...
-  一般的なキーボードのキー数に対する割合が40% (40-50個ほど) のキーボードのこと。
-</div>
-<div>
-  <a href="#annotation-2" id="annotation-2-from">^2</a>
-  ...
-  列ごと、行ごとにキー配置が揃っているキーボードの配列。othroliner ともいう。
-</div>
-<div>
-  <a href="#annotation-3" id="annotation-3-from">^3</a>
-  ...
-  自作キーボードに使われる薄型のキースイッチの規格。スイッチを押したときに沈み込む深さであるキーストロークは3mm。
-</div>
-<div>
-  <a href="#annotation-4" id="annotation-4-from">^4</a>
-  ...
-  自作キーボードに使われる最も一般的なキースイッチの規格。キーストロークは4mmが一般的。
-</div>
-<div>
-  <a href="#annotation-5" id="annotation-5-from">^5</a>
-  ...
-  ノートパソコンの内蔵キーボードの上に外付けキーボードを置く方式。
-</div>
-<div>
-  <a href="#annotation-6" id="annotation-6-from">^6</a>
-  ...
-  行ごとにキー配置が横にずれている、一般的なキーボードの配列。
-</div>
+[^1]: 一般的なキーボードのキー数に対する割合が40% (40-50個ほど) のキーボードのこと。
+[^2]: 列ごと、行ごとにキー配置が揃っているキーボードの配列。othroliner ともいう。
+[^3]: 自作キーボードに使われる薄型のキースイッチの規格。スイッチを押したときに沈み込む深さであるキーストロークは3mm。
+[^4]: 自作キーボードに使われる最も一般的なキースイッチの規格。キーストロークは4mmが一般的。
+[^5]: ノートパソコンの内蔵キーボードの上に外付けキーボードを置く方式。
+[^6]: 行ごとにキー配置が横にずれている、一般的なキーボードの配列。

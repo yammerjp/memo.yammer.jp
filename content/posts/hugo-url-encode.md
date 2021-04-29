@@ -4,8 +4,8 @@ date: 2020-12-26T20:52:36+09:00
 tags: [ "hugo", "blog" ]
 ---
 
-Hugo で Cloudinary<a id="annotation-1-from" href="#annotation-1" >^1</a> を用いた OGP 画像生成のため日本語を URL に埋め込みたい。
-埋め込みのために文字列をパーセントエンコード<a id="annotation-2-from" href="#annotation-2" >^2</a> する方法を記す。
+Hugo で Cloudinary[^1] を用いた OGP 画像生成のため日本語を URL に埋め込みたい。
+埋め込みのために文字列をパーセントエンコード[^2] する方法を記す。
 
 ## 方法
 
@@ -59,14 +59,8 @@ Hugo のテンプレートの中で `$string` 変数に文字列が格納され�
 - [情報セキュリティ技術動向調査（2009 年下期）：IPA 独立行政法人 情報処理推進機構](https://www.ipa.go.jp/security/fy21/reports/tech1-tg/b_09.html)
 
 
----
+[^1]: [Cloudinary](https://cloudinary.com) はアップロードした画像を配信できるサービスで、URL で画像の大きさや文字などを指定すると加工した画像が返却される機能がある。これを用いて記事のタイトルを URL に含め、事前にアップロードした背景画像と組み合わせて記事ごとの OGP 画像として配信することができる。
 
-<a id="annotation-1" href="#annotation-1-from" >^1</a>  ...
-[Cloudinary](https://cloudinary.com) はアップロードした画像を配信できるサービスで、URL で画像の大きさや文字などを指定すると加工した画像が返却される機能がある。これを用いて記事のタイトルを URL に含め、事前にアップロードした背景画像と組み合わせて記事ごとの OGP 画像として配信することができる。
-
-<a id="annotation-2" href="#annotation-2-from" >^2</a>  ... 
-URL に使用できない文字を、文字コードに置換することで URL に有効な文字の範囲で表現する方法。
+[^2]: URL に使用できない文字を、文字コードに置換することで URL に有効な文字の範囲で表現する方法。
 置換対象の文字を % とその後ろに文字コードの16進表現を続ける形に置換する。
 例えば `https://ja.wikipedia.org/wiki/パーセントエンコーディング` は `https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0` と表現できる。
-
-
