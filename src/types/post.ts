@@ -4,6 +4,7 @@ type PostType = {
   date: string
   content: string
   html?: string
+  tags?: string[]
 }
 
 export default PostType

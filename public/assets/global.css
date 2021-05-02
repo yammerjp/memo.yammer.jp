@@ -1,40 +1,39 @@
 /* 全体 */
 html {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.7;
-  background-color: #ffffff;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    background-color: #ffffff;
 }
 
 #__next {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 body {
-  color: rgba(0,0,0,.85);
+    color: rgba(0,0,0,.85);
 
-  word-break: normal;
-  word-wrap: break-word;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
+    word-break: normal;
+    word-wrap: break-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
 
-  padding-top: constant(safe-area-inset-top);
-  padding-right: constant(safe-area-inset-right);
-  padding-bottom: constant(safe-area-inset-bottom);
-  padding-left: constant(safe-area-inset-left);
+    padding-top: constant(safe-area-inset-top);
+    padding-right: constant(safe-area-inset-right);
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-left: constant(safe-area-inset-left);
 
-  padding-top: env(safe-area-inset-top);
-  padding-right: env(safe-area-inset-right);
-  padding-bottom: env(safe-area-inset-bottom);
-  padding-left: env(safe-area-inset-left);
-
+    padding-top: env(safe-area-inset-top);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
 }
 
 body {
@@ -111,11 +110,13 @@ header .header-left a {
 }
 
 .content {
+    width: 100%;
+}
+.content-inner {
     text-align: left;
     padding: 24px;
-    width: 100%;
-    max-width: 800px;
     margin: 0 auto;
+    max-width: 800px;
 }
 
 footer {
@@ -141,16 +142,16 @@ footer {
 }
 
 a {
-  color: #406599;
-  text-decoration: none;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-text-decoration-skip: objects;
-  -moz-text-decoration-skip: objects;
-  text-decoration-skip: objects;
+    color: #406599;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-decoration-skip: objects;
+    -moz-text-decoration-skip: objects;
+    text-decoration-skip: objects;
 }
 
 a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 hr {
@@ -164,12 +165,12 @@ hr {
 .twitter-tweet{
     /* 埋め込みツイートをセンタリング */
 	margin: 0 auto;
-  padding: 24px 0;
+    padding: 24px 0;
 }
 
 table {
-  border-spacing: 0;
-  border-collapse: collapse;
+    border-spacing: 0;
+    border-collapse: collapse;
 }
 
 article img {
@@ -177,7 +178,7 @@ article img {
 }
 
 article pre {
-    font: 12px;
+    font-size: 12px;
     background-color: #f3f3f3;
     border-radius: 12px;
     padding: 12px;
@@ -202,6 +203,23 @@ article {
 
 article .article-header {
     margin-bottom: 48px;
+}
+
+article .article-header .article-date {
+   font-size: 12px;
+}
+
+article .article-header .article-title {
+    margin: 6px 0px;
+}
+
+article .article-header .article-tag {
+    background-color: #eeeeee;
+    border-radius: 12px;
+    display: inline-block;
+    margin: 0px 6px 0px 0px;
+    padding: 6px 12px;
+    font-size: 12px;
 }
 
 article blockquote {
@@ -238,29 +256,29 @@ article ul li, article ol li {
 }
 
 article table {
-  display: block;
-  width: 100%;
-  overflow: auto;
+    display: block;
+    width: 100%;
+    overflow: auto;
 }
 
 article table tr {
-  border: 0;
+    border: 0;
 }
 
 article table th {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 article table td,
 article table th {
-  min-width: 86px;
-  padding: 6px 13px;
-  border: 1px solid #e6e6e6;
+    min-width: 86px;
+    padding: 6px 13px;
+    border: 1px solid #e6e6e6;
 }
 
 article table th:empty {
   padding: 0;
-  border: 0;
+    border: 0;
 }
 
 /* 記事一覧ページ */

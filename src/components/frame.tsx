@@ -18,7 +18,9 @@ const Frame = (props: Props) => {
       </Head>
       <Header titleIsH1={props.titleIsH1}/>
       <div className="content">
-        {props.children}
+        <div className="content-inner">
+          {props.children}
+        </div>
       </div>
       <Footer/>
       </>
