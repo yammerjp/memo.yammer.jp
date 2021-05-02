@@ -1,6 +1,8 @@
+import Head from 'next/head'
 import { getAllPosts } from '../lib/api'
 import Post from '../types/post'
-import Head from '../components/head'
+import Frame from '../components/frame'
+import ArticleCard from '../components/articleCard'
 
 type Props = {
   allPosts: Post[]
@@ -9,25 +11,18 @@ type Props = {
 const Index = ({ allPosts }: Props) => {
   return (
     <>
-    <Head></Head>
-    <body>
-    <div>
-      <h1>Next.js blog</h1>
-      <h2>Articles:</h2>
-        {allPosts.sort((a,b)=>{
-          return a.date < b.date ? 1 : -1
-        }).map((post) => (
-          <p>
-            <div>
-            <a href={"/posts/"+ post.slug}>{post.title}
-            </a>
-            </div><div>
-            <small>(posted: {post.date})</small>
-            </div>
-          </p>
-        ))}
-    </div>
-    </body>
+    <Head>
+        <title>memo.basd4g.net - 常に完成形</title>
+    </Head>
+    <Frame>
+      <>
+          {allPosts.sort((a,b)=>{
+            return a.date < b.date ? 1 : -1
+          }).map((post) => (
+            <ArticleCard post={post} key={post.slug}/>
+          ))}
+      </>
+    </Frame>
     </>
     )
 }

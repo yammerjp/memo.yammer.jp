@@ -1,7 +1,9 @@
+import Head from 'next/head'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
 import markdownToHtml from '../../lib/markdownToHtml'
 import PostType from '../../types/post'
-import Head from '../../components/head'
+import Frame from '../../components/frame'
+import Article from '../../components/article'
 
 type Props = {
   post: PostType
@@ -10,18 +12,12 @@ type Props = {
 const Post = ({ post }: Props) => {
   return (
     <>
-    <Head></Head>
-    <body>
-    <div>
-      <h1>{post.title}</h1>
-      <article>
-        <div
-        dangerouslySetInnerHTML={{ __html: post.content }}
-        />
-      </article>
-      <a href="/">Back to home</a>
-    </div>
-    </body>
+    <Head>
+        <title>{post.title} - memo.basd4g.net</title>
+    </Head>
+    <Frame>
+      <Article post={post}/>
+    </Frame>
     </>
   )
 }
@@ -41,13 +37,13 @@ export async function getStaticProps({ params }: Params) {
     'slug',
     'content',
   ])
-  const content = await markdownToHtml(post.content || '')
+  const html = await markdownToHtml(post.content || '')
 
   return {
     props: {
       post: {
         ...post,
-        content,
+        html,
       },
     },
   }

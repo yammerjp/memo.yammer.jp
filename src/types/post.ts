@@ -3,6 +3,7 @@ type PostType = {
   title: string
   date: string
   content: string
+  html?: string
 }
 
 export default PostType
