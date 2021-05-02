@@ -122,7 +122,7 @@ $ diff before after
 
 実際にafterの6500行目以降の数行を見てみる。
 
-```after
+```plaintext:after
      "com.apple.systemuiserver" =     {
          "NSStatusItem Visible com.apple.menuextra.airport" = 1;
          "NSStatusItem Visible com.apple.menuextra.battery" = 1;

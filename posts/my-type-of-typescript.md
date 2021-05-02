@@ -13,7 +13,7 @@ TypeScriptで、独自の型定義をプロジェクト内の複数のファイ�
 
 `src/types/index.d.ts`で定義する型`DayOfWeek`をはじめとして、`src/types`ディレクトリ以下のファイルにある型定義をTypeScriptコンパイラに読み込ませて、プロジェクト内の任意のファイルで利用できるようにする。
 
-```src/types/index.d.ts
+```ts:src/types/index.d.ts
 type DayOfWeek = "Sunday" | "Monday" | "Tuesday" | Wednesday" | "Tursday" | "Friday" | Saturday"; 
 ```
 
@@ -21,7 +21,7 @@ type DayOfWeek = "Sunday" | "Monday" | "Tuesday" | Wednesday" | "Tursday" | "Fri
 
 `tsconfig.json`に次を追記する
 
-```tsconfig.json
+```json:tsconfig.json
 {
   "compilerOptions": {
     "typeRoots": [

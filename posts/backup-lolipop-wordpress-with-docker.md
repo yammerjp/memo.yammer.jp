@@ -55,7 +55,7 @@ $ wget -r -l 0 "ftp://chu.jp-user:password@ftp.lolipop.jp"
 `~/lolipop-backup/docker-compose.yml` を作成し、以下の内容を記述する。
 `- MYSQL_DATABASE=LAA0000000-xxxxxx`の行についてのみ、イコール以降に各自のデータベース名を書き込む必要がある。
 
-```docker-compose.yml
+```yaml:docker-compose.yml
 version: "3"
 services:
   db:
@@ -129,7 +129,7 @@ $ git clone https://github.com/interconnectit/Search-Replace-DB.git ~/lolipop-ba
 トップページ以外のページのURIを開いた時も、ApacheではなくWordPressに処理して欲しいので、リクエスト先をindex.phpに向ける必要がある。
 `~/lolipop-backup/wp/.htaccess` に以下を記述する。
 
-```.htaccess
+```plaintext:.htaccess
 # BEGIN WordPress
 
 RewriteEngine On

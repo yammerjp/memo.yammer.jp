@@ -35,7 +35,7 @@ $ history -E 1
 
 `.zshrc`でhistoryに関する設定をしておく
 
-```.zshrc
+```sh:.zshrc
 HISTSIZE=50000 # メモリに保存するコマンド数
 HISTFILE=~/.zsh_history
 SAVEHIST=100000 # ヒストリファイルに保存するコマンド数

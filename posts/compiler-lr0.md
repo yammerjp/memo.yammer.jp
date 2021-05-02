@@ -108,7 +108,7 @@ LR(0)正準集合を状態、記号を1つもつ有向辺としたオートマ�
 
 #### 状態遷移表
 
-```dot
+```plaintext:dot
 digraph G {
   rankdir=LR;
   empty [label = "" shape = plaintext];

@@ -29,7 +29,7 @@ $ touch now.json
 
 index.js に次のように記入
 
-```index.js
+```js:index.js
 `use strict`
 
 const express = require('express');
@@ -53,7 +53,7 @@ app.listen(3000, () => console.log(`listening on port ${port}`));
 
 now.json に次のように記入
 
-```now.json
+```json:now.json
 {
     "version": 2,
     "builds": [{ "src": "index.js", "use": "@now/node" }],
@@ -65,7 +65,7 @@ now.json に次のように記入
 
 now が実行時に index.js を実行してくれるように、package.json に次の項目を追加
 
-```package.json
+```json:package.json
 {
  "scripts": {
     "start": "node index.js"

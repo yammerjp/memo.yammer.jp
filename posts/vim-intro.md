@@ -27,7 +27,7 @@ vimtuorのあとは[実践Vim](https://www.amazon.co.jp/dp/B00HWLJI3U/ref=dp-kin
 
 次に`~/.vimrc`に次の内容を追記
 
-```.vimrc
+```vim:.vimrc
 call plug#begin('~/.vim/plugged')
 " A project which translate Vim documents into Japanese.
 Plug 'vim-jp/vimdoc-ja'

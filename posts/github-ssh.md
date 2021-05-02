@@ -39,7 +39,7 @@ Add keyを押し、その後パスワードも入力
 
 `~/.ssh/config`に以下を追記
 
-```~/.ssh/config
+```plaintext:~/.ssh/config
 Host github
   HostName github.com
   IdentityFile ~/.ssh/id_rsa_github

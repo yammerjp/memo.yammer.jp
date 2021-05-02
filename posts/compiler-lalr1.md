@@ -181,7 +181,7 @@ F -> ( E )・ [ $ + * ) ]
 
 以上より、与えられた文法規則を満たす系列を受理するオートマトンをつくる。
 
-```dot
+```plaintext:dot
 digraph G {
   rankdir=LR;
   empty [label = "" shape = plaintext];

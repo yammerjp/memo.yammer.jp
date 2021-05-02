@@ -61,7 +61,7 @@ $ vim wpa_supplicant.conf
 
 `wpa_supplicant.conf`の中身は以下の通り
 
-```wpa_supplicant.conf
+```plaintext:wpa_supplicant.conf
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 country=JP
@@ -110,7 +110,7 @@ $ vim ~/.bashrc
 
 `.bashrc`に下記を追記
 
-```.bashrc
+```bash:.bashrc
 alias vim='vi'
 ```
 
@@ -135,7 +135,7 @@ $ sudo visudo
 
 visudoによって、`/etc/sudoers`に下記を追記
 
-```/etc/sudoers
+```plaintext:/etc/sudoers
 yammer  ALL=(ALL) ALL
 ```
  
@@ -176,7 +176,7 @@ __raspberry pi側__
 $ sudo vi /etc/ssh/sshd_config
 ```
 
-```/etc/ssh/sshd_config
+```plaintext:/etc/ssh/sshd_config
 RSAAuthentication   yes
 PubkeyAuthentication   yes
 AuthorizedKeysFile   .ssh/authorized_keys

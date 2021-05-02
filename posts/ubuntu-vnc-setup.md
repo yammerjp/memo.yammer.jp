@@ -12,7 +12,7 @@ $ mkdir ~/.vnc
 $ vim ~/.vnc/xstartup
 ```
 
-```~/.vnc/xstartup
+```sh:~/.vnc/xstartup
 #!/bin/sh
 [ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
@@ -38,7 +38,7 @@ VNCでログイン時に上記のメッセージのダイアログが出てパ�
 $ sudo vi /etc/polkit-1/localauthority.conf.d/02-allow-colord.conf
 ```
 
-```/etc/polkit-1/localauthority.conf.d/02-allow-colord.conf
+```plaintext:/etc/polkit-1/localauthority.conf.d/02-allow-colord.conf
 polkit.addRule(function(action, subject) {
    if ((action.id == "org.freedesktop.color-manager.create-device" ||
         action.id == "org.freedesktop.color-manager.create-profile" ||

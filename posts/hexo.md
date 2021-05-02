@@ -96,7 +96,7 @@ $ npm i hexo-generator-search --save
 
 `_config.yml`に次の内容を記載する
 
-```_config.yml
+```yaml:_config.yml
 search:
   path: search.json
   field: post

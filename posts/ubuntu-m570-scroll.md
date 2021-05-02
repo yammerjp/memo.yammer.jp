@@ -51,7 +51,7 @@ $ xinput query-state 9
 
 root権限で `/usr/share/X11/xorg.conf.d/40-libinput.conf` に以下を追記する。
 
-```/usr/share/X11/xorg.conf.d/40-libinput.conf
+```plaintext:/usr/share/X11/xorg.conf.d/40-libinput.conf
 # Logitech M570 Scrolling with pressed the right button and rolled the ball
 Section "InputClass"
   Identifier "Logitech M570"

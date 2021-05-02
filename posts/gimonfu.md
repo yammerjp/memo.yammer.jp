@@ -95,7 +95,7 @@ tags: [ "JavaScript", "はてなブログ", "CI", "GitHub Actions" ]
 
 `.github/workflows/pull.yaml` に次の内容を記述する
 
-```pull.yaml
+```yaml:pull.yaml
 name: Pull
 
 on:
@@ -176,7 +176,7 @@ jobs:
 
 `.github/workflows/push.yaml`に次の内容を記述してコミット、プッシュする。
 
-```.github/workflows/push.yaml
+```yaml:.github/workflows/push.yaml
 name: Push
 
 on:

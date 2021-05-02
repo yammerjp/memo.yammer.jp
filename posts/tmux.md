@@ -75,7 +75,7 @@ $ echo 'alias ide="bash ~/.tmux-ide.sh"' >> .bashrc
 $ vim ~/.tmux-ide.sh
 ```
 
-```~/.tmux-ide.sh
+```bash:~/.tmux-ide.sh
 #!/bin/bash
 tmux split-window -d -t 0        # 上下に画面分割
 tmux send-keys -t 0 vim C-m      # ペイン0 (画面上部) で vim を実行
@@ -119,7 +119,7 @@ tmux は出来ることが多いが, そのためのキーバインドを覚え�
 $ vim ~/.tmux.conf
 ```
 
-```~/.tmux.conf
+```plaintext:~/.tmux.conf
 # tmux起動時のシェルをzshにする
 set-option -g default-shell /bin/zsh
 

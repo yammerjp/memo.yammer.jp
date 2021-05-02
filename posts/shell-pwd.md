@@ -10,7 +10,7 @@ shell script内では、shell scriptを起動する前のカレントディレ�
 
 例えば、次のような`pwd.sh`を実行する。
 
-```pwd.sh
+```sh:pwd.sh
 #!/bin/sh
 pwd
 ```
@@ -36,7 +36,7 @@ $ sh ../pwd.sh
 
 shell scriptの前方に、2行追加する。
 
-```pwd
+```sh
 #!/bin/sh
 
 # change directory to the shell file's directory
@@ -71,7 +71,7 @@ shell script内のpathを、`"$HOME"`などの変数を使って絶対パスで�
 
 以下のテンプレートをshell scriptの先頭に追加すると良い。
 
-```sample.sh
+```sh:sample.sh
 #!/bin/sh
 SCRIPT_DIR=`dirname $0`
 cd $SCRIPT_DIR

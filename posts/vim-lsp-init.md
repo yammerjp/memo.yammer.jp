@@ -48,7 +48,7 @@ typescript-language-serverはJavaScriptのLanguage Serverとしても動く
 
 dein.tomlに以下の記述を追記
 
-```dein.toml
+```toml:dein.toml
 #========== vim-lsp とその関連プラグイン ==========
 #vim-lspとLanguage Serverの連携に必要なプラグイン群
 [[plugins]]

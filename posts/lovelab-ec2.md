@@ -38,7 +38,7 @@ AWS の EC2 上で立ち上げるための手順を以下に示す。
     vim deploy.sh
     ````
 
-    ```deploy.sh
+    ```sh:deploy.sh
     #!/bin/sh
     
     echo "Deploying lovelab API server..."
