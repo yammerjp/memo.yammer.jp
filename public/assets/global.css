@@ -185,7 +185,34 @@ article pre {
     /* 横方向にはみ出す場合のみスクロールさせる */
     overflow-x: auto;
 }
-.hljs {
+.content-inner {
+    position:relative;
+}
+.remark-code-title {
+    font-size: 12px;
+    position: absolute;
+    float: left;
+    right: -0px;
+    padding-top: 12px;
+    padding-right: 24px;
+    padding-left: 24px;
+    margin-right: 24px;
+    padding-bottom: 6px;
+    background: #ffffff;
+    border-radius: 0px 10px 1px 10px;
+    border: solid 1px #eeeeee;
+}
+.remark-code-title:hover {
+    opacity: 0.5;
+    color: rgba(0,0,0,0)
+
+}
+.remark-code-title::selection {
+    color:#000000;
+    background-color: #ffffff;
+}
+
+article .hljs {
     background-color: #f3f3f3 !important;
     margin: -12px;
     padding: 12px !important;
