@@ -235,6 +235,31 @@ article ul li, article ol li {
     padding-left: 12px;
 }
 
+article table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+article table tr {
+  border: 0;
+}
+
+article table th {
+  font-weight: 700;
+}
+
+article table td,
+article table th {
+  min-width: 86px;
+  padding: 6px 13px;
+  border: 1px solid #e6e6e6;
+}
+
+article table th:empty {
+  padding: 0;
+  border: 0;
+}
 
 /* 記事一覧ページ */
 .article-card {
