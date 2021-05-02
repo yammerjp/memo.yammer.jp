@@ -1,6 +1,7 @@
 import { getPostBySlug, getAllPosts } from '../../lib/api'
 import markdownToHtml from '../../lib/markdownToHtml'
 import PostType from '../../types/post'
+import Head from '../../components/head'
 
 type Props = {
   post: PostType
@@ -8,6 +9,9 @@ type Props = {
 
 const Post = ({ post }: Props) => {
   return (
+    <>
+    <Head></Head>
+    <body>
     <div>
       <h1>{post.title}</h1>
       <article>
@@ -17,7 +21,8 @@ const Post = ({ post }: Props) => {
       </article>
       <a href="/">Back to home</a>
     </div>
-
+    </body>
+    </>
   )
 }
 

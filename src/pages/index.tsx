@@ -1,5 +1,6 @@
 import { getAllPosts } from '../lib/api'
 import Post from '../types/post'
+import Head from '../components/head'
 
 type Props = {
   allPosts: Post[]
@@ -7,6 +8,9 @@ type Props = {
 
 const Index = ({ allPosts }: Props) => {
   return (
+    <>
+    <Head></Head>
+    <body>
     <div>
       <h1>Next.js blog</h1>
       <h2>Articles:</h2>
@@ -23,6 +27,8 @@ const Index = ({ allPosts }: Props) => {
           </p>
         ))}
     </div>
+    </body>
+    </>
     )
 }
 
