@@ -1,10 +1,46 @@
+/* 全体 */
+html {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  background-color: #ffffff;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body {
+  color: rgba(0,0,0,.85);
+
+  word-break: normal;
+  word-wrap: break-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+
+  padding-top: constant(safe-area-inset-top);
+  padding-right: constant(safe-area-inset-right);
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-left: constant(safe-area-inset-left);
+
+  padding-top: env(safe-area-inset-top);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+
+}
+
 body {
     margin: 0px;
     color: #505050;
     text-align: center;
-}
-article img {
-    width: 100%;
 }
 
 header {
@@ -16,6 +52,10 @@ header {
     background-position: bottom -1px left 0;
     margin: 0;
     min-height: 140px;
+}
+
+header .header-left a {
+    color: #505050;
 }
 
 .header-inner {
@@ -73,6 +113,7 @@ header {
 .content {
     text-align: left;
     padding: 24px;
+    width: 100%;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -80,12 +121,13 @@ header {
 footer {
     font-size: 12px;
     color: #505050;
-    margin-top: 36px;
+    margin-top: auto;
     margin-bottom: 0;
     background-color: #a3d7ff;
     background-image: url(data:image/svg+xml;charset=utf8;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjEzNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Zz48dGl0bGU+YmFja2dyb3VuZDwvdGl0bGU+PHJlY3QgZmlsbD0iI2ZmZiIgaWQ9ImNhbnZhc19iYWNrZ3JvdW5kIiBoZWlnaHQ9IjEzOCIgd2lkdGg9IjgwMiIgeT0iLTEiIHg9Ii0xIi8+PGcgZGlzcGxheT0ibm9uZSIgaWQ9ImNhbnZhc0dyaWQiPjxyZWN0IGZpbGw9InVybCgjZ3JpZHBhdHRlcm4pIiBzdHJva2Utd2lkdGg9IjAiIHk9IjAiIHg9IjAiIGhlaWdodD0iMTAwJSIgd2lkdGg9IjEwMCUiIGlkPSJzdmdfMSIvPjwvZz48L2c+PGc+PHRpdGxlPkxheWVyIDE8L3RpdGxlPjxyZWN0IHN0cm9rZT0iIzAwMCIgeD0iLjU4ODI0IiBpZD0ic3ZnXzEyIiBoZWlnaHQ9Ijc4IiB3aWR0aD0iODAwIiB5PSI2NiIgc3Ryb2tlLW9wYWNpdHk9Im51bGwiIHN0cm9rZS13aWR0aD0iMCIgZmlsbD0iI2EzZDdmZiIvPjxlbGxpcHNlIHJ5PSIxMDMiIHJ4PSIyMzEiIGlkPSJzdmdfNiIgY3k9IjI4LjQ1MzEzIiBjeD0iMjA4LjUiIHN0cm9rZS13aWR0aD0iMCIgc3Ryb2tlPSIjMDAwIiBmaWxsPSIjZmZmIi8+PGVsbGlwc2Ugcnk9IjEwMyIgcng9IjIzMSIgaWQ9InN2Z18xMCIgY3k9IjEwNC40NTMxMyIgY3g9IjYzNy41IiBzdHJva2Utd2lkdGg9IjAiIGZpbGw9IiNhM2Q3ZmYiLz48L2c+PC9zdmc+);
     width: 100%;
     background-size: 100%;
+    /* background-position: bottom; にすると, safari において横幅が大きいときに1pxくらい下に隙間が表示されるバグを回避するために-1pxずらしている*/
     background-position: 0 -1px;
     background-repeat: no-repeat;
 }
@@ -96,4 +138,105 @@ footer {
     padding: 60px 24px 24px 24px;
     max-width: 800px;
     margin: 0 auto;
+}
+
+a {
+  color: #406599;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-decoration-skip: objects;
+  -moz-text-decoration-skip: objects;
+  text-decoration-skip: objects;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+hr {
+    border-top: 1px solid #dddddd;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+/* 記事ページ */
+.twitter-tweet{
+    /* 埋め込みツイートをセンタリング */
+	margin: 0 auto;
+  padding: 24px 0;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+article img {
+    width: 100%;
+}
+
+article pre {
+    font: 12px;
+    background-color: #f3f3f3;
+    border-radius: 12px;
+    padding: 12px;
+    /* 横方向にはみ出す場合のみスクロールさせる */
+    overflow-x: auto;
+}
+article .footnotes {
+    margin-top: 36px;
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+}
+
+article .footnotes hr {
+    border: none;
+}
+
+article {
+    margin-bottom: 48px;
+}
+
+article .article-header {
+    margin-bottom: 48px;
+}
+
+article blockquote {
+    padding: .95em;
+    border-radius: 6px;
+    border-left: 6px solid #fee450;
+    background-color: #fbf8e8;
+    margin:12px 0px;
+}
+
+article blockquote p {
+    margin:0px;
+}
+
+article h1:not(:first-child) {
+    margin-top: 60px;
+}
+article h2 {
+    margin-top: 48px;
+}
+article h3 {
+    margin-top: 36px;
+}
+article h4 {
+    margin-top: 24px;
+}
+
+article ul, article ol {
+    padding-left: 36px;
+}
+
+article ul li, article ol li {
+    padding-left: 12px;
+}
+
+
+/* 記事一覧ページ */
+.article-card {
+    margin: 12px 0px;
 }

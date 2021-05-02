@@ -17,6 +17,7 @@ const Post = ({ post }: Props) => {
     </Head>
     <Frame>
       <Article post={post}/>
+      <a href="/">&lt; Home</a>
     </Frame>
     </>
   )

@@ -1,15 +1,17 @@
-import { ReactNode, FunctionComponent} from 'react'
 import PostType from '../types/post'
-const Frame = ({post}: {post: PostType}) => {
+import { iso8601toDisplayStr } from '../lib/date'
+const Article = ({post}: {post: PostType}) => {
     return (
       <article>
-          <h1>{post?.title || ''}</h1>
-          <div
+          <div className="article-header">
+            <h1 className="article-title">{post?.title || ''}</h1>
+            <div>{iso8601toDisplayStr(post?.date)}</div>
+          </div>
+          <div className="article-body"
             dangerouslySetInnerHTML={{ __html: post?.html || '' }}
           />
-          <a href="/">Back to home</a>
       </article>
     )
 };
 
-export default Frame;
+export default Article;

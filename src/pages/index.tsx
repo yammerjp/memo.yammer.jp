@@ -14,7 +14,7 @@ const Index = ({ allPosts }: Props) => {
     <Head>
         <title>memo.basd4g.net - 常に完成形</title>
     </Head>
-    <Frame>
+    <Frame titleIsH1={true}>
       <>
           {allPosts.sort((a,b)=>{
             return a.date < b.date ? 1 : -1
