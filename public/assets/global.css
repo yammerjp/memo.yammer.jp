@@ -185,6 +185,12 @@ article pre {
     /* 横方向にはみ出す場合のみスクロールさせる */
     overflow-x: auto;
 }
+.hljs {
+    background-color: #f3f3f3 !important;
+    margin: -12px;
+    padding: 12px !important;
+
+}
 article .footnotes {
     margin-top: 36px;
     border-top: 1px solid #dddddd;

@@ -5,6 +5,7 @@ import markdownToHtml from '../../lib/markdownToHtml'
 import PostType from '../../types/post'
 import Frame from '../../components/frame'
 import Article from '../../components/article'
+import 'highlight.js/styles/github.css'
 
 type Props = {
   post: PostType

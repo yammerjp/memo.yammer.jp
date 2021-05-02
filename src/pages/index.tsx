@@ -3,6 +3,7 @@ import { getAllPosts } from '../lib/api'
 import Post from '../types/post'
 import Frame from '../components/frame'
 import ArticleCard from '../components/articleCard'
+import 'highlight.js/styles/github.css'
 
 type Props = {
   allPosts: Post[]
