@@ -188,6 +188,8 @@ article .footnotes {
     margin-top: 36px;
     border-top: 1px solid #dddddd;
     border-bottom: 1px solid #dddddd;
+    font-size: 12px;
+    padding-right: 24px;
 }
 
 article .footnotes hr {
