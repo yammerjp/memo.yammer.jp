@@ -1,3 +1,4 @@
+import Link from 'next/link'
 const Footer = () => {
     return (
         <footer>
@@ -6,9 +7,9 @@ const Footer = () => {
             ©2020 Keisuke Nakayama
           </div>
           <div>
-            <a href="/privacy-policy">
+            <Link href="/privacy-policy">
               Privacy Policy
-            </a>
+            </Link>
           </div>
           </div>
         </footer>

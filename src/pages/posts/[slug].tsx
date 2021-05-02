@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Head from 'next/head'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
 import markdownToHtml from '../../lib/markdownToHtml'
@@ -17,7 +18,7 @@ const Post = ({ post }: Props) => {
     </Head>
     <Frame>
       <Article post={post}/>
-      <a href="/">&lt; Home</a>
+      <Link href="/">&lt; Home</Link>
     </Frame>
     </>
   )
