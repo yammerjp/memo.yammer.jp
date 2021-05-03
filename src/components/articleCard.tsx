@@ -1,15 +1,15 @@
 import Link from 'next/link'
 import PostType from '../types/post'
 import {iso8601toDisplayStr} from '../lib/date'
+import Tags from './tags'
 const ArticleCard = ({ post }: { post: PostType} ) => {
     return (
         <section className="article-card">
-              <div>
+            <div className="article-date">{iso8601toDisplayStr(post?.date)}</div>
+            <div>
                 <Link href={"/posts/"+ post.slug}>{post.title}</Link>
-              </div>
-              <div>
-                <small>{iso8601toDisplayStr(post.date)}</small>
-              </div>
+            </div>
+            <Tags tags={post.tags}/>
         </section>
     )
 }

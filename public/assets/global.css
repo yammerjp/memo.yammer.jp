@@ -238,7 +238,7 @@ article .article-header {
     margin-bottom: 48px;
 }
 
-article .article-header .article-date {
+.article-date {
    font-size: 12px;
 }
 
@@ -246,7 +246,7 @@ article .article-header .article-title {
     margin: 6px 0px;
 }
 
-article .article-header .article-tag {
+.article-tag {
     background-color: #eeeeee;
     border-radius: 12px;
     display: inline-block;
@@ -316,5 +316,5 @@ article table th:empty {
 
 /* 記事一覧ページ */
 .article-card {
-    margin: 12px 0px;
+    margin: 48px 0px;
 }
