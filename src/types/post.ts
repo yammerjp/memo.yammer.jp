@@ -5,6 +5,7 @@ type PostType = {
   content: string
   html?: string
   tags?: string[]
+  description?: string
 }
 
 export default PostType

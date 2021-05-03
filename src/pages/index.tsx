@@ -4,6 +4,7 @@ import Post from '../types/post'
 import Frame from '../components/frame'
 import ArticleCard from '../components/articleCard'
 import 'highlight.js/styles/github.css'
+import markdownToDescription from '../lib/markdownToDescription'
 
 type Props = {
   allPosts: Post[]
@@ -31,13 +32,13 @@ const Index = ({ allPosts }: Props) => {
 export default Index
 
 export const getStaticProps = async () => {
-  const allPosts = getAllPosts([
+  const allPosts = await getAllPosts([
     'title',
     'date',
     'slug',
     'tags',
+    'description',
   ])
-
   return {
     props: { allPosts },
   }

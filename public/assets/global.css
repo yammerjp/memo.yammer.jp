@@ -318,3 +318,12 @@ article table th:empty {
 .article-card {
     margin: 48px 0px;
 }
+.article-description {
+    /* 2行表示し、残りは ... で隠す. ベンダープレフィックスがあるが主要ブラウザの最新版は各対応 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height:48px; /* line-clamp 非対応のブラウザでも全文が表示されるのを避ける */
+    color: #606060;
+}

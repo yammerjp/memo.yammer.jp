@@ -10,6 +10,9 @@ const ArticleCard = ({ post }: { post: PostType} ) => {
                 <Link href={"/posts/"+ post.slug}>{post.title}</Link>
             </div>
             <Tags tags={post.tags}/>
+            <div className="article-description">
+                {post.description || ''}
+            </div>
         </section>
     )
 }
