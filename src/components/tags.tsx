@@ -1,12 +1,16 @@
-const Tags = ({tags}: {tags: string[] | undefined}) => {
+const Tags = ({tags, tagsEmphasizing}: {tags: string[], tagsEmphasizing: string[]}) => {
     if (!tags || !(tags.length > 0)) {
         return (<div/>);
     }
     return (
-        <div>
+        <div className="article-tags">
         {
             tags.map((tag:string) => (
-                <span className="article-tag">{tag}</span>
+                <span
+                    key={tag}
+                    className={ "article-tag" + (tagsEmphasizing.find(t=>t===tag) ? " article-tag-emphasizing": " article-tag-unemphasizing") }>
+                        {tag}
+                </span>
             ))
          }
         </div>

@@ -4,13 +4,14 @@ import Post from '../types/post'
 import Frame from '../components/frame'
 import ArticleCard from '../components/articleCard'
 import 'highlight.js/styles/github.css'
-import markdownToDescription from '../lib/markdownToDescription'
+import Link from 'next/link'
 
 type Props = {
   allPosts: Post[]
 }
 
 const Index = ({ allPosts }: Props) => {
+  const tagsAll = allPosts.flatMap(post => post.tags ?? []);
   return (
     <>
     <Head>
@@ -21,9 +22,10 @@ const Index = ({ allPosts }: Props) => {
           {allPosts.sort((a,b)=>{
             return a.date < b.date ? 1 : -1
           }).map((post) => (
-            <ArticleCard post={post} key={post.slug}/>
+            <ArticleCard post={post} key={post.slug} tagsEmphasizing={tagsAll}/>
           ))}
       </>
+      <div><Link href="/tags">タグで絞り込む</Link></div>
     </Frame>
     </>
     )

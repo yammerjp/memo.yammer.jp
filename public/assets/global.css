@@ -16,6 +16,7 @@ html {
 }
 
 body {
+    overflow-y: scroll;
     color: rgba(0,0,0,.85);
 
     word-break: normal;
@@ -246,14 +247,26 @@ article .article-header .article-title {
     margin: 6px 0px;
 }
 
+.article-tags {
+    margin: 6px 0px;
+}
 .article-tag {
-    background-color: #eeeeee;
+    border: 1px solid #eeeeee;
     border-radius: 12px;
     display: inline-block;
-    margin: 0px 6px 0px 0px;
+    margin: 3px 6px 3px 0px;
     padding: 6px 12px;
     font-size: 12px;
 }
+
+.article-tag.article-tag-emphasizing {
+    background-color: #eeeeee;
+}
+
+.article-tag.article-tag-unemphasizing {
+    background-color: #ffffff;
+}
+
 
 article blockquote {
     padding: .95em;
@@ -326,4 +339,30 @@ article table th:empty {
     overflow: hidden;
     max-height:48px; /* line-clamp 非対応のブラウザでも全文が表示されるのを避ける */
     color: #606060;
+}
+
+/* タグページ */
+/*
+[data-whatinput="mouse"] .article-tag,
+[data-whatinput="touch"] .article-tag {
+  outline: none;
+}
+*/
+.article-tags-selector button.article-tag {
+    outline: none;
+}
+
+.article-tags-selector .article-tag.unselected {
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+}
+
+.article-tags-selector .article-tag.selected {
+    background-color: #eeeeee;
+    border: 1px solid #eeeeee;
+}
+
+.article-cards-message {
+    margin: 96px 0 0 0;
+    text-align: center;
 }
