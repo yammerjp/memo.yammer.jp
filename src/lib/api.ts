@@ -5,15 +5,24 @@ import matter from 'gray-matter'
 import markdownToHtml from './markdownToHtml'
 import markdownToDescription from './markdownToDescription'
 
-const postsDirectory = join(process.cwd(), 'posts')
+const postsDirectory = join(process.cwd(), 'content', 'posts')
+const staticPostsDirectory = join(process.cwd(), 'content')
 
 export async function getPostSlugs() {
   return await fs.readdir(postsDirectory)
 }
 
+export async function getStaticPostBySlug(slug: string, fields: string[] = []) {
+  return getPostByDirectoryAndSlug(staticPostsDirectory, slug, fields)
+}
+
 export async function getPostBySlug(slug: string, fields: string[] = []) {
+  return getPostByDirectoryAndSlug(postsDirectory, slug, fields)
+}
+
+async function getPostByDirectoryAndSlug(dir: string, slug: string, fields: string[] = []) {
   const realSlug = slug.replace(/\.md$/, '')
-  const fullPath = join(postsDirectory, `${realSlug}.md`)
+  const fullPath = join(dir, `${realSlug}.md`)
   const fileContents = await fs.readFile(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
 
@@ -39,7 +48,7 @@ export async function getPostBySlug(slug: string, fields: string[] = []) {
       items[field] = await markdownToDescription(content || '')
     }
     if (data[field]) {
-      items[field] = data[field]
+      items[field] = data[field] ?? ''
     }
   }
   return items
