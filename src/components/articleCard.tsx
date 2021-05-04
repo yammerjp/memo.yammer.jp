@@ -3,7 +3,7 @@ import { PostType } from '../types/post'
 import {iso8601toDisplayStr} from '../lib/date'
 import Tags from './tags'
 
-const ArticleCard = ({ post, tagsEmphasizing, linkable }: { post: PostType, tagsEmphasizing: string[], linkable: boolean }) => {
+const ArticleCard = ({ post, tagsEmphasizing, allEmphasizing, linkable }: { post: PostType, tagsEmphasizing: string[], allEmphasizing: boolean, linkable: boolean }) => {
     return (
         <section className="article-card">
             <Link href={"/posts/" + post.slug}>
@@ -15,7 +15,7 @@ const ArticleCard = ({ post, tagsEmphasizing, linkable }: { post: PostType, tags
                     </div>
                 </div>
             </Link>
-            <Tags tags={post.tags ?? []} tagsEmphasizing={tagsEmphasizing} linkable={linkable}/>
+            <Tags tags={post.tags ?? []} tagsEmphasizing={tagsEmphasizing} allEmphasizing={allEmphasizing} linkable={linkable}/>
         </section>
     )
 }

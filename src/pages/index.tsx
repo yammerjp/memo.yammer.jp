@@ -5,13 +5,13 @@ import Frame from '../components/frame'
 import ArticleCard from '../components/articleCard'
 import Ogp from '../components/ogp'
 import 'highlight.js/styles/github.css'
+import PageSelector from '../components/pageSelector'
 
 type Props = {
   allPosts: PostType[]
 }
 
 const Index = ({ allPosts }: Props) => {
-  const tagsAll = allPosts.flatMap(post => post.tags ?? []);
   return (
     <>
     <Head>
@@ -22,11 +22,11 @@ const Index = ({ allPosts }: Props) => {
     </Head>
     <Frame titleIsH1={true}>
       <>
-          {allPosts.sort((a,b)=>{
-            return a.date < b.date ? 1 : -1
-          }).map((post) => (
-            <ArticleCard post={post} key={post.slug} tagsEmphasizing={tagsAll} linkable={true}/>
+          {allPosts.slice(0,10).map((post) => (
+            <ArticleCard post={post} key={post.slug} tagsEmphasizing={[]} allEmphasizing={true} linkable={true}/>
           ))}
+
+      <PageSelector nowPage={1} pages={((allPosts.length -1) / 10) + 1 }/>
       </>
     </Frame>
     </>
@@ -36,13 +36,15 @@ const Index = ({ allPosts }: Props) => {
 export default Index
 
 export const getStaticProps = async () => {
-  const allPosts = await getAllPosts([
+  const allPosts = (await getAllPosts([
     'title',
     'date',
     'slug',
     'tags',
     'description',
-  ])
+  ])).sort((a, b) => {
+    return a.date < b.date ? 1 : -1
+  })
   return {
     props: { allPosts },
   }

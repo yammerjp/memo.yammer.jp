@@ -475,3 +475,29 @@ article p {
     margin: 96px 0 0 0;
     text-align: center;
 }
+
+/* ページ */
+
+.page-selector-number {
+    padding: 6px;
+    margin: 6px;
+}
+.page-selector-number:not(.now-page) {
+    cursor: pointer;
+}
+.page-selector-number:not(.now-page):hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #000000;
+}
+.page-selector-number.now-page {
+    color: #a8a8a8;
+}
+.page-selector {
+    width: 100%;
+    text-align: center;
+}
+
+.head-page-selector-wrap {
+    margin-top: -26px;
+}

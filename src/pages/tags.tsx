@@ -109,7 +109,7 @@ const Index = ({ allPosts }: Props) => {
               return (
                 <>
                   {postsSelected.map(post => (
-                    <ArticleCard post={post} key={post.slug} tagsEmphasizing={tagsSelected} linkable={false}/>
+                    <ArticleCard post={post} key={post.slug} tagsEmphasizing={tagsSelected} allEmphasizing={false} linkable={false}/>
                   ))}
                 </>
               )
