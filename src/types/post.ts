@@ -7,6 +7,7 @@ type PostType = {
   tags?: string[]
   description?: string
   history?: PostHistoryType
+  ogImage?: string
 }
 
 type PostHistoryType = Array<{

@@ -4,7 +4,7 @@ import { getPostBySlug, getAllPosts } from '../../lib/api'
 import { PostType } from '../../types/post'
 import Frame from '../../components/frame'
 import Article from '../../components/article'
-import PostHistory from '../../components/postHistory'
+import Ogp from '../../components/ogp'
 import 'highlight.js/styles/github.css'
 
 type Props = {
@@ -16,6 +16,13 @@ const Post = ({ post }: Props) => {
     <>
     <Head>
         <title>{post.title} - memo.basd4g.net</title>
+        <Ogp
+          title={post.title + ' - memo.basd4g.net'}
+          path={"/posts/" + post.slug}
+          description={post.description || ''}
+          ogImage={post.ogImage || ''}
+          ogType="article"
+        />
     </Head>
     <Frame>
       <Article post={post}/>
@@ -41,7 +48,9 @@ export async function getStaticProps({ params }: Params) {
     'content',
     'tags',
     'html',
+    'description',
     'history',
+    'ogImage',
   ])
   return {
     props: {

@@ -5,13 +5,13 @@ import Tags from './tags'
 const ArticleCard = ({ post, tagsEmphasizing }: { post: PostType, tagsEmphasizing: string[] } ) => {
     return (
         <section className="article-card">
-            <div className="article-date">{iso8601toDisplayStr(post?.date)}</div>
-            <div>
-                <Link href={"/posts/"+ post.slug}>{post.title}</Link>
-            </div>
-            <div className="article-description">
-                {post.description || ''}
-            </div>
+            <Link href={"/posts/"+ post.slug}>
+                <div className="article-link">
+                    <div className="article-date">{iso8601toDisplayStr(post?.date)}</div>
+                    <div className="article-title">{post.title}</div>
+                    <div className="article-description">{post.description || ''}</div>
+                </div>
+            </Link>
             <Tags tags={post.tags ?? []} tagsEmphasizing={tagsEmphasizing}/>
         </section>
     )

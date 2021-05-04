@@ -5,6 +5,7 @@ import { exec } from 'child_process'
 
 import markdownToHtml from './markdownToHtml'
 import markdownToDescription from './markdownToDescription'
+import { OgImageUrlInText } from './cloudinaryOgp'
 
 import { PostHistoryType } from '../types/post'
 
@@ -58,6 +59,7 @@ async function getPostByDirectoryAndSlug(dir: string, slug_: string, fields: str
   let tags: string[] = [];
   let description = '';
   let history: PostHistoryType = [];
+  let ogImage = '';
 
   // Ensure only the minimal needed data is exposed
   if (fields.includes('slug')) {
@@ -81,7 +83,11 @@ async function getPostByDirectoryAndSlug(dir: string, slug_: string, fields: str
   if (fields.includes('history')) {
     history = await getPostHistoryByDirectoryAndSlug(dir, slug_)
   }
-  return { slug, title, date, html, tags, description, history }
+  if (fields.includes('ogImage')) {
+    ogImage = data['ogImage'] || OgImageUrlInText(data['title'])
+   }
+
+  return { slug, title, date, html, tags, description, history, ogImage }
 }
 
 export async function getAllPosts(fields: string[] = []) {
