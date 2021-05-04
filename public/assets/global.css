@@ -243,12 +243,39 @@ article .article-header {
    font-size: 12px;
 }
 
+.article-header .article-date {
+    font-size: 16px;
+}
+
+.article-date .hyphen {
+    display: inline-block;
+    margin: 0px 8px;
+}
+
+button.article-date-edited {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    color: #505050;
+    margin: 0;
+    padding: 0;
+}
+
+.artic
+
 article .article-header .article-title {
     margin: 6px 0px;
 }
 
 .article-tags {
     margin: 6px 0px;
+}
+
+.article-header .article-tags {
+    margin: 0px 0px 6px 0px;
+
 }
 .article-tag {
     border: 1px solid #eeeeee;
@@ -282,6 +309,9 @@ article blockquote p {
 
 article h1:not(:first-child) {
     margin-top: 60px;
+}
+article .article-header h1 {
+    margin: 0px;
 }
 article h2 {
     margin-top: 48px;
@@ -329,7 +359,7 @@ article table th:empty {
 
 /* 記事一覧ページ */
 .article-card {
-    margin: 48px 0px;
+    margin: 0px 0px 48px 0px;
 }
 .article-description {
     /* 2行表示し、残りは ... で隠す. ベンダープレフィックスがあるが主要ブラウザの最新版は各対応 */

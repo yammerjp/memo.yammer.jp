@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { getAllPosts } from '../lib/api'
-import Post from '../types/post'
+import { PostType } from '../types/post'
 import Frame from '../components/frame'
 import ArticleCard from '../components/articleCard'
 import 'highlight.js/styles/github.css'
@@ -9,7 +9,7 @@ import { useState } from 'react'
 
 
 type Props = {
-  allPosts: Post[]
+  allPosts: PostType[]
 }
 
 

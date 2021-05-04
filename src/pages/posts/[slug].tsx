@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
-import markdownToHtml from '../../lib/markdownToHtml'
-import PostType from '../../types/post'
+import { PostType } from '../../types/post'
 import Frame from '../../components/frame'
 import Article from '../../components/article'
+import PostHistory from '../../components/postHistory'
 import 'highlight.js/styles/github.css'
 
 type Props = {
@@ -41,6 +41,7 @@ export async function getStaticProps({ params }: Params) {
     'content',
     'tags',
     'html',
+    'history',
   ])
   return {
     props: {

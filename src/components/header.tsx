@@ -11,7 +11,7 @@ const Header = ({ titleIsH1 }: { titleIsH1?: boolean }) => {
                             </h1>
                         ) : (
                             <div className="header-title">
-                                <a href="/">memo.basd4g.net</a>
+                                <Link href="/">memo.basd4g.net</Link>
                             </div>
                         )
                     }

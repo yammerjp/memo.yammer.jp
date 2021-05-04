@@ -6,6 +6,13 @@ type PostType = {
   html?: string
   tags?: string[]
   description?: string
+  history?: PostHistoryType
 }
 
-export default PostType
+type PostHistoryType = Array<{
+  date: string
+  message: string
+  hash: string
+}>
+
+export type { PostType, PostHistoryType }

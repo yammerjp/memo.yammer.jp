@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Frame from '../components/frame'
 import 'highlight.js/styles/github.css'
 import Link from 'next/link'
-import PostType from '../types/post'
+import { PostType } from '../types/post'
 import { getStaticPostBySlug } from '../lib/api'
 import Article from '../components/article'
 

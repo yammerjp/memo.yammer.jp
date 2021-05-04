@@ -1,9 +1,12 @@
 import fs from 'fs/promises'
 import { join } from 'path'
 import matter from 'gray-matter'
+import { exec } from 'child_process'
 
 import markdownToHtml from './markdownToHtml'
 import markdownToDescription from './markdownToDescription'
+
+import { PostHistoryType } from '../types/post'
 
 const postsDirectory = join(process.cwd(), 'content', 'posts')
 const staticPostsDirectory = join(process.cwd(), 'content')
@@ -20,8 +23,25 @@ export async function getPostBySlug(slug: string, fields: string[] = []) {
   return getPostByDirectoryAndSlug(postsDirectory, slug, fields)
 }
 
-async function getPostByDirectoryAndSlug(dir: string, slug: string, fields: string[] = []) {
+async function getPostHistoryByDirectoryAndSlug(dir: string, slug: string): Promise<PostHistoryType> {
   const realSlug = slug.replace(/\.md$/, '')
+  const fullPath = join(dir, `${realSlug}.md`)
+  return new Promise((resolve, reject) => {
+    exec(`git log --format=COMMITIS%cd,%H,%s --date=iso8601 ${fullPath}`, (err, stdout, stderr)  => {
+      if (err) {
+        reject();
+      }
+      const history = stdout.split('COMMITIS').slice(1).map( line => {
+        const [date, hash, message] = line.split(',')
+        return { date, message, hash }
+      })
+      resolve(history)
+    })
+  })
+}
+
+async function getPostByDirectoryAndSlug(dir: string, slug_: string, fields: string[] = []) {
+  const realSlug = slug_.replace(/\.md$/, '')
   const fullPath = join(dir, `${realSlug}.md`)
   const fileContents = await fs.readFile(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
@@ -31,27 +51,37 @@ async function getPostByDirectoryAndSlug(dir: string, slug: string, fields: stri
   }
 
   const items: Items = {}
+  let slug = '';
+  let title = '';
+  let date = '';
+  let html = '';
+  let tags: string[] = [];
+  let description = '';
+  let history: PostHistoryType = [];
 
   // Ensure only the minimal needed data is exposed
-  for (let i=0; i<fields.length; i++) {
-    const field = fields[i]
-    if (field === 'slug') {
-      items[field] = realSlug
-    }
-    if (field === 'content') {
-      items[field] = content
-    }
-    if (field === 'html') {
-      items[field] = await markdownToHtml(content || '')
-    }
-    if (field === 'description') {
-      items[field] = await markdownToDescription(content || '')
-    }
-    if (data[field]) {
-      items[field] = data[field] ?? ''
-    }
+  if (fields.includes('slug')) {
+    slug = realSlug;
   }
-  return items
+  if (fields.includes('title')) {
+    title = data['title']
+  }
+  if (fields.includes('date')) {
+    date = data['date']
+  }
+  if (fields.includes('html')) {
+    html = await markdownToHtml(content || '')
+  }
+  if (fields.includes('tags')) {
+    tags = data['tags'] || []
+  }
+  if (fields.includes('description')) {
+    description = await markdownToDescription(content || '')
+  }
+  if (fields.includes('history')) {
+    history = await getPostHistoryByDirectoryAndSlug(dir, slug_)
+  }
+  return { slug, title, date, html, tags, description, history }
 }
 
 export async function getAllPosts(fields: string[] = []) {

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import PostType from '../types/post'
+import { PostType } from '../types/post'
 import {iso8601toDisplayStr} from '../lib/date'
 import Tags from './tags'
 const ArticleCard = ({ post, tagsEmphasizing }: { post: PostType, tagsEmphasizing: string[] } ) => {
