@@ -16,7 +16,7 @@ const ArticleDate = ({ post }: { post: PostType }) => {
             return (
               <>
                 <span className="hyphen">-</span>
-                <button className="article-date-edited" onClick={onClick}>edited</button>
+                <button className={"article-date-edited" + ( historyVisible ? ' history-visible' : '')} onClick={onClick}>edited</button>
                 { historyVisible ? ( <PostHistory history={post.history} />) : (<></>) }
               </>
             )

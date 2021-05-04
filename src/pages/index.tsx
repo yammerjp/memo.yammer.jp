@@ -1,13 +1,12 @@
 import Head from 'next/head'
 import { getAllPosts } from '../lib/api'
-import Post from '../types/post'
+import { PostType } from '../types/post'
 import Frame from '../components/frame'
 import ArticleCard from '../components/articleCard'
 import 'highlight.js/styles/github.css'
-import Link from 'next/link'
 
 type Props = {
-  allPosts: Post[]
+  allPosts: PostType[]
 }
 
 const Index = ({ allPosts }: Props) => {
@@ -25,7 +24,6 @@ const Index = ({ allPosts }: Props) => {
             <ArticleCard post={post} key={post.slug} tagsEmphasizing={tagsAll}/>
           ))}
       </>
-      <div><Link href="/tags">タグで絞り込む</Link></div>
     </Frame>
     </>
     )

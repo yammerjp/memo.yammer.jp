@@ -57,7 +57,7 @@ const Index = ({ allPosts }: Props) => {
         <title>memo.basd4g.net - 常に完成形</title>
     </Head>
     <Frame titleIsH1={true}>
-      <div>
+      <div className="article-tags-selector-wrap">
         <h2>記事をタグで絞り込む</h2>
         <hr/>
         <TagsSelector tagsAll={tagsAll} tagsSelected={tagsSelected} clickedTag={clickedTag}/>
