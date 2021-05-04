@@ -7,7 +7,7 @@ const Article = ({post}: {post: PostType}) => {
           <div className="article-header">
             <ArticleDate post={post}/>
             <h1 className="article-title">{post.title || ''}</h1>
-            <Tags tags={post.tags ?? []} tagsEmphasizing={post.tags ?? []}/>
+            <Tags tags={post.tags ?? []} tagsEmphasizing={post.tags ?? []} linkable={true}/>
           </div>
           <div className="article-body"
             dangerouslySetInnerHTML={{ __html: post.html || '' }}

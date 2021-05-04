@@ -25,7 +25,7 @@ const Index = ({ allPosts }: Props) => {
           {allPosts.sort((a,b)=>{
             return a.date < b.date ? 1 : -1
           }).map((post) => (
-            <ArticleCard post={post} key={post.slug} tagsEmphasizing={tagsAll}/>
+            <ArticleCard post={post} key={post.slug} tagsEmphasizing={tagsAll} linkable={true}/>
           ))}
       </>
     </Frame>

@@ -439,12 +439,13 @@ article p {
 }
 
 /* タグページ */
-/*
-[data-whatinput="mouse"] .article-tag,
-[data-whatinput="touch"] .article-tag {
-  outline: none;
+
+.article-tag.linkable:hover{
+    background-color: #ffffff;
+    border: solid, 1px, #eeeeee;
+    cursor: pointer;
 }
-*/
+
 .article-tags-selector-wrap h2 {
     margin-top: 0px;
 }

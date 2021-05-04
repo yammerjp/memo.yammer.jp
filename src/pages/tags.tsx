@@ -5,22 +5,69 @@ import Frame from '../components/frame'
 import ArticleCard from '../components/articleCard'
 import 'highlight.js/styles/github.css'
 import TagsSelector from '../components/tagsSelector'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import Ogp from '../components/ogp'
 
 type Props = {
   allPosts: PostType[]
 }
 
+const queryTags2tagArr = (tags : string | string[] | undefined) => {
+    if (!tags) {
+      return []
+    }
+    if (typeof tags !== 'string') {
+      return tags.sort();
+    }
+    if (tags.includes(',')) {
+      return decodeURIComponent(tags).split(',').sort();
+    } 
+    return [decodeURIComponent(tags)]
+}
+
 const Index = ({ allPosts }: Props) => {
   const tagsAll = allPosts.flatMap(post => post.tags ?? []);
   const [tagsSelected, setTagsSelected] = useState<string[]>([]);
-  const clickedTag = (tagName: string, willbeSelected: boolean) => {
-    setTagsSelected((before: string[]) => {
+  const [queryLoadingIsEnabled, setQueryLoadingIsEnabled] = useState<boolean>(true);
+  const router = useRouter()
+
+  useEffect(()=>{
+    // URLクエリパラメータを読み込んでtagsSelectedのステートに反映
+    // ただしURLクエリパラメータはページ遷移後の初回レンダリングやクエリ書き換え後の初回レンダリングでは正しく反映されない
+    // そのため、外からクエリパラメータ付きで飛んできた時のみ、このuseEffectでステートに反映される
+    // GUIをクリックしてユーザがステートを変更したら、 queryLoadingIsEnabled を false にして、以降はページ遷移までクエリパラメータを一方的に書き換えるだけとする
+    if (!queryLoadingIsEnabled) {
+      return;
+    }
+
+    const tagsArr = queryTags2tagArr(router.query.tags);
+    if (tagsArr.sort().join(',') === tagsSelected.sort().join(',')) {
+      return;
+    }
+    setTagsSelected(tagsArr);
+    // console.log(`${tagsArr} is set`);
+  })
+
+  const clickedTag = (tag: string, willbeSelected: boolean) => {
+    // clickedTagが1回以上発火したら queryLoadingIsEnabledをfalseにしてクエリパラメータの読み込みを禁止する
+    if (queryLoadingIsEnabled) {
+      setQueryLoadingIsEnabled(false);
+    }
+
+    // console.log(`${tag} will be ${willbeSelected}`);
+    // router.push() するとページ遷移扱いになってスクロール位置が一番上になってしまうので使用を避けている
+    // router.push() を使わないためにクエリパラメータの読み込みを初回以降は禁止するという面倒な処理をしている
+    setTagsSelected(before => {
+      const removed = before.filter(t => t !== tag);
+      let newTags : string[] = [];
       if (willbeSelected) {
-        return [...before, tagName];
+        newTags = [...removed, tag].sort();
+      } else {
+        newTags = removed.sort();
       }
-      return before.filter(t => t != tagName);
+      history.replaceState(null, '', location.pathname + ( newTags.length > 0 ? "?tags=" + newTags.join(','): ''))
+      return newTags
     })
   }
 
@@ -62,7 +109,7 @@ const Index = ({ allPosts }: Props) => {
               return (
                 <>
                   {postsSelected.map(post => (
-                    <ArticleCard post={post} key={post.slug} tagsEmphasizing={tagsSelected} />
+                    <ArticleCard post={post} key={post.slug} tagsEmphasizing={tagsSelected} linkable={false}/>
                   ))}
                 </>
               )
