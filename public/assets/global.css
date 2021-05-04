@@ -130,7 +130,7 @@ header .header-left a {
 }
 
 footer {
-    font-size: 12px;
+    font-size: 14px;
     color: #505050;
     margin-top: auto;
     margin-bottom: 0;
@@ -377,9 +377,13 @@ article table th:empty {
     border: 0;
 }
 
+article p {
+    margin: 32px 0px;
+}
+
 /* 記事一覧ページ */
 .article-card {
-    margin: 0px 0px 48px 0px;
+    margin: 0px 0px 72px 0px;
 }
 
 .article-card .article-link:hover {
@@ -388,7 +392,7 @@ article table th:empty {
 
 .article-card .article-link .article-title {
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 700;
     color: #505050;
 }
 
@@ -401,13 +405,37 @@ article table th:empty {
     color: #808080;
 }
 .article-description {
-    /* 2行表示し、残りは ... で隠す. ベンダープレフィックスがあるが主要ブラウザの最新版は各対応 */
+    /* 6行表示し、残りは ... で隠す. ベンダープレフィックスがあるが主要ブラウザの最新版は各対応 */
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    max-height:48px; /* line-clamp 非対応のブラウザでも全文が表示されるのを避ける */
+    max-height:76px; /* line-clamp 非対応のブラウザでも全文が表示されるのを避ける */
     color: #606060;
+}
+.article-card-flex {
+    display: flex;
+}
+
+.article-card-left, .article-card-right {
+    display:block;
+    margin: 0;
+    padding: 0;
+}
+
+.article-card-right {
+    padding-left: 12px;
+}
+
+.article-og-image-wrap {
+    margin: 0;
+    padding: 0;
+}
+.article-og-image {
+    height: 160px;
+    width: 284px;
+    margin: 0;
+    padding: 0;
 }
 
 /* タグページ */
