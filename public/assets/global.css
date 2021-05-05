@@ -386,6 +386,15 @@ article p {
 .article-card {
     margin: 0px 0px 72px 0px;
 }
+.article-card.thin {
+    margin: 0px 0px 24px 0px;
+}
+.article-card.thin .article-date {
+    font-size: 12px;
+}
+.article-card.thin .article-tags {
+    margin: 0;
+}
 
 .article-card .article-link:hover {
     cursor: pointer;
@@ -395,6 +404,10 @@ article p {
     font-size: 24px;
     font-weight: 700;
     color: #505050;
+}
+.article-card .article-link .article-title.thin {
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .article-card .article-link:hover .article-title {
@@ -483,9 +496,6 @@ article p {
     padding: 6px;
     margin: 6px;
 }
-.page-selector-number:not(.now-page) {
-    cursor: pointer;
-}
 .page-selector-number:not(.now-page):hover {
     cursor: pointer;
     text-decoration: underline;
@@ -512,8 +522,8 @@ article p {
     margin: 96px 0px 60px 0px;
 }
 
-.neighbor-articles-2prev *,
-.neighbor-articles-2next * {
+.neighbor-articles-2prev:not(.empty) *,
+.neighbor-articles-2next:not(.empty) * {
     cursor: pointer;
 
 }
@@ -524,7 +534,6 @@ article p {
 .neighbor-articles-2next {
     text-align: right;
     padding: 24px 0px;
-    cursor: pointer;
 }
 
 .tabler-icon-in-text {

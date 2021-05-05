@@ -5,7 +5,7 @@ const NeighborArticles = ({prev, next}: {prev: PostType|null, next: PostType|nul
     return (
         <div className="neighbor-articles">
            <div className="neighbor-articles-prev-and-next">
-                {(prev === null) ? (<div className="neighbor-articles-2prev"></div>) : (
+                {(prev === null) ? (<div className="neighbor-articles-2prev empty"></div>) : (
                     <Link href={"/posts/" + prev.slug}>
                         <div className="neighbor-articles-2prev">
                             <div className="neighbor-articles-pretitle">
@@ -16,7 +16,7 @@ const NeighborArticles = ({prev, next}: {prev: PostType|null, next: PostType|nul
                         </div>
                     </Link>
                 )}
-                {(next === null) ? (<div className="neighbor-articles-2next"></div>) : (
+                {(next === null) ? (<div className="neighbor-articles-2next empty"></div>) : (
                     <Link href={"/posts/" + next.slug}>
                         <div className="neighbor-articles-2next">
                             <div className="neighbor-articles-pretitle">

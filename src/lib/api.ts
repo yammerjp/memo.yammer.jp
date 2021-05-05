@@ -106,7 +106,7 @@ export async function getNeighborPosts(slug: string, fields: string[] = [ 'slug'
     return { next: null, prev: null}
   }
   return {
-    next: (idx !== 0) ? allPosts[idx-1] : null,
-    prev: (idx-1 !== allPosts.length) ? allPosts[idx+1] : null,
+    next: (idx-1 >= 0) ? allPosts[idx-1] : null,
+    prev: (idx+1 <= allPosts.length-1) ? allPosts[idx+1] : null,
   }
 }
