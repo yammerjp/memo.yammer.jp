@@ -2,6 +2,7 @@
 title: "足でマイクのミュートを解除しよう for 在宅勤務"
 date: "2021-04-27T09:41:29+09:00"
 tags: ["macOS", "在宅勤務", "作業環境", "Karabiner-Elements" ]
+ogImage: "https://blob.basd4g.net/foot-switch-mic-mute-irasutoya.png"
 ---
 
 私はいま、在宅勤務をしている。
@@ -153,7 +154,5 @@ Karabiner-Elementsはもともとキーボードの操作を書き換えるソ�
 以上。
 
 [^1]: `$ brew install karabiner-elements`でもインストールできるはず
-[^2]: 今回は手元に壊れかけのマウスが有ったのでこれをスイッチとして使ったが、キーボードなどでも同様のことを実現できるはず。
- また何も足で押さなくてもよくて、机の上にスイッチがあるとか既存のキーボードにショートカットキーを定義するとかでもよいかもしれない。
-
+[^2]: 今回は手元に壊れかけのマウスが有ったのでこれをスイッチとして使ったが、キーボードなどでも同様のことを実現できるはず。また何も足で押さなくてもよくて、机の上にスイッチがあるとか既存のキーボードにショートカットキーを定義するとかでもよいかもしれない。
 [^3]: 既にマウスに関する Karabiner-Elements の設定が存在する場合は、ぶつからないように、Vendor ID と Product ID をメモして設定に書き込むと良さそう。[参考までに私の設定ファイルはこれ。](https://github.com/basd4g/dotfiles/blob/cf0f3eaa6bce79b984cdcc53a42ed1ea65711f90/.config/karabiner/assets/complex_modifications/mouse_mic_mute.json)
