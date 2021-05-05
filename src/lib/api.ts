@@ -9,41 +9,45 @@ import { OgImageUrlInText } from './cloudinaryOgp'
 
 import { PostHistoryType } from '../types/post'
 
-const postsDirectory = join(process.cwd(), 'content', 'posts')
-const staticPostsDirectory = join(process.cwd(), 'content')
-
 export async function getPostSlugs() {
-  return await fs.readdir(postsDirectory)
+  return await fs.readdir(join(process.cwd(), 'content', 'posts'))
 }
 
 export async function getStaticPostBySlug(slug: string, fields: string[] = []) {
-  return getPostByDirectoryAndSlug(staticPostsDirectory, slug, fields)
+  return getPostByDirectoryAndSlug(process.cwd(), 'content', slug, fields)
 }
 
 export async function getPostBySlug(slug: string, fields: string[] = []) {
-  return getPostByDirectoryAndSlug(postsDirectory, slug, fields)
+  return getPostByDirectoryAndSlug(process.cwd(), join('content','posts'), slug, fields)
 }
 
-async function getPostHistoryByDirectoryAndSlug(dir: string, slug: string): Promise<PostHistoryType> {
-  const realSlug = slug.replace(/\.md$/, '')
-  const fullPath = join(dir, `${realSlug}.md`)
-  return new Promise((resolve, reject) => {
+const execGitLogPromise: (fullPath: string)=> Promise<string> = (fullPath: string) => new Promise((resolve, reject) => {
     exec(`git log --format=COMMITIS%cd,%H,%s --date=iso8601-strict ${fullPath}`, (err, stdout, stderr)  => {
       if (err) {
         reject();
       }
-      const history = stdout.split('COMMITIS').slice(1).map( line => {
-        const [date, hash, message] = line.split(',')
-        return { date, message, hash }
-      })
-      resolve(history)
+      resolve(stdout);
+    });
+})
+const gitLog2postHistory: (gitLog:string) => PostHistoryType = (gitLog: string) => {
+    return gitLog.split('COMMITIS').slice(1).map( line => {
+      const [date, hash, message] = line.split(',')
+      return { date, message, hash }
     })
-  })
 }
 
-async function getPostByDirectoryAndSlug(dir: string, slug_: string, fields: string[] = []) {
+async function getPostHistoryByDirectoryAndSlug(rootDir: string, relativeDir: string, slug: string): Promise<PostHistoryType> {
+  const realSlug = slug.replace(/\.md$/, '')
+  const fullPath = join(rootDir, relativeDir, `${realSlug}.md`)
+  const historyWithGit = await execGitLogPromise(fullPath).then(gitLog2postHistory);
+  const historyWithFile = await fs.readFile(join(rootDir, '.gitlogs', relativeDir, `${realSlug}.md`), 'utf8').then(gitLog2postHistory).catch(()=>[]);
+  const historyWithFileAvailable = historyWithFile.filter(eF=> !historyWithGit.find(eG => eF.hash === eG.hash))
+  return [...historyWithGit, ...historyWithFileAvailable]
+}
+
+async function getPostByDirectoryAndSlug(rootDir: string, relativeDir: string, slug_: string, fields: string[] = []) {
   const realSlug = slug_.replace(/\.md$/, '')
-  const fullPath = join(dir, `${realSlug}.md`)
+  const fullPath = join(rootDir, relativeDir, `${realSlug}.md`)
   const fileContents = await fs.readFile(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
 
@@ -81,7 +85,7 @@ async function getPostByDirectoryAndSlug(dir: string, slug_: string, fields: str
     description = await markdownToDescription(content || '')
   }
   if (fields.includes('history')) {
-    history = await getPostHistoryByDirectoryAndSlug(dir, slug_)
+    history = await getPostHistoryByDirectoryAndSlug(rootDir, relativeDir, slug_)
   }
   if (fields.includes('ogImage')) {
     ogImage = data['ogImage'] || OgImageUrlInText(data['title'])
