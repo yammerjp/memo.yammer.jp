@@ -4,7 +4,7 @@ const PostHistory = ({history}: {history: PostHistoryType | undefined}) => {
     if (!history) {
         return (<></>)
     }
-    return ( <>
+    return ( <div className="article-history-with-git">
       {
         history.sort((a,b) => a.date > b.date ? 1:-1 ).map(({date, hash, message}) => (
           <div key={hash}>
@@ -17,7 +17,7 @@ const PostHistory = ({history}: {history: PostHistoryType | undefined}) => {
 
         ))
       }
-    </>)
+    </div>)
 }
 
 export default PostHistory

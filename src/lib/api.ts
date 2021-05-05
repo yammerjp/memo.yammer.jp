@@ -28,7 +28,7 @@ async function getPostHistoryByDirectoryAndSlug(dir: string, slug: string): Prom
   const realSlug = slug.replace(/\.md$/, '')
   const fullPath = join(dir, `${realSlug}.md`)
   return new Promise((resolve, reject) => {
-    exec(`git log --format=COMMITIS%cd,%H,%s --date=iso8601 ${fullPath}`, (err, stdout, stderr)  => {
+    exec(`git log --format=COMMITIS%cd,%H,%s --date=iso8601-strict ${fullPath}`, (err, stdout, stderr)  => {
       if (err) {
         reject();
       }

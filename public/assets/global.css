@@ -284,10 +284,9 @@ button.article-date-edited.history-visible {
 button.article-date-edited.history-visible:hover {
     text-decoration: none;
 }
-.artic
 
-article .article-header .article-title {
-    margin: 6px 0px;
+.article-history-with-git {
+    margin-bottom: 14px;
 }
 
 .article-tags {
