@@ -7,6 +7,7 @@ html {
     font-weight: 400;
     line-height: 1.7;
     background-color: #ffffff;
+    scroll-behavior: smooth; 
 }
 
 #__next {
@@ -62,7 +63,7 @@ header .header-left a {
     text-align: left;
     display:flex;
     flex-wrap: wrap;
-    padding: 12px 24px 0px 24px;
+    padding: 12px 12px 0px 12px;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -124,7 +125,7 @@ header .header-left a {
 }
 .content-inner {
     text-align: left;
-    padding: 60px 24px 24px 24px;
+    padding: 60px 12px 0px 12px;
     margin: 0 auto;
     max-width: 800px;
 }
@@ -146,7 +147,7 @@ footer {
 .footer-inner {
     display: block;
     text-align: right;
-    padding: 60px 24px 24px 24px;
+    padding: 60px 12px 24px 12px;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -500,4 +501,50 @@ article p {
 
 .head-page-selector-wrap {
     margin-top: -26px;
+}
+
+.neighbor-articles-2home {
+    text-align: center;
+    padding: 12px;
+}
+
+.neighbor-articles {
+    margin: 96px 0px 60px 0px;
+}
+
+.neighbor-articles-2prev *,
+.neighbor-articles-2next * {
+    cursor: pointer;
+
+}
+.neighbor-articles-2prev {
+    text-align: left;
+    padding: 24px 0px;
+}
+.neighbor-articles-2next {
+    text-align: right;
+    padding: 24px 0px;
+    cursor: pointer;
+}
+
+.tabler-icon-in-text {
+    width: 0.9em;
+}
+
+@media screen and (min-width: 600px) {
+    .neighbor-articles-prev-and-next {
+        display: flex;
+    }
+    .neighbor-articles-2prev {
+        width: 50%;
+        padding-right: 48px;
+    }
+    .neighbor-articles-2next {
+        width: 50%;
+        padding-left: 48px;
+    }
+}
+
+.neighbor-articles-pretitle {
+    font-size: 12px;
 }

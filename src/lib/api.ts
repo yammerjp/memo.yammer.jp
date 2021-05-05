@@ -97,3 +97,16 @@ export async function getAllPosts(fields: string[] = []) {
     // sort posts by date in descending order
   return posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
 }
+
+export async function getNeighborPosts(slug: string, fields: string[] = [ 'slug' ]) {
+  const allPosts = await getAllPosts(fields);
+  const idx = allPosts.findIndex( post => post.slug === slug);
+  if (idx === -1) {
+    console.error("Need to specify EXISTING slug with calling getNeighborPosts()")
+    return { next: null, prev: null}
+  }
+  return {
+    next: (idx !== 0) ? allPosts[idx-1] : null,
+    prev: (idx-1 !== allPosts.length) ? allPosts[idx+1] : null,
+  }
+}

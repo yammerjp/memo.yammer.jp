@@ -42,9 +42,7 @@ export const getStaticProps = async () => {
     'slug',
     'tags',
     'description',
-  ])).sort((a, b) => {
-    return a.date < b.date ? 1 : -1
-  })
+  ]))
   return {
     props: { allPosts },
   }

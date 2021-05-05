@@ -1,32 +1,37 @@
 import Link from 'next/link'
 import Head from 'next/head'
-import { getPostBySlug, getAllPosts } from '../../lib/api'
+import { getPostBySlug, getAllPosts, getNeighborPosts } from '../../lib/api'
 import { PostType } from '../../types/post'
 import Frame from '../../components/frame'
 import Article from '../../components/article'
 import Ogp from '../../components/ogp'
+import NeighborArticles from '../../components/neighborArticles'
 import 'highlight.js/styles/github.css'
 
 type Props = {
   post: PostType
+  prev: PostType | null
+  next: PostType | null
 }
 
-const Post = ({ post }: Props) => {
+const Post = (props: Props) => {
   return (
     <>
     <Head>
-        <title>{post.title} - memo.basd4g.net</title>
+        <title>{props.post.title} - memo.basd4g.net</title>
         <Ogp
-          title={post.title + ' - memo.basd4g.net'}
-          path={"/posts/" + post.slug}
-          description={post.description || ''}
-          ogImage={post.ogImage || ''}
+          title={props.post.title + ' - memo.basd4g.net'}
+          path={"/posts/" + props.post.slug}
+          description={props.post.description || ''}
+          ogImage={props.post.ogImage || ''}
           ogType="article"
         />
     </Head>
     <Frame>
-      <Article post={post}/>
-      <Link href="/">&lt; Home</Link>
+      <>
+      <Article post={props.post}/>
+      <NeighborArticles prev={props.prev} next={props.next} />
+      </>
     </Frame>
     </>
   )
@@ -52,9 +57,16 @@ export async function getStaticProps({ params }: Params) {
     'history',
     'ogImage',
   ])
+  const { prev, next } = await getNeighborPosts(params.slug, [
+    'slug',
+    'title',
+    'date',
+  ])
   return {
     props: {
       post,
+      prev,
+      next,
     }
   }
 }

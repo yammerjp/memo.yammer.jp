@@ -10,17 +10,17 @@ const PageSelector = ({nowPage, pages}: {nowPage: number, pages: number}) => {
             {pagesArr.map(p=> {
                 if (p===nowPage) {
                     return (
-                        <span className="page-selector-number now-page">{p}</span>
+                        <span className="page-selector-number now-page" key={p}>{p}</span>
                     )
                 }
                 if (p===1) {
                     return (
-                        <Link href={"/"}><span className="page-selector-number">{p}</span></Link>
+                        <Link href={"/"} key={p}><span className="page-selector-number">{p}</span></Link>
                     )
 
                 }
                 return (
-                    <Link href={"/page/"+p}><span className="page-selector-number">{p}</span></Link>
+                    <Link href={"/page/"+p} key={p}><span className="page-selector-number">{p}</span></Link>
                 )
             })
             }
