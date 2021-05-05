@@ -8,7 +8,9 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@types/axios": "^0.14.0",
     "@types/xml-escape": "^1.1.0",
+    "axios": "^0.21.1",
     "classnames": "2.2.6",
     "date-fns": "2.10.0",
     "gray-matter": "4.0.2",

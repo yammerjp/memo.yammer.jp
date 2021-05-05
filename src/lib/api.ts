@@ -2,6 +2,7 @@ import fs from 'fs/promises'
 import { join } from 'path'
 import matter from 'gray-matter'
 import { exec } from 'child_process'
+import axios from 'axios'
 
 import markdownToHtml from './markdownToHtml'
 import markdownToDescription from './markdownToDescription'
@@ -36,11 +37,20 @@ const gitLog2postHistory: (gitLog:string) => PostHistoryType = (gitLog: string) 
     })
 }
 
+// アクセス先に負荷をかけ過ぎないよう最大5秒sleep (並列にアクセスしないのでよしとする)
+const waitRandomTime5s = () => new Promise((resolve) => {
+  const time = Math.random() * 5000
+  setTimeout(resolve,  time)
+  console.log(`wait:${time}ms`)
+});
+
 async function getPostHistoryByDirectoryAndSlug(rootDir: string, relativeDir: string, slug: string): Promise<PostHistoryType> {
   const realSlug = slug.replace(/\.md$/, '')
   const fullPath = join(rootDir, relativeDir, `${realSlug}.md`)
   const historyWithGit = await execGitLogPromise(fullPath).then(gitLog2postHistory);
-  const historyWithFile = await fs.readFile(join(rootDir, '.gitlogs', relativeDir, `${realSlug}.md`), 'utf8').then(gitLog2postHistory).catch(()=>[]);
+  const historyWithFile = await waitRandomTime5s().then(() => axios.get(`https://raw.githubusercontent.com/basd4g/memo.basd4g.net/gh-pages/${relativeDir}/${realSlug}.md`)).then(res=>gitLog2postHistory(res.data)).catch(()=>[])
+  console.log(`https://raw.githubusercontent.com/basd4g/memo.basd4g.net/gh-pages/${relativeDir}/${realSlug}.md`)
+  // const historyWithFile = await fs.readFile(join(rootDir, '.gitlogs', relativeDir, `${realSlug}.md`), 'utf8').then(gitLog2postHistory).catch(()=>[]);
   const historyWithFileAvailable = historyWithFile.filter(eF=> !historyWithGit.find(eG => eF.hash === eG.hash))
   return [...historyWithGit, ...historyWithFileAvailable]
 }
