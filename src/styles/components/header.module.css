@@ -1,0 +1,76 @@
+.header {
+    background-color: #a3d7ff;
+    background-image: url(data:image/svg+xml;charset=utf8;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjEzNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Zz48dGl0bGU+YmFja2dyb3VuZDwvdGl0bGU+PHJlY3QgeD0iLTEiIHk9Ii0xIiB3aWR0aD0iODAyIiBoZWlnaHQ9IjEzNyIgaWQ9ImNhbnZhc19iYWNrZ3JvdW5kIiBmaWxsPSIjZmZmIi8+PGcgaWQ9ImNhbnZhc0dyaWQiIGRpc3BsYXk9Im5vbmUiPjxyZWN0IGlkPSJzdmdfMSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgeD0iMCIgeT0iMCIgc3Ryb2tlLXdpZHRoPSIwIiBmaWxsPSJ1cmwoI2dyaWRwYXR0ZXJuKSIvPjwvZz48L2c+PGc+PHRpdGxlPkxheWVyIDE8L3RpdGxlPjxyZWN0IGZpbGw9IiNhM2Q3ZmYiIHN0cm9rZS13aWR0aD0iMCIgc3Ryb2tlLW9wYWNpdHk9Im51bGwiIHk9Ii0xNSIgd2lkdGg9IjgwMCIgaGVpZ2h0PSI4MSIgaWQ9InN2Z18xMiIgeD0iMCIgc3Ryb2tlPSIjMDAwIi8+PGVsbGlwc2UgZmlsbD0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIwIiBjeD0iNjM3LjUiIGN5PSIxMDQuNDUzMTMiIGlkPSJzdmdfMTAiIHJ4PSIyMzEiIHJ5PSIxMDMiLz48cmVjdCBmaWxsPSIjZmZmIiBzdHJva2Utd2lkdGg9IjAiIHN0cm9rZS1vcGFjaXR5PSJudWxsIiB5PSI3MyIgd2lkdGg9IjgwMCIgaGVpZ2h0PSI4MSIgaWQ9InN2Z18yIiB4PSIwIiBzdHJva2U9IiMwMDAiLz48ZWxsaXBzZSBmaWxsPSIjYTNkN2ZmIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMCIgY3g9IjIwOC41IiBjeT0iMjguNDUzMTMiIGlkPSJzdmdfNiIgcng9IjIzMSIgcnk9IjEwMyIvPjwvZz48L3N2Zz4=);
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: 100%;
+    background-position: bottom -1px left 0;
+    margin: 0;
+    min-height: 140px;
+}
+
+.headerInner {
+    text-align: left;
+    display:flex;
+    flex-wrap: wrap;
+    padding: 12px 12px 0px 12px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.headerLeft {
+    display: inline-block;
+    font-size: 17px;
+    text-align: initial;
+    vertical-align: top;   
+    margin-right: auto;
+    padding-top: 12px;
+}
+
+.headerRight {
+    display: inline-block;
+    font-size: 16px;
+    text-align: initial;
+    vertical-align: top;
+    margin-left: auto;
+    padding-top: 12px;
+}   
+
+.headerTitle {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+.headerTitle:hover {
+    text-decoration: underline;
+    color: #707070;
+}
+.headerTitleLink {
+    color: #505050;
+}
+
+.headerSubtitle {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.headerNavIcon {
+    display: inline-block;
+    font-size: 15px;
+    line-height: 1;
+    padding: 4px;
+    margin: 4px;
+    background-color: #fff;
+    border-radius: 100%;
+    width: 44px;
+    height: 44px;
+}
+.headerNavIcon:hover {
+    background-color: #f7f7f7;
+}
+.headerNavDescription {
+    height: 24px;
+    text-align: center;
+}

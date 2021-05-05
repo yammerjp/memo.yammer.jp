@@ -1,0 +1,46 @@
+/* 隣の記事 */
+
+.neighbor-articles-2home {
+    text-align: center;
+    padding: 12px;
+}
+
+.neighbor-articles {
+    margin: 96px 0px 60px 0px;
+}
+
+.neighbor-articles-2prev:not(.empty) *,
+.neighbor-articles-2next:not(.empty) * {
+    cursor: pointer;
+
+}
+.neighbor-articles-2prev {
+    text-align: left;
+    padding: 24px 0px;
+}
+.neighbor-articles-2next {
+    text-align: right;
+    padding: 24px 0px;
+}
+
+.tabler-icon-in-text {
+    width: 0.9em;
+}
+
+@media screen and (min-width: 600px) {
+    .neighbor-articles-prev-and-next {
+        display: flex;
+    }
+    .neighbor-articles-2prev {
+        width: 50%;
+        padding-right: 48px;
+    }
+    .neighbor-articles-2next {
+        width: 50%;
+        padding-left: 48px;
+    }
+}
+
+.neighbor-articles-pretitle {
+    font-size: 12px;
+}

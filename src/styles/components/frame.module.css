@@ -1,0 +1,11 @@
+.content {
+    width: 100%;
+}
+.contentInner {
+    text-align: left;
+    padding: 60px 12px 0px 12px;
+    margin: 0 auto;
+    position:relative;
+    max-width: 800px;
+}
+

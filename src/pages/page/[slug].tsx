@@ -23,6 +23,7 @@ const Page = ({ posts, slug, postLength }: Props) => {
         <Ogp title="memo.basd4g.net" path="/" description="常に完成形" ogImage={
           'https://res.cloudinary.com/basd4g/image/upload/co_rgb:505050,l_text:Sawarabi%20Gothic_64_align_center:memo.basd4g.net,w_800,c_fit/v1608780036/memo-basd4g-net-ogp.png'
         } ogType="website"/>
+        <link rel="stylesheet" href="/assets/articleCard.css"></link>
     </Head>
     <Frame titleIsH1={true}>
       <>
@@ -30,7 +31,7 @@ const Page = ({ posts, slug, postLength }: Props) => {
           <PageSelector nowPage={Number(slug)} pages={pageLength(postLength)}/>
       </div>
           {posts.map((post) => (
-            <ArticleCard post={post} key={post.slug} tagsEmphasizing={[]} allEmphasizing={true} linkable={true}/>
+            <ArticleCard post={post} key={post.slug} tagsEmphasizing={[]} allEmphasizing={true} linkable={true} thin={false}/>
           ))}
       <PageSelector nowPage={Number(slug)} pages={pageLength(postLength)}/>
       </>

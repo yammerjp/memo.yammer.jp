@@ -1,0 +1,22 @@
+.pageSelector {
+    width: 100%;
+    text-align: center;
+}
+
+.pageSelectorNumberNotNow {
+    padding: 6px;
+    margin: 6px;
+
+}
+.pageSelectorNumberNotNow:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #000000;
+}
+
+.pageSelectorNumberNow {
+    padding: 6px;
+    margin: 6px;
+
+    color: #a8a8a8;
+}

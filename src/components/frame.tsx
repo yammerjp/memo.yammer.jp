@@ -1,7 +1,8 @@
-import { ReactNode, FunctionComponent} from 'react';
+import { ReactNode } from 'react';
 import Head from 'next/head';
 import Header from './header';
 import Footer from './footer'
+import styles from '../styles/components/frame.module.css'
 
 type Props = {
   children?: ReactNode
@@ -17,8 +18,8 @@ const Frame = (props: Props) => {
         <link rel="icon" type="image/png" href="/favicon/icon-192x192.png"></link>
       </Head>
       <Header titleIsH1={props.titleIsH1}/>
-      <div className="content">
-        <div className="content-inner">
+      <div className={styles.content}>
+        <div className={styles.contentInner}>
           {props.children}
         </div>
       </div>

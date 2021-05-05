@@ -27,6 +27,7 @@ const Post = (props: Props) => {
           ogType="article"
         />
         <link rel="stylesheet" href="/assets/article.css"></link>
+        <link rel="stylesheet" href="/assets/neighborArticles.css"></link>
     </Head>
     <Frame>
       <>

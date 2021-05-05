@@ -109,10 +109,6 @@ button.article-date-edited.history-visible:hover {
     text-decoration: none;
 }
 
-.article-history-with-git {
-    margin-bottom: 14px;
-}
-
 .article-header .article-tags {
     margin: 0px 0px 6px 0px;
 

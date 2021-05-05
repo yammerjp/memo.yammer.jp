@@ -90,7 +90,7 @@ const Index = ({ allPosts }: Props) => {
           title="記事をタグで絞り込む - memo.basd4g.net" path="/tags" description="記事をタグで絞り込む" ogImage={
           'https://res.cloudinary.com/basd4g/image/upload/co_rgb:505050,l_text:Sawarabi%20Gothic_64_align_center:memo.basd4g.net,w_800,c_fit/v1608780036/memo-basd4g-net-ogp.png'
         } ogType="website"/>
-
+        <link rel="stylesheet" href="/assets/articleCard.css"></link>
     </Head>
     <Frame titleIsH1={true}>
       <div className="article-tags-selector-wrap">
@@ -109,7 +109,7 @@ const Index = ({ allPosts }: Props) => {
               return (
                 <>
                   {postsSelected.map(post => (
-                    <ArticleCard post={post} key={post.slug} tagsEmphasizing={tagsSelected} allEmphasizing={false} linkable={false}/>
+                    <ArticleCard post={post} key={post.slug} tagsEmphasizing={tagsSelected} allEmphasizing={false} linkable={false} thin={false}/>
                   ))}
                 </>
               )

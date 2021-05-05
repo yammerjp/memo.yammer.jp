@@ -1,0 +1,59 @@
+/**************/
+/* 記事一覧ページ */
+.article-card {
+    margin: 0px 0px 72px 0px;
+}
+.article-card.thin {
+    margin: 0px 0px 24px 0px;
+}
+.article-card.thin .article-date-in-card {
+    font-size: 12px;
+}
+.article-card.thin .article-tags {
+    margin: 0;
+}
+
+.article-card .article-link:hover {
+    cursor: pointer;
+}
+
+.article-card .article-link .article-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #505050;
+}
+.article-card .article-link .article-title.thin {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.article-card .article-link:hover .article-title {
+    text-decoration: underline;
+}
+.article-card .article-link:hover .article-date-in-card,
+.article-card .article-link:hover .article-title,
+.article-card .article-link:hover .article-description {
+    color: #808080;
+}
+.article-description {
+    /* 6行表示し、残りは ... で隠す. ベンダープレフィックスがあるが主要ブラウザの最新版は各対応 */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height:76px; /* line-clamp 非対応のブラウザでも全文が表示されるのを避ける */
+    color: #606060;
+}
+.article-card-flex {
+    display: flex;
+}
+
+.article-card-left, .article-card-right {
+    display:block;
+    margin: 0;
+    padding: 0;
+}
+
+.article-card-right {
+    padding-left: 12px;
+}

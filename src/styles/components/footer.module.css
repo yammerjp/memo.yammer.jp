@@ -1,0 +1,21 @@
+.footer {
+    font-size: 14px;
+    color: #505050;
+    margin-top: auto;
+    margin-bottom: 0;
+    background-color: #a3d7ff;
+    background-image: url(data:image/svg+xml;charset=utf8;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjEzNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Zz48dGl0bGU+YmFja2dyb3VuZDwvdGl0bGU+PHJlY3QgZmlsbD0iI2ZmZiIgaWQ9ImNhbnZhc19iYWNrZ3JvdW5kIiBoZWlnaHQ9IjEzOCIgd2lkdGg9IjgwMiIgeT0iLTEiIHg9Ii0xIi8+PGcgZGlzcGxheT0ibm9uZSIgaWQ9ImNhbnZhc0dyaWQiPjxyZWN0IGZpbGw9InVybCgjZ3JpZHBhdHRlcm4pIiBzdHJva2Utd2lkdGg9IjAiIHk9IjAiIHg9IjAiIGhlaWdodD0iMTAwJSIgd2lkdGg9IjEwMCUiIGlkPSJzdmdfMSIvPjwvZz48L2c+PGc+PHRpdGxlPkxheWVyIDE8L3RpdGxlPjxyZWN0IHN0cm9rZT0iIzAwMCIgeD0iLjU4ODI0IiBpZD0ic3ZnXzEyIiBoZWlnaHQ9Ijc4IiB3aWR0aD0iODAwIiB5PSI2NiIgc3Ryb2tlLW9wYWNpdHk9Im51bGwiIHN0cm9rZS13aWR0aD0iMCIgZmlsbD0iI2EzZDdmZiIvPjxlbGxpcHNlIHJ5PSIxMDMiIHJ4PSIyMzEiIGlkPSJzdmdfNiIgY3k9IjI4LjQ1MzEzIiBjeD0iMjA4LjUiIHN0cm9rZS13aWR0aD0iMCIgc3Ryb2tlPSIjMDAwIiBmaWxsPSIjZmZmIi8+PGVsbGlwc2Ugcnk9IjEwMyIgcng9IjIzMSIgaWQ9InN2Z18xMCIgY3k9IjEwNC40NTMxMyIgY3g9IjYzNy41IiBzdHJva2Utd2lkdGg9IjAiIGZpbGw9IiNhM2Q3ZmYiLz48L2c+PC9zdmc+);
+    width: 100%;
+    background-size: 100%;
+    /* background-position: bottom; にすると, safari において横幅が大きいときに1pxくらい下に隙間が表示されるバグを回避するために-1pxずらしている*/
+    background-position: 0 -1px;
+    background-repeat: no-repeat;
+}
+
+.footerInner {
+    display: block;
+    text-align: right;
+    padding: 60px 12px 24px 12px;
+    max-width: 800px;
+    margin: 0 auto;
+}
