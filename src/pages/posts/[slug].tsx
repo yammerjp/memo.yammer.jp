@@ -26,6 +26,7 @@ const Post = (props: Props) => {
           ogImage={props.post.ogImage || ''}
           ogType="article"
         />
+        <link rel="stylesheet" href="/assets/article.css"></link>
     </Head>
     <Frame>
       <>
