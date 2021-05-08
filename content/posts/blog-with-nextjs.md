@@ -1,1 +1,2 @@
-COMMITIS2021-05-07T22:09:42+09:00,545389ec3daae80dcb89b7be0d97be29805bc65d,記事投稿: 「ブログをNext.jsに置き換える」
+COMMITIS2021-05-08T19:42:24+09:00,0cddc9de95d06d985b70762310c42e37abefb887,Fix: タグ名を整理 (大文字小文字の統一など)
+COMMITIS2021-05-07T22:09:42+09:00,89a4fee32cb15873c56338636f2d4cfb3ea4a31b,Post: 「ブログをNext.jsに置き換える」
