@@ -1,7 +1,7 @@
 ---
 title: "ブログをNext.jsに置き換える"
 date: "2021-05-07T22:07:57+09:00"
-tags: [ "Next.js", "JavaScript", "TypeScript", "blog" ]
+tags: [ "Next.js", "JavaScript", "TypeScript", "ブログ" ]
 ---
 
 ゴールデンウィーク明けの平日、いかがお過ごしだろうか。

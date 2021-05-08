@@ -1,5 +1,5 @@
 ---
-title: macOSでの各種設定を自動化するdefaultsコマンド
+title: "macOSでの各種設定を自動化するdefaultsコマンド"
 date: "2020-04-13T21:57:37+09:00"
 tags: [ "macOS", "Shell", "dotfiles", "plist" ]
 ---

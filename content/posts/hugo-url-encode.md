@@ -1,7 +1,7 @@
 ---
 title: "HugoでURLをパーセントエンコード (CloudinaryでOGP画像生成)"
 date: "2020-12-26T20:52:36+09:00"
-tags: [ "hugo", "blog" ]
+tags: [ "Hugo", "ブログ" ]
 ---
 
 Hugo で Cloudinary[^1] を用いた OGP 画像生成のため日本語を URL に埋め込みたい。

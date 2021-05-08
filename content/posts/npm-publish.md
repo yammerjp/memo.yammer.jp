@@ -1,7 +1,7 @@
 ---
-title: npm publishの手順
+title: "npm publishの手順"
 date: "2020-05-21T15:40:14+09:00"
-tags: [ "JavaScript" ]
+tags: [ "JavaScript", "npm" ]
 ---
 
 npm (Node Package Manager) とは、Node.js におけるパッケージ管理ツールである。

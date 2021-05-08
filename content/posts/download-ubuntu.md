@@ -1,5 +1,5 @@
 ---
-title: UbuntuをダウンロードしてInstallする
+title: "Ubuntuをダウンロードしてインストールする"
 date: "2020-03-21T23:18:47+09:00"
 tags: [ "Linux", "Ubuntu" ]
 ---
