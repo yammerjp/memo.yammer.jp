@@ -34,4 +34,4 @@ $ open http://localhost:3000
 - `Delete: 記事/機能の削除内容`
 - `Rename: 何を改名したか`
 - `Move: 何を移動したか`
-- `Change` 何を交換したか`
+- `Change: 何を交換したか`

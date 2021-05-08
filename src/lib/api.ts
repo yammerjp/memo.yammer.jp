@@ -51,9 +51,9 @@ async function getPostHistoryByDirectoryAndSlug(rootDir: string, relativeDir: st
   if (process.env.NODE_ENV === 'development') {
     return historyWithGit;
   }
-  const historyWithFile = await waitRandomTime5s().then(() => axios.get(`https://raw.githubusercontent.com/basd4g/memo.basd4g.net/gh-pages/${relativeDir}/${realSlug}.md`)).then(res=>gitLog2postHistory(res.data)).catch(()=>[])
-  console.log(`https://raw.githubusercontent.com/basd4g/memo.basd4g.net/gh-pages/${relativeDir}/${realSlug}.md`)
-  // const historyWithFile = await fs.readFile(join(rootDir, '.gitlogs', relativeDir, `${realSlug}.md`), 'utf8').then(gitLog2postHistory).catch(()=>[]);
+  const url = `https://raw.githubusercontent.com/basd4g/memo.basd4g.net/gh-pages/gitlogs/${relativeDir}/${realSlug}.md`
+  const historyWithFile = await waitRandomTime5s().then(() => axios.get(url)).then(res=>gitLog2postHistory(res.data)).catch(()=>[])
+  console.log(`fetched from ${url}`)
   const historyWithFileAvailable = historyWithFile.filter(eF=> !historyWithGit.find(eG => eF.hash === eG.hash))
   return [...historyWithGit, ...historyWithFileAvailable].sort((a,b) => a.date > b.date ? 1 : -1)
 }

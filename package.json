@@ -5,7 +5,11 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "build:gh-pages-tags": "rm -rf gh-pages/tags/articleTags.json && mkdir -p gh-pages/tags && node bin/articleTags.js",
+    "build:gh-pages-words": "rm -rf gh-pages/tags/articleWords.json && mkdir -p gh-pages/tags  && node bin/articleWords.js",
+    "build:gh-pages-gitlogs": "rm -rf gh-pages/gitlogs && mkdir -p gh-pages/content/posts && bash bin/gitlogs.sh",
+    "build:gh-pages": "npm run build:gh-pages-gitlogs && npm run build:gh-pages-tags && npm run build:gh-pages-words"
   },
   "dependencies": {
     "@types/axios": "^0.14.0",
@@ -14,6 +18,7 @@
     "classnames": "2.2.6",
     "date-fns": "2.10.0",
     "gray-matter": "4.0.2",
+    "kuromoji": "^0.1.2",
     "next": "latest",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
