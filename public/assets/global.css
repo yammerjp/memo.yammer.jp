@@ -286,8 +286,14 @@ hr {
     background-color: #ffffff;
     border: 1px solid #eeeeee;
 }
-.article-tags-selector .article-tag.unselected:hover {
-    background-color: #f7f7f7;
+
+@media (pointer: fine) {
+    .article-tags-selector .article-tag.unselected:hover {
+        background-color: #f7f7f7;
+    }
+    .article-tags-selector .article-tag.selected:hover {
+        background-color: #f2f2f2;
+    }
 
 }
 
