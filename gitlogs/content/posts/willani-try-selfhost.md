@@ -1,3 +1,4 @@
+COMMITIS2021-05-11T01:29:01+09:00,ae9f8434d6a5080d5cbadf9002485d663bda2d54,Update: ドメインをmemo.basd4g.net -> memo.yammer.jp に変更
 COMMITIS2021-05-08T19:42:24+09:00,0cddc9de95d06d985b70762310c42e37abefb887,Fix: タグ名を整理 (大文字小文字の統一など)
 COMMITIS2021-05-05T19:47:55+09:00,1741da28aa87b809153d2c6799f500b28fc236a8,注釈内の改行を削除してremark-footnoteで正しく変換されるよう修正
 COMMITIS2021-05-04T13:21:45+09:00,24ebe74a7fc3098f4815f0a10e55b197a5db5a47,Fix markdown directory
