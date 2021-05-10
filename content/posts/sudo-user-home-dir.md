@@ -12,9 +12,9 @@ bash において, ログインユーザ名やホームディレクトリは環�
 
 ```sh
 $ echo "$USER"
-basd4g
+yammerjp
 $ echo "$HOME"
-/home/basd4g
+/home/yammerjp
 ```
 
 しかしながら, sudo で実行される場合, これらは root のものとして扱われてしまう.
@@ -34,7 +34,7 @@ $ echo 'echo "$HOME"' | sudo bash
 $ echo 'echo "$SUDO_USER"' | bash
 
 $ echo 'echo "$SUDO_USER"' | sudo bash
-basd4g
+yammerjp
 ```
 
 さらに特定のユーザ名のホームディレクトリもこれを使って求められる.
@@ -46,11 +46,11 @@ echo ${SUDO_USER:-$USER}
 getent passwd ${SUDO_USER:-$USER} | cut -d: -f6
 
 $ bash username.sh
-basd4g
-/home/basd4g
+yammerjp
+/home/yammerjp
 $ sudo bash username.sh
-basd4g
-/home/basd4g
+yammerjp
+/home/yammerjp
 ```
 
 ## 何故 `getent passwd ${SUDO_USER:-$USER} | cut -d: -f6` で得られるのか

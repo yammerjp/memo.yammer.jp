@@ -51,7 +51,7 @@ async function getPostHistoryByDirectoryAndSlug(rootDir: string, relativeDir: st
   if (process.env.NODE_ENV === 'development') {
     return historyWithGit;
   }
-  const url = `https://raw.githubusercontent.com/basd4g/memo.basd4g.net/gh-pages/gitlogs/${relativeDir}/${realSlug}.md`
+  const url = `https://raw.githubusercontent.com/yammerjp/blog.yammer.jp/gh-pages/gitlogs/${relativeDir}/${realSlug}.md`
   const historyWithFile = await waitRandomTime5s().then(() => axios.get(url)).then(res=>gitLog2postHistory(res.data)).catch(()=>[])
   console.log(`fetched from ${url}`)
   const historyWithFileAvailable = historyWithFile.filter(eF=> !historyWithGit.find(eG => eF.hash === eG.hash))

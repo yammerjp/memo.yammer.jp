@@ -46,15 +46,15 @@ Pro Microはコンスルーを使って組み立て、交換できるように�
 
 1. まず基板のランドの片方を温めて半田をつける
 
-![基板のランドの片方を温めて半田をつける](https://blob.basd4g.net/powerboard1.jpg)
+![基板のランドの片方を温めて半田をつける](https://blob.yammer.jp/powerboard1.jpg)
 
 2. 先程つけた半田を溶かして部品の片方を固定する
 
-![部品の片方を固定する](https://blob.basd4g.net/powerboard2.jpg)
+![部品の片方を固定する](https://blob.yammer.jp/powerboard2.jpg)
 
 3. まだ半田を流していない側の端子とランドを温めて半田をつける
 
-![部品を完全に固定する](https://blob.basd4g.net/powerboard3.jpg)
+![部品を完全に固定する](https://blob.yammer.jp/powerboard3.jpg)
 
 コンデンサは極性がないのでどちら向きにつけてもよい。
 
@@ -65,7 +65,7 @@ Pro Microはコンスルーを使って組み立て、交換できるように�
 
 組み立てると次のようになる。
 
-![表面実装部品を組み立てた電池基板](https://blob.basd4g.net/powerboard4.jpg)
+![表面実装部品を組み立てた電池基板](https://blob.yammer.jp/powerboard4.jpg)
 
 #### 2.2. 電池固定用ホルダーの取り付け
 
@@ -74,17 +74,17 @@ Pro Microはコンスルーを使って組み立て、交換できるように�
 それがダイソーのコードホルダー。
 これの左右を切り落として、コの字のパーツを作り、折り曲げる。
 
-![ダイソーのコードホルダーを加工する](https://blob.basd4g.net/powerboard5.jpg)
+![ダイソーのコードホルダーを加工する](https://blob.yammer.jp/powerboard5.jpg)
 
 次に、完成時に電池と基板を挟み込むように、基板の電池を固定するのと反対側の面に、金具を金具に付属の粘着テープで固定する。
 
-![コードホルダーと基板を結線する](https://blob.basd4g.net/powerboard7.jpg)
+![コードホルダーと基板を結線する](https://blob.yammer.jp/powerboard7.jpg)
 
 そのあと、基板のホールと金具をスズメッキ線で結線する。
 
 最後に電池を取り付けてテスターで3Vが得られることを確認したら、全体をビニールテープで絶縁する。
 
-![ビニールテープで絶縁する](https://blob.basd4g.net/powerboard8.jpg)
+![ビニールテープで絶縁する](https://blob.yammer.jp/powerboard8.jpg)
 
 ### 3. BLE Micro Pro の組み立て
 
@@ -94,7 +94,7 @@ BLE Micro Pro にコンスルーを取り付ける。はんだ付けの必要は
 
 最後に BLE Micro Pro を Lily58 に刺して完成。
 
-![Bluetooth対応の組み立てが完了したLily58 Pro](https://blob.basd4g.net/lily58proble.jpg)
+![Bluetooth対応の組み立てが完了したLily58 Pro](https://blob.yammer.jp/lily58proble.jpg)
 
 ### 4. ファームウェアの書き込み
 

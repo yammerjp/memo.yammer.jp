@@ -6,7 +6,7 @@ tags: [ "自作キーボード" ]
 
 先月に申し込んだ Planck Keyboard が届いたので組み立てた。
 
-![planck keyboard](https://blob.basd4g.net/planck-keyboard.jpg)
+![planck keyboard](https://blob.yammer.jp/planck-keyboard.jpg)
 
 ## Planck Keyboard とは
 
@@ -29,7 +29,7 @@ tags: [ "自作キーボード" ]
 
 キットにはキースイッチとキーキャップが付属しないので別途購入した。
 
-![購入したもの](https://blob.basd4g.net/planck-keyboard-and-parts.jpg)
+![購入したもの](https://blob.yammer.jp/planck-keyboard-and-parts.jpg)
 
 今回購入したものは以下。
 
@@ -101,10 +101,10 @@ Planck Keyboard は組み立ても簡単で、作りもしっかりしている�
 尊師スタイル[^5]で使うために、短い USB ケーブルも合わせて買った。
 Planck Keyboard にはキーボード裏に貼る滑り止めの足が付属するが、これを貼らずに裏面が平らなまま Mac の 内蔵キーボード上に載せると、載せた上の Planck Keyboard をタイプしても内蔵キーボードは反応しないで使える。
 
-前年に [Lily58 というキーボードを作って](https://memo.basd4g.net/posts/lily58-pro-build-log/)からというもの、row-staggered[^6] なキーボードに違和感を感じるようになって、持ち運びのしやすい格子配列のキーボードを欲していた。
+前年に [Lily58 というキーボードを作って](https://memo.yammer.jp/posts/lily58-pro-build-log/)からというもの、row-staggered[^6] なキーボードに違和感を感じるようになって、持ち運びのしやすい格子配列のキーボードを欲していた。
 Planck Keyboard を手に入れたおかげで気軽にこたつにキーボードを持ち込むことが出来て、こたつ PC 時間が捗りそう。
 
-![Macの上に置いたPlanck Keyboard](https://blob.basd4g.net/planck-on-macbook.jpg)
+![Macの上に置いたPlanck Keyboard](https://blob.yammer.jp/planck-on-macbook.jpg)
 
 ## 参考
 

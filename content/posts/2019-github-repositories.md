@@ -24,7 +24,7 @@ tags: [ "日記" ]
 githubのAPIを用いて、curlでリポジトリ情報を取得する。
 
 ```sh
-$ curl -u basd4g "https://api.github.com/users/basd4g/repos?per_page=100&page=1" | grep '"name": "' | awk -F '"' '{print $4}' > repos.txt
+$ curl -u yammerjp "https://api.github.com/users/yammerjp/repos?per_page=100&page=1" | grep '"name": "' | awk -F '"' '{print $4}' > repos.txt
 ```
 
 参考: [GitHubのリポジトリを一覧化する（public/private両対応）- Qiita](https://qiita.com/emergent/items/a557246a0c0bf9d50a11)
@@ -32,16 +32,16 @@ $ curl -u basd4g "https://api.github.com/users/basd4g/repos?per_page=100&page=1"
 
 ## リポジトリ一覧 (2019/12/31現在)
 
-私([basd4g](https://github.com/basd4g))のgithub上にあるpublicリポジトリは31個。
+私([yammerjp](https://github.com/yammerjp))のgithub上にあるpublicリポジトリは31個。
 まともにGitHubを使い始めてから1年ほどというのもあり、すべて2019年に1コミット以上しているので、これらを振り返る。
 
 ### 純粋な個人趣味開発 
 
-- [c-sharp-socket](https://github.com/basd4g/c-sharp-socket)
+- [c-sharp-socket](https://github.com/yammerjp/c-sharp-socket)
 
 友人からの質問をきっかけにC#でソケット通信をしてみた、サンプルコード的なリポジトリ。
 
-- [text2pdf](https://github.com/basd4g/text2pdf)
+- [text2pdf](https://github.com/yammerjp/text2pdf)
 
 textデータをPDFファイルに出力できるアプリケーション。
 2019年1月に、3日間で勢いで作った。実用で使うというより、プロモーションが中心だったので、表示自体は非常に簡素。
@@ -53,7 +53,7 @@ PDFを開く環境による見た目の差異を検証したりすることが�
 
 もし文字データを手っ取り早くPDFにしたいのであれば、[md-to-pdf](https://dev.classmethod.jp/tool/md-to-pdf/)がおすすめ。[GitHub風CSSを当てる](https://dev.classmethod.jp/tool/md-to-pdf)と結構いい感じになる。
 
-- [PlayQueue](https://github.com/basd4g/playqueue)
+- [PlayQueue](https://github.com/yammerjp/playqueue)
 
 Youtubeを連続再生するWebアプリケーション。
 2018年末から断続的に開発している。
@@ -61,7 +61,7 @@ Youtubeを連続再生するWebアプリケーション。
 
 ### 大学の授業に関係した開発
 
-- [TuringMachineOnWeb](https://github.com/basd4g/turingmachineonweb)
+- [TuringMachineOnWeb](https://github.com/yammerjp/turingmachineonweb)
 
 2019年1月制作。
 チューリング機械の状態遷移表を作成するエディタと、作成した状態遷移表を検証するシュミレータを作った。
@@ -70,12 +70,12 @@ Youtubeを連続再生するWebアプリケーション。
 
 UIは簡素だけれど、当時やりたかったことは達成させられたので満足。
 
-- [clustering.AI.2019.SU](https://github.com/basd4g/clustering.ai.2019.su)
+- [clustering.AI.2019.SU](https://github.com/yammerjp/clustering.ai.2019.su)
 
 ウォード法による階層的クラスタリングを扱ったレポートを書くために使ったスクリプト。
 
-- [pl0i](https://github.com/basd4g/pl0i)
-- [pl0i.js](https://github.com/basd4g/pl0i.js)
+- [pl0i](https://github.com/yammerjp/pl0i)
+- [pl0i.js](https://github.com/yammerjp/pl0i.js)
 
 pl0 interpreterという仮想マシンと、TypeScriptによる再実装(未完)
 
@@ -89,32 +89,32 @@ TypeScriptで書いていたときは、最終的にブラウザでメモリの�
 
 夏インターンでNuxt.jsとTypeScriptを扱うと聞いたので、その準備としてそれらの勉強のために書籍やWebサイトを参考にサンプルアプリを作って動かしてみたリポジトリ群
 
-- [ts-nuxt-tutorial](https://github.com/basd4g/ts-nuxt-tutorial)
-- [green-turtle-org](https://github.com/basd4g/green-turtle-org)
-- [Typescript-tutorial1](https://github.com/basd4g/typescript-tutorial1)
-- [Typescript-tutorial2](https://github.com/basd4g/typescript-tutorial2)
-- [chapter02-qiita-post.nuxt-tutorial](https://github.com/basd4g/chapter02-qiita-post.nuxt-tutorial)
-- [chapter03-01-layout.nuxt-tutorial](https://github.com/basd4g/chapter03-01-layout.nuxt-tutorial)
-- [chapter03-02-middleware.nuxt-tutorial](https://github.com/basd4g/chapter03-02-middleware.nuxt-tutorial)
+- [ts-nuxt-tutorial](https://github.com/yammerjp/ts-nuxt-tutorial)
+- [green-turtle-org](https://github.com/yammerjp/green-turtle-org)
+- [Typescript-tutorial1](https://github.com/yammerjp/typescript-tutorial1)
+- [Typescript-tutorial2](https://github.com/yammerjp/typescript-tutorial2)
+- [chapter02-qiita-post.nuxt-tutorial](https://github.com/yammerjp/chapter02-qiita-post.nuxt-tutorial)
+- [chapter03-01-layout.nuxt-tutorial](https://github.com/yammerjp/chapter03-01-layout.nuxt-tutorial)
+- [chapter03-02-middleware.nuxt-tutorial](https://github.com/yammerjp/chapter03-02-middleware.nuxt-tutorial)
 
 #### 夏インターン
 
 夏インターンのハッカソンで制作したWebアプリケーション。PHP製。
 
-- [oshushume.20190807](https://github.com/basd4g/oshushume.20190807)
+- [oshushume.20190807](https://github.com/yammerjp/oshushume.20190807)
 
 #### 夏インターン後
 
 夏インターンで扱ったNuxt.jsを生かして何かをしようと作っていたアプリケーションとその残骸。
 
-- [green-turtle (ブログのソースコード)](https://github.com/basd4g/green-turtle)
-- [nuxt.ts-blog](https://github.com/basd4g/nuxt.ts-blog)
-- [nuxt.ts-blog.org](https://github.com/basd4g/nuxt.ts-blog.org)
-- [nuxt.ts-template](https://github.com/basd4g/nuxt.ts-template)
-- [nuxt.ts-template.org](https://github.com/basd4g/nuxt.ts-template.org)
+- [green-turtle (ブログのソースコード)](https://github.com/yammerjp/green-turtle)
+- [nuxt.ts-blog](https://github.com/yammerjp/nuxt.ts-blog)
+- [nuxt.ts-blog.org](https://github.com/yammerjp/nuxt.ts-blog.org)
+- [nuxt.ts-template](https://github.com/yammerjp/nuxt.ts-template)
+- [nuxt.ts-template.org](https://github.com/yammerjp/nuxt.ts-template.org)
 
 最終的にこのブログとして形にして動いている。
-(2020/05/19補足: [memo.basd4g.net](https://memo.basd4g.net)ではなく[Green Turtle](https://blog.yammer.fun))
+(2020/05/19補足: [memo.yammer.jp](https://memo.yammer.jp)ではなく[Green Turtle](https://blog.yammer.fun))
 
 このブログ([Green Turtle](https://blog.yammer.fun))のしくみは以下のようになっている。
 
@@ -145,14 +145,14 @@ masterにmergeすることで記事公開。
 
 ### Swift ( チーム開発でのiphoneアプリ製作 )
 
-- [ios-animals.enpit.2019.SU](https://github.com/basd4g/ios-animals.enpit.2019.SU)
-- [ios-mymap.enpit.2019.SU](https://github.com/basd4g/ios-mymap.enpit.2019.SU)
-- [ios-photo-viewer.enpit.2019.SU](https://github.com/basd4g/ios-photo-viewer.enpit.2019.SU)
-- [ios-sample-calcurator.enpit.2019.SU](https://github.com/basd4g/ios-sample-calcurator.enpit.2019.SU)
-- [ios-timer.enpit.2019.SU](https://github.com/basd4g/ios-timer.enpit.2019.SU)
-- [PinsOfMap](https://github.com/basd4g/PinsOfMap)
-- <strike>[lovelab.heroku](https://github.com/basd4g/lovelab.heroku)</strike>(2020/05/19追記: 現在の名前は[lovelab-api](https://github.com/basd4g/lovelab-api))
-- [lovelab.vue](https://github.com/basd4g/lovelab.vue)
+- [ios-animals.enpit.2019.SU](https://github.com/yammerjp/ios-animals.enpit.2019.SU)
+- [ios-mymap.enpit.2019.SU](https://github.com/yammerjp/ios-mymap.enpit.2019.SU)
+- [ios-photo-viewer.enpit.2019.SU](https://github.com/yammerjp/ios-photo-viewer.enpit.2019.SU)
+- [ios-sample-calcurator.enpit.2019.SU](https://github.com/yammerjp/ios-sample-calcurator.enpit.2019.SU)
+- [ios-timer.enpit.2019.SU](https://github.com/yammerjp/ios-timer.enpit.2019.SU)
+- [PinsOfMap](https://github.com/yammerjp/PinsOfMap)
+- <strike>[lovelab.heroku](https://github.com/yammerjp/lovelab.heroku)</strike>(2020/05/19追記: 現在の名前は[lovelab-api](https://github.com/yammerjp/lovelab-api))
+- [lovelab.vue](https://github.com/yammerjp/lovelab.vue)
 
 9月から、学生どうしでチームを組むiPhoneアプリケーションの開発に関わっている。
 
@@ -166,9 +166,9 @@ masterにmergeすることで記事公開。
 
 ### rails (冬インターン)
 
-- [bbs.rb](https://github.com/basd4g/bbs.rb)
-- [rails-tutorial](https://github.com/basd4g/rails-tutorial)
-- [rails-tutorial-toy_app](https://github.com/basd4g/rails-tutorial-toy_app)
+- [bbs.rb](https://github.com/yammerjp/bbs.rb)
+- [rails-tutorial](https://github.com/yammerjp/rails-tutorial)
+- [rails-tutorial-toy_app](https://github.com/yammerjp/rails-tutorial-toy_app)
 
 冬インターンで
 

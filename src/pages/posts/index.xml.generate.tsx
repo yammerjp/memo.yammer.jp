@@ -23,20 +23,20 @@ export const getStaticProps = async () => {
 
   let buf = `<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
 <channel>
-<title>Posts on memo.basd4g.net</title>
-<link>https://memo.basd4g.net/posts/</link>
-<description>Recent content in Posts on memo.basd4g.net</description>
-<generator>memo.basd4g.net with Next.js (https://github.com/basd4g/memo.basd4g.net)</generator>
+<title>Posts on memo.yammer.jp</title>
+<link>https://memo.yammer.jp/posts/</link>
+<description>Recent content in Posts on memo.yammer.jp</description>
+<generator>memo.yammer.jp with Next.js (https://github.com/yammerjp/memo.yammer.jp)</generator>
 <language>ja</language>
 <copyright>©2021 Keisuke Nakayama</copyright>
 <lastBuildDate>${new Date()}
 </lastBuildDate>
-<atom:link href="https://memo.basd4g.net/posts/index.xml" rel="self" type="application/rss+xml"/>
+<atom:link href="https://memo.yammer.jp/posts/index.xml" rel="self" type="application/rss+xml"/>
 `;
 
   for (const post of allPosts) {
       const title = post.title
-      const link = 'https://memo.basd4g.net/posts/' + post.slug
+      const link = 'https://memo.yammer.jp/posts/' + post.slug
       const guid = link;
       const description = post.html
       const date = post.date

@@ -29,7 +29,7 @@ draft: true
 これらの役割を、他層との関係とともに説明する。
 参考として、TCP/IPプロトコルの階層モデルを示す。
 
-![OSI参照モデルとTCP/IP階層モデル](https://blob.basd4g.net/tcp-udp-tcpip-protocol-stack.png)
+![OSI参照モデルとTCP/IP階層モデル](https://blob.yammer.jp/tcp-udp-tcpip-protocol-stack.png)
 
 ### 1. End-to-End の通信を実現すること。
 

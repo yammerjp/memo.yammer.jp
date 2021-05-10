@@ -11,9 +11,9 @@ const PrivacyPolicy = ({post}: {post:PostType}) => {
   return (
     <>
     <Head>
-        <title>memo.basd4g.net - 常に完成形</title>
+        <title>memo.yammer.jp - 常に完成形</title>
         <Ogp
-          title='プライバシーポリシー - memo.basd4g.net'
+          title='プライバシーポリシー - memo.yammer.jp'
           path="/posts/privacy-policy"
           description={post.description || ''}
           ogImage={post.ogImage || ''}

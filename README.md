@@ -1,14 +1,14 @@
-# memo.basd4g.net
+# memo.yammer.jp
 
 日々のインプットを整理するためのブログのリポジトリ with Next.js
 
-[memo.basd4g.net](https://memo.basd4g.net)
+[memo.yammer.jp](https://memo.yammer.jp)
 
 ## Setup
 
 ```sh
-$ git clone https://github.com/basd4g/memo.basd4g.net.git
-$ cd memo.basd4g.net
+$ git clone https://github.com/yammerjp/memo.yammer.jp.git
+$ cd memo.yammer.jp
 $ npm i
 $ npm run dev &
 $ open http://localhost:3000
@@ -21,7 +21,7 @@ $ open http://localhost:3000
 
 ## Commit Message
 
-[d2c19257b81842583cd561b5e2fba6365ace7b57](https://github.com/basd4g/memo.basd4g.net/commit/d2c19257b81842583cd561b5e2fba6365ace7b57) より、各記事のWebページ上にgitのコミットメッセージを記載するようにしたので、コミットメッセージは日本語で記載することとする。
+[d2c19257b81842583cd561b5e2fba6365ace7b57](https://github.com/yammerjp/memo.yammer.jp/commit/d2c19257b81842583cd561b5e2fba6365ace7b57) より、各記事のWebページ上にgitのコミットメッセージを記載するようにしたので、コミットメッセージは日本語で記載することとする。
 
 次のようなスタイルを基本とする。
 

@@ -4,13 +4,13 @@ date: "2020-12-23T23:29:00+09:00"
 ---
 
 こんにちは、やんまーといいます。
-情報工学を専攻している学生で、Web アプリケーションの開発職で働こうとしている者です。
+2021年3月に大学を卒業し、2021年4月からWebアプリケーションの開発職で働いています。
 
 このブログはコンピュータに関する作業記録を中心に記事を載せています。
 
-- Website: [basd4g.net](https://basd4g.net)
-- Twitter: [@basd4g](https://twitter.com/basd4g)
-- GitHub: [@basd4g](https://github.com/basd4g)
+- Website: [yammer.jp](https://yammer.jp)
+- Twitter: [@yammerjp](https://twitter.com/yammerjp)
+- GitHub: [@yammerjp](https://github.com/yammerjp)
 - はてなブログ: [id:basd4g](https://basd4g.hatenablog.com)
 - Qiita: [@basd4g](https://qiita.com/basd4g)
 

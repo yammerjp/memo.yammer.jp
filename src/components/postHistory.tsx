@@ -8,7 +8,7 @@ const PostHistory = ({history}: {history: PostHistoryType | undefined}) => {
       {
         history.sort((a,b) => a.date > b.date ? 1:-1 ).map(({date, hash, message}) => (
           <div key={hash}>
-            <a href={"https://github.com/basd4g/memo.basd4g.net/commit/" + hash} target="_blanck">
+            <a href={"https://github.com/yammerjp/memo.yammer.jp/commit/" + hash} target="_blanck">
                 {iso8601toDisplayStr(date)}
             </a>
             ...

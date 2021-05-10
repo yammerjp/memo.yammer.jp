@@ -18,9 +18,9 @@ const Post = (props: Props) => {
   return (
     <>
     <Head>
-        <title>{props.post.title} - memo.basd4g.net</title>
+        <title>{props.post.title} - memo.yammer.jp</title>
         <Ogp
-          title={props.post.title + ' - memo.basd4g.net'}
+          title={props.post.title + ' - memo.yammer.jp'}
           path={"/posts/" + props.post.slug}
           description={props.post.description || ''}
           ogImage={props.post.ogImage || ''}

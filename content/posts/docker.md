@@ -113,15 +113,15 @@ $ docker image inspect --format="{{ .Os }}" ubuntu:latest
 $ docker image inspect --format="{{ .ContainerConfig.Image }}" ubuntu:latest
 
 # docker image にタグ付け
-$ docker image tag nginx basd4g/nginxserver:1.0
+$ docker image tag nginx yammerjp/nginxserver:1.0
 
 # docker hub上のimage(この場合はnginx)を検索
 $ docker search nginx 
 # Option: --no-trunc .. 結果をすべて表示,  --limit n .. n件の検索結果, --filter=stars=n .. star数下限による絞り込み
 
-$ docker image rm [--force(-f) --no-prun] basd4g/nginxserver
+$ docker image rm [--force(-f) --no-prun] yammerjp/nginxserver
 # --force .. -f , --no-prune .. 中間イメージを削除しない
-# basd4g/nginxserver ... REPOSITORYではなくIMAGE IDでも良い
+# yammerjp/nginxserver ... REPOSITORYではなくIMAGE IDでも良い
 
 $ docker image prune [--all(-a) --force(-f)]
 # 未使用のdocker imageを削除
@@ -130,16 +130,16 @@ $ docker image prune [--all(-a) --force(-f)]
 ## docker image のpush
 
 ```
-$ docker login -u basd4g -p xxx
-$ docker image push basd4g/nginxserver:1.0
+$ docker login -u yammerjp -p xxx
+$ docker image push yammerjp/nginxserver:1.0
 $ docker logout
 ```
 
 ## docker container run
 
 ```
-$ docker container run [ option ] basd4g/nginxserver
-$ docker run [ option ] basd4g/nginxserver # containerは省略可能
+$ docker container run [ option ] yammerjp/nginxserver
+$ docker run [ option ] yammerjp/nginxserver # containerは省略可能
 $ docker run -it --name "test1" ubuntu /bin/bash
 $ docker run -d -p 8080:80 nginx
 $ docker run -d --dns 8.8.8.8 nginx
@@ -187,7 +187,7 @@ $docker run -id --add-host test.com:192.168.0.1 ubuntu
 
 ```
 $ docker run --cpu-shares=512 --memory=1g ubuntu
-$ docker run -v /Users/basd4g/webap:/usr/share/nginx/html nginx
+$ docker run -v /Users/yammerjp/webap:/usr/share/nginx/html nginx
 ```
 
 ## docker network

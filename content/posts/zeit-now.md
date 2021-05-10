@@ -119,6 +119,6 @@ $ now alias https://hogehoge-hogehoge.now.sh hogehoge.example.com
 
 ## おわりに
 
-以上の手順と同様の作業で公開したリポジトリ: [blog.yammer.fun - GitHub basd4g](https://github.com/basd4g/blog.yammer.fun)
+以上の手順と同様の作業で公開したリポジトリ: [blog.yammer.fun - GitHub yammerjp](https://github.com/yammerjp/blog.yammer.fun)
 
 古いブログのURLをリダイレクトさせるために使った。

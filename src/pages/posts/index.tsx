@@ -14,9 +14,9 @@ const Index = ({ allPosts }: Props) => {
   return (
     <>
     <Head>
-        <title>memo.basd4g.net - 常に完成形</title>
-        <Ogp title="memo.basd4g.net" path="/" description="常に完成形" ogImage={
-          'https://res.cloudinary.com/basd4g/image/upload/co_rgb:505050,l_text:Sawarabi%20Gothic_64_align_center:memo.basd4g.net,w_800,c_fit/v1608780036/memo-basd4g-net-ogp.png'
+        <title>memo.yammer.jp - 常に完成形</title>
+        <Ogp title="memo.yammer.jp" path="/" description="常に完成形" ogImage={
+          'https://res.cloudinary.com/basd4g/image/upload/co_rgb:505050,l_text:Sawarabi%20Gothic_64_align_center:memo.yammer.jp,w_800,c_fit/v1608780036/memo-yammerjp-net-ogp.png'
         } ogType="website"/>
     </Head>
     <Frame titleIsH1={true}>

@@ -4,7 +4,7 @@ date: "2020-05-02T16:26:00+09:00"
 tags: [ "macOS", "plist" ]
 ---
 
-Mac OS XのUser Defaultsを変更するためのシェルスクリプトを作るツール [pdef](https://github.com/basd4g/pdef)を制作した。(解説記事: [Macの設定を自動化するdefaultsコマンドと、それを助けるpdef](/posts/pdef/))
+Mac OS XのUser Defaultsを変更するためのシェルスクリプトを作るツール [pdef](https://github.com/yammerjp/pdef)を制作した。(解説記事: [Macの設定を自動化するdefaultsコマンドと、それを助けるpdef](/posts/pdef/))
 
 これを作る際にProperty listについて学んだことを記す。
 
@@ -207,7 +207,7 @@ date型を書き込むときは、`Mon Apr 20 20:52:00 2020 JST`のような形�
 
 ## plistファイルを読み書きする際の、Swiftでの実装
 
-今回作成した[pdef](https://github.com/basd4g/pdef)において、Swiftでplistを扱う際に肝になった部分を実装を交えて紹介する。
+今回作成した[pdef](https://github.com/yammerjp/pdef)において、Swiftでplistを扱う際に肝になった部分を実装を交えて紹介する。
 
 ちなみにPythonでは[plistlib](https://docs.python.org/ja/3/library/plistlib.html)が使えるようだ。
 
@@ -220,7 +220,7 @@ plistファイルをSwiftの変数として扱えるように取り込むのは�
 (ただし[ハマりどころ](#defaults)に注意)
 
 ```swift
-// https://github.com/basd4g/pdef/blob/516f0215306b6ca206ebad646190ba74bd5d4b17/src/loadFile.swift
+// https://github.com/yammerjp/pdef/blob/516f0215306b6ca206ebad646190ba74bd5d4b17/src/loadFile.swift
 // 以上より一部抜粋
 
 import Foundation
@@ -240,7 +240,7 @@ pdefをSwiftで実装したのはplistを扱うのが楽だろうからという
 型がわかればキャストできるので、その後Swiftで扱うのが楽になる。
 
 ```swift
-// https://github.com/basd4g/pdef/blob/516f0215306b6ca206ebad646190ba74bd5d4b17/src/plist.swift
+// https://github.com/yammerjp/pdef/blob/516f0215306b6ca206ebad646190ba74bd5d4b17/src/plist.swift
 // 以上より一部抜粋、書き換え
 
 import Foundation
@@ -293,7 +293,7 @@ func GetPlistType(value: Any) -> PlistType {
 Swiftでplistを扱うための情報を集めるのに時間がかかったので、まとめる記事を書くに至った。
 
 この記事は[Macの設定を自動化するdefaultsコマンドと、それを助けるpdef](/posts/pdef/)(pdefの紹介記事)の余談と補足として作った。
-ここまでの内容を実装して作った、User Defaults書き換えを支援するツールである[pdef](https://github.com/basd4g/pdef)も興味があれば使ってみてほしい。
+ここまでの内容を実装して作った、User Defaults書き換えを支援するツールである[pdef](https://github.com/yammerjp/pdef)も興味があれば使ってみてほしい。
 
 User DefaultsだけでなくProperty listをSwiftで扱う際に、どこから手をつけてよいかわからない人が概要を掴むのにこの記事が役立てば幸いだ。
 

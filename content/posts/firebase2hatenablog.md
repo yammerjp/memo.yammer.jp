@@ -13,7 +13,7 @@ tags: [ "はてなブログ" ]
 1. はてなブログCLI gimonfu による記事管理
 2. Zeit Nowを使った旧ドメインの転送処理
 
-## 1. [gimonfu](https://github.com/basd4g/gimonfu) による記事管理
+## 1. [gimonfu](https://github.com/yammerjp/gimonfu) による記事管理
 
 はてなブログは Markdown で記事を作成でき、これが乗り換える後押しになった。
 
@@ -35,7 +35,7 @@ blogsync では、記事本文のみを標準入力で CLI に渡すが、 gimon
 
 現にこのブログも、新規投稿時にファイルを追加して GitHub に push すれば、自動的にはてなブログも更新されるようにしてある。 (逆にはてなブログが更新されたらGitHub にも反映されるワークフローも設定している。)
 
-gimonfu の使い方の詳細は [README](https://github.com/basd4g/gimonfu) に譲るが、[このブログのワークフロー](https://github.com/basd4g/basd4g.hatenablog.com/tree/master/.github/workflows)と同じものを GitHub Actions に指定すれば、記事管理がとても捗ると思うので是非活用して欲しい。
+gimonfu の使い方の詳細は [README](https://github.com/yammerjp/gimonfu) に譲るが、[このブログのワークフロー](https://github.com/yammerjp/basd4g.hatenablog.com/tree/master/.github/workflows)と同じものを GitHub Actions に指定すれば、記事管理がとても捗ると思うので是非活用して欲しい。
 
 ## 2. Zeit now を使った旧ドメインの転送処理
 

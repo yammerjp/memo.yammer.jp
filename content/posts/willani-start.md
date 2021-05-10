@@ -4,7 +4,7 @@ date: "2020-05-25T01:02:52+09:00"
 tags: [ "コンパイラ", "willani", "日記", "C" ]
 ---
 
-数日前からCコンパイラを書き始めた。([GitHub](https://github.com/basd4g/willani))
+数日前からCコンパイラを書き始めた。([GitHub](https://github.com/yammerjp/willani))
 
 植山類さんのオンラインブック、[低レイヤを知りたい人のためのCコンパイラ作成入門](https://www.sigbus.info/compilerbook)を読みながら、概ね本の内容に沿って進めている。
 自分の書いたコンパイラで自身をコンパイルするセルフホストを目指している。

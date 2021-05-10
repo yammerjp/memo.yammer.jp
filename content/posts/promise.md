@@ -14,7 +14,7 @@ JavaScript といえば非同期処理はつきものだが、非同期や Promi
 
 Promise はよくわからないという方や、一度挫折した方などにぜひ読んでもらいたい。
 
-(2020/05/30補足: [Qiita投稿](https://qiita.com/basd4g/items/b1c96de727a53c4b4698)に合わせて全体を修正済み。([旧版](https://github.com/basd4g/memo.basd4g.net/blob/979b5576e05cb97e453b5cd3731e3802a0dc6fca/content/posts/promise.md)))
+(2020/05/30補足: [Qiita投稿](https://qiita.com/yammerjp/items/b1c96de727a53c4b4698)に合わせて全体を修正済み。([旧版](https://github.com/yammerjp/memo.yammer.jp/blob/979b5576e05cb97e453b5cd3731e3802a0dc6fca/content/posts/promise.md)))
 
 ## 対象読者
 

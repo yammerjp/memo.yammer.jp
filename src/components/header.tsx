@@ -10,11 +10,11 @@ const Header = ({ titleIsH1 }: { titleIsH1?: boolean }) => {
                     {
                         titleIsH1 ? (
                             <h1 className="header-title">
-                                <Link href="/">memo.basd4g.net</Link>
+                                <Link href="/">memo.yammer.jp</Link>
                             </h1>
                         ) : (
                             <div className="header-title">
-                                <Link href="/">memo.basd4g.net</Link>
+                                <Link href="/">memo.yammer.jp</Link>
                             </div>
                         )
                     }
@@ -42,25 +42,25 @@ const Header = ({ titleIsH1 }: { titleIsH1?: boolean }) => {
                               onMouseLeave={()=>setNavDescription('')}
                             />
                         </Link>
-                        <a href="https://github.com/basd4g" target="_blank">
+                        <a href="https://github.com/yammerjp" target="_blank">
                             <img
                               className="header-nav-icon"
                               src="/assets/github.svg"
-                              alt="GitHub (@basd4g)"
+                              alt="GitHub (@yammerjp)"
                               onMouseOver={()=>setNavDescription('GitHubをひらく (新しいタブ)')}
                               onMouseLeave={()=>setNavDescription('')}
                             />
                         </a>
-                        <a href="https://twitter.com/basd4g" target="_blank">
+                        <a href="https://twitter.com/yammerjp" target="_blank">
                             <img
                               className="header-nav-icon"
                               src="/assets/twitter.svg"
-                              alt="Twitter (@basd4g)"
+                              alt="Twitter (@yammerjp)"
                               onMouseOver={()=>setNavDescription('Twitterをひらく (新しいタブ)')}
                               onMouseLeave={()=>setNavDescription('')}
                             />
                         </a>
-                        <a href="https://basd4g.net" target="_blank">
+                        <a href="https://yammer.jp" target="_blank">
                             <img
                               className="header-nav-icon"
                               src="/assets/home.svg"

@@ -5,7 +5,7 @@ date: "2021-01-27T11:43:00+09:00"
 
 ```html
   <img
-    src="https://blob.basd4g.net/gather_fishes.jpg"
+    src="https://blob.yammer.jp/gather_fishes.jpg"
     style="clip-path:url(#bezier-curve-circle); width:300px;"
   />
   <svg>
@@ -27,7 +27,7 @@ HTML で上記のように記述すると下記のように丸っぽく画像を
 ---
 
  <img
-    src="https://blob.basd4g.net/gather_fishes.jpg"
+    src="https://blob.yammer.jp/gather_fishes.jpg"
     style="clip-path:url(#bezier-curve-circle); width:300px;"
   />
   <svg>

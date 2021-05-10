@@ -4,7 +4,7 @@ date: "2020-08-14T01:55:25+09:00"
 tags: [ "自作キーボード", "Lily58" ]
 ---
 
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">毎月一回、自作キーボードが作りたくなってカートに商品を入れるまでやる。あと一歩のところで踏みとどまる。</p>&mdash; けーすけ@やんまー (@basd4g) <a href="https://twitter.com/basd4g/status/1284673759593418752?ref_src=twsrc%5Etfw">July 19, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">毎月一回、自作キーボードが作りたくなってカートに商品を入れるまでやる。あと一歩のところで踏みとどまる。</p>&mdash; けーすけ@やんまー (@yammerjp) <a href="https://twitter.com/yammerjp/status/1284673759593418752?ref_src=twsrc%5Etfw">July 19, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 数ヶ月前から、自作キーボードが気になっていたのだが、ついに手を出してしまった。
 
@@ -168,20 +168,20 @@ $ sudo make lily58:default:avrdude
 次の手順でファームウェアを書き込む。
 
 ```sh
-# basd4g と名付けた自分用キーマップを作る
+# yammerjp と名付けた自分用キーマップを作る
 
-$ cp -r keyboards/lily58/keymaps/default keyboards/lily58/keymaps/basd4g
-$ vim keyboards/lily58/keymaps/basd4g/keymap.c
+$ cp -r keyboards/lily58/keymaps/default keyboards/lily58/keymaps/yammerjp
+$ vim keyboards/lily58/keymaps/yammerjp/keymap.c
 # キーマップを書き換える
 
-$ sudo make lily58:basd4g:avrdude
+$ sudo make lily58:yammerjp:avrdude
 # 次のような表示が出てきたら, キーボードのリセットボタンを押す
 # Detecting USB port, reset your controller now...
 # 同様の手順で左右のマイコンに同じファームウェアを書き込む
 # 左手のUSBコネクタにケーブルを, 左右のTPRS端子に4極ケーブルを刺す
 ```
 
-私が現在設定している[キーマップは次の通り](https://github.com/basd4g/qmk_firmware/blob/master/keyboards/lily58/keymaps/basd4g/keymap.c)。
+私が現在設定している[キーマップは次の通り](https://github.com/yammerjp/qmk_firmware/blob/master/keyboards/lily58/keymaps/yammerjp/keymap.c)。
 
 記事の前半で60%のキーボードが良いと言っておきながら、ホームポジションから離れた上段1列は無効化している(2020/08/05現在)。
 まだ慣れていないので使いやすいかどうかはまだ不明だが、慣れたら便利そうな気がしている。

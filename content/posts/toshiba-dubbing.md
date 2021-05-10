@@ -81,23 +81,23 @@ RDService は 21, 5500-5509 ポートを利用するので, 既に利用して�
 
 リモコンで「スタートメニュー」を押し, 「かんたんにダビングする」を選ぶ.
 
-![スタートメニュー画面](https://blob.basd4g.net/toshiba-dubbing-1.jpg)
+![スタートメニュー画面](https://blob.yammer.jp/toshiba-dubbing-1.jpg)
 
 次にダビング方向の選択. 「HDD から」「LAN へ」を選ぶ.
 
-![ダビング方向の選択画面](https://blob.basd4g.net/toshiba-dubbing-2.jpg)
+![ダビング方向の選択画面](https://blob.yammer.jp/toshiba-dubbing-2.jpg)
 
 次にネットワーク機器選択をする. 「RDService」「HDD」を選ぶ.
 
-![ネットワーク機器選択画面](https://blob.basd4g.net/toshiba-dubbing-3.jpg)
+![ネットワーク機器選択画面](https://blob.yammer.jp/toshiba-dubbing-3.jpg)
 
 ダビングする動画を選ぶ.
 
-![パーツ選択画面](https://blob.basd4g.net/toshiba-dubbing-4.jpg)
+![パーツ選択画面](https://blob.yammer.jp/toshiba-dubbing-4.jpg)
 
 ダビング開始.
 
-![実行確認画面](https://blob.basd4g.net/toshiba-dubbing-5.jpg)
+![実行確認画面](https://blob.yammer.jp/toshiba-dubbing-5.jpg)
 
 ### 5. 待つ
 

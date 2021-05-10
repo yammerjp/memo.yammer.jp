@@ -24,7 +24,7 @@ C言語のコンパイラを自作に関する今日の日記。
 
 ## 構造体のアライメント
 
-[willani](https://github.com/basd4g/willani) での今日行ったアライメントの実装は[このあたり](https://github.com/basd4g/willani/commit/ae1d68f94211c6c510ea2247abcde7386ffd25c8)。実装内容は前回の記事([C言語の構造体メンバのアライメント (x86_64, Linux (System V ABI))](posts/willani-struct-alignment))で説明している。
+[willani](https://github.com/yammerjp/willani) での今日行ったアライメントの実装は[このあたり](https://github.com/yammerjp/willani/commit/ae1d68f94211c6c510ea2247abcde7386ffd25c8)。実装内容は前回の記事([C言語の構造体メンバのアライメント (x86_64, Linux (System V ABI))](posts/willani-struct-alignment))で説明している。
 
 セルフホストをしようとしているがうまくいかないファイルが結構ある。
 構造体のアライメントを実装するきっかけは色々なファイルを第一世代コンパイラに流しているときに出てきた問題からである。
@@ -106,4 +106,4 @@ init メンバはふつう1文を表す1つの node で、next メンバに値�
 `src/codegen.c` の実装バグで、for 文の init メンバの next メンバが指すノードを出力していなかったことで、構造体のメンバを表す変数のアドレスを初期価値として渡すコードがコンパイル時に含まれていなかったらしい。
 
 わかってしまえば数行で解決できるバグだった。
-([コミット](https://github.com/basd4g/willani/commit/7af9e76cadd338e85e41974e257e498819a59756))
+([コミット](https://github.com/yammerjp/willani/commit/7af9e76cadd338e85e41974e257e498819a59756))

@@ -11,9 +11,9 @@ const About = ({post}: {post:PostType}) => {
   return (
     <>
     <Head>
-        <title>memo.basd4g.net - 常に完成形</title>
+        <title>memo.yammer.jp - 常に完成形</title>
         <Ogp
-          title='About - memo.basd4g.net'
+          title='About - memo.yammer.jp'
           path="/posts/about"
           description={post.description || ''}
           ogImage={post.ogImage || ''}

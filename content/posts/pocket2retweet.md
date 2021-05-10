@@ -20,7 +20,7 @@ PC で Twitter を見るときは大体 [TweetDeck](https://tweetdeck.twitter.co
 
 ## 作ったもの
 
-作ったものはこちら: [pocket2retweet - GitHub](https://github.com/basd4g/pocket2retweet)
+作ったものはこちら: [pocket2retweet - GitHub](https://github.com/yammerjp/pocket2retweet)
 
 対象のユーザとツイートを [Pocket](https://getpocket.com) に記録し、あとからバッチ処理するようにした。
 

@@ -4,7 +4,7 @@ date: "2020-04-13T21:57:37+09:00"
 tags: [ "macOS", "Shell", "dotfiles", "plist" ]
 ---
 
-研究室や就職先などでのコンピュータのセットアップのために、3月頃から[dotfiles](https://github.com/basd4g/dotfiles)を構築している。
+研究室や就職先などでのコンピュータのセットアップのために、3月頃から[dotfiles](https://github.com/yammerjp/dotfiles)を構築している。
 
 その流れでdefaultsコマンドを知ったので、その記録と使い方、調べ方を残しておく。。
 
@@ -14,7 +14,7 @@ macOSにおける環境設定や各アプリケーションの設定は.plist拡
 このプロパティリストを読み書きするためにmacOSに標準で搭載されているのがdefaultsコマンドである。
 (詳細は`$ man defaults`してください。)
 
-これを利用して、OS全体の環境設定やアプリケーションの設定を自動化するスクリプトをつくっている。([実際に作ったスクリプト - basd4g/dotfiles - GitHub](https://github.com/basd4g/dotfiles/blob/master/bin/macos-defaults.sh))
+これを利用して、OS全体の環境設定やアプリケーションの設定を自動化するスクリプトをつくっている。([実際に作ったスクリプト - yammerjp/dotfiles - GitHub](https://github.com/yammerjp/dotfiles/blob/master/bin/macos-defaults.sh))
 
 今回はこのスクリプトを構築するための話。
 
@@ -102,7 +102,7 @@ $ diff before after
 
 GUIで設定する前後のプロパティリストを比較する。
 
-![プロパティリストを読み込むスクリーンショット](https://blob.basd4g.net/macos-defaults-read.gif)
+![プロパティリストを読み込むスクリーンショット](https://blob.yammer.jp/macos-defaults-read.gif)
 
 ```sh
 $ defaults read > before
@@ -168,7 +168,7 @@ killall SystemUIServer
 
 実際に試してみると、反映されていることがわかる。
 
-![プロパティリストに書き込むスクリーンショット](https://blob.basd4g.net/macos-defaults-write.gif)
+![プロパティリストに書き込むスクリーンショット](https://blob.yammer.jp/macos-defaults-write.gif)
 
 ## なぜdefaultsコマンドを使うのか
 
@@ -186,7 +186,7 @@ PCで新しく環境構築する際に、シェルスクリプトにまとまっ
 たとえば、私は[ShiftIt](https://github.com/fikovnik/ShiftIt)というアプリケーションを使っている。
 このアプリケーションで使うキーバインドはGUI上から設定するのだが、自分がどんな設定をしているのかをコードとして記録できるのは、再設定だけでなく今後のなんらかのキーバインド設定の参考にもなる。
 
-参考: [私の現在のShiftItのキーバインド設定](https://github.com/basd4g/dotfiles/blob/master/bin/shiftit-init.sh)
+参考: [私の現在のShiftItのキーバインド設定](https://github.com/yammerjp/dotfiles/blob/master/bin/shiftit-init.sh)
 
 ### デメリット
 

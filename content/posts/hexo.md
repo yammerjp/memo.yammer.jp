@@ -14,8 +14,8 @@ markdown形式の記事を静的サイトに簡単に公開できる。
 
 ```sh
 $ npm install hexo-cli
-$ npx hexo init ../memo.basd4g.net 
-$ cd ../memo.basd4g.net
+$ npx hexo init ../memo.yammer.jp 
+$ cd ../memo.yammer.jp
 $ npm install
 $ hexo server
 # ローカルでサイトの確認
@@ -25,7 +25,7 @@ $ hexo server
 
 設定は基本的に`_config.yml`に書き込む。
 
-例えば、このサイトの[`_config.yml`](https://github.com/basd4g/memo.basd4g.net/blob/master/_config.yml)が一例。
+例えば、このサイトの[`_config.yml`](https://github.com/yammerjp/memo.yammer.jp/blob/master/_config.yml)が一例。
 
 ### テーマの導入
 
@@ -61,10 +61,10 @@ date: "2020-03-16 11:22:00"
 
 ## About Me
 
-basd4gの雑多なメモ。
+yammerjpの雑多なメモ。
 
-- twitter: [@basd4g](https://twitter.com/basd4g)
-- GitHub: [@basd4g](https://github.com/basd4g) 
+- twitter: [@yammerjp](https://twitter.com/yammerjp)
+- GitHub: [@yammerjp](https://github.com/yammerjp) 
 - [blog](https://blog.yammer.fun)
 
 ```

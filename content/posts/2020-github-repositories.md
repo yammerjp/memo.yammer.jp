@@ -42,8 +42,8 @@ gh repos | grep '2020' > repos.txt
 
 ### lovelab-api
 
-- [basd4g/lovelab-api](https://github.com/basd4g/lovelab-api) : API server of lovelab with express.js
-- [basd4g/lovelab-batch](https://github.com/basd4g/lovelab-batch) : Batch server of lovelab with node.js
+- [yammerjp/lovelab-api](https://github.com/yammerjp/lovelab-api) : API server of lovelab with express.js
+- [yammerjp/lovelab-batch](https://github.com/yammerjp/lovelab-batch) : Batch server of lovelab with node.js
 
 2019年10月から2020年1月にかけての iPhone アプリを開発する演習授業に合わせて作った、TypeScript 製の API サーバ。
 データベースを使ったサーバサイドアプリケーションを一人で作ったのは初めてで、サーバ内でどのような処理をしているか、また REST API とはどのようなものかなどの全体を知ることができた。
@@ -77,8 +77,8 @@ Firebase Realtime Database も 全体を1つの JSON として扱うシンプル
 
 ### dotfiles
 
-- [basd4g/dotfiles](https://github.com/basd4g/dotfiles) : my .vimrc, .zshrc, and so on...
-- [basd4g/dot.basd4g.net](https://github.com/basd4g/dot.basd4g.net) : HTTP redirect server to download shell script to initialize dotfiles
+- [yammerjp/dotfiles](https://github.com/yammerjp/dotfiles) : my .vimrc, .zshrc, and so on...
+- [yammerjp/dot.yammer.jp](https://github.com/yammerjp/dot.yammer.jp) : HTTP redirect server to download shell script to initialize dotfiles
 
 2020年は私が dotfiles に入門した年でもあった。
 
@@ -100,8 +100,8 @@ dotfiles を始めてよかったのはシェルに親しめたことだ。
 
 ### pdef
 
-- [basd4g/pdef](https://github.com/basd4g/pdef) : Patch script generator of Mac OS X User Defaults
-- [basd4g/homebrew-tap](https://github.com/basd4g/homebrew-tap) : basd4g's collection of Homebrew (aka, Brew) "formulae"
+- [yammerjp/pdef](https://github.com/yammerjp/pdef) : Patch script generator of Mac OS X User Defaults
+- [yammerjp/homebrew-tap](https://github.com/yammerjp/homebrew-tap) : yammerjp's collection of Homebrew (aka, Brew) "formulae"
 
 dotfiles の開発にあわせて、macOS の設定を保持する UserDefaults をシェルから書き換えたくなって作ったツール。
 詳細は当時のブログ記事に書いている。
@@ -110,11 +110,11 @@ dotfiles の開発にあわせて、macOS の設定を保持する UserDefaults 
 [Macの設定を自動化するdefaultsコマンドと、それを助けるpdef](/posts/pdef/)
 / [(余談) User Defaultsとproperty list(plist)](/posts/plist/)
 
-### memo.basd4g.net
+### memo.yammer.jp
 
-- [basd4g/memo.basd4g.net](https://github.com/basd4g/memo.basd4g.net) : my memos. https://memo.basd4g.net/
+- [yammerjp/memo.yammer.jp](https://github.com/yammerjp/memo.yammer.jp) : my memos. https://memo.yammer.jp/
 
-このブログ ([memo.basd4g.net](https://memo.basd4g.net)) と個人のページ ([basd4g.net](https://basd4g.net)) を用意したのも 2020年。
+このブログ ([memo.yammer.jp](https://memo.yammer.jp)) と個人のページ ([yammer.jp](https://yammer.jp)) を用意したのも 2020年。
 
 このブログは[やんまーのブログ](https://basd4g.hatenablog.com)とは別にメモや作業記録を雑に投稿するために作ったのに、使い分けが出来ておらず完全に迷走している。
 でも記事を書くハードルが下がったのはとても良くて「とりあえず雑に投稿しておくか」と自分で思える。
@@ -122,33 +122,33 @@ dotfiles の開発にあわせて、macOS の設定を保持する UserDefaults 
 Hugo で出来ていて、最近デザインの変更と OGP 対応をした。
 拡張したい機能がいくつかあるのでそのために来年は勉強も兼ねて Hugo から Next.js に置き換えたい。
 
-### basd4g.net
+### yammer.jp
 
-- [basd4g/basd4g.github.io](https://github.com/basd4g/basd4g.github.io) : A web page including links for my SNS and Web sites
-- [basd4g/rss-republish.basd4g.net](https://github.com/basd4g/rss-republish.basd4g.net) : Republish RSS feeds with Vercel
+- [yammerjp/yammerjp.github.io](https://github.com/yammerjp/yammerjp.github.io) : A web page including links for my SNS and Web sites
+- [yammerjp/rss-republish.yammer.jp](https://github.com/yammerjp/rss-republish.yammer.jp) : Republish RSS feeds with Vercel
 
-[個人のページ](https://basd4g.net)。
+[個人のページ](https://yammer.jp)。
 最初は linktree[^5] を真似して SNS のユーザページのリンクなどを含む HTML と CSS だけのページをおいていた。
 最近作り変えて自己紹介と記事の一覧も表示している。
 
 ### はてなブログ
 
-- [basd4g/gimonfu](https://github.com/basd4g/gimonfu) : Manage hatena-blog articles
-- [basd4g/basd4g.hatenablog.com](https://github.com/basd4g/basd4g.hatenablog.com) : Hatenablog articles
-- [basd4g/blog.yammer.fun](https://github.com/basd4g/blog.yammer.fun) : Redirect old blog to new blog
-- [basd4g/hatenablog-post](https://github.com/basd4g/hatenablog-post) : Post article of markdown file to hatena-blog.
+- [yammerjp/gimonfu](https://github.com/yammerjp/gimonfu) : Manage hatena-blog articles
+- [yammerjp/yammerjp.hatenablog.com](https://github.com/yammerjp/yammerjp.hatenablog.com) : Hatenablog articles
+- [yammerjp/blog.yammer.fun](https://github.com/yammerjp/blog.yammer.fun) : Redirect old blog to new blog
+- [yammerjp/hatenablog-post](https://github.com/yammerjp/hatenablog-post) : Post article of markdown file to hatena-blog.
 
 去年 Nuxt.js で作ったブログをはてなブログに移行した。
-移行にあたって、画像を AWS S3 に移したり、旧ドメインをリダイレクトしたり (basd4g/blog.yammer.fun)、はてなブログの記事管理 CLI (basd4g/gimonfu)を作ったりした。
+移行にあたって、画像を AWS S3 に移したり、旧ドメインをリダイレクトしたり (yammerjp/blog.yammer.fun)、はてなブログの記事管理 CLI (yammerjp/gimonfu)を作ったりした。
 
 最初は一括投稿のために hatenablog-post という CLI ツールを作ったが、それ以外の機能も欲しくなって gimonfu という CLI ツールに発展した。
 gimonfu は初めて npm publish したが、インターネット上のどこかで使ってくれている人がいるようで嬉しい。
 
-書いた記事: [gimonfu で、はてなブログの記事を GitHub と同期する - Qiita](https://qiita.com/basd4g/items/1a38857f6bafb20f065d)
+書いた記事: [gimonfu で、はてなブログの記事を GitHub と同期する - Qiita](https://qiita.com/yammerjp/items/1a38857f6bafb20f065d)
 
 ### willani 
 
-- [basd4g/willani](https://github.com/basd4g/willani) : C Compiler
+- [yammerjp/willani](https://github.com/yammerjp/willani) : C Compiler
 
 2020年に一番時間を費やしたのが C コンパイラの willani。
 5月から2ヶ月くらい作って7月半ばに止まっているが、一応コンパイラ自体のセルフホストは達成した。
@@ -166,9 +166,9 @@ gimonfu は初めて npm publish したが、インターネット上のどこ�
 
 ### mopm
 
-- [basd4g/mopm](https://github.com/basd4g/mopm) : Mopm (Manager Of Package Manager) is meta package manager for cross platform environment.
-- [basd4g/mopm-defs](https://github.com/basd4g/mopm-defs) : mopm package definition yaml files
-- [basd4g/mopm-defs-test](https://github.com/basd4g/mopm-defs-test)
+- [yammerjp/mopm](https://github.com/yammerjp/mopm) : Mopm (Manager Of Package Manager) is meta package manager for cross platform environment.
+- [yammerjp/mopm-defs](https://github.com/yammerjp/mopm-defs) : mopm package definition yaml files
+- [yammerjp/mopm-defs-test](https://github.com/yammerjp/mopm-defs-test)
 
 既存のパッケージマネージャに不満を持ったので作り始めたソフトウェアのインストール支援ツール。
 Golang の入門も兼ねて秋に作り始めたが、しばらく進めていくと「これは HomeBrew の劣化版では？」という気がしてきて手が止まっている。
@@ -177,21 +177,21 @@ Golang の入門も兼ねて秋に作り始めたが、しばらく進めてい�
 
 その他。
 
-- [basd4g/regex-visualizer](https://github.com/basd4g/regex-visualizer), [basd4g/regex2dfa](https://github.com/basd4g/regex2dfa) ... 正規表現をグラフで描画するツール
-- [basd4g/pl0i](https://github.com/basd4g/pl0i), [basd4g/cmm](https://github.com/basd4g/pl0i) ... 大学の教科書(コンパイラの講義)で題材とされた言語の拡張
-- [basd4g/competitive-programming](https://github.com/basd4g/competitive-programming) ... 競技プログラミングを解いたときのコードを載せるリポジトリ (全然解いていない)
-- [basd4g/java-design-pattern-multi-thread](https://github.com/basd4g/java-design-pattern-multi-thread) ... 輪講で読んでいた本の実践 (中断)
-- [basd4g/md-prev](https://github.com/basd4g/md-prev), [basd4g/md-server](https://github.com/basd4g/md-server) ... Markdown で書いた記事の確認用アプリケーション
-- [basd4g/kozos](https://github.com/basd4g/kozos) 2019年4月に買い牛歩の歩みで進めている OS 自作、[12ステップで作る組込みOS自作入門](https://www.amazon.co.jp/12%E3%82%B9%E3%83%86%E3%83%83%E3%83%97%E3%81%A7%E4%BD%9C%E3%82%8B%E7%B5%84%E8%BE%BC%E3%81%BFOS%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-%E5%9D%82%E4%BA%95-%E5%BC%98%E4%BA%AE/dp/4877832394)。 やらねば。
-- [basd4g/solar-log](https://github.com/basd4g/solar-log), [basd4g/solar-web](https://github.com/basd4g/solar-web) ... 家庭用太陽光発電システムのロギングと集計用アプリケーション
-- [basd4g/md2hiki](https://github.com/basd4g/md2hiki) ... Markdown 記法の文章を hiki 記法に置換するスクリプト
-- [basd4g/cat](https://github.com/basd4g/cat) ... C 言語で cat コマンドを実装してみる試み
-- basd4g/album-shelf, basd4g/album-shelf.rb, basd4g/rails-micro-blog (プライベートリポジトリ) ... Ruby on Rails と React で画像を管理する Web アプリケーションを作りたかった (中断)
-- [basd4g/ogp-getter](https://github.com/basd4g/ogp-getter) ... OGP の情報を抽出するアプリケーション 
-- [basd4g/armyknife: Shell script snippets](https://github.com/basd4g/armyknife) ... bash製のシェルスクリプトで使えるツール群 (を作る予定)
-- [basd4g/pocket2retweet](https://github.com/basd4g/pocket2retweet) ... Pocket に保存したツイートをリツイートするスクリプト ([ブログ記事](http://localhost:1313/posts/pocket2retweet/))
-- basd4g/keepa (プライベートリポジトリ) ... 日記用のWebアプリケーション ([ブログ記事](https://basd4g.hatenablog.com/entry/2020/12/02/124040)))
-- [basd4g/ryu-http-routing](https://github.com/basd4g/ryu-http-routing) ... 卒論の検証用
+- [yammerjp/regex-visualizer](https://github.com/yammerjp/regex-visualizer), [yammerjp/regex2dfa](https://github.com/yammerjp/regex2dfa) ... 正規表現をグラフで描画するツール
+- [yammerjp/pl0i](https://github.com/yammerjp/pl0i), [yammerjp/cmm](https://github.com/yammerjp/pl0i) ... 大学の教科書(コンパイラの講義)で題材とされた言語の拡張
+- [yammerjp/competitive-programming](https://github.com/yammerjp/competitive-programming) ... 競技プログラミングを解いたときのコードを載せるリポジトリ (全然解いていない)
+- [yammerjp/java-design-pattern-multi-thread](https://github.com/yammerjp/java-design-pattern-multi-thread) ... 輪講で読んでいた本の実践 (中断)
+- [yammerjp/md-prev](https://github.com/yammerjp/md-prev), [yammerjp/md-server](https://github.com/yammerjp/md-server) ... Markdown で書いた記事の確認用アプリケーション
+- [yammerjp/kozos](https://github.com/yammerjp/kozos) 2019年4月に買い牛歩の歩みで進めている OS 自作、[12ステップで作る組込みOS自作入門](https://www.amazon.co.jp/12%E3%82%B9%E3%83%86%E3%83%83%E3%83%97%E3%81%A7%E4%BD%9C%E3%82%8B%E7%B5%84%E8%BE%BC%E3%81%BFOS%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80-%E5%9D%82%E4%BA%95-%E5%BC%98%E4%BA%AE/dp/4877832394)。 やらねば。
+- [yammerjp/solar-log](https://github.com/yammerjp/solar-log), [yammerjp/solar-web](https://github.com/yammerjp/solar-web) ... 家庭用太陽光発電システムのロギングと集計用アプリケーション
+- [yammerjp/md2hiki](https://github.com/yammerjp/md2hiki) ... Markdown 記法の文章を hiki 記法に置換するスクリプト
+- [yammerjp/cat](https://github.com/yammerjp/cat) ... C 言語で cat コマンドを実装してみる試み
+- yammerjp/album-shelf, yammerjp/album-shelf.rb, yammerjp/rails-micro-blog (プライベートリポジトリ) ... Ruby on Rails と React で画像を管理する Web アプリケーションを作りたかった (中断)
+- [yammerjp/ogp-getter](https://github.com/yammerjp/ogp-getter) ... OGP の情報を抽出するアプリケーション 
+- [yammerjp/armyknife: Shell script snippets](https://github.com/yammerjp/armyknife) ... bash製のシェルスクリプトで使えるツール群 (を作る予定)
+- [yammerjp/pocket2retweet](https://github.com/yammerjp/pocket2retweet) ... Pocket に保存したツイートをリツイートするスクリプト ([ブログ記事](http://localhost:1313/posts/pocket2retweet/))
+- yammerjp/keepa (プライベートリポジトリ) ... 日記用のWebアプリケーション ([ブログ記事](https://basd4g.hatenablog.com/entry/2020/12/02/124040)))
+- [yammerjp/ryu-http-routing](https://github.com/yammerjp/ryu-http-routing) ... 卒論の検証用
 
 ...
 
@@ -226,9 +226,9 @@ OSS などの他人の書いたコードを読む機会が全然なくて、ど�
 
 以上。
 
-[^1]: [リポジトリで振り返る2019年 – memo.basd4g.net](/posts/2019-github-repositories/)
+[^1]: [リポジトリで振り返る2019年 – memo.yammer.jp](/posts/2019-github-repositories/)
 [^2]: 去年のように API をcurlで叩くなら、basic 認証ではなくアクセストークンで行う必要がありそう。[Basic認証は廃止されたはず。](https://github.blog/2020-07-30-token-authentication-requirements-for-api-and-git-operations/)
-[^3]: [lovelab-api のドキュメント](https://github.com/basd4g/lovelab-api/blob/master/documents/specification/detail/index.md)
+[^3]: [lovelab-api のドキュメント](https://github.com/yammerjp/lovelab-api/blob/master/documents/specification/detail/index.md)
 [^4]: 結局新型コロナウィルス感染症の影響でリモートになったので研究室のコンピュータをセットアップすることはないまま卒業しそうである。
 [^5]: [linktree](https://linktr.ee) は SNS の自分のページへのリンクなどをまとめて表示する Webページを作成できるサービス。
 [^6]: 自分のメモの中に作りたいアプリケーションのネタ帳があり、そこに書かれた数。

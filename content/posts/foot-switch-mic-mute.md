@@ -2,7 +2,7 @@
 title: "足でマイクのミュートを解除しよう for 在宅勤務"
 date: "2021-04-27T09:41:29+09:00"
 tags: ["macOS", "在宅勤務", "作業環境", "Karabiner-Elements" ]
-ogImage: "https://blob.basd4g.net/foot-switch-mic-mute-irasutoya.png"
+ogImage: "https://blob.yammer.jp/foot-switch-mic-mute-irasutoya.png"
 ---
 
 私はいま、在宅勤務をしている。
@@ -11,7 +11,7 @@ ogImage: "https://blob.basd4g.net/foot-switch-mic-mute-irasutoya.png"
 
 家に左クリックが壊れたマウスが有ったのでこれをフットスイッチ代わりにして、押しているときだけミュート解除するようにしてみた。
 
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">こちら、机の下に置かれた不審なマウスです。 <a href="https://t.co/DWxn3oxcLM">pic.twitter.com/DWxn3oxcLM</a></p>&mdash; やんまー (@basd4g) <a href="https://twitter.com/basd4g/status/1386699716356837380?ref_src=twsrc%5Etfw">April 26, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">こちら、机の下に置かれた不審なマウスです。 <a href="https://t.co/DWxn3oxcLM">pic.twitter.com/DWxn3oxcLM</a></p>&mdash; やんまー (@yammerjp) <a href="https://twitter.com/yammerjp/status/1386699716356837380?ref_src=twsrc%5Etfw">April 26, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 どのように実現しているかは後半の「[つくりかた](#つくりかた)」に書く。
 
@@ -75,7 +75,7 @@ $ osascript -e "tell application \"System Events\" to set volume input volume 10
 今回の仕掛けは、macOS に接続した USB マウスと Karabiner-Elements というソフトウェアから成る。
 __足元に置いたマウスの右クリックを検知し、マウス押下時にミュート解除のシェルコマンドを、押下を止めたときにミュートのシェルコマンドを実行している。__
 
-![マウス押下時にミュートする仕組みの外観図](https://blob.basd4g.net/foot-switch-mic-mute-irasutoya.png)
+![マウス押下時にミュートする仕組みの外観図](https://blob.yammer.jp/foot-switch-mic-mute-irasutoya.png)
 
 <div style="margin-top:0px; text-align:center; width:100%; color: #888888; margin-bottom: 20px;">これは私がいらすとやの画像を使いたかったことを表す図です。</div>
 
@@ -88,10 +88,10 @@ Karabiner-Elementsはもともとキーボードの操作を書き換えるソ�
 
 まず [Karabiner-Elements のサイト](https://karabiner-elements.pqrs.org) からファイルをダウンロードしインストールする。[^1]
 
-![macOS 環境設定のセキュリティとプライバシーの項目で、Karabiner-Elementsによる入力監視を有効化する](https://blob.basd4g.net/foot-switch-mic-mute-security-and-privacy.png)
+![macOS 環境設定のセキュリティとプライバシーの項目で、Karabiner-Elementsによる入力監視を有効化する](https://blob.yammer.jp/foot-switch-mic-mute-security-and-privacy.png)
 
 初回起動すると、macOS のセキュリティ許可などを設定しろだとか再起動しろだとかいわれるはずなので従う。
-以降はログインすると勝手に Karabiner-Elements も起動して、メニューバーに四角形のアイコン (<img src="https://blob.basd4g.net/foot-switch-mic-mute-karabiner-icon.png" style="width:1em; height:1em;" />)が表示されて常駐する。
+以降はログインすると勝手に Karabiner-Elements も起動して、メニューバーに四角形のアイコン (<img src="https://blob.yammer.jp/foot-switch-mic-mute-karabiner-icon.png" style="width:1em; height:1em;" />)が表示されて常駐する。
 
 
 ### 2. デバイスを有効化する
@@ -102,7 +102,7 @@ Karabiner-Elementsはもともとキーボードの操作を書き換えるソ�
 他デバイスのチェックボックスを有効にすると、他デバイスの入力も奪って設定を反映してしまう可能性がある。
 入力を上書きしたいデバイスのみにチェックをいれること。
 
-![Karabiner-ElementsのDevicesタブで、当該のマウスにチェックを入れる](https://blob.basd4g.net/foot-switch-mic-mute-devices.png)
+![Karabiner-ElementsのDevicesタブで、当該のマウスにチェックを入れる](https://blob.yammer.jp/foot-switch-mic-mute-devices.png)
 
 ### 3. 設定ファイルを記述
 
@@ -142,7 +142,7 @@ Karabiner-Elementsはもともとキーボードの操作を書き換えるソ�
 
 右下の「Add rule」を押し、「Unmute/Mute with mouse button down/up」を「Enable」する。
 
-![Karabiner-ElementsのComplex modificationタブで、記述したJSONファイルの項目を読み込む](https://blob.basd4g.net/foot-switch-mic-mute-complex-modifications.png)
+![Karabiner-ElementsのComplex modificationタブで、記述したJSONファイルの項目を読み込む](https://blob.yammer.jp/foot-switch-mic-mute-complex-modifications.png)
 
 <div style="margin-top:5em;"></div>
 
@@ -155,4 +155,4 @@ Karabiner-Elementsはもともとキーボードの操作を書き換えるソ�
 
 [^1]: `$ brew install karabiner-elements`でもインストールできるはず
 [^2]: 今回は手元に壊れかけのマウスが有ったのでこれをスイッチとして使ったが、キーボードなどでも同様のことを実現できるはず。また何も足で押さなくてもよくて、机の上にスイッチがあるとか既存のキーボードにショートカットキーを定義するとかでもよいかもしれない。
-[^3]: 既にマウスに関する Karabiner-Elements の設定が存在する場合は、ぶつからないように、Vendor ID と Product ID をメモして設定に書き込むと良さそう。[参考までに私の設定ファイルはこれ。](https://github.com/basd4g/dotfiles/blob/cf0f3eaa6bce79b984cdcc53a42ed1ea65711f90/.config/karabiner/assets/complex_modifications/mouse_mic_mute.json)
+[^3]: 既にマウスに関する Karabiner-Elements の設定が存在する場合は、ぶつからないように、Vendor ID と Product ID をメモして設定に書き込むと良さそう。[参考までに私の設定ファイルはこれ。](https://github.com/yammerjp/dotfiles/blob/cf0f3eaa6bce79b984cdcc53a42ed1ea65711f90/.config/karabiner/assets/complex_modifications/mouse_mic_mute.json)

@@ -9,5 +9,5 @@ tags: [ "HTTP", "TCP/IP"]
 以下, Ethernet, IPv4, TCP, HTTP を用いたパケットの各フィールドの配置を表した図。
 各フィールドの意味は記載しません。
 
-![TCPパケットの全レイヤを通したフィールドの構成図](https://blob.basd4g.net/tcp-packet-layout.svg)
+![TCPパケットの全レイヤを通したフィールドの構成図](https://blob.yammer.jp/tcp-packet-layout.svg)
 

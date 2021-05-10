@@ -107,7 +107,7 @@ README.md は npm のページにも表示されるので、改めて間違い�
 
 ```sh
 # 間違い
-$ npm install --global basd4g/gimonfu
+$ npm install --global yammerjp/gimonfu
 
 # 正しい
 # npm install --global gimonfu

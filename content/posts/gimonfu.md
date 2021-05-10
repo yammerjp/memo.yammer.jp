@@ -4,13 +4,13 @@ date: "2020-06-14T21:23:06+09:00"
 tags: [ "JavaScript", "はてなブログ", "CI", "GitHub Actions" ]
 ---
 
-ブログをはてなブログに移行するにあたり、記事を管理する CLI [「gimonfu」](https://github.com/basd4g/gimonfu)を作成した。
+ブログをはてなブログに移行するにあたり、記事を管理する CLI [「gimonfu」](https://github.com/yammerjp/gimonfu)を作成した。
 
 本記事では、gimonfu と GitHub Actions を使って、GitHub のリポジトリとはてなブログを連携し、記事を git で管理できるように設定を行う。
 
 記事の内容を設定すれば、Markdown ファイルを GitHub のリポジトリにプッシュするとはてなブログに記事を公開できたり、はてなの Web ページで記事を編集すると、GitHub のリポジトリに自動で反映されてバックアップを取ることができる。
 
-最終的な GitHub Actions の設定は、[私のブログの記事リポジトリ](https://github.com/basd4g/basd4g.hatenablog.com/tree/master/.github/workflows)にある yaml にて確認できる。
+最終的な GitHub Actions の設定は、[私のブログの記事リポジトリ](https://github.com/yammerjp/basd4g.hatenablog.com/tree/master/.github/workflows)にある yaml にて確認できる。
 
 ## もくじ
 
@@ -32,15 +32,15 @@ tags: [ "JavaScript", "はてなブログ", "CI", "GitHub Actions" ]
 
 まずはてなブログの基本設定を開く。
 
-![はてなブログの基本設定を開く](https://blob.basd4g.net/gimonfu-1.png)
+![はてなブログの基本設定を開く](https://blob.yammer.jp/gimonfu-1.png)
 
 下へスクロールし、編集モードを Markdown モードにする。
 
-![編集モードを Markdown モードへ](https://blob.basd4g.net/gimonfu-2.png)
+![編集モードを Markdown モードへ](https://blob.yammer.jp/gimonfu-2.png)
 
 「変更する」ボタンを押して変更を反映する。
 
-![「変更する」ボタンを押して変更を反映する](https://blob.basd4g.net/gimonfu-3.png)
+![「変更する」ボタンを押して変更を反映する](https://blob.yammer.jp/gimonfu-3.png)
 
 (補足: 他のモードでも動作確認はしていないので、もし Markdown 記法以外を利用する場合はご自身で試して欲しい。
 
@@ -50,11 +50,11 @@ tags: [ "JavaScript", "はてなブログ", "CI", "GitHub Actions" ]
 
 まずはてなブログの詳細設定を開く。
 
-![詳細設定へ移動](https://blob.basd4g.net/gimonfu-4.png)
+![詳細設定へ移動](https://blob.yammer.jp/gimonfu-4.png)
 
 下へスクロールし、AtomPubの項目から、ユーザID, ブログID, APIキーを確認する。
 
-![APIキーをメモする](https://blob.basd4g.net/gimonfu-5.png)
+![APIキーをメモする](https://blob.yammer.jp/gimonfu-5.png)
 
 ## 3. GitHub リポジトリを作り、ワークフローに使う Secrets を登録する
 
@@ -66,19 +66,19 @@ tags: [ "JavaScript", "はてなブログ", "CI", "GitHub Actions" ]
 
 まずは、新しいリポジトリを作った後、Settings -> Secrets を開く
 
-![Secrets 登録画面を開く](https://blob.basd4g.net/gimonfu-6.png)
+![Secrets 登録画面を開く](https://blob.yammer.jp/gimonfu-6.png)
 
 ワークフローで使う Name と Value の組み合わせを5組登録する
 
-![Secrets の Name と Value を登録する](https://blob.basd4g.net/gimonfu-7.png)
+![Secrets の Name と Value を登録する](https://blob.yammer.jp/gimonfu-7.png)
 
 登録する内容は次の通り。
-例を参考に自分の文字列に置き換えてほしい。
+例を参考に自分の文字列に置き換えてほしいj
 
 | Name | Value | Value (例) |
 | --- | --- | --- |
 | `HATENA_USER` | 先程確認したはてなブログのユーザID | basd4g
-| `HATENA_BLOG_ID` | 先程確認したはてなブログのブログID | basd4g.hatenablog.com |
+| `HATENA_BLOG_ID` | 先程確認したはてなブログのブログID |basd4g.hatenablog.com |
 | `HATENA_API_KEY` | 先程確認したはてなブログのAPIキー | abcdef0123 |
 | `GIT_NAME` | (ワークフローで自動的に作られるコミットの)自分の名前 | Taro Yamada |
 | `GIT_MAIL` | (ワークフローで自動的に作られるコミットの)自分のメールアドレス | basd4g@example.com |
@@ -89,9 +89,9 @@ tags: [ "JavaScript", "はてなブログ", "CI", "GitHub Actions" ]
 
 ワークフローは GitHub リポジトリのWebページ上からも追加できる。
 
-![新しいワークフローを追加する](https://blob.basd4g.net/gimonfu-8.png)
+![新しいワークフローを追加する](https://blob.yammer.jp/gimonfu-8.png)
 
-![記事をダウンロードするワークフローを追加する](https://blob.basd4g.net/gimonfu-9.png)
+![記事をダウンロードするワークフローを追加する](https://blob.yammer.jp/gimonfu-9.png)
 
 `.github/workflows/pull.yaml` に次の内容を記述する
 
@@ -253,7 +253,7 @@ id: "26006613576772424"
 ブログ記事を Git で管理したいというモチベーションから CLI を作るまでに至った。
 
 GitHub Actions のワークフローを登録しておけば、ローカルに gimonfu をインストールせずに使えるが、インストールして使うこともできる。
-`$ npm install -g gimonfu`でインストールでき、使い方は [README](https://github.com/basd4g/gimonfu) で説明している。
+`$ npm install -g gimonfu`でインストールでき、使い方は [README](https://github.com/yammerjp/gimonfu) で説明している。
 
 ---
 

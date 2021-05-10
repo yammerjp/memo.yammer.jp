@@ -37,5 +37,5 @@ $ echo 'hoge' | (echo 'fuga' | diff /dev/fd/3 -) 3<&0
 
 ---
 
-p.s. 本「[ふつうのLinuxプログラミング](https://www.amazon.co.jp/dp/B075ST51Y5/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1)」を参考に [cat コマンドを作っていて](https://github.com/basd4g/cat)、簡単なテストスクリプトをMakefileに書きたいと思ったところから、このスニペットを必要とした。
+p.s. 本「[ふつうのLinuxプログラミング](https://www.amazon.co.jp/dp/B075ST51Y5/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1)」を参考に [cat コマンドを作っていて](https://github.com/yammerjp/cat)、簡単なテストスクリプトをMakefileに書きたいと思ったところから、このスニペットを必要とした。
 

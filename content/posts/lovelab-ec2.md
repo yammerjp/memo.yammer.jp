@@ -8,7 +8,7 @@ tags: [ "AWS", "Shell" ]
 
 昨冬、チーム開発で ToDo 管理の iPhone アプリ LoveLab を開発していた。
 
-[LoveLab API サーバ](https://github.com/basd4g/lovelab-api)は、docker-composeでまとめられている。
+[LoveLab API サーバ](https://github.com/yammerjp/lovelab-api)は、docker-composeでまとめられている。
 AWS の EC2 上で立ち上げるための手順を以下に示す。
 
 ## EC2 instance作成後の作業
@@ -52,7 +52,7 @@ AWS の EC2 上で立ち上げるための手順を以下に示す。
     fi
     
     echo "Clone source files."
-    git clone https://github.com/basd4g/lovelab.heroku.git
+    git clone https://github.com/yammerjp/lovelab.heroku.git
     cd lovelab.heroku
     git checkout origin/release
     cp .env.example .env

@@ -90,4 +90,4 @@ endif
 
 ## 参考
 
-- [basd4g/dotfiles -GitHub](https://github.com/basd4g/dotfiles)
+- [yammerjp/dotfiles -GitHub](https://github.com/yammerjp/dotfiles)
