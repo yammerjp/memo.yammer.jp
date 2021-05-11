@@ -8,6 +8,7 @@ import TagsSelector from '../components/tagsSelector'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Ogp from '../components/ogp'
+import { OgImageUrlInText } from '../lib/cloudinaryOgp'
 
 type Props = {
   allPosts: PostType[]
@@ -87,9 +88,7 @@ const Index = ({ allPosts }: Props) => {
     <Head>
         <title>memo.yammer.jp - 常に完成形</title>
         <Ogp
-          title="記事をタグで絞り込む - memo.yammer.jp" path="/tags" description="記事をタグで絞り込む" ogImage={
-          'https://res.cloudinary.com/basd4g/image/upload/co_rgb:505050,l_text:Sawarabi%20Gothic_64_align_center:memo.yammer.jp,w_800,c_fit/v1608780036/memo-basd4g-net-ogp.png'
-        } ogType="website"/>
+          title="記事をタグで絞り込む - memo.yammer.jp" path="/tags" description="記事をタグで絞り込む" ogImage={OgImageUrlInText('memo.yammer.jp')} ogType="website"/>
 
     </Head>
     <Frame titleIsH1={true}>

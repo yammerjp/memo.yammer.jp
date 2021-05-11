@@ -4,7 +4,7 @@ import { PostType } from '../../types/post'
 import Frame from '../../components/frame'
 import ArticleCardThin from '../../components/articleCardThin'
 import Ogp from '../../components/ogp'
-import PageSelector from '../../components/pageSelector'
+import { OgImageUrlInText } from '../../lib/cloudinaryOgp'
 
 type Props = {
   allPosts: PostType[]
@@ -15,9 +15,7 @@ const Index = ({ allPosts }: Props) => {
     <>
     <Head>
         <title>memo.yammer.jp - 常に完成形</title>
-        <Ogp title="memo.yammer.jp" path="/" description="常に完成形" ogImage={
-          'https://res.cloudinary.com/basd4g/image/upload/co_rgb:505050,l_text:Sawarabi%20Gothic_64_align_center:memo.yammer.jp,w_800,c_fit/v1608780036/memo-yammerjp-net-ogp.png'
-        } ogType="website"/>
+        <Ogp title="memo.yammer.jp" path="/" description="常に完成形" ogImage={OgImageUrlInText('memo.yammer.jp')} ogType="website"/>
     </Head>
     <Frame titleIsH1={true}>
       <>
