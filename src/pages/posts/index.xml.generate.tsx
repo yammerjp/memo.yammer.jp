@@ -29,7 +29,7 @@ export const getStaticProps = async () => {
 <generator>memo.yammer.jp with Next.js (https://github.com/yammerjp/memo.yammer.jp)</generator>
 <language>ja</language>
 <copyright>©2021 Keisuke Nakayama</copyright>
-<lastBuildDate>${new Date()}
+<lastBuildDate>${new Date().toUTCString()}
 </lastBuildDate>
 <atom:link href="https://memo.yammer.jp/posts/index.xml" rel="self" type="application/rss+xml"/>
 `;
@@ -43,7 +43,7 @@ export const getStaticProps = async () => {
     buf += `<item>
 <title>${xmlEscape(title)}</title>
 <link>${link}</link>
-<pubDate>${new Date(date)}</pubDate>
+<pubDate>${new Date(date).toUTCString()}</pubDate>
 <guid>${guid}</guid>
 <description>${xmlEscape(description)}</description>
 </item>
