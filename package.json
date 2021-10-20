@@ -9,7 +9,8 @@
     "build:gh-pages-tags": "rm -rf gh-pages/tags/articleTags.json && mkdir -p gh-pages/tags && node bin/articleTags.js",
     "build:gh-pages-words": "rm -rf gh-pages/tags/articleWords.json && mkdir -p gh-pages/tags  && node bin/articleWords.js",
     "build:gh-pages-gitlogs": "rm -rf gh-pages/gitlogs && mkdir -p gh-pages/content/posts && bash bin/gitlogs.sh",
-    "build:gh-pages": "npm run build:gh-pages-gitlogs && npm run build:gh-pages-tags && npm run build:gh-pages-words",
+    "build:gh-pages-gitlogs-canary": "rm -rf gh-pages/gitlogs.json &&  mkdir -p gh-pages &&node bin/gitlogs.js",
+    "build:gh-pages": "npm run build:gh-pages-gitlogs && npm run build:gh-pages-tags && npm run build:gh-pages-words && npm run build:gh-pages-gitlogs-canary",
     "test": "jest"
   },
   "dependencies": {
@@ -42,6 +43,7 @@
     "@types/react-dom": "^17.0.8",
     "autoprefixer": "^10.2.6",
     "babel-jest": "^27.3.1",
+    "isomorphic-git": "^1.10.1",
     "jest": "^27.3.1",
     "jest-transform-stub": "^2.0.0",
     "jest-watch-typeahead": "^1.0.0",
