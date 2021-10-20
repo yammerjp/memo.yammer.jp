@@ -9,9 +9,15 @@
 ```sh
 $ git clone https://github.com/yammerjp/memo.yammer.jp.git
 $ cd memo.yammer.jp
-$ npm i
-$ npm run dev &
+$ docker-compose up
 $ open http://localhost:3000
+```
+
+## Development
+
+```sh
+# run test
+$ docker-compose run app npm test
 ```
 
 ## Directory Structure
