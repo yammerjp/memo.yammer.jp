@@ -2,10 +2,9 @@ const git = require('isomorphic-git')
 const path = require('path')
 const fs = require('fs')
 
-async function treeMap(basePath, treeOid, fs, dir) {
-    const tree = await git.readTree({fs, dir, oid: treeOid})
-    const entries = tree.tree
-    const treeMapArray = await Promise.all(entries.map(async entry => {
+async function tree2map(basePath, treeOid, fs, dir) {
+    const treeObject = await git.readTree({fs, dir, oid: treeOid})
+    const mapArr = await Promise.all(treeObject.tree.map(async entry => {
         const entryPath = path.join(basePath, entry.path)
         if (entry.type === 'blob') {
             return [{
@@ -13,76 +12,77 @@ async function treeMap(basePath, treeOid, fs, dir) {
                 'oid': entry.oid
             }]
         } else if (entry.type === 'tree') {
-            return await treeMap(entryPath, entry.oid, fs, dir)
+            return await tree2map(entryPath, entry.oid, fs, dir)
         } else {
             console.log(`skip submodule: ${entryPath}`)
             return []
         }
     }))
-    return treeMapArray.flat()
+    return mapArr.flat()
 }
 
-async function treeKeyValue(treeOid, fs, dir) {
-    const map = await treeMap('.', treeOid, fs, dir)
-    const tree = {};
+async function tree2obj(treeOid, fs, dir) {
+    const map = await tree2map('.', treeOid, fs, dir)
+    const obj = {};
     map.forEach(elm => {
-        tree[elm.path] = elm.oid
+        obj[elm.path] = elm.oid
     })
-    return tree
+    return obj
 }
 
-async function commitTrees() {
+async function commitsWithFiles() {
     const dir = process.cwd()
     const commitObjects = await git.log({fs, dir})
-    const commitBlobMaps = []
+    const ret = []
     // for (c of [commitObjects[0], commitObjects[1]]) {
     for (c of commitObjects) {
-        const commitBlobMap = {
+        ret.push({
             oid: c.oid,
             commit: c.commit,
-            treeKeyAndValue: await treeKeyValue(c.commit.tree, fs, dir)
-        }
-        commitBlobMaps.push(commitBlobMap)
+            files: await tree2obj(c.commit.tree, fs, dir)
+        })
         console.log(c.oid)
     }
-   return commitBlobMaps
+   return ret
+}
+
+async function fileHistories() {
+    const commits = await commitsWithFiles()
+    return Object.keys(commits[0].files).map(relativePath => {
+        return {
+            path: relativePath,
+            history: fileHistory(relativePath, commits)
+        }
+    })
+}
+
+function fileHistory(key, commits) {
+    let lastFileOid = commits[0].files[key];
+    const history = []
+    for (let i = 0; i < commits.length; i++) {
+        const commit = commits[i]
+
+        if (commit.files[key] === undefined) {
+            break
+        }
+
+        if(commit.files[key] !== lastFileOid || i === commits.length - 1 || commits[i+1].files[key] === undefined) {
+            history.push({
+                oid: commit.oid,
+                timestamp: commit.commit.committer.timestamp,
+                message: commit.commit.message
+            })
+            lastFileOid = commit.files[key]
+        }
+    }
+    return history
 }
 
 async function main() {
-    const cTrees = await commitTrees()
-    const latestTree = cTrees[0].treeKeyAndValue
-    const keys = Object.keys(latestTree)
-    const fileHistories = keys.map(key => {
-        let lastSHA = null
-        let lastCTree = null
-        const commitsThatMatter = []
-        for (const [index, cTree] of cTrees.entries()) {
-            if (cTree.treeKeyAndValue[key] != undefined) {
-                if(cTree.treeKeyAndValue[key] !== lastSHA || index === cTrees.length - 1) {
-                    if (lastSHA != null) commitsThatMatter.push({
-                        oid: cTree.oid,
-                        timestamp: cTree.commit.committer.timestamp,
-                        message: cTree.commit.message
-                    })
-                    lastSHA = cTree.treeKeyAndValue[key]
-                }
-            } else {
-                commitsThatMatter.push({
-                    oid: lastCTree.oid,
-                    timestamp: lastCTree.commit.committer.timestamp,
-                    message: lastCTree.commit.message
-                })
-                break
-            }
-            lastCTree = cTree
-        }
-        return {
-            path: key,
-            history: commitsThatMatter
-        }
-    })
+    const histories = await fileHistories()
     console.log('start writing')
-    await fs.promises.writeFile('gh-pages/gitlogs.json', JSON.stringify(fileHistories))
+    // TODO: 最新のcommit hashを含んだpathにjsonを吐き出す
+    await fs.promises.writeFile('gh-pages/gitlogs.json', JSON.stringify(histories))
     console.log('written')
 }
 
