@@ -18,7 +18,7 @@ export const getStaticProps = async () => {
     'date',
     'slug',
     'tags',
-    'html',
+    'description',
   ]))
 
   let buf = `<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
@@ -38,7 +38,7 @@ export const getStaticProps = async () => {
       const title = post.title
       const link = 'https://memo.yammer.jp/posts/' + post.slug
       const guid = link;
-      const description = post.html
+      const description = post.description
       const date = post.date
     buf += `<item>
 <title>${xmlEscape(title)}</title>
