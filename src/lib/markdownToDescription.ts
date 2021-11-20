@@ -6,5 +6,5 @@ import strip from 'strip-markdown'
 
 export default async function markdownToDescription(markdown: string) {
   const result = await remark().use(gfm).use(footnotes).use(codeTitle).use(strip).process(markdown);
-  return result.toString().slice(0,300);
+  return result.toString().replace(/\n+/g, ' ').slice(0,300);
 }
