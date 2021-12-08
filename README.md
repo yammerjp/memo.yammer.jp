@@ -29,15 +29,10 @@ $ docker-compose run app npm test
 
 [d2c19257b81842583cd561b5e2fba6365ace7b57](https://github.com/yammerjp/memo.yammer.jp/commit/d2c19257b81842583cd561b5e2fba6365ace7b57) より、各記事のWebページ上にgitのコミットメッセージを記載するようにしたので、コミットメッセージは日本語で記載することとする。
 
-次のようなスタイルを基本とする。
+`.git-commit-template` にあるスタイルを基本とする。
 
-- `Post: 「投稿した記事タイトル」`
-- `Append: 追記の内容`
-- `Add: 機能追加の内容`
-- `Fix: 記事/機能の修正内容`
-- `Improve: 記事/機能の改善内容`
-- `Update: 記事/機能の更新内容`
-- `Delete: 記事/機能の削除内容`
-- `Rename: 何を改名したか`
-- `Move: 何を移動したか`
-- `Change: 何を交換したか`
+これは以下のコマンドでローカルリポジトリのコミットメッセージのテンプレートに登録できる
+
+```
+git config --local commit.message .git-commit-template
+```
