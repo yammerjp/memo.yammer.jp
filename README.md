@@ -25,6 +25,12 @@ $ docker-compose run app npm test
 - `content/posts/*.md` ... 各記事のMarkdownファイル
 - `content/*.md`... 固定ページのMarkdownファイル
 
+## New Article
+
+```
+$ ./bin/new.sh
+```
+
 ## Commit Message
 
 [d2c19257b81842583cd561b5e2fba6365ace7b57](https://github.com/yammerjp/memo.yammer.jp/commit/d2c19257b81842583cd561b5e2fba6365ace7b57) より、各記事のWebページ上にgitのコミットメッセージを記載するようにしたので、コミットメッセージは日本語で記載することとする。
