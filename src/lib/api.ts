@@ -15,10 +15,6 @@ export async function getPostSlugs(): Promise<string[]> {
   return files.filter(f => /.*\.md/.test(f))
 }
 
-export async function getStaticPostBySlug(slug: string, fields: string[] = []) {
-  return getPostByDirectoryAndSlug(process.cwd(), 'content', slug, fields)
-}
-
 export async function getPostBySlug(slug: string, fields: string[] = []) {
   return getPostByDirectoryAndSlug(process.cwd(), join('content','posts'), slug, fields)
 }
