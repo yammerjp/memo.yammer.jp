@@ -14,7 +14,7 @@ const PrivacyPolicy = () => {
         <title>memo.yammer.jp - 常に完成形</title>
         <Ogp
           title='プライバシーポリシー - memo.yammer.jp'
-          path="/posts/privacy-policy"
+          url="https://memo.yammer.jp/privacy-policy"
           description={title}
           ogImage={OgImageUrlInText(title)}
           ogType="article"

@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import { getAllPosts } from '../lib/api'
-import { PostType } from '../types/post'
+import { getJsonFeedWithoutContents } from '../lib/api'
 import Frame from '../components/frame'
 import ArticleCard from '../components/articleCard'
 import 'highlight.js/styles/github.css'
@@ -11,7 +10,7 @@ import Ogp from '../components/ogp'
 import { OgImageUrlInText } from '../lib/cloudinaryOgp'
 
 type Props = {
-  allPosts: PostType[]
+  feed: FeedWithoutContents
 }
 
 const queryTags2tagArr = (tags : string | string[] | undefined) => {
@@ -27,8 +26,8 @@ const queryTags2tagArr = (tags : string | string[] | undefined) => {
     return [decodeURIComponent(tags)]
 }
 
-const Index = ({ allPosts }: Props) => {
-  const tagsAll = allPosts.flatMap(post => post.tags ?? []);
+const Index = ({ feed }: Props) => {
+  const tagsAll = feed.items.flatMap(item => item.tags ?? []);
   const [tagsSelected, setTagsSelected] = useState<string[]>([]);
   const [queryLoadingIsEnabled, setQueryLoadingIsEnabled] = useState<boolean>(true);
   const router = useRouter()
@@ -72,23 +71,23 @@ const Index = ({ allPosts }: Props) => {
     })
   }
 
-  const postsSelected = allPosts
-    .filter(post => {
+  const itemsSelected = feed.items 
+    .filter(item => {
       if (tagsSelected.length == 0) {
         return false
       }
-      return tagsSelected.every(t => (post.tags && post.tags.includes(t)))
+      return tagsSelected.every(t => (item.tags && item.tags.includes(t)))
     })
     .sort((a,b)=>{
-            return a.date < b.date ? 1 : -1
+            return (a.date_published||'') < (b.date_published||'') ? 1 : -1
     })
 
   return (
     <>
     <Head>
-        <title>memo.yammer.jp - 常に完成形</title>
+        <title>{feed.title} - {feed.description}</title>
         <Ogp
-          title="記事をタグで絞り込む - memo.yammer.jp" path="/tags" description="記事をタグで絞り込む" ogImage={OgImageUrlInText('memo.yammer.jp')} ogType="website"/>
+          title={`記事をタグで絞り込む - ${feed.title}`} url={`${feed.home_page_url}/tags`} description="記事をタグで絞り込む" ogImage={OgImageUrlInText(feed.title)} ogType="website"/>
 
     </Head>
     <Frame titleIsH1={true}>
@@ -102,13 +101,13 @@ const Index = ({ allPosts }: Props) => {
           {(() => {
             if (tagsSelected.length === 0) {
               return (<div className="article-cards-message">タグを選んでください</div>)
-            } else if (postsSelected.length === 0) {
+            } else if (itemsSelected.length === 0) {
               return (<div className="article-cards-message">選択したタグをすべて含む記事はみつかりませんでした</div>)
             } else {
               return (
                 <>
-                  {postsSelected.map(post => (
-                    <ArticleCard post={post} key={post.slug} tagsEmphasizing={tagsSelected} allEmphasizing={false} linkable={false}/>
+                  {itemsSelected.map(item => (
+                    <ArticleCard item={item} key={item.id} tagsEmphasizing={tagsSelected} allEmphasizing={false} linkable={false}/>
                   ))}
                 </>
               )
@@ -122,15 +121,10 @@ const Index = ({ allPosts }: Props) => {
 
 export default Index
 
-export const getStaticProps = async () => {
-  const allPosts = await getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'tags',
-    'description',
-  ])
+export const getStaticProps = async (): Promise<{props: Props}> => {
   return {
-    props: { allPosts },
+    props: {
+      feed: await getJsonFeedWithoutContents()
+    }
   }
 }

@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import xmlEscape from 'xml-escape'
 import { writeFile } from 'fs/promises'
-import { getAllPosts } from '../../lib/api'
+import { getJsonFeedWithoutContents } from '../../lib/api'
 
 const RSS = () => {
   return (<Head>
@@ -13,14 +13,7 @@ const RSS = () => {
 export default RSS;
 
 export const getStaticProps = async () => {
-  const allPosts = (await getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'tags',
-    'description',
-    'tags'
-  ]))
+  const feed = await getJsonFeedWithoutContents()
 
   let buf = `<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
 <channel>
@@ -35,13 +28,13 @@ export const getStaticProps = async () => {
 <atom:link href="https://memo.yammer.jp/posts/index.xml" rel="self" type="application/rss+xml"/>
 `;
 
-  for (const post of allPosts) {
-      const title = post.title
-      const link = 'https://memo.yammer.jp/posts/' + post.slug
+  for (const item of feed.items) {
+      const title = item.title || ''
+      const link = item.url
       const guid = link;
-      const description = post.description
-      const date = post.date
-      const tags = post.tags
+      const description = item.summary || ''
+      const date = item.date_published || ''
+      const tags = item.tags || []
     buf += `<item>
 <title>${xmlEscape(title)}</title>
 <link>${link}</link>

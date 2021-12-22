@@ -1,23 +1,22 @@
 import { useState } from 'react'
-import { PostType } from '../types/post'
 import { iso8601toDisplayStr } from '../lib/date'
 import PostHistory from './postHistory'
-const ArticleDate = ({ post }: { post: PostType }) => {
+const ArticleDate = ({ item }: { item: Item }) => {
   const [historyVisible, setHistoryVisible] = useState<boolean>(false);
   const onClick = () => {
     setHistoryVisible(before => !before)
   }
   return (
     <div className="article-date">
-      { post.date ? iso8601toDisplayStr(post.date) : ''}
+      { item.date_published ? iso8601toDisplayStr(item.date_published) : ''}
       {
         (() => {
-          if (post.history && post.history.length >= 2) {
+          if (item._change_logs && item._change_logs.length >= 2) {
             return (
               <>
                 <span className="hyphen">-</span>
                 <button className={"article-date-edited" + ( historyVisible ? ' history-visible' : '')} onClick={onClick}>edited</button>
-                { historyVisible ? ( <PostHistory history={post.history} />) : (<></>) }
+                { historyVisible ? ( <PostHistory changeLogs={item._change_logs} />) : (<></>) }
               </>
             )
           } else {

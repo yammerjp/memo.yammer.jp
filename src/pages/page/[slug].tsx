@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import { getAllPosts } from '../../lib/api'
-import { PostType } from '../../types/post'
+import { getJsonFeedWithoutContents } from '../../lib/api'
 import Frame from '../../components/frame'
 import ArticleCard from '../../components/articleCard'
 import Ogp from '../../components/ogp'
@@ -11,25 +10,26 @@ import { OgImageUrlInText } from '../../lib/cloudinaryOgp'
 const postsParPage = 10
 
 type Props = {
-  posts: PostType[]
+  feed: FeedWithoutContents
+  items: ItemWithoutContents[]
   slug: string
   postLength: number
 }
 
-const Page = ({ posts, slug, postLength }: Props) => {
+const Page = ({ feed, items, slug, postLength }: Props) => {
   return (
     <>
     <Head>
-        <title>memo.yammer.jp - 常に完成形</title>
-        <Ogp title="memo.yammer.jp" path="/" description="常に完成形" ogImage={OgImageUrlInText('memo.yammer.jp')} ogType="website"/>
+        <title>{feed.title} - {feed.description}</title>
+        <Ogp title={feed.title} url={feed.home_page_url} description={feed.description||''} ogImage={OgImageUrlInText(feed.title)} ogType="website"/>
     </Head>
     <Frame titleIsH1={true}>
       <>
       <div className="head-page-selector-wrap">
           <PageSelector nowPage={Number(slug)} pages={pageLength(postLength)}/>
       </div>
-          {posts.map((post) => (
-            <ArticleCard post={post} key={post.slug} tagsEmphasizing={[]} allEmphasizing={true} linkable={true}/>
+          {items.map((item) => (
+            <ArticleCard item={item} key={item.id} tagsEmphasizing={[]} allEmphasizing={true} linkable={true}/>
           ))}
       <PageSelector nowPage={Number(slug)} pages={pageLength(postLength)}/>
       </>
@@ -46,24 +46,17 @@ type Params = {
   }
 }
 
-export const getStaticProps = async ({params}: Params) => {
+export const getStaticProps = async ({params}: Params): Promise<{props: Props}> => {
   const firstPost = (Number(params.slug) - 1 ) * postsParPage +1;
   const lastPost = postsParPage * Number(params.slug);
-  const allPosts = (await getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'tags',
-    'description',
-  ])).sort((a,b)=>{
-     return a.date < b.date ? 1 : -1
-  })
-  const posts = allPosts.slice(firstPost, lastPost)
+  const feed = await getJsonFeedWithoutContents();
+  const itemsOfThePage = feed.items.slice(firstPost, lastPost)
   return {
     props: {
-      posts,
+      feed,
+      items: itemsOfThePage,
       slug: params.slug,
-      postLength: allPosts.length,
+      postLength: feed.items.length,
     },
   }
 }
@@ -73,8 +66,8 @@ const pageLength = (postsLength:number) => {
 }
 
 export async function getStaticPaths() {
-  const posts = await getAllPosts(['slug'])
-  const pages = pageLength(posts.length)
+  const feed = await getJsonFeedWithoutContents()
+  const pages = pageLength(feed.items.length)
   let pagesArr = []
   for (let n=1; n<=pages; n++) {
     pagesArr.push(n)

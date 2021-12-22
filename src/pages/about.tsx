@@ -14,7 +14,7 @@ const About = () => {
         <title>memo.yammer.jp - 常に完成形</title>
         <Ogp
           title='About - memo.yammer.jp'
-          path="/posts/about"
+          url="https://memo.yammer.jp/posts/about"
           description={title}
           ogImage={OgImageUrlInText(title)}
           ogType="article"

@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import { getAllPosts } from '../lib/api'
-import { PostType } from '../types/post'
+import { getJsonFeedWithoutContents } from '../lib/api'
 import Frame from '../components/frame'
 import ArticleCard from '../components/articleCard'
 import Ogp from '../components/ogp'
@@ -9,24 +8,26 @@ import PageSelector from '../components/pageSelector'
 import { OgImageUrlInText } from '../lib/cloudinaryOgp'
 
 type Props = {
-  allPosts: PostType[]
+  feed: FeedWithoutContents
 }
 
-const Index = ({ allPosts }: Props) => {
+const Index = ({ feed }: Props) => {
   return (
     <>
     <Head>
-        <title>memo.yammer.jp - 常に完成形</title>
-        <Ogp title="memo.yammer.jp" path="/" description="常に完成形" ogImage={OgImageUrlInText('memo.yammer.jp')} ogType="website"/>
-        <link rel="alternate" type="application/rss+xml" href="/posts/index.xml" title="RSS2.0" />
+        <title>{feed.title} - {feed.description}</title>
+        <Ogp title={feed.title} url={feed.home_page_url} description={feed.description||''} ogImage={OgImageUrlInText(feed.title)} ogType="website"/>
+        {
+        feed._feed_url_rss2 && (<link rel="alternate" type="application/rss+xml" href={feed._feed_url_rss2} title="RSS2.0" />)
+        }
     </Head>
     <Frame titleIsH1={true}>
       <>
-          {allPosts.slice(0,10).map((post) => (
-            <ArticleCard post={post} key={post.slug} tagsEmphasizing={[]} allEmphasizing={true} linkable={true}/>
+          {feed.items.slice(0,10).map((item) => (
+            <ArticleCard item={item} key={item.id} tagsEmphasizing={[]} allEmphasizing={true} linkable={true}/>
           ))}
 
-      <PageSelector nowPage={1} pages={((allPosts.length -1) / 10) + 1 }/>
+      <PageSelector nowPage={1} pages={((feed.items.length -1) / 10) + 1 }/>
       </>
     </Frame>
     </>
@@ -35,15 +36,9 @@ const Index = ({ allPosts }: Props) => {
 
 export default Index
 
-export const getStaticProps = async () => {
-  const allPosts = (await getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'tags',
-    'description',
-  ]))
+export const getStaticProps = async (): Promise<{props: Props}> => {
+  const feed = await getJsonFeedWithoutContents()
   return {
-    props: { allPosts },
+    props: { feed },
   }
 }

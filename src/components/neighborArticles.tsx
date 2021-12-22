@@ -1,12 +1,11 @@
 import Link from 'next/link'
-import { PostType } from '../types/post'
 
-const NeighborArticles = ({prev, next}: {prev: PostType|null, next: PostType|null}) => {
+const NeighborArticles = ({prev, next}: {prev: ItemWithoutContents|null, next: ItemWithoutContents|null}) => {
     return (
         <div className="neighbor-articles">
            <div className="neighbor-articles-prev-and-next">
                 {(prev === null) ? (<div className="neighbor-articles-2prev empty"></div>) : (
-                    <Link href={"/posts/" + prev.slug}>
+                    <Link href={prev.url}>
                         <div className="neighbor-articles-2prev">
                             <div className="neighbor-articles-pretitle">
                                 <img className="tabler-icon-in-text" src="/assets/tabler-icon-chevron-left.svg"/>
@@ -17,7 +16,7 @@ const NeighborArticles = ({prev, next}: {prev: PostType|null, next: PostType|nul
                     </Link>
                 )}
                 {(next === null) ? (<div className="neighbor-articles-2next empty"></div>) : (
-                    <Link href={"/posts/" + next.slug}>
+                    <Link href={next.url}>
                         <div className="neighbor-articles-2next">
                             <div className="neighbor-articles-pretitle">
                                 新しい記事

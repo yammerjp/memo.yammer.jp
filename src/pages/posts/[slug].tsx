@@ -1,37 +1,35 @@
-import Link from 'next/link'
 import Head from 'next/head'
-import { getPostBySlug, getAllPosts, getNeighborPosts } from '../../lib/api'
-import { PostType } from '../../types/post'
 import Frame from '../../components/frame'
 import Article from '../../components/article'
 import Ogp from '../../components/ogp'
 import NeighborArticles from '../../components/neighborArticles'
 import 'highlight.js/styles/github.css'
+import { extractNeighborItemsWithoutContents, getJsonFeedItem, getJsonFeedItemBySlug, getJsonFeedWithoutContents } from '../../lib/api'
 
 type Props = {
-  post: PostType
-  prev: PostType | null
-  next: PostType | null
+  item: Item
+  prev: ItemWithoutContents | null
+  next: ItemWithoutContents | null
 }
 
-const Post = (props: Props) => {
+const Post = ({item, prev, next}: Props) => {
   return (
     <>
     <Head>
-        <title>{props.post.title} - memo.yammer.jp</title>
+        <title>{item.title} - memo.yammer.jp</title>
         <Ogp
-          title={props.post.title + ' - memo.yammer.jp'}
-          path={"/posts/" + props.post.slug}
-          description={props.post.description || ''}
-          ogImage={props.post.ogImage || ''}
+          title={item.title + ' - memo.yammer.jp'}
+          url={item.url}
+          description={item.summary || ''}
+          ogImage={item.banner_image || ''}
           ogType="article"
         />
         <link rel="stylesheet" href="/assets/article.css"></link>
     </Head>
     <Frame>
       <>
-      <Article post={props.post}/>
-      <NeighborArticles prev={props.prev} next={props.next} />
+      <Article item={item}/>
+      <NeighborArticles prev={prev} next={next} />
       </>
     </Frame>
     </>
@@ -47,25 +45,16 @@ type Params = {
 }
 
 export async function getStaticProps({ params }: Params) {
-  const post = await getPostBySlug(params.slug, [
-    'title',
-    'date',
-    'slug',
-    'content',
-    'tags',
-    'html',
-    'description',
-    'history',
-    'ogImage',
-  ])
-  const { prev, next } = await getNeighborPosts(params.slug, [
-    'slug',
-    'title',
-    'date',
-  ])
+  const feed = await getJsonFeedWithoutContents()
+  // const item = await getJsonFeedItem(`${feed.home_page_url}/posts/${params.slug}`)
+  const item = await getJsonFeedItemBySlug(params.slug)
+  if (!item) {
+    console.error('item is falsly')
+  }
+  const { prev, next } = await extractNeighborItemsWithoutContents(feed, item?.url||'')
   return {
     props: {
-      post,
+      item,
       prev,
       next,
     }
@@ -73,12 +62,12 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-  const posts = await getAllPosts(['slug'])
+  const feed = await getJsonFeedWithoutContents()
   return {
-    paths: posts.map((posts) => {
+    paths: feed.items.map((item) => {
       return {
         params: {
-          slug: posts.slug,
+          slug: item.url.slice(`${feed.home_page_url}/posts/`.length),
         },
       }
     }),
