@@ -10,7 +10,10 @@ async function main() {
   const slugs = await getPostSlugs()
   for (const slug of slugs) {
     const item = await getJsonFeedItemBySlug(slug)
-    await promises.writeFile(`jsonfeed/posts/${slug}.json`, JSON.stringify(item))
+    const articleUniqueKey = slug.slice(0, -3)
+    await promises.writeFile(`jsonfeed/posts/${articleUniqueKey}.json`, JSON.stringify(item))
+    await promises.writeFile(`jsonfeed/posts/${articleUniqueKey}.raw.html`, item?.content_html || '')
+    await promises.writeFile(`jsonfeed/posts/${articleUniqueKey}.raw.txt`, item?.content_text || '')
   }
   await promises.writeFile(`jsonfeed/summary.json`, JSON.stringify(feedWithoutContents))
 }
