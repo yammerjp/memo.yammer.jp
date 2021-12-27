@@ -5,3 +5,4 @@ gh-pages/**/*
 public/posts/index.xml
 jsonfeed/**/*
 dist/**/*
+tsconfig.json
