@@ -4,5 +4,7 @@ node_modules/**/*
 gh-pages/**/*
 public/posts/index.xml
 jsonfeed/**/*
+public/jsonfeed/**/*
+!public/jsonfeed/posts/.gitkeep
 dist/**/*
 tsconfig.json
