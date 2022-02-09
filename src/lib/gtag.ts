@@ -9,7 +9,7 @@ export const existsGaId = GA_ID !== ''
 export const pageview = (url: string): void => {
   if (!GA_ID) return;
 
-  window.gtag('config', GA_ID, {
+  (window as any).gtag('config', GA_ID, {
     page_path: url,
   });
 };
@@ -19,7 +19,7 @@ export const event = ({action, category, label}: Event) => {
     return
   }
 
-  window.gtag('event', action, {
+  (window as any).gtag('event', action, {
     event_category: category,
     event_label: JSON.stringify(label)
   })
