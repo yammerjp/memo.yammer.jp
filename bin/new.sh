@@ -6,7 +6,15 @@ SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 cd "$SCRIPT_DIR"
 cd ..
 
-TODAY_ISO8601="$(gdate --iso-8601=second)"
+if command -v gdate; then
+  TODAY_ISO8601="$(gdate --iso-8601=second)"
+elif command -v date; then
+  TODAY_ISO8601="$(date --iso-8601=second)"
+else
+  echo 'failed!! The command `date` or `gdate` is not found...' 1&>2
+  exit 1
+fi
+
 TODAY="$(echo "$TODAY_ISO8601"| awk -F T '{ print $1}' | sed 's/-//g')"
 
 if [ "$PROCESS_ARG_1" == "" ]; then
