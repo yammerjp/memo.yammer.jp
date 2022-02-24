@@ -19,7 +19,6 @@ const About = ({post}: {post:PostType}) => {
           ogImage={post.ogImage || ''}
           ogType="article"
         />
-        <link rel="stylesheet" href="/assets/article.css"></link>
     </Head>
     <Frame titleIsH1={false}>
       <Article post={post}/>

@@ -15,7 +15,7 @@ const ArticleCard = ({ post, tagsEmphasizing, allEmphasizing, linkable }: { post
                     </div>
                 </div>
             </Link>
-            <Tags tags={post.tags ?? []} tagsEmphasizing={tagsEmphasizing} allEmphasizing={allEmphasizing} linkable={linkable}/>
+            <Tags tags={post.tags ?? []} tagsEmphasizing={tagsEmphasizing} allEmphasizing={allEmphasizing} linkable={linkable} inArticleHeader={false}/>
         </section>
     )
 }
