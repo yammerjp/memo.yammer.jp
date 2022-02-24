@@ -12,157 +12,164 @@ const Article = ({post}: {post: PostType}) => {
             <Tags tags={post.tags ?? []} tagsEmphasizing={[]} allEmphasizing={true} linkable={true} inArticleHeader={true} />
           </div>
           <Shadow.div>
-          <style>{`
-a {
-    color: #406599;
-    text-decoration: none;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-text-decoration-skip: objects;
-    -moz-text-decoration-skip: objects;
-    text-decoration-skip: objects;
-}
+            <style>{`
+            #footnote-label {
+              display: none;
+            }
+  a {
+      color: #406599;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-text-decoration-skip: objects;
+      -moz-text-decoration-skip: objects;
+      text-decoration-skip: objects;
+  }
 
-a:hover {
-    text-decoration: underline;
-}
+  a:hover {
+      text-decoration: underline;
+  }
 
-hr {
-    border-top: 1px solid #dddddd;
-    border-bottom: 0px;
-    border-left: 0px;
-    border-right: 0px;
-}
+  hr {
+      border-top: 1px solid #dddddd;
+      border-bottom: 0px;
+      border-left: 0px;
+      border-right: 0px;
+  }
 
 
-img {
-    width: 100%;
-}
+  img {
+      width: 100%;
+  }
 
-pre {
-    font-size: 12px;
-    background-color: #f3f3f3;
-    border-radius: 12px;
-    padding: 12px;
-    /* 横方向にはみ出す場合のみスクロールさせる */
-    overflow-x: auto;
-}
+  pre {
+      font-size: 12px;
+      background-color: #f3f3f3;
+      border-radius: 12px;
+      padding: 12px;
+      /* 横方向にはみ出す場合のみスクロールさせる */
+      overflow-x: auto;
+  }
 
-/* 記事ページ */
-.twitter-tweet {
-    /* 埋め込みツイートをセンタリング */
-    margin: 0 auto;
-    padding: 24px 0;
-}
+  /* 記事ページ */
+  .twitter-tweet {
+      /* 埋め込みツイートをセンタリング */
+      margin: 0 auto;
+      padding: 24px 0;
+  }
 
-.remark-code-title {
-    font-size: 12px;
-    position: absolute;
-    float: left;
-    right: -0px;
-    padding-top: 12px;
-    padding-right: 24px;
-    padding-left: 24px;
-    margin-right: 12px;
-    padding-bottom: 6px;
-    background: #ffffff;
-    border-radius: 0px 10px 1px 10px;
-    border: solid 1px #eeeeee;
-}
-.remark-code-title:hover {
-    opacity: 0.5;
-    color: rgba(0,0,0,0)
+  .remark-code-title {
+      font-size: 12px;
+      position: absolute;
+      float: left;
+      right: -0px;
+      padding-top: 12px;
+      padding-right: 24px;
+      padding-left: 24px;
+      margin-right: 12px;
+      padding-bottom: 6px;
+      background: #ffffff;
+      border-radius: 0px 10px 1px 10px;
+      border: solid 1px #eeeeee;
+  }
+  .remark-code-title:hover {
+      opacity: 0.5;
+      color: rgba(0,0,0,0)
 
-}
-.remark-code-title::selection {
-    color:#000000;
-    background-color: #ffffff;
-}
+  }
+  .remark-code-title::selection {
+      color:#000000;
+      background-color: #ffffff;
+  }
 
-.hljs {
-    background-color: #f3f3f3 !important;
-    margin: -12px;
-    padding: 12px !important;
+  .hljs {
+      background-color: #f3f3f3 !important;
+      margin: -12px;
+      padding: 12px !important;
 
-}
-.footnotes {
-    margin-top: 36px;
-    border-top: 1px solid #dddddd;
-    border-bottom: 1px solid #dddddd;
-    font-size: 12px;
-    padding-right: 24px;
-}
+  }
+  .footnotes {
+      margin-top: 36px;
+      border-top: 1px solid #dddddd;
+      border-bottom: 1px solid #dddddd;
+      font-size: 12px;
+      padding-right: 24px;
+  }
 
-.footnotes hr {
-    border: none;
-}
+  .footnotes hr {
+      border: none;
+  }
 
-blockquote {
-    padding: .95em;
-    border-radius: 6px;
-    border-left: 6px solid #fee450;
-    background-color: #fbf8e8;
-    margin:12px 0px;
-}
+  .footnotes p {
+    margin: 0;
+  }
 
-blockquote p {
-    margin:0px;
-}
+  blockquote {
+      padding: .95em;
+      border-radius: 6px;
+      border-left: 6px solid #fee450;
+      background-color: #fbf8e8;
+      margin:12px 0px;
+  }
 
-h1:not(:first-child) {
-    margin-top: 60px;
-}
-h2 {
-    margin-top: 48px;
-}
-h3 {
-    margin-top: 36px;
-}
-h4 {
-    margin-top: 24px;
-}
+  blockquote p {
+      margin:0px;
+  }
 
-ul, ol {
-    padding-left: 36px;
-}
+  h1 {
+      margin-top: 60px;
+  }
+  h2 {
+      margin-top: 48px;
+  }
+  h3 {
+      margin-top: 36px;
+  }
+  h4 {
+      margin-top: 24px;
+  }
 
-ul li, ol li {
-    padding-left: 12px;
-}
+  ul, ol {
+      padding-left: 36px;
+  }
 
-table {
-    border-spacing: 0;
-    border-collapse: collapse;
-    display: block;
-    width: 100%;
-    overflow: auto;
-}
+  ul li, ol li {
+      padding-left: 12px;
+  }
 
-table tr {
-    border: 0;
-}
+  table {
+      border-spacing: 0;
+      border-collapse: collapse;
+      display: block;
+      width: 100%;
+      overflow: auto;
+  }
 
-table th {
-    font-weight: 700;
-}
+  table tr {
+      border: 0;
+  }
 
-table td,
-table th {
-    min-width: 86px;
-    padding: 6px 13px;
-    border: 1px solid #e6e6e6;
-}
+  table th {
+      font-weight: 700;
+  }
 
-table th:empty {
-    padding: 0;
-    border: 0;
-}
+  table td,
+  table th {
+      min-width: 86px;
+      padding: 6px 13px;
+      border: 1px solid #e6e6e6;
+  }
 
-p {
-    margin: 32px 0px;
-}
+  table th:empty {
+      padding: 0;
+      border: 0;
+  }
 
-            `}
-          </style>
+  p {
+      margin: 32px 0px;
+  }
+
+              `}
+            </style>
             <div className="article-body"
               dangerouslySetInnerHTML={{ __html: post.html || '' }}
             />

@@ -7,7 +7,7 @@ const Tags = ({tags, tagsEmphasizing, allEmphasizing, linkable, inArticleHeader}
         <span
             key={tag}
             className={"article-tag linkable" + (allEmphasizing || tagsEmphasizing.find(t => t === tag) ? " article-tag-emphasizing" : " article-tag-unemphasizing")}
-            style={inArticleHeader ? {margin: "0px 0px 6px 0px"} : {}}
+            style={inArticleHeader ? {margin: "0px 6px 6px 0px"} : {}}
         >
             {tag}
         </span>
