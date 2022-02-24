@@ -12,7 +12,6 @@ const Frame = (props: Props) => {
     return (
       <>
       <Head>
-        <link rel="stylesheet" href="/assets/global.css"></link>
         <link rel="apple-touch-icon" type="image/png" href="/favicon/apple-touch-icon-180x180.png"></link>
         <link rel="icon" type="image/png" href="/favicon/icon-192x192.png"></link>
       </Head>

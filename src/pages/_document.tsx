@@ -1,10 +1,10 @@
-import Document, { Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { existsGaId, GA_ID } from '../lib/gtag'
 
 export default class MyDocument extends Document {
   render() {
     return (
-      <html lang="ja">
+      <Html>
         <Head>
           {/* Google Analytics */}
           {existsGaId && (
@@ -23,12 +23,13 @@ export default class MyDocument extends Document {
               />
             </>
           )}
+          <link rel="stylesheet" href="/assets/global.css"></link>
         </Head>
         <body>
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     )
   }
 }
