@@ -2,6 +2,7 @@
     font-size: 14px;
     color: #505050;
     margin-top: auto;
+    padding: 0;
     margin-bottom: 0;
     background-color: #a3d7ff;
     background-image: url("/assets/curve-bottom.svg");
@@ -13,10 +14,12 @@
 }
 
 .footerInner {
-    display: block;
+    display: flex;
+    flex-direction: column-reverse;
     text-align: right;
     padding: 60px 12px 24px 12px;
     max-width: 800px;
-    margin: 0 auto;
+    min-height: 15vh;
+    margin: auto auto 0 auto;
 }
 
