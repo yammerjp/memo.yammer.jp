@@ -9,6 +9,16 @@ import codeTitle from 'remark-code-titles'
 import rehypeStringify from 'rehype-stringify';
 
 export default async function markdownToHtml(markdown: string) {
-  const result = await unified().use(remarkParse).use(remarkRehype).use(gfm).use(footnotes).use(codeTitle).use(hljs).use(html).use(rehypeStringify).process(markdown);
+  const result = await
+  unified()
+  .use(remarkParse)
+  .use(remarkRehype)
+  .use(gfm)
+  .use(footnotes)
+  .use(codeTitle)
+  .use(hljs)
+  .use(html)
+  .use(rehypeStringify)
+  .process(markdown);
   return result.toString();
 }
