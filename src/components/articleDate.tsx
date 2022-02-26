@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { PostType } from '../types/post'
 import { iso8601toDisplayStr } from '../lib/date'
 import PostHistory from './postHistory'
-const ArticleDate = ({ post }: { post: PostType }) => {
+const ArticleDate = ({ post, historyDisplayable, small }: { post: PostType, historyDisplayable: boolean, small: boolean }) => {
   const [historyVisible, setHistoryVisible] = useState<boolean>(false);
   const onClick = () => {
     setHistoryVisible(before => !before)
@@ -29,12 +29,12 @@ const ArticleDate = ({ post }: { post: PostType }) => {
     }
   }
   return (
-    <div className="article-date" style={{fontSize: "16px"}}>
+    <div style={{fontSize: small ? "12px" : "16px"}}>
       {
           post.date && iso8601toDisplayStr(post.date)
       }
       {
-          (post.history && post.history.length >= 2) && (
+          (historyDisplayable && post.history && post.history.length >= 2) && (
               <>
                 <span className="hyphen" style={{display: "inline-block", margin: "0px 4px 0px 8px"}}>-</span>
                 <button
@@ -48,5 +48,10 @@ const ArticleDate = ({ post }: { post: PostType }) => {
     </div>
   )
 };
+
+ArticleDate.defaultProps = {
+  small: false,
+  historyDisplayable: true
+}
 
 export default ArticleDate;

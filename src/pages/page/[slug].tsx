@@ -25,7 +25,7 @@ const Page = ({ posts, slug, postLength }: Props) => {
     </Head>
     <Frame titleIsH1={true}>
       <>
-      <div className="head-page-selector-wrap">
+      <div style={{ marginTop: "-26px" }}>
           <PageSelector nowPage={Number(slug)} pages={pageLength(postLength)}/>
       </div>
           {posts.map((post) => (

@@ -38,7 +38,7 @@ const Article = ({post}: {post: PostType}) => {
       <article style={({ marginBottom: '48px'})}>
           <div className="article-header" style={{marginBottom: "48px"}}>
             <ArticleDate post={post}/>
-            <h1 className="article-title" style={{margin: '0px'}}>{post.title || ''}</h1>
+            <h1 style={{margin: '0px'}}>{post.title || ''}</h1>
             <Tags tags={post.tags ?? []} tagsEmphasizing={[]} allEmphasizing={true} linkable={true} inArticleHeader={true} />
           </div>
           <Shadow.div id="shadow-dom-root">

@@ -1,29 +1,30 @@
 import Link from 'next/link'
 import { PostType } from '../types/post'
+import styles from './neighborArticles.module.css'
 
 const NeighborArticles = ({prev, next}: {prev: PostType|null, next: PostType|null}) => {
     return (
-        <div className="neighbor-articles">
-           <div className="neighbor-articles-prev-and-next">
-                {(prev === null) ? (<div className="neighbor-articles-2prev empty"></div>) : (
+        <div className={styles.neighborArticles}>
+           <div className={styles.neighborArticlesPrevAndNext}>
+                {(prev === null) ? (<div className={styles.neighborArticles2prev}></div>) : (
                     <Link href={"/posts/" + prev.slug}>
-                        <div className="neighbor-articles-2prev">
-                            <div className="neighbor-articles-pretitle">
-                                <img className="tabler-icon-in-text" src="/assets/tabler-icon-chevron-left.svg"/>
+                        <div className={styles.neighborArticles2prev}>
+                            <div className={styles.neighborArticlesPretitle}>
+                                <img className={styles.tablerIconInText} src="/assets/tabler-icon-chevron-left.svg"/>
                                 古い記事
                             </div>
-                            <div className="neighbor-articles-title">{prev.title}</div>
+                            <div className={styles.neighborArticlesTitle}>{prev.title}</div>
                         </div>
                     </Link>
                 )}
-                {(next === null) ? (<div className="neighbor-articles-2next empty"></div>) : (
+                {(next === null) ? (<div className={styles.neighborArticles2next}></div>) : (
                     <Link href={"/posts/" + next.slug}>
-                        <div className="neighbor-articles-2next">
-                            <div className="neighbor-articles-pretitle">
+                        <div className={styles.neighborArticles2next}>
+                            <div className={styles.neighborArticlesPretitle}>
                                 新しい記事
-                                <img className="tabler-icon-in-text" src="/assets/tabler-icon-chevron-right.svg"/>
+                                <img className={styles.tablerIconInText} src="/assets/tabler-icon-chevron-right.svg"/>
                                 </div>
-                            <div className="neighbor-articles-title">{next.title}</div>
+                            <div className={styles.neighborArticlesTitle}>{next.title}</div>
                         </div>
                     </Link>
                 )}

@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Ogp from '../components/ogp'
 import { OgImageUrlInText } from '../lib/cloudinaryOgp'
+import styles from './tags.module.css'
 
 type Props = {
   allPosts: PostType[]
@@ -92,18 +93,18 @@ const Index = ({ allPosts }: Props) => {
 
     </Head>
     <Frame titleIsH1={true}>
-      <div className="article-tags-selector-wrap">
-        <h2>記事をタグで絞り込む</h2>
-        <hr/>
+      <div className={styles.articleTagsSelectorWrap}>
+        <h2 className={styles.articleTagsSelectorWrapH2}>記事をタグで絞り込む</h2>
+        <hr className={styles.hr}/>
         <TagsSelector tagsAll={tagsAll} tagsSelected={tagsSelected} clickedTag={clickedTag}/>
-        <hr/>
+        <hr className={styles.hr}/>
       </div>
       <div>
           {(() => {
             if (tagsSelected.length === 0) {
-              return (<div className="article-cards-message">タグを選んでください</div>)
+              return (<div className={styles.articleCardsMessage}>タグを選んでください</div>)
             } else if (postsSelected.length === 0) {
-              return (<div className="article-cards-message">選択したタグをすべて含む記事はみつかりませんでした</div>)
+              return (<div className={styles.articleCardsMessage}>選択したタグをすべて含む記事はみつかりませんでした</div>)
             } else {
               return (
                 <>

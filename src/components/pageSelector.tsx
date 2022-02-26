@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import styles from './pageSelector.module.css'
+
 const PageSelector = ({nowPage, pages}: {nowPage: number, pages: number}) => {
     let pagesArr = []
     for (let n=1; n<=pages; n++) {
@@ -6,24 +8,19 @@ const PageSelector = ({nowPage, pages}: {nowPage: number, pages: number}) => {
     }
 
     return (
-        <div className="page-selector">
+        <div className={styles.pageSelector}>
             {pagesArr.map(p=> {
                 if (p===nowPage) {
                     return (
-                        <span className="page-selector-number now-page" key={p}>{p}</span>
+                        <span className={`${styles.pageSelectorNumber} ${styles.nowPage}`} key={p}>{p}</span>
                     )
-                }
-                if (p===1) {
-                    return (
-                        <Link href={"/"} key={p}><span className="page-selector-number">{p}</span></Link>
-                    )
-
                 }
                 return (
-                    <Link href={"/page/"+p} key={p}><span className="page-selector-number">{p}</span></Link>
+                    <Link href={ p===1 ? "/" : "/page/"+p} key={p}>
+                      <span className={`${styles.pageSelectorNumber} ${styles.notNowPage}`}>{p}</span>
+                    </Link>
                 )
-            })
-            }
+            })}
         </div>
     )
 }

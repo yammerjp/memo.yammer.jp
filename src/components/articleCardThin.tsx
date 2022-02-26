@@ -1,15 +1,15 @@
 import Link from 'next/link'
 import { PostType } from '../types/post'
-import {iso8601toDisplayStr} from '../lib/date'
-import Tags from './tags'
+import ArticleDate from './articleDate'
+import styles from './articleCard.module.css'
 
 const ArticleCard = ({ post, tagsEmphasizing, allEmphasizing, linkable }: { post: PostType, tagsEmphasizing: string[], allEmphasizing: boolean, linkable: boolean }) => {
     return (
-        <section className="article-card thin">
+        <section className={styles.articleCardThin}>
             <Link href={"/posts/" + post.slug}>
-                <div className="article-link">
-                    <div className="article-date">{iso8601toDisplayStr(post?.date)}</div>
-                    <div className="article-title thin">{post.title}</div>
+                <div className={styles.articleLink}>
+                    <ArticleDate post={post} small historyDisplayable={false} />
+                    <div className={styles.articleTitleThin}>{post.title}</div>
                 </div>
             </Link>
         </section>

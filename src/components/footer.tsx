@@ -1,8 +1,10 @@
 import Link from 'next/link'
+import styles from './footer.module.css'
+
 const Footer = () => {
     return (
-        <footer>
-          <div className="footer-inner">
+        <footer className={styles.footer}>
+          <div className={styles.footerInner}>
             <div>
             ©2020 Keisuke Nakayama
           </div>

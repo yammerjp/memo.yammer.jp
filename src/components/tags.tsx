@@ -1,31 +1,13 @@
-import Link from 'next/link'
-const Tags = ({tags, tagsEmphasizing, allEmphasizing, linkable, inArticleHeader}: {tags: string[], tagsEmphasizing: string[], allEmphasizing: boolean, linkable: boolean, inArticleHeader: boolean}) => {
-    if (!tags || !(tags.length > 0)) {
-        return (<div/>);
-    }
-    const tagDom = (tag: string) => (
-        <span
-            key={tag}
-            className={"article-tag linkable" + (allEmphasizing || tagsEmphasizing.find(t => t === tag) ? " article-tag-emphasizing" : " article-tag-unemphasizing")}
-            style={inArticleHeader ? {margin: "0px 6px 6px 0px"} : {}}
-        >
-            {tag}
-        </span>
-    )
+import Tag from './tag'
+import styles from './tags.module.css'
 
+const Tags = ({tags, tagsEmphasizing, allEmphasizing, linkable, inArticleHeader}: {tags: string[], tagsEmphasizing: string[], allEmphasizing: boolean, linkable: boolean, inArticleHeader: boolean}) => {
     return (
-        <div className="article-tags">
+        <div className={styles.articleTags}>
             {
-                tags.map((tag: string) => {
-                    if (linkable) {
-                        return (
-                            <Link href={"/tags?tags=" + tag} key={tag}>
-                                {tagDom(tag)}
-                            </Link>
-                        );
-                    }
-                    return tagDom(tag)
-                })
+                tags.map((tag: string) => (
+                   <Tag key={tag} tagName={tag} linkTo={linkable?`/tags?tags=${tag}`:undefined} emphasizing={!!(allEmphasizing || tagsEmphasizing.find(t => t === tag))} inArticleHeader={inArticleHeader}/>
+                ))
             }
         </div>
     )
