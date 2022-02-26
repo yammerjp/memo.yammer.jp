@@ -31,6 +31,7 @@ const execGitLogPromise: (fullPath: string)=> Promise<string> = (fullPath: strin
       resolve(stdout);
     });
 })
+
 const gitLog2postHistory: (gitLog:string) => PostHistoryType = (gitLog: string) => {
     return gitLog.split('COMMITIS').slice(1).map( line => {
       const [date, hash, message] = line.split(',')
@@ -38,25 +39,10 @@ const gitLog2postHistory: (gitLog:string) => PostHistoryType = (gitLog: string) 
     })
 }
 
-// アクセス先に負荷をかけ過ぎないよう最大5秒sleep (並列にアクセスしないのでよしとする)
-const waitRandomTime5s = () => new Promise((resolve) => {
-  const time = Math.random() * 5000
-  setTimeout(resolve,  time)
-  console.log(`wait:${time}ms`)
-});
-
 async function getPostHistoryByDirectoryAndSlug(rootDir: string, relativeDir: string, slug: string): Promise<PostHistoryType> {
   const realSlug = slug.replace(/\.md$/, '')
   const fullPath = join(rootDir, relativeDir, `${realSlug}.md`)
-  const historyWithGit = await execGitLogPromise(fullPath).then(gitLog2postHistory);
-  if (process.env.NODE_ENV === 'development') {
-    return historyWithGit;
-  }
-  const url = `https://raw.githubusercontent.com/yammerjp/blog.yammer.jp/gh-pages/gitlogs/${relativeDir}/${realSlug}.md`
-  const historyWithFile = await waitRandomTime5s().then(() => axios.get(url)).then(res=>gitLog2postHistory(res.data)).catch(()=>[])
-  console.log(`fetched from ${url}`)
-  const historyWithFileAvailable = historyWithFile.filter(eF=> !historyWithGit.find(eG => eF.hash === eG.hash))
-  return [...historyWithGit, ...historyWithFileAvailable].sort((a,b) => a.date > b.date ? 1 : -1)
+  return await execGitLogPromise(fullPath).then(gitLog2postHistory);
 }
 
 async function getPostByDirectoryAndSlug(rootDir: string, relativeDir: string, slug_: string, fields: string[] = []) {
