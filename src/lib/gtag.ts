@@ -8,7 +8,6 @@ export const existsGaId = GA_ID !== ''
 // PVを測定する
 export const pageview = (url: string): void => {
   if (!GA_ID) return
-
   ;(window as any).gtag('config', GA_ID, {
     page_path: url,
   })
