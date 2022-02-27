@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { getAllPosts } from '../../lib/api'
 import { PostType } from '../../types/post'
 import Frame from '../../components/frame'
-import ArticleCardThin from '../../components/articleCardThin'
+import ArticleCard from '../../components/articleCard'
 import Ogp from '../../components/ogp'
 import { OgImageUrlInText } from '../../lib/cloudinaryOgp'
 
@@ -20,7 +20,7 @@ const Index = ({ allPosts }: Props) => {
     <Frame titleIsH1={true}>
       <>
           {allPosts.map((post) => (
-            <ArticleCardThin post={post} key={post.slug} tagsEmphasizing={[]} allEmphasizing={true} linkable={true}/>
+            <ArticleCard thin post={post} key={post.slug} tagsEmphasizing={[]} allEmphasizing={true} linkable={true}/>
           ))}
 
       </>
