@@ -12,17 +12,28 @@
     cursor: pointer;
 
 }
+
+.neighborArticles2prev, .neighborArticles2next {
+    display: block;
+    color: #505050;
+}
+
 .neighborArticles2prev {
     text-align: left;
     padding: 24px 0px;
 }
+
 .neighborArticles2next {
     text-align: right;
     padding: 24px 0px;
 }
 
-.tablerIconInText {
-    width: 0.9em;
+.neighborArticles2prev:hover, .neighborArticles2next:hover {
+    text-decoration: none;
+}
+
+.neighborArticles2prev:hover .neighborArticlesTitle, .neighborArticles2next:hover .neighborArticlesTitle {
+    text-decoration: underline;
 }
 
 @media screen and (min-width: 600px) {
