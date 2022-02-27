@@ -5,7 +5,8 @@
     "dev": "next",
     "build": "next build && next export",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint --dir src",
+    "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css,scss}'",
     "typecheck": "tsc",
     "build:gh-pages-tags": "rm -rf gh-pages/tags/articleTags.json && mkdir -p gh-pages/tags && node bin/articleTags.js",
     "build:gh-pages-words": "rm -rf gh-pages/tags/articleWords.json && mkdir -p gh-pages/tags  && node bin/articleWords.js",
@@ -52,11 +53,13 @@
     "babel-jest": "^27.3.1",
     "eslint": "8.10.0",
     "eslint-config-next": "12.1.0",
+    "eslint-config-prettier": "^8.4.0",
     "isomorphic-git": "^1.10.1",
     "jest": "^27.3.1",
     "jest-transform-stub": "^2.0.0",
     "jest-watch-typeahead": "^1.0.0",
     "postcss": "^8.3.5",
+    "prettier": "^2.5.1",
     "tailwindcss": "^2.2.1"
   },
   "license": "MIT"
