@@ -17,22 +17,22 @@ type Props = {
 const Post = (props: Props) => {
   return (
     <>
-    <Head>
+      <Head>
         <title>{props.post.title} - memo.yammer.jp</title>
         <Ogp
           title={props.post.title + ' - memo.yammer.jp'}
-          path={"/posts/" + props.post.slug}
+          path={'/posts/' + props.post.slug}
           description={props.post.description || ''}
           ogImage={props.post.ogImage || ''}
-          ogType="article"
+          ogType='article'
         />
-    </Head>
-    <Frame>
-      <>
-      <Article post={props.post}/>
-      <NeighborArticles prev={props.prev} next={props.next} />
-      </>
-    </Frame>
+      </Head>
+      <Frame>
+        <>
+          <Article post={props.post} />
+          <NeighborArticles prev={props.prev} next={props.next} />
+        </>
+      </Frame>
     </>
   )
 }
@@ -57,17 +57,13 @@ export async function getStaticProps({ params }: Params) {
     'history',
     'ogImage',
   ])
-  const { prev, next } = await getNeighborPosts(params.slug, [
-    'slug',
-    'title',
-    'date',
-  ])
+  const { prev, next } = await getNeighborPosts(params.slug, ['slug', 'title', 'date'])
   return {
     props: {
       post,
       prev,
       next,
-    }
+    },
   }
 }
 

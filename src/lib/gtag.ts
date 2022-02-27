@@ -7,20 +7,20 @@ export const existsGaId = GA_ID !== ''
 
 // PVを測定する
 export const pageview = (url: string): void => {
-  if (!GA_ID) return;
+  if (!GA_ID) return
 
-  (window as any).gtag('config', GA_ID, {
+  ;(window as any).gtag('config', GA_ID, {
     page_path: url,
-  });
-};
+  })
+}
 
-export const event = ({action, category, label}: Event) => {
+export const event = ({ action, category, label }: Event) => {
   if (!existsGaId) {
     return
   }
 
-  (window as any).gtag('event', action, {
+  ;(window as any).gtag('event', action, {
     event_category: category,
-    event_label: JSON.stringify(label)
+    event_label: JSON.stringify(label),
   })
 }

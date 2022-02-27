@@ -1,75 +1,75 @@
 .header {
-    background-color: #a3d7ff;
-    background-image: url("/assets/curve.svg");
-    background-repeat: no-repeat;
-    width: 100%;
-    background-size: 100%;
-    background-position: bottom -1px left 0;
-    margin: 0;
-    min-height: 140px;
+  background-color: #a3d7ff;
+  background-image: url('/assets/curve.svg');
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: 100%;
+  background-position: bottom -1px left 0;
+  margin: 0;
+  min-height: 140px;
 }
 
 .headerLeftAnchor {
-    color: #505050;
+  color: #505050;
 }
 
 .headerInner {
-    text-align: left;
-    display:flex;
-    flex-wrap: wrap;
-    padding: 12px 0px 0px 0px;
-    max-width: 800px;
-    margin: 0 auto;
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 12px 0px 0px 0px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .headerLeft {
-    display: inline-block;
-    font-size: 17px;
-    text-align: initial;
-    vertical-align: top;   
-    margin-right: auto;
-    padding-top: 12px;
-    margin-left: 0px;
+  display: inline-block;
+  font-size: 17px;
+  text-align: initial;
+  vertical-align: top;
+  margin-right: auto;
+  padding-top: 12px;
+  margin-left: 0px;
 }
 
 .headerRight {
-    display: inline-block;
-    font-size: 16px;
-    text-align: initial;
-    vertical-align: top;
-    margin-left: auto;
-    padding-top: 12px;
-    margin-right: 0px;
-}   
+  display: inline-block;
+  font-size: 16px;
+  text-align: initial;
+  vertical-align: top;
+  margin-left: auto;
+  padding-top: 12px;
+  margin-right: 0px;
+}
 
 .headerTitle {
-    margin: 0 0 0 8px;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 1.7;
+  margin: 0 0 0 8px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.7;
 }
 
 .headerSubtitle {
-    margin: 0 0 0 8px;
-    font-size: 14px;
-    line-height: 1.5;
+  margin: 0 0 0 8px;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .headerNavIconWrapper {
-    margin: 0 8px;
+  margin: 0 8px;
 }
 
 .headerNavIcon {
-    display: inline-block;
-    font-size: 15px;
-    line-height: 1;
-    background-color: #fff;
-    border-radius: 100%;
+  display: inline-block;
+  font-size: 15px;
+  line-height: 1;
+  background-color: #fff;
+  border-radius: 100%;
 }
 .headerNavIcon:hover {
-    background-color: #f7f7f7;
+  background-color: #f7f7f7;
 }
 .headerNavDescription {
-    height: 24px;
-    text-align: center;
+  height: 24px;
+  text-align: center;
 }

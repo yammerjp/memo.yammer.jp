@@ -13,31 +13,31 @@ type Props = {
 const Index = ({ allPosts }: Props) => {
   return (
     <>
-    <Head>
+      <Head>
         <title>memo.yammer.jp - 常に完成形</title>
-        <Ogp title="memo.yammer.jp" path="/" description="常に完成形" ogImage={OgImageUrlInText('memo.yammer.jp')} ogType="website"/>
-    </Head>
-    <Frame titleIsH1={true}>
-      <>
+        <Ogp
+          title='memo.yammer.jp'
+          path='/'
+          description='常に完成形'
+          ogImage={OgImageUrlInText('memo.yammer.jp')}
+          ogType='website'
+        />
+      </Head>
+      <Frame titleIsH1={true}>
+        <>
           {allPosts.map((post) => (
-            <ArticleCard thin post={post} key={post.slug} tagsEmphasizing={[]} allEmphasizing={true} linkable={true}/>
+            <ArticleCard thin post={post} key={post.slug} tagsEmphasizing={[]} allEmphasizing={true} linkable={true} />
           ))}
-
-      </>
-    </Frame>
+        </>
+      </Frame>
     </>
-    )
+  )
 }
 
 export default Index
 
 export const getStaticProps = async () => {
-  const allPosts = (await getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'tags',
-  ]))
+  const allPosts = await getAllPosts(['title', 'date', 'slug', 'tags'])
   return {
     props: { allPosts },
   }

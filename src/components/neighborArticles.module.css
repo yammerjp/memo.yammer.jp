@@ -1,55 +1,57 @@
 .neighborArticles2home {
-    text-align: center;
-    padding: 12px;
+  text-align: center;
+  padding: 12px;
 }
 
 .neighborArticles {
-    margin: 96px 0px 60px 0px;
+  margin: 96px 0px 60px 0px;
 }
 
 .neighborArticles2prev *,
 .neighborArticles2next * {
-    cursor: pointer;
-
+  cursor: pointer;
 }
 
-.neighborArticles2prev, .neighborArticles2next {
-    display: block;
-    color: #505050;
+.neighborArticles2prev,
+.neighborArticles2next {
+  display: block;
+  color: #505050;
 }
 
 .neighborArticles2prev {
-    text-align: left;
-    padding: 24px 0px;
+  text-align: left;
+  padding: 24px 0px;
 }
 
 .neighborArticles2next {
-    text-align: right;
-    padding: 24px 0px;
+  text-align: right;
+  padding: 24px 0px;
 }
 
-.neighborArticles2prev:hover, .neighborArticles2next:hover {
-    text-decoration: none;
+.neighborArticles2prev:hover,
+.neighborArticles2next:hover {
+  text-decoration: none;
 }
 
-.neighborArticles2prev:hover .neighborArticlesTitle, .neighborArticles2next:hover .neighborArticlesTitle {
-    text-decoration: underline;
+.neighborArticles2prev:hover .neighborArticlesTitle,
+.neighborArticles2next:hover .neighborArticlesTitle {
+  text-decoration: underline;
 }
 
 @media screen and (min-width: 600px) {
-    .neighborArticlesPrevAndNext {
-        display: flex;
-    }
-    .neighborArticles2prev {
-        width: 50%;
-        padding-right: 48px;
-    }
-    .neighborArticles2next {
-        width: 50%;
-        padding-left: 48px;
-    }
+  .neighborArticlesPrevAndNext {
+    display: flex;
+  }
+  .neighborArticles2prev {
+    width: 50%;
+    padding-right: 48px;
+  }
+  .neighborArticles2next {
+    width: 50%;
+    padding-left: 48px;
+  }
 }
 
 .neighborArticlesPretitle {
-    font-size: 12px;
+  font-size: 12px;
 }

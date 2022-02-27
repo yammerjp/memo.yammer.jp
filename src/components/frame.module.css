@@ -1,10 +1,9 @@
 .content {
-    width: 100%;
+  width: 100%;
 }
 .contentInner {
-    text-align: left;
-    padding: 60px 8px 0px 8px;
-    margin: 0 auto;
-    max-width: 800px;
+  text-align: left;
+  padding: 60px 8px 0px 8px;
+  margin: 0 auto;
+  max-width: 800px;
 }
-

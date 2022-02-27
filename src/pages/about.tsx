@@ -7,28 +7,28 @@ import { getStaticPostBySlug } from '../lib/api'
 import Article from '../components/article'
 import Ogp from '../components/ogp'
 
-const About = ({post}: {post:PostType}) => {
+const About = ({ post }: { post: PostType }) => {
   return (
     <>
-    <Head>
+      <Head>
         <title>memo.yammer.jp - 常に完成形</title>
         <Ogp
           title='About - memo.yammer.jp'
-          path="/posts/about"
+          path='/posts/about'
           description={post.description || ''}
           ogImage={post.ogImage || ''}
-          ogType="article"
+          ogType='article'
         />
-    </Head>
-    <Frame titleIsH1={false}>
-      <Article post={post}/>
-      <Link href="/">&lt; Home</Link>
-    </Frame>
+      </Head>
+      <Frame titleIsH1={false}>
+        <Article post={post} />
+        <Link href='/'>&lt; Home</Link>
+      </Frame>
     </>
-    )
+  )
 }
 
-export default About 
+export default About
 
 export async function getStaticProps() {
   const post = await getStaticPostBySlug('about', [
@@ -43,6 +43,6 @@ export async function getStaticProps() {
   return {
     props: {
       post,
-    }
+    },
   }
 }

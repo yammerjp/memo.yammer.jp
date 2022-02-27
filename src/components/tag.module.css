@@ -1,40 +1,41 @@
 .articleTag {
-    background-color: #ffffff;
-    border: 1px solid #eeeeee;
-    border-radius: 12px;
-    display: inline-block;
-    margin: 3px 6px 3px 0px;
-    padding: 6px 12px;
-    font-size: 12px;
-    outline: none;
+  background-color: #ffffff;
+  border: 1px solid #eeeeee;
+  border-radius: 12px;
+  display: inline-block;
+  margin: 3px 6px 3px 0px;
+  padding: 6px 12px;
+  font-size: 12px;
+  outline: none;
 }
 
-.linkable, .selectable {
-    cursor: pointer;
+.linkable,
+.selectable {
+  cursor: pointer;
 }
 
-.linkable:hover{
-    background-color: #ffffff;
-    border: solid, 1px, #eeeeee;
-    cursor: pointer;
+.linkable:hover {
+  background-color: #ffffff;
+  border: solid, 1px, #eeeeee;
+  cursor: pointer;
 }
 
 .selectable {
-    background-color: #ffffff;
-    border: 1px solid #eeeeee;
+  background-color: #ffffff;
+  border: 1px solid #eeeeee;
 }
 
 @media (pointer: fine) {
-    .selectable:not(.selected):hover {
-        background-color: #f7f7f7;
-    }
-    .selectable:not(.selected):hover {
-        background-color: #f2f2f2;
-    }
+  .selectable:not(.selected):hover {
+    background-color: #f7f7f7;
+  }
+  .selectable:not(.selected):hover {
+    background-color: #f2f2f2;
+  }
 }
 
 .selectable.selected {
-   background-color: #eeeeee;
+  background-color: #eeeeee;
 }
 
 .inArticleHeader {
@@ -42,6 +43,5 @@
 }
 
 .emphasizing {
-    background-color: #eeeeee;
+  background-color: #eeeeee;
 }
-

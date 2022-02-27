@@ -19,23 +19,29 @@ type Props = {
 const Page = ({ posts, slug, postLength }: Props) => {
   return (
     <>
-    <Head>
+      <Head>
         <title>memo.yammer.jp - 常に完成形</title>
-        <Ogp title="memo.yammer.jp" path="/" description="常に完成形" ogImage={OgImageUrlInText('memo.yammer.jp')} ogType="website"/>
-    </Head>
-    <Frame titleIsH1={true}>
-      <>
-      <div style={{ marginTop: "-26px" }}>
-          <PageSelector nowPage={Number(slug)} pages={pageLength(postLength)}/>
-      </div>
+        <Ogp
+          title='memo.yammer.jp'
+          path='/'
+          description='常に完成形'
+          ogImage={OgImageUrlInText('memo.yammer.jp')}
+          ogType='website'
+        />
+      </Head>
+      <Frame titleIsH1={true}>
+        <>
+          <div style={{ marginTop: '-26px' }}>
+            <PageSelector nowPage={Number(slug)} pages={pageLength(postLength)} />
+          </div>
           {posts.map((post) => (
-            <ArticleCard post={post} key={post.slug} tagsEmphasizing={[]} allEmphasizing={true} linkable={true}/>
+            <ArticleCard post={post} key={post.slug} tagsEmphasizing={[]} allEmphasizing={true} linkable={true} />
           ))}
-      <PageSelector nowPage={Number(slug)} pages={pageLength(postLength)}/>
-      </>
-    </Frame>
+          <PageSelector nowPage={Number(slug)} pages={pageLength(postLength)} />
+        </>
+      </Frame>
     </>
-    )
+  )
 }
 
 export default Page
@@ -46,17 +52,11 @@ type Params = {
   }
 }
 
-export const getStaticProps = async ({params}: Params) => {
-  const firstPost = (Number(params.slug) - 1 ) * postsParPage +1;
-  const lastPost = postsParPage * Number(params.slug);
-  const allPosts = (await getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'tags',
-    'description',
-  ])).sort((a,b)=>{
-     return a.date < b.date ? 1 : -1
+export const getStaticProps = async ({ params }: Params) => {
+  const firstPost = (Number(params.slug) - 1) * postsParPage + 1
+  const lastPost = postsParPage * Number(params.slug)
+  const allPosts = (await getAllPosts(['title', 'date', 'slug', 'tags', 'description'])).sort((a, b) => {
+    return a.date < b.date ? 1 : -1
   })
   const posts = allPosts.slice(firstPost, lastPost)
   return {
@@ -68,15 +68,15 @@ export const getStaticProps = async ({params}: Params) => {
   }
 }
 
-const pageLength = (postsLength:number) => {
-  return ((postsLength-1) / postsParPage) +1;
+const pageLength = (postsLength: number) => {
+  return (postsLength - 1) / postsParPage + 1
 }
 
 export async function getStaticPaths() {
   const posts = await getAllPosts(['slug'])
   const pages = pageLength(posts.length)
   let pagesArr = []
-  for (let n=1; n<=pages; n++) {
+  for (let n = 1; n <= pages; n++) {
     pagesArr.push(n)
   }
   return {

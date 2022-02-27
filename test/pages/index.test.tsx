@@ -18,11 +18,11 @@ describe('Home page', () => {
         slug: '',
         tags: '',
         description: '',
-      }
+      },
     ]
     const { getByText } = render(<Index allPosts={posts} />, {})
     expect(getByText('記事タイトル')).toBeTruthy()
-    expect(()=>getByText('記事タイトルほげほげ')).toThrow()
+    expect(() => getByText('記事タイトルほげほげ')).toThrow()
     // fireEvent.click(getByText('Test Button'))
     // expect(window.alert).toHaveBeenCalledWith('With typescript and Jest')
   })

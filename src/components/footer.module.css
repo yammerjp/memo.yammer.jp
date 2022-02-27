@@ -1,25 +1,24 @@
 .footer {
-    font-size: 14px;
-    color: #505050;
-    margin-top: auto;
-    padding: 0;
-    margin-bottom: 0;
-    background-color: #a3d7ff;
-    background-image: url("/assets/curve-bottom.svg");
-    width: 100%;
-    background-size: 100%;
-    /* background-position: bottom; にすると, safari において横幅が大きいときに1pxくらい下に隙間が表示されるバグを回避するために-1pxずらしている*/
-    background-position: 0 -1px;
-    background-repeat: no-repeat;
+  font-size: 14px;
+  color: #505050;
+  margin-top: auto;
+  padding: 0;
+  margin-bottom: 0;
+  background-color: #a3d7ff;
+  background-image: url('/assets/curve-bottom.svg');
+  width: 100%;
+  background-size: 100%;
+  /* background-position: bottom; にすると, safari において横幅が大きいときに1pxくらい下に隙間が表示されるバグを回避するために-1pxずらしている*/
+  background-position: 0 -1px;
+  background-repeat: no-repeat;
 }
 
 .footerInner {
-    display: flex;
-    flex-direction: column-reverse;
-    text-align: right;
-    padding: 60px 12px 24px 12px;
-    max-width: 800px;
-    min-height: 15vh;
-    margin: auto auto 0 auto;
+  display: flex;
+  flex-direction: column-reverse;
+  text-align: right;
+  padding: 60px 12px 24px 12px;
+  max-width: 800px;
+  min-height: 15vh;
+  margin: auto auto 0 auto;
 }
-

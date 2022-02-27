@@ -7,25 +7,25 @@ import { getStaticPostBySlug } from '../lib/api'
 import Article from '../components/article'
 import Ogp from '../components/ogp'
 
-const PrivacyPolicy = ({post}: {post:PostType}) => {
+const PrivacyPolicy = ({ post }: { post: PostType }) => {
   return (
     <>
-    <Head>
+      <Head>
         <title>memo.yammer.jp - 常に完成形</title>
         <Ogp
           title='プライバシーポリシー - memo.yammer.jp'
-          path="/posts/privacy-policy"
+          path='/posts/privacy-policy'
           description={post.description || ''}
           ogImage={post.ogImage || ''}
-          ogType="article"
+          ogType='article'
         />
-    </Head>
-    <Frame titleIsH1={false}>
-      <Article post={post}/>
-      <Link href="/">&lt; Home</Link>
-    </Frame>
+      </Head>
+      <Frame titleIsH1={false}>
+        <Article post={post} />
+        <Link href='/'>&lt; Home</Link>
+      </Frame>
     </>
-    )
+  )
 }
 
 export default PrivacyPolicy
@@ -38,11 +38,11 @@ export async function getStaticProps() {
     'content',
     'html',
     'description',
-    'ogImage'
+    'ogImage',
   ])
   return {
     props: {
       post,
-    }
+    },
   }
 }
