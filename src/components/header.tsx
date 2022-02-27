@@ -53,7 +53,7 @@ const Header = ({ titleIsH1 }: { titleIsH1?: boolean }) => {
                             />
                           </a>
                         </Link>
-                        <a href="https://github.com/yammerjp" target="_blank" rel="noopener" className={styles.headerNavIconWrapper}>
+                        <a href="https://github.com/yammerjp" rel="noreferrer noopener" target="_blank"className={styles.headerNavIconWrapper}>
                             <Image
                               className={styles.headerNavIcon}
                               src="/assets/github.svg"
@@ -64,7 +64,7 @@ const Header = ({ titleIsH1 }: { titleIsH1?: boolean }) => {
                               onMouseLeave={()=>setNavDescription('')}
                             />
                         </a>
-                        <a href="https://twitter.com/yammerjp" target="_blank" rel="noopener" className={styles.headerNavIconWrapper}>
+                        <a href="https://twitter.com/yammerjp" rel="noreferrer noopener" target="_blank" className={styles.headerNavIconWrapper}>
                             <Image
                               className={styles.headerNavIcon}
                               src="/assets/twitter.svg"
@@ -75,7 +75,7 @@ const Header = ({ titleIsH1 }: { titleIsH1?: boolean }) => {
                               onMouseLeave={()=>setNavDescription('')}
                             />
                         </a>
-                        <a href="https://yammer.jp" target="_blank" rel="noopener" className={styles.headerNavIconWrapper}>
+                        <a href="https://yammer.jp" rel="noreferrer noopener" target="_blank" className={styles.headerNavIconWrapper}>
                             <Image
                               className={styles.headerNavIcon}
                               src="/assets/home.svg"

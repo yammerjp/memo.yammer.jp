@@ -8,8 +8,13 @@
     color: #606060;
 }
 
+.articleLink {
+  color: #505050;
+}
+
 .articleLink:hover {
     cursor: pointer;
+    text-decoration: none;
 }
 
 .articleTitle {

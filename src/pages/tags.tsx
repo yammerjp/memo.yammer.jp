@@ -34,6 +34,7 @@ const Index = ({ allPosts }: Props) => {
   const [queryLoadingIsEnabled, setQueryLoadingIsEnabled] = useState<boolean>(true);
   const router = useRouter()
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(()=>{
     // URLクエリパラメータを読み込んでtagsSelectedのステートに反映
     // ただしURLクエリパラメータはページ遷移後の初回レンダリングやクエリ書き換え後の初回レンダリングでは正しく反映されない

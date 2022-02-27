@@ -8,11 +8,11 @@ const ArticleCard = ({ post, tagsEmphasizing, allEmphasizing, linkable, thin }: 
     return (
         <section className={thin ? styles.articleCardThin : styles.articleCard}>
             <Link href={"/posts/" + post.slug}>
-                <div className={styles.articleLink}>
+                <a className={styles.articleLink}>
                     <ArticleDate post={post} historyDisplayable={false} small={thin}/>
                     <div className={thin ? styles.articleTitleThin : styles.articleTitle}>{post.title}</div>
                     {!thin && (<div className={styles.articleDescription}>{post.description || ''}</div>)}
-                </div>
+                </a>
             </Link>
             {!thin && (
               <Tags

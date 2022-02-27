@@ -23,7 +23,6 @@ export default class MyDocument extends Document {
               />
             </>
           )}
-          <link rel="stylesheet" href="/assets/global.css"></link>
         </Head>
         <body>
           <Main />
