@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { useState } from 'react'
 import styles from './header.module.css'
 
@@ -31,7 +30,7 @@ const Header = ({ titleIsH1 }: { titleIsH1?: boolean }) => {
           <nav className={styles.headerNav}>
             <Link href='/tags' passHref>
               <a className={styles.headerNavIconWrapper}>
-                <Image
+                <img
                   className={styles.headerNavIcon}
                   src='/assets/list-search.svg'
                   alt='記事を探す'
@@ -44,7 +43,7 @@ const Header = ({ titleIsH1 }: { titleIsH1?: boolean }) => {
             </Link>
             <Link href='/about' passHref>
               <a className={styles.headerNavIconWrapper}>
-                <Image
+                <img
                   className={styles.headerNavIcon}
                   src='/assets/user.svg'
                   alt='自己紹介'
@@ -61,7 +60,7 @@ const Header = ({ titleIsH1 }: { titleIsH1?: boolean }) => {
               target='_blank'
               className={styles.headerNavIconWrapper}
             >
-              <Image
+              <img
                 className={styles.headerNavIcon}
                 src='/assets/github.svg'
                 alt='GitHub (@yammerjp)'
@@ -77,7 +76,7 @@ const Header = ({ titleIsH1 }: { titleIsH1?: boolean }) => {
               target='_blank'
               className={styles.headerNavIconWrapper}
             >
-              <Image
+              <img
                 className={styles.headerNavIcon}
                 src='/assets/twitter.svg'
                 alt='Twitter (@yammerjp)'
@@ -93,7 +92,7 @@ const Header = ({ titleIsH1 }: { titleIsH1?: boolean }) => {
               target='_blank'
               className={styles.headerNavIconWrapper}
             >
-              <Image
+              <img
                 className={styles.headerNavIcon}
                 src='/assets/home.svg'
                 alt='著者のWebサイト'
