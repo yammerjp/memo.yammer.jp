@@ -11,13 +11,13 @@ import rehypeStringify from 'rehype-stringify'
 export default async function markdownToHtml(markdown: string) {
   const result = await unified()
     .use(remarkParse)
-    .use(remarkRehype)
+    .use(remarkRehype, { allowDangerousHtml: true })
     .use(gfm)
     .use(footnotes)
     .use(codeTitle)
     .use(hljs)
     .use(html)
-    .use(rehypeStringify)
+    .use(rehypeStringify, { allowDangerousHtml: true })
     .process(markdown)
   return result.toString()
 }
