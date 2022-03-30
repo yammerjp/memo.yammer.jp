@@ -1,4 +1,8 @@
-const ArticleStyle = () => { return ( <style> {`
+const ArticleStyle = () => {
+  return (
+    <style>
+      {' '}
+      {`
 
   #footnote-label {
     display: none;
@@ -156,6 +160,9 @@ const ArticleStyle = () => { return ( <style> {`
       margin: 32px 0px;
   }
 
-`} </style>) }
+`}{' '}
+    </style>
+  )
+}
 
 export default ArticleStyle
