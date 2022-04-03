@@ -7,6 +7,7 @@ import Article from '../../components/article'
 import Ogp from '../../components/ogp'
 import NeighborArticles from '../../components/neighborArticles'
 import 'highlight.js/styles/github.css'
+import ImpressionForm from '../../components/impressionForm'
 
 type Props = {
   post: PostType
@@ -30,6 +31,7 @@ const Post = (props: Props) => {
       <Frame>
         <>
           <Article post={props.post} />
+          <ImpressionForm post={props.post} />
           <NeighborArticles prev={props.prev} next={props.next} />
         </>
       </Frame>
