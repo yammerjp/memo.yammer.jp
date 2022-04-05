@@ -2,65 +2,68 @@ import { PostType } from '../types/post'
 import { useState } from 'react'
 import styles from './impressionForm.module.css'
 
-type MessageTab = 'customMessage' | 'emoji'
+type MessageType = 'text' | 'emoji'
 
 const Emojis = ['😃 ', '🥺 ', '😆', '🚀 ', '👍 ', '👎', '💓'] as const
 type Emojis = typeof Emojis[number]
 
+type Impression = {
+  isPublic: boolean
+  messageType: MessageType
+  emoji: Emojis
+  text: string
+}
+
 const ImpressionForm = ({ post }: { post: PostType }) => {
-  const [customMessage, setCustomMessage] = useState<string>('よかった！')
-  const [isPublic, setIsPublic] = useState<boolean>(true)
-  const [tabSelected, setTabSelected] = useState<MessageTab>('customMessage')
-  const [emojiSelected, setEmojiSelected] = useState<Emojis>(Emojis[0])
+  const [impression, setImpression] = useState<Impression>({
+    isPublic: true,
+    messageType: 'text',
+    emoji: Emojis[0],
+    text: 'よかった！'
+  })
 
-  const getTwitterPostingUrl = () => {
-    const message = tabSelected === 'customMessage' ? customMessage : emojiSelected
-    const url = `https://memo.yammer.jp/posts/${post.slug}`
-    if (isPublic) {
-      return `https://twitter.com/intent/tweet?screen_name=yammerjp&text=${encodeURI('\n' + message + '\n' + url)}`
-    }
-    return `https://twitter.com/messages/compose?recipient_id=451409846&text=${encodeURI(message + '\n' + url)}`
-  }
+  const updateImpression = (after: Partial<Impression>) => setImpression(before => ({...before, ...after}))
 
-  const openSendWindow = () => {
-    window.open(getTwitterPostingUrl())
-  }
+  const tweetUrl = (
+    `https://twitter.com/${impression.isPublic ? 'intent/tweet?screen_name=yammerjp&text=%0A' : 'messages/compose?recipient_id=451409846&text='}` +
+    encodeURI(`${ impression.messageType === 'text' ? impression.text : impression.emoji }\nhttps://memo.yammer.jp/posts/${post.slug}`)
+  )
 
   return (
     <div className={styles.impressionForm}>
       <div>
         <div className={styles.tabWrapper}>
           <button
-            onClick={() => setTabSelected('customMessage')}
-            className={tabSelected === 'customMessage' ? styles.tabSelectorSelected : styles.tabSelector}
+            onClick={() => updateImpression({messageType: 'text'})}
+            className={impression.messageType === 'text' ? styles.tabSelectorSelected : styles.tabSelector}
           >
             メッセージ
           </button>
           <button
-            onClick={() => setTabSelected('emoji')}
-            className={tabSelected === 'emoji' ? styles.tabSelectorSelected : styles.tabSelector}
+            onClick={() => updateImpression({messageType: 'emoji'})}
+            className={impression.messageType === 'emoji' ? styles.tabSelectorSelected : styles.tabSelector}
           >
             スタンプ
           </button>
         </div>
-        {tabSelected === 'customMessage' && (
+        {impression.messageType === 'text' && (
           <div className={styles.tabContent}>
             「よかった」「わるかった」などメッセージをくれると嬉しいです！
             <textarea
-              value={customMessage}
-              onChange={(e) => setCustomMessage(e.target.value)}
+              value={impression.text}
+              onChange={(e) => updateImpression({text: e.target.value})}
               className={styles.textarea}
             ></textarea>
           </div>
         )}
-        {tabSelected === 'emoji' && (
+        {impression.messageType === 'emoji' && (
           <div className={styles.tabContent}>
             <div className={styles.emojiWrapper}>
               {Emojis.map((emoji, i) => (
                 <div
                   key={i}
-                  onClick={() => setEmojiSelected(emoji)}
-                  className={emojiSelected === emoji ? styles.emojiButtonSelected : styles.emojiButton}
+                  onClick={() => updateImpression({emoji})}
+                  className={impression.emoji === emoji ? styles.emojiButtonSelected : styles.emojiButton}
                 >
                   {emoji}
                 </div>
@@ -72,16 +75,16 @@ const ImpressionForm = ({ post }: { post: PostType }) => {
           <div className={styles.isPublicCheckboxBox}>
             <input
               type='checkbox'
-              checked={isPublic}
-              onChange={(e) => setIsPublic(e.target.checked)}
+              checked={impression.isPublic}
+              onChange={(e) => updateImpression({isPublic: e.target.checked})}
               id='impression-form-is-public-checkbox'
             />
             <label htmlFor='impression-form-is-public-checkbox'>公開</label>
           </div>
           <div className={styles.sendButtionBox}>
-            <button onClick={openSendWindow} className={styles.impressionSubmitButton}>
-              Twitter{!isPublic && 'のDM'}で送る
-            </button>
+            <a href={tweetUrl} className={styles.impressionSubmitButton} target="_blank" rel="noopener">
+              Twitter{!impression.isPublic && 'のDM'}で送る
+            </a>
           </div>
         </div>
       </div>
