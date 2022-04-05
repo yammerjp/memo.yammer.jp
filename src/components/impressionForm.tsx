@@ -82,7 +82,7 @@ const ImpressionForm = ({ post }: { post: PostType }) => {
             <label htmlFor='impression-form-is-public-checkbox'>公開</label>
           </div>
           <div className={styles.sendButtionBox}>
-            <a href={tweetUrl} className={styles.impressionSubmitButton} target="_blank" rel="noopener">
+            <a href={tweetUrl} className={styles.impressionSubmitButton} target="_blank" rel="noreferrer">
               Twitter{!impression.isPublic && 'のDM'}で送る
             </a>
           </div>
