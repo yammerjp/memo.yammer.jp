@@ -41,4 +41,4 @@ tags: [ "日記" ]
 
 EOF
 
-exec vim "$NEW_ARTICLE_PATH"
+exec nvim "$NEW_ARTICLE_PATH"

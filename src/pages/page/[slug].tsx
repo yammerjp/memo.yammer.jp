@@ -53,7 +53,7 @@ type Params = {
 }
 
 export const getStaticProps = async ({ params }: Params) => {
-  const firstPost = (Number(params.slug) - 1) * postsParPage + 1
+  const firstPost = (Number(params.slug) - 1) * postsParPage
   const lastPost = postsParPage * Number(params.slug)
   const allPosts = (await getAllPosts(['title', 'date', 'slug', 'tags', 'description'])).sort((a, b) => {
     return a.date < b.date ? 1 : -1
