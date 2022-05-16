@@ -1,0 +1,81 @@
+.textarea {
+  width: 100%;
+  padding: 24px;
+  border-radius: 8px;
+  border-color: #dddddd;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  box-sizing: border-box;
+}
+
+.sendButtonBox {
+}
+
+.isPublicCheckboxBox {
+}
+
+.buttonCheckboxWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.tabWrapper {
+  display: flex;
+  justify-content: space-around;
+}
+.tabSelector {
+  border: none;
+  background: none;
+  padding: 8px 16px;
+}
+.tabSelectorSelected {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  background-color: #eeeeee;
+}
+
+.emojiWrapper {
+  padding-top: 28px;
+  padding-bottom: 28px;
+  font-size: 32px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.emojiButton {
+  padding: 8px;
+  border: none;
+  background: none;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.emojiButtonSelected {
+  padding: 8px;
+  border: none;
+  background-color: #eeeeee;
+  border-radius: 8px;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.tabContent {
+  min-height: 128px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.impressionForm {
+  margin-top: 96px;
+  margin-bottom: 96px;
+}
+
+.impressionSubmitButton {
+  background-color: #dddddd;
+  color: #505050;
+  border: none;
+  border-radius: 32px;
+  box-shadow: none;
+  padding: 8px 16px;
+}
