@@ -10,7 +10,7 @@ import { OgImageUrlInText } from './cloudinaryOgp'
 
 import { PostHistoryType } from '../types/post'
 
-export async function getPostSlugs(): Promise<string[]> {
+async function getPostSlugs(): Promise<string[]> {
   const files = await fs.readdir(join(process.cwd(), 'content', 'posts'))
   return files.filter((f) => /.*\.md/.test(f))
 }
