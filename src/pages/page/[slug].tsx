@@ -52,7 +52,7 @@ type Params = {
   }
 }
 
-export const getStaticProps = async ({ params }: Params) => {
+export const getServerSideProps = async ({ params }: Params) => {
   const firstPost = (Number(params.slug) - 1) * postsParPage
   const lastPost = postsParPage * Number(params.slug)
   const allPosts = (await getAllPosts(['title', 'date', 'slug', 'tags', 'description'])).sort((a, b) => {
@@ -70,23 +70,4 @@ export const getStaticProps = async ({ params }: Params) => {
 
 const pageLength = (postsLength: number) => {
   return (postsLength - 1) / postsParPage + 1
-}
-
-export async function getStaticPaths() {
-  const posts = await getAllPosts(['slug'])
-  const pages = pageLength(posts.length)
-  let pagesArr = []
-  for (let n = 1; n <= pages; n++) {
-    pagesArr.push(n)
-  }
-  return {
-    paths: pagesArr.map((page) => {
-      return {
-        params: {
-          slug: '' + page,
-        },
-      }
-    }),
-    fallback: false,
-  }
 }

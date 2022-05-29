@@ -1,20 +1,14 @@
+import { GetServerSidePropsContext } from 'next'
 import Head from 'next/head'
 import xmlEscape from 'xml-escape'
 import { writeFile } from 'fs/promises'
 import { getAllPosts } from '../../lib/api'
 
-const RSS = () => {
-  return (
-    <Head>
-      <meta httpEquiv='refresh' content='0; url=/posts/index.xml' />
-      <title>redirect to /posts/index.xml</title>
-    </Head>
-  )
-}
+const Page = () => null
 
-export default RSS
+export default Page
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async ({ res }: GetServerSidePropsContext) => {
   const allPosts = await getAllPosts(['title', 'date', 'slug', 'tags', 'description', 'tags'])
 
   let buf = `<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
@@ -51,7 +45,10 @@ ${tags.map((t) => `<category>${t}</category>`).join('\n')}
   buf += `</channel>
 </rss>`
 
-  await writeFile(`${process.cwd()}/public/posts/index.xml`, buf)
+  res.statusCode = 200
+  res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate')
+  res.setHeader('Content-Type', 'text/xml')
+  res.end(buf)
   return {
     props: {},
   }

@@ -47,7 +47,7 @@ type Params = {
   }
 }
 
-export async function getStaticProps({ params }: Params) {
+export async function getServerSideProps({ params }: Params) {
   const post = await getPostBySlug(params.slug, [
     'title',
     'date',
@@ -66,19 +66,5 @@ export async function getStaticProps({ params }: Params) {
       prev,
       next,
     },
-  }
-}
-
-export async function getStaticPaths() {
-  const posts = await getAllPosts(['slug'])
-  return {
-    paths: posts.map((posts) => {
-      return {
-        params: {
-          slug: posts.slug,
-        },
-      }
-    }),
-    fallback: false,
   }
 }
