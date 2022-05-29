@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 0
 
       - name: build
-        run: npm ci && npm run build
+        run: npm ci && npm run build:static
         env:
           NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: '${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID }}'
       - uses: FirebaseExtended/action-hosting-deploy@v0
