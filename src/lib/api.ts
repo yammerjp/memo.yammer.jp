@@ -1,4 +1,4 @@
-import fs from 'fs/promises'
+import { promises as fs } from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
 import { exec } from 'child_process'
