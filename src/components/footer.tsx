@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.footerInner}>
         <div>
-          <div>©2020 Keisuke Nakayama</div>
+          <div>©2020-2022 Keisuke Nakayama</div>
           <div>
             <Link href='/privacy-policy'>Privacy Policy</Link>
           </div>
