@@ -1,0 +1,8 @@
+<svg width="768" height="192" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M 0 128 C 384 320, 384 -64, 768 128 L 768 128 L 768 192 L 0 192 L 0 128"
+    stroke="black"
+    fill="#0e131f" 
+    stroke-width="0" 
+    />
+</svg>
