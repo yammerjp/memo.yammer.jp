@@ -1,6 +1,6 @@
 ---
 title: "CloudFront Functionsで指定したURLにリダイレクトさせる"
-date: "2022-10-07T00:54:50+09:00"
+date: "2022-10-08T10:25:00+09:00"
 tags: [ "AWS", "CloudFront", "dotfiles" ]
 ---
 
@@ -10,7 +10,7 @@ CloudFront Functionsというサービスがあり、軽量のJavaScriptコー�
 - [CloudFront Functions の導入 – 任意の規模において低レイテンシーでコードをエッジで実行 | Amazon Web Services ブログ](https://aws.amazon.com/jp/blogs/news/introducing-cloudfront-functions-run-your-code-at-the-edge-with-low-latency-at-any-scale/)
 - [エッジで爆速コード実行！CloudFront Functionsがリリースされました！ | DevelopersIO](https://dev.classmethod.jp/articles/amazon-cloudfront-functions-release/)
 
-ちょうどdotfilesのセットアップ用のスクリプトを配布するエンドポイントを用意したかったので、今回はCloudFront Functionsで他のURLへの302リダイレクトを発行するエンドポイントを作成してみる。
+ちょうどdotfilesリポジトリのセットアップ用スクリプトを取得できるエンドポイントを用意したかったので、今回はCloudFront Functionsで他のURLへの302リダイレクトを発行するエンドポイントを作成してみる。
 
 
 まずは、AWSコンソールのCloudFrontのページへ行き、左側のメニューから「関数」を選択する。
