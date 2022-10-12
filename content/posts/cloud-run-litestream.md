@@ -1,13 +1,12 @@
 ---
 title: "HerokuからCloud Run + Litestreamへ移行した"
-date: "2022-10-12T10:10:00+00:00"
+date: "2022-10-12T10:15:00+00:00"
 tags: [ "CloudRun", "heroku", "docker", "SQLite", "Litestream", "雑記" ]
 ---
 
 ## はじめに
 
 [Herokuの無料枠が終了](https://blog.heroku.com/next-chapter)することにあわせて、個人で動かしているRailsアプリケーションを他の場所へ移行する。
-
 いままで無料で使わせていただいたこと感謝しつつも、月千円ほど払うほどのアプリケーションでもないので、ほぼ無料で移行できそうな場所を探すことにした。[^1]
 
 コンテナをホスティングできるGoogle Cloud Runは従量課金制だが、個人で使う分にはほぼ無料なので、これを選ぶことにする。
@@ -21,7 +20,7 @@ Cloud Runで使うRDBは一般にはGoogle Cloud SQLが推奨されていそう�
 Dockerコンテナのエントリポイントに設定するシェルスクリプトのなかで、アプリケーションの起動前に処理を加えて対応する。
 
 コンテナの同時実行数は0~1にしている。
-0にしていいのかは微妙だが、個人でしか使っていないし中に大して重要なデータを扱っているわけでもないのでひとまずこれで様子を見ることにする。
+0にしていいのかは微妙だが、個人でしか使っていないうえ、大して重要なデータを扱っているわけでもないのでひとまずこれで様子を見ることにする。
 
 ## 移行の手順
 
@@ -45,13 +44,7 @@ Litestreamのレプリケーション先にGCSを利用するので、GCSのセ�
 
 Dockerfileでは、Litestreamのインストールと設定ファイルの設置を行っている。[^3]
 
-<details>
-
-<summary>
-
-`Dockerfile`
-
-</summary>
+Dockerfile
 
 ```Dockerfile
 FROM rubylang/ruby:3.0.1-focal
@@ -81,13 +74,9 @@ COPY . /app
 
 # Litestreamの設定ファイルを設置する。
 COPY ./litestream.yml /etc/litestream.yml
+```
 
-<details>
-<summary>
-
-`litestream.yml`
-
-</summary>
+litestream.yml
 
 ```
 dbs:
@@ -101,7 +90,6 @@ dbs:
     replicas:
       - url: gcs://____YOUR_BACKET_NAME____/db/staging.sqlite3
 ```
-</details>
 
 entrypoint.shでは、データベースを復元してからレプリケーションを開始する。
 あわせて以下も実装している。
@@ -110,12 +98,7 @@ entrypoint.shでは、データベースを復元してからレプリケーシ�
 - ポート番号は`$PORT`を優先して利用する。[^4]
 - 接続情報は環境変数に集約する。LitestreamはGCSへの接続情報として`$GOOGLE_APPLICATION_CREDENTIALS`にJSONファイルへのパスが入ることを期待する。コンテナイメージに接続情報を含めないために、JSONをbase64でエンコードして環境変数に保存しておき、起動時に書き出す。
 
-<details>
-<summary>
-
-`entrypoint.sh`
-
-</summary>
+entrypoint.sh
 
 ```entrypoint.sh
 #!/bin/bash -e
@@ -172,16 +155,14 @@ if ! [ -f "$DATABASE_FILE_FULLPATH" ]; then
 fi
 
 
-# Litestreamによってレプリケーションしながら、アプリケーションを起動する
 if [ "$USE_LITESTREAM" = "true" ] ; then
+  # Litestreamによってレプリケーションしながら、アプリケーションを起動する
   exec litestream replicate -exec "$EXEC_COMMAND" -config /etc/litestream.yml
 else
   # shellcheck disable=SC2090
   exec $EXEC_COMMAND
 fi
 ```
-
-</details>
 
 ### アプリケーションのデプロイ
 
@@ -212,9 +193,9 @@ SQLを流し込むのはローカルPC上で実施した。
 Cloud Run + Litestream + GCSはコールドスタート時は少し時間がかかるが、Herokuの無料枠とさして変わらないかむしろ早いかもしれない。[^5]
 それ以外の動作は結構サクサクしていていい感じ。
 
-ローカルでも気軽に同じ構成で動かせたりして結構よいので、Cloud RunでLitestreamを使うテンプレを用意したい気持ちになった。
+ローカルでも気軽に同じ構成で動かせたりして結構よいので、Cloud RunでLitestreamを使うテンプレートを用意したい気持ちになった。
 
-[^1]: お金が掛かってもよい場合のホスト先はRenderやFly.io、もしくはHerokuのEco Dynoなどがありそう。[Herokuの新しい有料プランのまとめと、無料プラン終了後の個人的な移行方針について - give IT a try](https://blog.jnito.com/entry/2022/10/04/104100)
+[^1]: お金がかかってもよい場合のホスト先はRenderやFly.io、もしくはHerokuのEco Dynoなどがありそう。[Herokuの新しい有料プランのまとめと、無料プラン終了後の個人的な移行方針について - give IT a try](https://blog.jnito.com/entry/2022/10/04/104100)
 [^2]: 参考: [特定のGCSバケットにのみアクセスできるサービスアカウントの作り方 - Carpe Diem](https://christina04.hatenablog.com/entry/access-gcs-bucket-with-iam-policy)
 [^3]:  参考: [Cloud RunとLitestreamで激安GraphQL/RDBサーバーを動かす](https://zenn.dev/oubakiou/articles/382839bfc65931)
 [^4]: Cloud Runでは環境変数`PORT`を参照することがおすすめされている。[既存のサービスを移行する  |  Cloud Run のドキュメント  |  Google Cloud](https://cloud.google.com/run/docs/migrating?hl=ja)
