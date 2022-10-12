@@ -80,9 +80,6 @@ litestream.yml
 
 ```
 dbs:
-  - path: /app/db/development.sqlite3
-    replicas:
-      - url: gcs://____YOUR_BACKET_NAME____/db/development.sqlite3
   - path: /app/db/production.sqlite3
     replicas:
       - url: gcs://____YOUR_BACKET_NAME____/db/production.sqlite3
