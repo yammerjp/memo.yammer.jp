@@ -29,7 +29,7 @@ const queryTags2tagArr = (tags: string | string[] | undefined) => {
 }
 
 const Index = ({ allPosts }: Props) => {
-  const tagsAll = allPosts.flatMap((post) => post.tags ?? []).map(s => s.toLowerCase())
+  const tagsAll = allPosts.flatMap((post) => post.tags ?? []).map((s) => s.toLowerCase())
   const [tagsSelected, setTagsSelected] = useState<string[]>([])
   const [queryLoadingIsEnabled, setQueryLoadingIsEnabled] = useState<boolean>(true)
   const router = useRouter()
@@ -79,7 +79,7 @@ const Index = ({ allPosts }: Props) => {
       if (tagsSelected.length == 0) {
         return false
       }
-      return tagsSelected.every((t) => post.tags && post.tags.map(s => s.toLowerCase()).includes(t))
+      return tagsSelected.every((t) => post.tags && post.tags.map((s) => s.toLowerCase()).includes(t))
     })
     .sort((a, b) => {
       return a.date < b.date ? 1 : -1
