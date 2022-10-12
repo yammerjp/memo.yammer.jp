@@ -1,6 +1,6 @@
 ---
 title: "HerokuからCloud Run + Litestreamへ移行した"
-date: "2022-10-12T10:15:09+00:00"
+date: "2022-10-12T10:15:00+09:00"
 tags: [ "CloudRun", "heroku", "docker", "SQLite", "Litestream", "雑記" ]
 ---
 
