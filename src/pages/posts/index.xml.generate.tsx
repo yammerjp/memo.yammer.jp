@@ -42,8 +42,8 @@ export const getStaticProps = async () => {
 <link>${link}</link>
 <pubDate>${new Date(date).toUTCString()}</pubDate>
 <guid>${guid}</guid>
-<description>${xmlEscape(description)}</description>
-${tags.map((t) => `<category>${t}</category>`).join('\n')}
+<description>${xmlEscape(description ?? '')}</description>
+${tags?.map((t) => `<category>${t}</category>`).join('\n')}
 </item>
 `
   }
