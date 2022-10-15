@@ -36,7 +36,7 @@ const Index = ({ allPosts }: Props) => {
 
 export default Index
 
-export const getStaticProps = async () => {
+export const getStaticProps = async (): Promise<{ props: Props }> => {
   const allPosts = await getAllPosts(['title', 'date', 'slug', 'tags'])
   return {
     props: { allPosts },

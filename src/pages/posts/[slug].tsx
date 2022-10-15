@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Head from 'next/head'
 import { getPost, getAllPosts, getNeighborPosts } from '../../lib/api'
 import { PostType } from '../../types/post'
@@ -47,38 +46,33 @@ type Params = {
   }
 }
 
-export async function getStaticProps({ params }: Params) {
-  const post = await getPost(params.slug, [
-    'title',
-    'date',
-    'slug',
-    'content',
-    'tags',
-    'html',
-    'description',
-    'history',
-    'ogImage',
-  ])
-  const { prev, next } = await getNeighborPosts(params.slug, ['slug', 'title', 'date'])
+export async function getStaticProps({ params }: Params): Promise<{ props: Props }> {
   return {
     props: {
-      post,
-      prev,
-      next,
+      post: await getPost(params.slug, [
+        'title',
+        'date',
+        'slug',
+        'content',
+        'tags',
+        'html',
+        'description',
+        'history',
+        'ogImage',
+      ]),
+      ...(await getNeighborPosts(params.slug, ['slug', 'title', 'date'])),
     },
   }
 }
 
-export async function getStaticPaths() {
+export async function getStaticPaths(): Promise<{ paths: Params[]; fallback: boolean }> {
   const posts = await getAllPosts(['slug'])
   return {
-    paths: posts.map((posts) => {
-      return {
-        params: {
-          slug: posts.slug,
-        },
-      }
-    }),
+    paths: posts.map((posts) => ({
+      params: {
+        slug: posts.slug,
+      },
+    })),
     fallback: false,
   }
 }

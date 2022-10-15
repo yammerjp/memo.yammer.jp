@@ -7,7 +7,11 @@ import { getStaticPost } from '../lib/api'
 import Article from '../components/article'
 import Ogp from '../components/ogp'
 
-const PrivacyPolicy = ({ post }: { post: PostType }) => {
+type Props = {
+  post: PostType
+}
+
+const PrivacyPolicy = ({ post }: Props) => {
   return (
     <>
       <Head>
@@ -30,7 +34,7 @@ const PrivacyPolicy = ({ post }: { post: PostType }) => {
 
 export default PrivacyPolicy
 
-export async function getStaticProps() {
+export async function getStaticProps(): Promise<{ props: Props }> {
   const post = await getStaticPost('privacy-policy', [
     'title',
     'date',

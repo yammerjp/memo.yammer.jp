@@ -52,7 +52,7 @@ type Params = {
   }
 }
 
-export const getStaticProps = async ({ params }: Params) => {
+export const getStaticProps = async ({ params }: Params): Promise<{ props: Props }> => {
   const firstPost = (Number(params.slug) - 1) * postsParPage
   const lastPost = postsParPage * Number(params.slug)
   const allPosts = (await getAllPosts(['title', 'date', 'slug', 'tags', 'description'])).sort((a, b) => {
@@ -72,7 +72,7 @@ const pageLength = (postsLength: number) => {
   return (postsLength - 1) / postsParPage + 1
 }
 
-export async function getStaticPaths() {
+export async function getStaticPaths(): Promise<{ paths: Params[]; fallback: boolean }> {
   const posts = await getAllPosts(['slug'])
   const pages = pageLength(posts.length)
   let pagesArr = []

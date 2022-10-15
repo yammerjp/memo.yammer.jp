@@ -7,7 +7,10 @@ import { getStaticPost } from '../lib/api'
 import Article from '../components/article'
 import Ogp from '../components/ogp'
 
-const About = ({ post }: { post: PostType }) => {
+type Props = {
+  post: PostType
+}
+const About = ({ post }: Props) => {
   return (
     <>
       <Head>
@@ -30,7 +33,7 @@ const About = ({ post }: { post: PostType }) => {
 
 export default About
 
-export async function getStaticProps() {
+export async function getStaticProps(): Promise<{ props: Props }> {
   const post = await getStaticPost('about', ['title', 'date', 'slug', 'content', 'html', 'description', 'ogImage'])
   return {
     props: {
