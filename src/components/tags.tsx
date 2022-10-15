@@ -20,7 +20,7 @@ const Tags = ({
         <Tag
           key={tag}
           tagName={tag}
-          linkTo={linkable ? `/tags?tags=${tag}` : undefined}
+          linkTo={linkable ? `/tags?tags=${tag.toLowerCase()}` : undefined}
           emphasizing={!!(allEmphasizing || tagsEmphasizing.find((t) => t === tag))}
           inArticleHeader={inArticleHeader}
         />
