@@ -84,3 +84,34 @@ export async function getNeighborPosts(
     prev: idx + 1 <= allPosts.length - 1 ? allPosts[idx + 1] : null,
   }
 }
+
+const existSameElementWithCaseInsensitive = (a: string[], b: string[]): boolean => {
+  const aLowered = a.map((s) => s.toLowerCase())
+  const bLowered = b.map((s) => s.toLowerCase())
+  return aLowered.some((s) => bLowered.includes(s))
+}
+
+export async function getRelatedPosts(slug: string, fields: string[] = ['slug']): Promise<PostType[]> {
+  const allPosts = await getAllPosts([...fields, 'tags', 'date'])
+  const idx = allPosts.findIndex((post) => post.slug === slug)
+  if (idx === -1) {
+    console.error('Need to specify EXISTING slug with calling getNeighborPosts()')
+    return []
+  }
+  const post = allPosts[idx]
+  const relatedPosts =
+    allPosts.filter(
+      (p, i) =>
+        Math.abs(idx - i) > 1 && // exclude neighbor posts
+        existSameElementWithCaseInsensitive(p.tags ?? [], post.tags ?? []),
+    ) ?? []
+
+  // in order of date and time of posting, closest to the original article
+  return relatedPosts.sort(
+    (a, b) =>
+      Math.abs(Date.parse(a.date) - Date.parse(post.date)) - Math.abs(Date.parse(b.date) - Date.parse(post.date)),
+  )
+
+  // // in order of date, latest
+  // return relatedPosts.sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
+}

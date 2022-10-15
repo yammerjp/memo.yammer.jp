@@ -1,10 +1,11 @@
 import Head from 'next/head'
-import { getPost, getAllPosts, getNeighborPosts } from '../../lib/api'
+import { getPost, getAllPosts, getNeighborPosts, getRelatedPosts } from '../../lib/api'
 import { PostType } from '../../types/post'
 import Frame from '../../components/frame'
 import Article from '../../components/article'
 import Ogp from '../../components/ogp'
 import NeighborArticles from '../../components/neighborArticles'
+import RelatedArticles from '../../components/relatedArticles'
 import 'highlight.js/styles/github.css'
 import ImpressionForm from '../../components/impressionForm'
 
@@ -12,6 +13,7 @@ type Props = {
   post: PostType
   prev: PostType | null
   next: PostType | null
+  relatedPosts: PostType[] | null
 }
 
 const Post = (props: Props) => {
@@ -32,6 +34,7 @@ const Post = (props: Props) => {
           <Article post={props.post} />
           <ImpressionForm post={props.post} />
           <NeighborArticles prev={props.prev} next={props.next} />
+          <RelatedArticles posts={props.relatedPosts} />
         </>
       </Frame>
     </>
@@ -61,6 +64,7 @@ export async function getStaticProps({ params }: Params): Promise<{ props: Props
         'ogImage',
       ]),
       ...(await getNeighborPosts(params.slug, ['slug', 'title', 'date'])),
+      relatedPosts: await getRelatedPosts(params.slug, ['slug', 'title', 'date']),
     },
   }
 }
