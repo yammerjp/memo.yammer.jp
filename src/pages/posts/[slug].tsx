@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Head from 'next/head'
-import { getPostBySlug, getAllPosts, getNeighborPosts } from '../../lib/api'
+import { getPost, getAllPosts, getNeighborPosts } from '../../lib/api'
 import { PostType } from '../../types/post'
 import Frame from '../../components/frame'
 import Article from '../../components/article'
@@ -48,7 +48,7 @@ type Params = {
 }
 
 export async function getStaticProps({ params }: Params) {
-  const post = await getPostBySlug(params.slug, [
+  const post = await getPost(params.slug, [
     'title',
     'date',
     'slug',

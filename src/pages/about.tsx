@@ -3,7 +3,7 @@ import Frame from '../components/frame'
 import 'highlight.js/styles/github.css'
 import Link from 'next/link'
 import { PostType } from '../types/post'
-import { getStaticPostBySlug } from '../lib/api'
+import { getStaticPost } from '../lib/api'
 import Article from '../components/article'
 import Ogp from '../components/ogp'
 
@@ -31,7 +31,7 @@ const About = ({ post }: { post: PostType }) => {
 export default About
 
 export async function getStaticProps() {
-  const post = await getStaticPostBySlug('about', [
+  const post = await getStaticPost('about', [
     'title',
     'date',
     'slug',
