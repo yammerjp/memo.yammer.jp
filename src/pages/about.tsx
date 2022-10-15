@@ -31,15 +31,7 @@ const About = ({ post }: { post: PostType }) => {
 export default About
 
 export async function getStaticProps() {
-  const post = await getStaticPost('about', [
-    'title',
-    'date',
-    'slug',
-    'content',
-    'html',
-    'description',
-    'ogImage',
-  ])
+  const post = await getStaticPost('about', ['title', 'date', 'slug', 'content', 'html', 'description', 'ogImage'])
   return {
     props: {
       post,
