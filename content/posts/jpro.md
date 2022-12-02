@@ -73,4 +73,4 @@ HerokuからCloud Run + Litestreamへ移行した
 
 - 昨日: よしこさんの未経験転職したい人へのエッセイ、あつい記事でした
    - [エンジニアの未経験転職を希望する方へ未経験転職した経験から伝えたいこと｜yoshikouki｜note](https://note.com/yoshikouki/n/n81b44928b656) 
-- 明日: inoweyさんの「何か書きます」です、楽しみですね！
+- 明日: inowayさんの「何か書きます」です、楽しみですね！
