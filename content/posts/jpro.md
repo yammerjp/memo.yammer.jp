@@ -4,6 +4,8 @@ date: "2022-12-02T09:18:00+09:00"
 tags: [ "JSON", "JavaScript", "CLI", "Shell" ]
 ---
 
+この記事は、[🎅GMOペパボエンジニア Advent Calendar 2022](https://adventar.org/calendars/7722)の2日目のものです。
+
 みなさんは、JSON processorを使っていますか？ええ、[`jq`](https://github.com/stedolan/jq)のようなツールのことです。世は大JSON時代、値を抽出したり、変換したりする機会も多いことでしょう。
 
 ところで、`jq`の抽出クエリやコマンドラインオプション、さらっと書けますか？私はあんまり得意じゃないです。そこで、[JavaScriptで書けるJSON processor「`jpro`」](https://github.com/yammerjp/jpro) をつくりました。
@@ -76,3 +78,10 @@ HerokuからCloud Run + Litestreamへ移行した
 - 明日: inowayさんの「何か書きます」です、楽しみですね！
     - [【入社エントリー】ペパボカレッジを全力でおすすめしてみる - 脈絡はありません](https://inoway46.hatenablog.com/entry/2022/12/03/141106)
     - プログラミングが楽しくなった、アウトプット量が増えた、というところが印象的でした！
+
+<div style="padding-top: 32px; text-align: center">
+  <div>
+      iframeでカレンダーを埋め込めるようなので追加してみました
+  </div>
+  <iframe src="https://adventar.org/calendars/7722/embed" width="100%" height="450" frameborder="0" loading="lazy"></iframe>
+</div>
