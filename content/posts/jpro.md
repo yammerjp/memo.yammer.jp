@@ -73,15 +73,19 @@ HerokuからCloud Run + Litestreamへ移行した
 
 この記事は、[🎅GMOペパボエンジニア Advent Calendar 2022](https://adventar.org/calendars/7722)の2日目のものでした。今年のペパボエンジニアには🎅(サンタ会場)のほかにも、[🎄(ツリー会場)](https://adventar.org/calendars/7784)があります。
 
-- 昨日: よしこさんの未経験転職したい人へのエッセイ、あつい記事でした
-   - [エンジニアの未経験転職を希望する方へ未経験転職した経験から伝えたいこと｜yoshikouki｜note](https://note.com/yoshikouki/n/n81b44928b656) 
-- 明日: inowayさんの「何か書きます」です、楽しみですね！
-    - [【入社エントリー】ペパボカレッジを全力でおすすめしてみる - 脈絡はありません](https://inoway46.hatenablog.com/entry/2022/12/03/141106)
-    - プログラミングが楽しくなった、アウトプット量が増えた、というところが印象的でした！
+昨日は、よしこさんの未経験転職したい人へのエッセイ、あつい記事でした。
 
-<div style="padding-top: 32px; text-align: center">
+[エンジニアの未経験転職を希望する方へ未経験転職した経験から伝えたいこと｜yoshikouki｜note](https://note.com/yoshikouki/n/n81b44928b656)
+
+明日は、inowayさんの記事です！
+
+[【入社エントリー】ペパボカレッジを全力でおすすめしてみる - 脈絡はありません](https://inoway46.hatenablog.com/entry/2022/12/03/141106)
+
+追記: プログラミングが楽しくなった、アウトプット量が増えた、というところが印象的でした！
+
+<div style="padding-top: 16px; text-align: center">
+  <iframe src="https://adventar.org/calendars/7722/embed" width="100%" height="450" frameborder="0" loading="lazy"></iframe>
   <div>
       iframeでカレンダーを埋め込めるようなので追加してみました
   </div>
-  <iframe src="https://adventar.org/calendars/7722/embed" width="100%" height="450" frameborder="0" loading="lazy"></iframe>
 </div>
