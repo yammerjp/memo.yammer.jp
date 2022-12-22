@@ -41,7 +41,8 @@ https://asahilinux.org/2022/03/asahi-linux-alpha-release/
 事前にドキュメントに目を通しておいて、かつウィザードの注意文言に従って進めれば問題なさそうだった。
 インストールの進め方は以下の動画で紹介されている。
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/SoszrV0TG3U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SoszrV0TG3U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; aspect-ratio: 16/9; height: auto;"></iframe>
 
 私が試した限りでは、一つだけ詰まりポイントがあった。
 前半でSSDに新たなパーティションを追加するところがあるのだけど、そこでコケて先に進めなかった。

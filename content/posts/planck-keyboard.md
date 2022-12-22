@@ -53,7 +53,7 @@ Planck Keyboard V6 は, ホットスワップ用のソケットが PCB にはん
 作り方は公式動画で説明されている。
 
 <div style="text-align: center;">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KAZglmhVuYg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KAZglmhVuYg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; aspect-ratio: 16/9; height: auto;"></iframe>
 </div>
 
 PCB にはデフォルトでキーマップが書き込まれているが、[qmk/qmk\_firmware](https://github.com/qmk/qmk_firmware)を利用して独自のキーマップを書き込むことも出来る。

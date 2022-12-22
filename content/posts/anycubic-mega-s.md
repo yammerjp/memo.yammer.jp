@@ -68,7 +68,7 @@ Anycubic Mega Sはゆっくりやっても数十分で組み立てることが�
 Youtuberのイチケンさんの動画ではそんなに頻繁にやらなくても良いと語られているので、それほどずれないとわかったらやらなくて良いかもしれません。
 
 <div style="text-align: center">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4JEHVZTRjXY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4JEHVZTRjXY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; aspect-ratio: 16/9; height: auto;"></iframe>
 </div>
 
 ちなみにこの動画、とてもよくできていて3Dプリンタを買う前にイメージを掴むのに大変役立ちました。
