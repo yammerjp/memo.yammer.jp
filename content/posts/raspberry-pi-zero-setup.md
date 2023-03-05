@@ -32,7 +32,7 @@ Raspberry pi Zero を、購入後一切モニタにつなぐことなく無線LA
 
 ### OSイメージの書き込み
 
-```sh
+```shell
 # ダウンロードしたzipを展開してimgファイルを得る
 $ unzip 2020-02-13-raspbian-buster-lite.zip
 
@@ -50,7 +50,7 @@ $ sudo dd bs=1m if=2020-02-13-raspbian-buster-lite.img of=/dev/disk2
 
 書き込み後のSDカードのbootドライブをマウントする。(/Volumes/boot)
 
-```sh
+```shell
 $ cd /Volumes/boot
 # bootドライブちょっかいsshという名前のファイルが有ると、初期状態でsshが起動する
 $ touch ssh
@@ -61,7 +61,9 @@ $ vim wpa_supplicant.conf
 
 `wpa_supplicant.conf`の中身は以下の通り
 
-```plaintext:wpa_supplicant.conf
+```
+# wpa_supplicant.conf
+
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 country=JP
@@ -88,7 +90,7 @@ DHCPリースを固定にして、このMACアドレスに対応するIPアド�
 
 __クライアント側__
 
-```sh
+```shell
 $ ssh pi@192.168.0.13
 # raspberry pi のIPアドレスを指定(ここでは 192.168.0.13 であるとする)
 # デフォルトのIDは pi
@@ -99,7 +101,7 @@ $ ssh pi@192.168.0.13
 
 __raspberry pi側__
 
-```
+```shell
 # visudoでnanoではなくvimを立ち上げる
 # 参考: https://qiita.com/koara-local/items/35b999631b6ab41fdc9f
 $ sudo update-alternatives --config editor
@@ -110,14 +112,15 @@ $ vim ~/.bashrc
 
 `.bashrc`に下記を追記
 
-```bash:.bashrc
+```bash
+# .bashrc
 alias vim='vi'
 ```
 
 変更を読み込む
 
-```sh
-source ~/.bashrc
+```shell
+$ source ~/.bashrc
 ```
 
 ## sshの設定
@@ -126,7 +129,7 @@ source ~/.bashrc
 
 __raspberry pi側__
 
-```sh
+```shell
 # yammerというユーザを作るとする
 $ sudo useradd yammer
 $ sudo passwd yammer
@@ -135,7 +138,7 @@ $ sudo visudo
 
 visudoによって、`/etc/sudoers`に下記を追記
 
-```plaintext:/etc/sudoers
+```
 yammer  ALL=(ALL) ALL
 ```
  
@@ -145,7 +148,7 @@ ssh用の公開鍵を作る。
 
 __クライアント側__
 
-```sh
+```shell
 $ cd ~/.ssh
 $ ssh-keygen -t rsa -b 4096 -C "raspberry-pi" -f ~/.ssh/id_rsa_pi
 ```
@@ -154,7 +157,7 @@ $ ssh-keygen -t rsa -b 4096 -C "raspberry-pi" -f ~/.ssh/id_rsa_pi
 
 __raspberry pi側__
 
-```sh
+```shell
 $ cd /home/yammer
 $ chmod 700 .ssh
 $ chmod 600 .ssh/authorized_keys
@@ -164,7 +167,7 @@ $ chmod 600 .ssh/authorized_keys
 
 __クライアント側__
 
-```sh
+```shell
 $ scp ~/.ssh/id_rsa_pi.pub yammer@192.168.0.13:/home/yammer/.ssh/authorized_keys
 ```
 
@@ -172,18 +175,20 @@ $ scp ~/.ssh/id_rsa_pi.pub yammer@192.168.0.13:/home/yammer/.ssh/authorized_keys
 
 __raspberry pi側__
 
-```sh
+```shell
 $ sudo vi /etc/ssh/sshd_config
 ```
 
-```plaintext:/etc/ssh/sshd_config
+```
+# /etc/ssh/sshd_config
+
 RSAAuthentication   yes
 PubkeyAuthentication   yes
 AuthorizedKeysFile   .ssh/authorized_keys
 AllowUsers yammer # ユーザ名を追加
 ```
 
-```sh
+```shell
 $ sudo /etc/init.d/sshd restart
 ```
 
@@ -191,7 +196,7 @@ $ sudo /etc/init.d/sshd restart
 
 __クライアント側__
 
-```
+```shell
 $ ssh -i ~/.ssh/id_rsa_pi yammer@192.168.0.13
 ```
 

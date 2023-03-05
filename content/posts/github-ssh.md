@@ -12,7 +12,7 @@ WindowsやMacでは、GitHubのIDとパスワードを安全に記憶して、HT
 
 ## 鍵ペアを作る
 
-```sh
+```shell
 $ cd ~/.ssh
 $ ssh-keygen -t rsa -b 4096 -C "mymail@example.com"
 # 鍵の名前を id_rsa_github とする
@@ -39,14 +39,15 @@ Add keyを押し、その後パスワードも入力
 
 `~/.ssh/config`に以下を追記
 
-```plaintext:~/.ssh/config
+```
+# ~/.ssh/config
 Host github
   HostName github.com
   IdentityFile ~/.ssh/id_rsa_github
   User git
 ```
 
-```sh
+```shell
 # ssh-agentが動作しているか確認
 eval "${ssh-agent -s}"
 Agent pid 32047

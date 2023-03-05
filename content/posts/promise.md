@@ -60,7 +60,7 @@ Chrome developper Toolである。
 ES6 (ES2015)以降の最近のJavaScriptでは、アロー関数という記法がある。
 アロー関数がわからない人も、この記事出てくるので簡単に抑えておきたい。
 
-```js
+```javascript
 // 従来の書き方
 function sum ( a, b ) {
   return a + b;
@@ -93,7 +93,7 @@ thisがbindされるかだとか他の違いは一旦忘れる。
 電話を折り返すことに由来して名付けられた。
 由来の通り、関数自体を伝えて「あとで都合が良くなったら実行しておいて」と実行を押し付ける方式。
 
-```js
+```javascript
 function callbackFunc() {
   console.log('callback');
 }
@@ -116,7 +116,7 @@ callFunc( callbackFunc );
 
 次のような書き方では全く意味が変わってしまうので注意。
 
-```js
+```javascript
 callFunc( callbackFunc() );
 ```
 
@@ -129,7 +129,7 @@ callFunc( callbackFunc() );
 #### (補足) コールバックとアロー関数
 
 ちなみに上述のコードはアロー関数を使って次のようにも書ける。
-```js
+```javascript
 const callbackFunc = () => {
   console.log('callback');
 };
@@ -143,7 +143,7 @@ callFunc( callbackFunc );
 
 さらに、一度変数に入れるのをやめると
 
-```js
+```javascript
 function callFunc( func ) {
   func();
 }
@@ -174,7 +174,7 @@ Promise オブジェクトはまず pending で始まり、あとで fulfilled �
 
 とりあえず約束してみる。
 
-```js
+```javascript
 const promise = new Promise( (resolve, reject) => {
 });
 // 何もしない関数を、new Promise() に渡している。
@@ -189,7 +189,7 @@ _ここでの変数`promise`は、Promise の状態 pending といえる。_
 
 次は fulfilled の状態を作ってみる。
 
-```js
+```javascript
 const promise = new Promise( (resolve, reject) => {
   resolve();
 })
@@ -201,7 +201,7 @@ Promise resoleved と表示されただろう。これが fulfilled である。
 
 実は状態 fulfilled は値を持つ。
 
-```js
+```javascript
 const promise = new Promise( (resolve, reject) => {
   resolve('hello');
 })
@@ -214,7 +214,7 @@ _ここでの変数`promise`は、Promiseの状態 fulfilled であり、値`'he
 
 rejected も fulfilled と同様に値を持つ。
 
-```js
+```javascript
 const promise = new Promise( (resolve, reject) => {
   reject('hello');
 })
@@ -225,7 +225,7 @@ _ここでの変数`promise`は、Promise の状態 rejected であり、値`'he
 
 rejected で渡される値(オブジェクト)は Error オブジェクトだったりする。
 
-```js
+```javascript
 const promise = new Promise( (resolve, reject) => {
   reject(new Error('error message'));
 })
@@ -239,7 +239,7 @@ _ここでの変数`promise`は、Promise の状態 rejected であり、値に 
 Promiseでは状態が変化する。
 初期状態では pending であるが、のちに fulfilled や rejected になる。
 
-```js
+```javascript
 const promise = new Promise( (resolve, reject) => {
   //この行が実行されるタイミングでは、変数promiseは状態pending
   if( true ){
@@ -266,7 +266,7 @@ Promise オブジェクトのメソッドに、then と catch がある。
 
 これらはそれぞれ第一引数に関数をとり、Promise が fulfilled や rejected の状態になると引数関数を実行する。
 
-```js
+```javascript
 const promise = new Promise( (resolve, reject) => {
   resolve('hello');
 })
@@ -277,7 +277,7 @@ promise.then( arg => {
 })
 ```
 
-```js
+```javascript
 const promise = new Promise( (resolve, reject) => {
   reject('hello');
 })
@@ -292,7 +292,7 @@ promise.catch( arg => {
 
 さらに、then/catch メソッドの戻り値に promise を与えてやれば、更に繋げられる。
 
-```js
+```javascript
 const promise = new Promise( (resolve, reject) => {
   resolve('hello');
 })
@@ -341,7 +341,7 @@ promise
 即時関数は定義と同時に実行する関数だ。
 関数定義を括弧でくくると即時実行される。
 
-```js
+```javascript
 const Hello = () => { console.log('hello') };
 Hello();
 
@@ -357,7 +357,7 @@ Hello();
 関数定義の前に`async`とつけて定義する。
 Asnyc 関数の中でのみ await が使える。
 
-```js
+```javascript
 // 例
 const arrowFunc = async () => {
   await promise;
@@ -378,7 +378,7 @@ async/await は Promise を生成する構文と言っていい。
 
 前節の Promise のコードを再掲する。
 
-```js
+```javascript
 const promise = new Promise( (resolve, reject) => {
   resolve('hello');
 })
@@ -391,7 +391,7 @@ promise.then( arg => {
 
 これを async/await に書き直すと
 
-```js
+```javascript
 const promise = new Promise( (resolve, reject) => {
   resolve('hello');
 })
@@ -412,7 +412,7 @@ then が消えたことがわかる。
 
 もう一つ前節のコードを再掲し async/await に書き換えてみる。
 
-```js
+```javascript
 const promise = new Promise( (resolve, reject) => {
   resolve('hello')
 })
@@ -432,7 +432,7 @@ promise
 
 async/await に書き換えると
 
-```js
+```javascript
 const promise = new Promise( (resolve, reject) => {
   resolve('hello')
 })
@@ -461,7 +461,7 @@ async/awaitで簡潔にかけるなら、Promiseなんて理解しなくて良�
 
 複数のPromiseを同時に待つ処理をasync/awaitで書いてみる。
 
-```js
+```javascript
 ( async () => {
   await Promise.all( [ promise1, promise2 ])
 })
@@ -492,7 +492,7 @@ JavaScript の代表的な非同期関数に`setTimeOut()`がある。
 
 次のようなコードで考えてみよう。
 
-```js
+```javascript
 setTimeOut( () => {
   console.log('hello');
 }, 1000);
@@ -506,7 +506,7 @@ JavaScript は、普通は(同期関数は)、上から順番に1行ずつ実行
 
 書き方を少し変えてみる。
 
-```js
+```javascript
 function Hello() { // 1
   console.log('hello'); // 4
 }
@@ -537,7 +537,7 @@ console.log('world') // 3
 
 やりたいことはコールバックで実現できるものの、何重にも重なると次のようなコードにになってしまう。
 
-```js
+```javascript
 setTimeOut( () => {
   setTimeOut( () => {
     setTimeOut( () => {
@@ -576,7 +576,7 @@ console.log('これはすぐに実行される');
 
 さっきの6秒待つ処理も
 
-```js
+```javascript
 // 事前に Promise 関数を作っておく。
 // ライブラリなどで用意されていたりするので、Promise を使う側は作る必要はない。
 function setTimeOutPromise(time){
@@ -609,7 +609,7 @@ console.log('これはすぐに実行される');
 
 さらに async/awaitで書き直すと
 
-```js
+```javascript
 // 事前に Promise 関数を作っておく。
 // さっきと同じ。
 function setTimeOutPromise(time){

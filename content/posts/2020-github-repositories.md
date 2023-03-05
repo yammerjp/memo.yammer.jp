@@ -14,7 +14,7 @@ tags: [ "日記" ]
 
 [jq](https://github.com/stedolan/jq) と gh をインストールし、 `~/.config/gh/config.yml` の aliases キーに、次のような内容を追記する。
 
-```
+```yaml
 aliases:
     repos: |
         !gh api --paginate graphql -f owner="$1" -f query='
@@ -31,9 +31,9 @@ aliases:
 
 ログインして、先程登録したエイリアスでリポジトリ一覧を取得する。
 
-```sh
-gh auth login
-gh repos | grep '2020' > repos.txt
+```shell
+$ gh auth login
+$ gh repos | grep '2020' > repos.txt
 ```
 
 ## リポジトリを一つづつ振り返る

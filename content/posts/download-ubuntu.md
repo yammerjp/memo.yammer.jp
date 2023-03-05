@@ -17,7 +17,7 @@ Torrentについては別途要検討
 macでは次のようにしてmd5ハッシュを確認できる
 ダウンロードページのhashと比較して、ダウンロードが正しく行われたことを確認する
 
-```sh
+```shell
 $ md5 -q path/to/file
 # manによると、-qオプションはQuiet modeらしい。md5ハッシュのみ出力する。
 # ので、次のように比較するのが良いかな
@@ -28,7 +28,7 @@ $ md5 -q path/to/file | diff hash/text/file/path -
 
 ## Copy
 
-```sh
+```shell
 # Convert iso to img
 $ hdutil convert -format UDRW -o hoge.img hoge.iso
 $ mv hoge.img.dmg hoge.img

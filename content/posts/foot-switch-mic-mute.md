@@ -46,7 +46,7 @@ ogImage: "https://blob.yammer.jp/foot-switch-mic-mute-irasutoya.png"
 macOSの仕様がよくわからないのだが、OS側でマイクをミュートにする方法が見つけられずボリュームを最小にすることで擬似的にミュートにしている。
 アプリケーションの種類に左右されずに、さらにウィンドウがアクティブでないときも操作したいので、いまは OS 側の設定をシェルから叩いている。
 
-```sh
+```shell
 # マイクをミュート
 $ osascript -e "tell application \"System Events\" to set volume input volume 0"
 # マイクをミュート解除

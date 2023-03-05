@@ -47,7 +47,7 @@ https://asahilinux.org/2022/03/asahi-linux-alpha-release/
 私が試した限りでは、一つだけ詰まりポイントがあった。
 前半でSSDに新たなパーティションを追加するところがあるのだけど、そこでコケて先に進めなかった。
 
-```error-message.txt
+```
 11-12 22:28 root         ERROR    Process execution failed
 Traceback (most recent call last):
   File "/private/tmp/asahi-install/main.py", line 852, in <module>
@@ -87,10 +87,10 @@ Arch Linux向けの非公式パッケージである[AUR](https://wiki.archlinux
 
 https://wiki.archlinux.jp/index.php/XDG_%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA
 
-```sh
-LANG=C xdg-user-dirs-update --force
-mv ~/デスクトップ/* ~/Desktop
-rmdir ドキュメント デスクトップ 画像 ビデオ テンプレート ダウンロード 公開 音楽
+```shell
+$ LANG=C xdg-user-dirs-update --force
+$ mv ~/デスクトップ/* ~/Desktop
+$ rmdir ドキュメント デスクトップ 画像 ビデオ テンプレート ダウンロード 公開 音楽
 ```
 
 ### KDEシステム設定を好みのものに
@@ -102,37 +102,37 @@ KeyboardのCap LockをCtrlにする。入力デバイス > キーボード > 詳
 
 ### 最新のパッケージにする
 
-```sh
-pacman -Syu
+```shell
+$ pacman -Syu
 ```
 
 ### yadmをinstallして、dotfilesを初期化
 
-```sh
-sudo pacman -S yadm
+```shell
+$ sudo pacman -S yadm
 # まだSSHキーがないので、httpsでcloneする
-yadm clone https://github.com/yammerjp/dotfiles.git
-yadm remote remove origin
-yadm remote add origin git@github.com:yammerjp/dotfiles.git
+$ yadm clone https://github.com/yammerjp/dotfiles.git
+$ yadm remote remove origin
+$ yadm remote add origin git@github.com:yammerjp/dotfiles.git
 ```
 
 ### SSHキーを発行して、GitHubに登録しておく
 
-```sh
-ssh-keygen-me
+```shell
+$ ssh-keygen-me
 # https://github.com/yammerjp/dotfiles/blob/650d39e02fcb0b698f03acac8fca722acab35666/.config/zsh/alias.zsh#L29-L31
 # https://github.com/settings/ssh/new
 ```
 
 ### IMEを設定する
 
-```sh
-pacman -S fcitx5-im fcitx5-mozc
+```shell
+$ pacman -S fcitx5-im fcitx5-mozc
 ```
 
 `/etc/environment`に以下を追記
 
-```/etc/environment
+```
 GTK_IM_MODULE="fcitx5"
 QT_IM_MODULE="fcitx5"
 XMODIFIERS='@im=fcitx5'
@@ -146,75 +146,75 @@ https://addons.mozilla.org/ja/firefox/addon/1password-x-password-manager/
 
 ### Alacritty, xclip, tmuxをインストール
 
-```sh
-sudo pacman -S alacritty xclip tmux
+```shell
+$ sudo pacman -S alacritty xclip tmux
 ```
 
 ### yayをインストール
 
 AURのパッケージを管理するのに使えるツール
 
-```sh
-cd /tmp
-git clone https://aur.archlinux.org/yay-bin.git
-cd yay-bin
-makepkg -si
+```shell
+$ cd /tmp
+$ git clone https://aur.archlinux.org/yay-bin.git
+$ cd yay-bin
+$ makepkg -si
 ```
 
 ### ghをインストール
 
-```sh
-yay -S github-cli
+```shell
+$ yay -S github-cli
 ```
 
 
 ### ghqをインストール
 
-```sh
-cd /tmp
-wget https://github.com/x-motemen/ghq/releases/download/v1.3.0/ghq_linux_arm64.zip
-unzip ghq_linux_arm64.zip
-mv ghq_linux_arm64/ghq ~/.local/bin/
+```shell
+$ cd /tmp
+$ wget https://github.com/x-motemen/ghq/releases/download/v1.3.0/ghq_linux_arm64.zip
+$ unzip ghq_linux_arm64.zip
+$ mv ghq_linux_arm64/ghq ~/.local/bin/
 ```
 
 ### 好みのフォントであるHackGenNFをインストール
 
-```sh
-wget https://github.com/yuru7/HackGen/releases/download/v2.7.1/HackGen_NF_v2.7.1.zip
-unzip HackGen_NF_v2.7.1.zip
-mv HackGen_NF_v2.7.1 HackGenNF
-sudo mv HackGenNF /usr/share/fonts
-fc-cache -fv
+```shell
+$ wget https://github.com/yuru7/HackGen/releases/download/v2.7.1/HackGen_NF_v2.7.1.zip
+$ unzip HackGen_NF_v2.7.1.zip
+$ mv HackGen_NF_v2.7.1 HackGenNF
+$ sudo mv HackGenNF /usr/share/fonts
+$ fc-cache -fv
 ```
 
 ### asdfでnodejsとrubyとphpをインストール
 
-```sh
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
-source ~/.zshrc #事前にasdfのロード処理を書き込み済みだった
-asdf plugin add nodejs
-asdf install nodejs lts
-asdf global nodejs lts
-node --version
+```shell
+$ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
+$ source ~/.zshrc #事前にasdfのロード処理を書き込み済みだった
+$ asdf plugin add nodejs
+$ asdf install nodejs lts
+$ asdf global nodejs lts
+$ node --version
 
-asdf plugin add ruby
-asdf install ruby latest
-asdf global ruby latest
-ruby --version
+$ asdf plugin add ruby
+$ asdf install ruby latest
+$ asdf global ruby latest
+$ ruby --version
 
-asdf plugin add php
+$ asdf plugin add php
 # 依存が結構ある
 # ref: https://github.com/asdf-community/asdf-php/blob/master/.github/workflows/workflow.yml#L30
-sudo pacman -S autoconf base-devel gd bison curl gettext git gd libcurl-openssl-1.0 libedit mlocate oniguruma postgresql-libs mysql re2c
-sudo updatedb
-asdf install php latest
-asdf global php latest
-php --version
+$ sudo pacman -S autoconf base-devel gd bison curl gettext git gd libcurl-openssl-1.0 libedit mlocate oniguruma postgresql-libs mysql re2c
+$ sudo updatedb
+$ asdf install php latest
+$ asdf global php latest
+$ php --version
 
-asdf plugin add golang
-asdf install golang latest
-asdf global golang latest
-go version
+$ asdf plugin add golang
+$ asdf install golang latest
+$ asdf global golang latest
+$ go version
 ```
 
 ## おわりに

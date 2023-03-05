@@ -55,12 +55,13 @@ Docker Hubにアップロードする際に自動で付与されるユニーク�
 
 ### build
 
-```bash
+```shell
 $ docker build -t [作成するイメージ名]:[タグ名] [Dockerfileのあるディレクトリのパス]
 ```
 
 ## docker engineの状態を確認
-```
+
+```shell
 $ docker version
 $ docker tutorial
 $ docker system info
@@ -69,7 +70,8 @@ $ docker system df
 ```
 
 ## nginxをdockerで動かしてみる
-```
+
+```shell
 $ docker pull nginx
 $ docker image ls
 $ docker container run --name nginxserver -d -p 80:80 nginx
@@ -80,7 +82,8 @@ $ docker start nginxserver
 ```
 
 ## centosをpullしてみる
-```
+
+```shell
 # p96
 $ docker image pull centos:7
 $ docker image ls
@@ -94,7 +97,7 @@ docker imageが改ざんされているかどうか、公開鍵(Tagging Key)を�
 
 署名なしイメージのpull時は無効化しなければならない。
 
-```
+```shell
 # enable
 $ export DOCKER_CONTENT_TRUST=1
 
@@ -104,7 +107,7 @@ $ export DOCKER_CONTENT_TRUST=0
 
 ## docker imageの操作
 
-```
+```shell
 # pullしたイメージの詳細情報を確認(イメージID,作成日,dockerのversion,CPUアーキテクチャ等)
 $ docker image inspect ubuntu:latest
 
@@ -129,7 +132,7 @@ $ docker image prune [--all(-a) --force(-f)]
 
 ## docker image のpush
 
-```
+```shell
 $ docker login -u yammerjp -p xxx
 $ docker image push yammerjp/nginxserver:1.0
 $ docker logout
@@ -137,7 +140,7 @@ $ docker logout
 
 ## docker container run
 
-```
+```shell
 $ docker container run [ option ] yammerjp/nginxserver
 $ docker run [ option ] yammerjp/nginxserver # containerは省略可能
 $ docker run -it --name "test1" ubuntu /bin/bash
@@ -185,14 +188,14 @@ $docker run -id --add-host test.com:192.168.0.1 ubuntu
 - --workdir(-w)=[パス] .. コンテナの作業ディレクトリを指定する
 - --user(-u)=[ユーザ名] .. ユーザ名かUIDを指定する
 
-```
+```shell
 $ docker run --cpu-shares=512 --memory=1g ubuntu
 $ docker run -v /Users/yammerjp/webap:/usr/share/nginx/html nginx
 ```
 
 ## docker network
 
-```
+```shell
 $ docker network create -d bridge webap-net
 $ docker container run --net=webap-net -it ubuntu
 
@@ -203,9 +206,10 @@ $ docker network inspect [ option ] ネットワーク
 $ docker network rm [ option ] ネットワーク
 
 ```
+
 ## コンテナの状態確認
 
-```
+```shell
 $ docker container ls [ --all(-a) --filter(-f) --format --last -8 --latest -l --no-trunc --quiet(-q) --size(-s) ]
 # 稼働しているコンテナの状態一覧
 
@@ -218,7 +222,7 @@ $ docker container top コンテナ識別子
 
 ## コンテナの状態変更
 
-```
+```shell
 $ docker container start[ --atatch(-a) --interactive(-i) ] コンテナ識別子
 $ docker container stop [ -time(-t) ..コンテナの停止時間を指定する(defaultは10s) ] コンテナ識別子
 $ docker container restart [ -time(-t) ..コンテナの再起動時間を指定する(defaultは10s) ] コンテナ識別子
@@ -229,7 +233,7 @@ $ docker container unpause コンテナ識別子
 
 ## others
 
-```
+```shell
 $ docker container rm [ --force(-f) .. 起動中のコンテナを強制的に削除 , --volumes(-v) .. 割り当てたボリュームを削除 ] コンテナ識別子
 
 $ docker container attach コンテナ識別子

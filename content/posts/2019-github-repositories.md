@@ -23,7 +23,7 @@ tags: [ "日記" ]
 
 githubのAPIを用いて、curlでリポジトリ情報を取得する。
 
-```sh
+```shell
 $ curl -u yammerjp "https://api.github.com/users/yammerjp/repos?per_page=100&page=1" | grep '"name": "' | awk -F '"' '{print $4}' > repos.txt
 ```
 

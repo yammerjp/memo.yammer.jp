@@ -16,7 +16,7 @@ Qiitaにあった記事で同期処理でPromiseをしてみて理解しよう�
 
 需要がありそうなので自分で書いているのだが、そんな中でMDNを見ていてthenメソッドに関する発見があった。
 
-```js
+```javascript
 const promise = new Promise( (resolve,reject) => {
   setTimeout( () => {
     if( (Date.now()%2) === 0 ){
@@ -55,11 +55,11 @@ thenの第二引数がどれだけ使われているのか気になるところ�
 (resolvedと同じ意味でsettledという言葉も使われるようだ。)
 
 なるほど区別するのは良いのだが、それならよく
-```js
+```javascript
 new Promise( (resolve, relect) => {})
 ```
 と書いているのはどうなの。
-```js
+```javascript
 new Promise( (fulfill, reject) => {})
 ```
 と予め書いてあるほうが混乱を産まないと思うのだが。

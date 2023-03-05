@@ -45,7 +45,6 @@ hooksは、グローバルに有効なスクリプトを指定することもで
 
 グローバルなhooksに指定されたディレクトリの下に、実行権限をもつ `~/.config/git/hooks/pre-push` というファイルを配置し、以下のような記述をします。
 
-`~/.config/git/hooks`
 ```bash
 #!/bin/bash -e
 

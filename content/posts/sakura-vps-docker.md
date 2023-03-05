@@ -31,7 +31,8 @@ windows10にはあらかじめputty,WinSCPがインストールされている�
 #### sampleuserの作成
 
 以下、sampleuserは適当に自分の作りたいユーザー名に置き換える。 
-```sh 
+
+```shell
 #rootでログイン 
 $ useradd sampleuser #ユーザー作成 
 $ passwd sampleuser #パスワード設定 
@@ -39,7 +40,7 @@ $ passwd sampleuser #パスワード設定
  
 #### sampleuserがsudoできるようにする 
 
-```sh 
+```shell
 $ visudo 
 ``` 
 
@@ -55,7 +56,7 @@ visudoで/etc/sudoersを編集する。次の行のコメントアウトを外�
 
 :wqで保存。 
 
-```sh 
+```shell
 $ usermod -aG wheel sampleuser 
 #ユーザーをwheelグループに追加 
  
@@ -89,7 +90,7 @@ Saveし、その後Openでssh接続できるか確認する。
 
 #### rootのsshログインを止める 
 
-```sh 
+```shell
 $ vim sudo /etc/ssh/sshd_config 
 ``` 
 
@@ -104,7 +105,7 @@ $ vim sudo /etc/ssh/sshd_config
 
 :wqで保存。 
  
-```sh 
+```shell
 $ systemctl restart sshd #設定を反映させる 
 ``` 
  
@@ -112,7 +113,7 @@ $ systemctl restart sshd #設定を反映させる
 
 sshポートを、標準である22から適当な値に変更する。ここでは2222に変更するが、セキュリティのためには各自適当な値を用いるべき。 
 
-```sh 
+```shell
 $ sudo vim /etc/ssh/sshd_config 
 ``` 
 
@@ -126,13 +127,13 @@ Port2222
 
 :wqで保存。 
 
-```sh 
+```shell
 $ systemctl restart sshd #設定を反映させる 
 ``` 
 
 そして、sshの設定でポートを変更したのち、__firewallの設定も変更しなければならない。。。__ これに気づかず最初つまづいた。 
 
-```sh 
+```shell
 $ cp /usr/lib/firewalld/services/ssh.xml /etc/firewalld/services/ssh.xml 
  
 $ sudo vim /etc/firewalld/services/ssh.xml 
@@ -151,7 +152,7 @@ firewallのデフォルト設定は/usr/lib/firewalld/にあるが、これは�
 
 :wqで保存。 
 
-```sh 
+```shell
 $ firewall-cmd --reload #設定を反映させる 
 ``` 
 
@@ -181,7 +182,7 @@ WinSCPでは画面左側にローカルの、画面右側にサーバのファ�
  
 サーバに公開鍵を登録する。 
 
-```sh 
+```shell
 $ login #sampleuserでloginする 
  
 $ ssh-keygen -i -f sakura_rsa.pub >> authorized_keys #puttygen.exeで作成した公開鍵の形式を変換 
@@ -205,7 +206,7 @@ putty.exeで sakura_vps_session を Loadし、>Conection>SSH>Auth の Private ke
 パスワードログインの無効化をする。 
 公開鍵認証でログインできても、まだ従来のパスワードによるログインもできるのでセキュリティ向上にはなっていない。従来のパスワードによるログインを無効化する。 
 
-```sh 
+```shell
 $ vim sudo /etc/ssh/sshd_config 
 ``` 
 
@@ -219,7 +220,7 @@ PasswordAuthentication no
 
 :wqで保存。 
  
-```sh 
+```shell
 $ systemctl restart sshd #設定を反映させる 
 ``` 
  
@@ -229,7 +230,7 @@ $ systemctl restart sshd #設定を反映させる
 
 ### dockerのインストール 
 
-```sh 
+```shell
 $ sudo yum update 
 $ sudo yum install docker-io 
 #dockerのインストール 
@@ -242,7 +243,7 @@ $ sudo docker info
  
 ### sampleuserがdockerを使えるようにする 
 
-```sh 
+```shell
 $ sudo groupadd docker #dockerグループの作成 
 $ sudo gpasswd -a sampleuser docker 
 #sampleuserをdockerグループへ追加 
@@ -256,7 +257,7 @@ $ docker info
  
 ### Moby Dockを表示してみる 
 
-```sh 
+```shell
 $ docker run docker/whalesay cowsay 'Congrats!!!' 
 ``` 
  

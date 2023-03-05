@@ -22,6 +22,7 @@ tags: [ "VPS", "SSH", "自宅サーバ" ]
 中継するVPSとその先の自宅サーバへの接続情報を書いておく。
 
 ```
+# ~/.ssh/config
 Host home-server
   HostName 192.168.2.3
   IdentityFile ~/.ssh/id_rsa
@@ -43,6 +44,7 @@ Host home-server-remote
 中継するVPSへの接続情報を書いておく。
 
 ```
+# ~/.ssh/config
 Host bastion-vps
   HostName bastion-vps.example.com
   IdentityFile ~/.ssh/id_rsa
@@ -53,16 +55,16 @@ Host bastion-vps
 
 自宅サーバからVPSへsshして、VPSの空きポートから自宅サーバのsshポートへリバーストンネルを張る。
 
-```bash
+```shell
 # user@home-server
-ssh -fN -R 2222:localhost:22 bastion-vps
+$ ssh -fN -R 2222:localhost:22 bastion-vps
 ```
 
 この状態で、自宅サーバと異なるネットワークに所属するラップトップからsshをする。
 
-```bash
+```shell
 # VPSの22番ポート、2222番ポートを伝って自宅サーバへsshする
-ssh home-server-remote
+$ ssh home-server-remote
 ```
 
 多段sshの際にラップトップの秘密鍵を使う利点は、自宅サーバに入るための鍵をVPSが保持していないこと。
@@ -73,7 +75,6 @@ ssh home-server-remote
 自宅サーバのsystemdに登録して、常にリバーストンネルが貼られている状態を維持する。
 
 まず、ファイル `/lib/systemd/system/bastion-tunnel.service` に以下を記述する。
-
 
 ```
 [Unit]
@@ -93,10 +94,10 @@ WantedBy=multi-user.target
 
 作成したServiceを有効化する。
 
-```
-sudo systemctl daemon-reload
-sudo systemctl enable bastion-tunnel.service
-sudo systemctl status bastion-tunnel.service
+```shell
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable bastion-tunnel.service
+$ sudo systemctl status bastion-tunnel.service
 ```
 
 常にリバーストンネルが貼られていることをsshして確認してみる。

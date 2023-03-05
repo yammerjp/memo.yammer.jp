@@ -15,7 +15,7 @@ Makefile にはシェルスクリプトのように実行するコマンドを�
 
 2つのコマンドの実行結果を比較したい時、bashでは次のように名前付きパイプを使うと簡単に記述できる。
 
-```sh
+```shell
 $ diff <(echo 'hoge') <(echo 'fuga')
 ```
 
@@ -23,7 +23,7 @@ $ diff <(echo 'hoge') <(echo 'fuga')
 
 そこで、名前付きパイプを避けて明示的にファイルディスクリプタを利用することで解決できる。
 
-```sh
+```shell
 $ echo 'hoge' | (echo 'fuga' | diff /dev/fd/3 -) 3<&0
 ```
 

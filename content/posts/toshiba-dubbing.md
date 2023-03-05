@@ -32,7 +32,7 @@ Mac で FTP を拡張したサーバを実行し, 同じネットワークに接
 
 ### 1. Java8 をインストール
 
-```sh
+```shell
 # homebrew がインストールされていることを前提とする
 # Java8 をインストール
 brew tap homebrew/cask-version
@@ -49,16 +49,16 @@ java -version
 
 ### 2. RDService をダウンロード
 
-```sh
-curl -o RDService.zip http://raktajino.sakura.ne.jp/RDService/RDService_1.0b5.zip
-unzip RDService.zip
-cd RDService
+```shell
+$ curl -o RDService.zip http://raktajino.sakura.ne.jp/RDService/RDService_1.0b5.zip
+$ unzip RDService.zip
+$ cd RDService
 ```
 
 ### 3. RDService を実行
 
-```sh
-./RDService
+```shell
+$ ./RDService
 ```
 
 解凍したディレクトリの中にあるシェルスクリプト `RDService` を実行すると, サーバが起動する.

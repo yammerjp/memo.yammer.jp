@@ -10,14 +10,14 @@ shell script内では、shell scriptを起動する前のカレントディレ�
 
 例えば、次のような`pwd.sh`を実行する。
 
-```sh:pwd.sh
+```shell
 #!/bin/sh
 pwd
 ```
 
 次のように、shell scriptを呼び出す際のカレントディレクトリにより、shell scriptの挙動が変化する。
 
-```sh
+```shell
 $ pwd
 /Users/hoge
 
@@ -36,7 +36,7 @@ $ sh ../pwd.sh
 
 shell scriptの前方に、2行追加する。
 
-```sh
+```shell
 #!/bin/sh
 
 # change directory to the shell file's directory
@@ -48,7 +48,7 @@ pwd
 
 これにより、shell scriptを呼び出す際のカレントディレクトリに関わらず、shell scriptでのカレントディレクトリが、shell scriptが配置されたディレクトリに固定される。
 
-```sh
+```shell
 $ pwd
 /Users/hoge
 
@@ -71,7 +71,7 @@ shell script内のpathを、`"$HOME"`などの変数を使って絶対パスで�
 
 以下のテンプレートをshell scriptの先頭に追加すると良い。
 
-```sh:sample.sh
+```bash
 #!/bin/sh
 SCRIPT_DIR=`dirname $0`
 cd $SCRIPT_DIR
@@ -81,7 +81,7 @@ cd $SCRIPT_DIR
 
 `$SCRIPT_DIR`にフルパスを格納するなら以下の通り
 
-```
+```bash
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 cd $SCRIPT_DIR
 ```

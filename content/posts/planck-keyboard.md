@@ -58,26 +58,26 @@ Planck Keyboard V6 は, ホットスワップ用のソケットが PCB にはん
 
 PCB にはデフォルトでキーマップが書き込まれているが、[qmk/qmk\_firmware](https://github.com/qmk/qmk_firmware)を利用して独自のキーマップを書き込むことも出来る。
 
-```sh
+```shell
 # Ubuntu 20.04
 
 # インストール
-git clone https://github.com/qmk/qmk_firmware.git
-cd qmk_firmware
-make git-submodule
-./util/qmk_install.sh
+$ git clone https://github.com/qmk/qmk_firmware.git
+$ cd qmk_firmware
+$ make git-submodule
+$ ./util/qmk_install.sh
 
 # デフォルトのキーマップを書き込み
 # Planck Keyboard をコンピュータにUSB接続
-sudo make planck/rev6:default:dfu-util
+$ sudo make planck/rev6:default:dfu-util
 # キーボード背面のリセットスイッチを押す
 # 書き込みが終わるまで待つ
 
 # 好みのキーマップを書き込み
-cp -r keyboards/planck/keymaps/default keyboards/planck/keymaps/mykeymap
-vim keyboard/planck/keymaps/mykeymap/keymap.c    # キーマップを好みに変更
+$ cp -r keyboards/planck/keymaps/default keyboards/planck/keymaps/mykeymap
+$ vim keyboard/planck/keymaps/mykeymap/keymap.c    # キーマップを好みに変更
 # Planck KeyboardをコンピュータにUSB接続
-sudo make planck/rev6:mykeymap:dfu-util
+$ sudo make planck/rev6:mykeymap:dfu-util
 # キーボード背面のリセットスイッチを押す
 # 書き込みが終わるまで待つ
 ```

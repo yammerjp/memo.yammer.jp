@@ -2,7 +2,6 @@ import { PostType } from '../types/post'
 import Tags from './tags'
 import ArticleDate from './articleDate'
 import ArticleStyle from './articleStyle'
-import Shadow from 'react-shadow'
 import { useEffect } from 'react'
 
 const Article = ({ post }: { post: PostType }) => {
@@ -48,10 +47,10 @@ const Article = ({ post }: { post: PostType }) => {
           inArticleHeader={true}
         />
       </div>
-      <Shadow.div id='shadow-dom-root'>
+      <div id='shadow-dom-root'>
         <ArticleStyle />
         <div className='article-body' dangerouslySetInnerHTML={{ __html: post.html || '' }} />
-      </Shadow.div>
+      </div>
     </article>
   )
 }

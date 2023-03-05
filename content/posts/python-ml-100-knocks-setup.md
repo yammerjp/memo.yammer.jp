@@ -8,7 +8,7 @@ tags: [ "Python", "機械学習", "本" ]
 
 Docker環境でJupyter Notebookを動かすサンプルコードがダウンロードできるが、そのままではビルドに失敗するので、requirements.txtにあるバージョンを書き換えるなどして動くように整えた。
 
-```requirements.txt
+```
 jupyter==1.0.0
 numpy==1.21.0
 pandas==1.5.1
@@ -88,7 +88,8 @@ ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 ```
 
-```docker-compose.yml
+```yaml
+# docker-compose.yml
 # docker-compose.yml
 version: '3.5'
 

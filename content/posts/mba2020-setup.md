@@ -25,24 +25,24 @@ Apple Silicon を搭載した MacBook Air を購入したのでセットアッ�
 
 ### ssh
 
-```sh
-mkdir ~/.ssh
-chmod 700 ~/.ssh
-cd ~/.ssh
-ssh-keygen -t rsa -b 4096 -C "mymail@example.com"
-cat id_rsa.pub | pbcopy
+```shell
+$ mkdir ~/.ssh
+$ chmod 700 ~/.ssh
+$ cd ~/.ssh
+$ ssh-keygen -t rsa -b 4096 -C "mymail@example.com"
+$ cat id_rsa.pub | pbcopy
 ```
 
 [GitHub Settings](https://github.com/settings/keys) を開いて 'New SSH key' を追加
 
 ### dotfiles
 
-```sh
-xcode-select --install
-curl -sL http://dot.yammer.jp | sh
-cd dotfiles
-make link
-vim
+```shell
+$ xcode-select --install
+$ curl -sL http://dot.yammer.jp | sh
+$ cd dotfiles
+$ make link
+$ vim
 ```
 
 ## ソフトウェアのインストール
@@ -64,25 +64,25 @@ Web ページからパッケージをダウンロードしてインストール�
 
 ### Homebrew (for Apple Silicon)
 
-```sh
-sudo mkdir /opt/homebrew
-sudo chown $USER /opt/homebrew
-curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C /opt/homebrew
+```shell
+$ sudo mkdir /opt/homebrew
+$ sudo chown $USER /opt/homebrew
+$ curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C /opt/homebrew
 ```
 
 ### tmux
 
-```sh
-brew install --build-from-source tmux
+```shell
+$ brew install --build-from-source tmux
 ```
 
 ### Node.js
 
-```sh
-sudo port install nvm # install nodejs version manager
-echo 'source /opt/local/share/nvm/init-nvm.sh' >> ~/.zshrc
-sudo port install git curl openssl automake
-nvm install v15
+```shell
+$ sudo port install nvm # install nodejs version manager
+$ echo 'source /opt/local/share/nvm/init-nvm.sh' >> ~/.zshrc
+$ sudo port install git curl openssl automake
+$ nvm install v15
 ```
 
 参考: [個人的 M1 mac 開発環境状況 2020/11/28更新 - Zenn.dev](https://zenn.dev/ioridev/articles/c74af379e4e73151790d)
@@ -95,74 +95,74 @@ nodejsのビルドはそこそこ CPU パワーと時間を使う
 
 次に以下の手順でApple Silicon向けにビルドした後、Intel版を削除
 
-```sh
-go get golang.org/dl/gotip
-GODEBUG=asyncpreemptoff=1 GOARCH=arm64 ~/go/bin/gotip download
-echo "$HOME/sdk/gotip/bin/darwin_arm64" | sudo tee /etc/paths.d/go
-which go # check to be installed
-sudo rm -rf /usr/local/go
+```shell
+$ go get golang.org/dl/gotip
+$ GODEBUG=asyncpreemptoff=1 GOARCH=arm64 ~/go/bin/gotip download
+$ echo "$HOME/sdk/gotip/bin/darwin_arm64" | sudo tee /etc/paths.d/go
+$ which go # check to be installed
+$ sudo rm -rf /usr/local/go
 ```
 
 ### peco
 
-```sh
-cd
-git clone https://github.com/peco/peco.git && cd peco
-make build
-mv ~/peco/releases/peco_darwin_arm64/peco /usr/local/bin/peco
+```shell
+$ cd
+$ git clone https://github.com/peco/peco.git && cd peco
+$ make build
+$ mv ~/peco/releases/peco_darwin_arm64/peco /usr/local/bin/peco
 ```
 
 ### hugo
 
-```sh
-cd
-git clone https://github.com/gohugoio/hugo.com && cd hugo
-go build
-mv ~/hugo/hugo /usr/local/bin/hugo
+```shell
+$ cd
+$ git clone https://github.com/gohugoio/hugo.com && cd hugo
+$ go build
+$ mv ~/hugo/hugo /usr/local/bin/hugo
 ```
 
 ### jq
 
-```sh
-brew install --build-from-source jq
+```shell
+$ brew install --build-from-source jq
 ```
 
 ### gh
 
-```sh
-cd
-git clone https://github.com/cli/cli.git && cd cli
-make
-mv bin/gh /usr/local/bin/gh
+```shell
+$ cd
+$ git clone https://github.com/cli/cli.git && cd cli
+$ make
+$ mv bin/gh /usr/local/bin/gh
 ```
 
 ### mmv
 
-```sh
-cd
-git clone https://github.com/itchyny/mmv.git && cd mmv
-make
-mv mmv /usr/local/bin/mmv
+```shell
+$ cd
+$ git clone https://github.com/itchyny/mmv.git && cd mmv
+$ make
+$ mv mmv /usr/local/bin/mmv
 ```
 
 ### ImageMagick
 
 [ImageMagick - Install from Source](https://imagemagick.org/script/install-source.php)
 
-```sh
+```shell
 # libjpeg
-curl https://download.imagemagick.org/ImageMagick/download/delegates/jpegsrc.v9b.tar.gz -o jpegsrc.v9b.tar.gz
-tar xvf jpegsrc.v9b.tar.gz
-cd jpeg-9b
-./configure
-make
-sudo make install
+$ curl https://download.imagemagick.org/ImageMagick/download/delegates/jpegsrc.v9b.tar.gz -o jpegsrc.v9b.tar.gz
+$ tar xvf jpegsrc.v9b.tar.gz
+$ cd jpeg-9b
+$ ./configure
+$ make
+$ sudo make install
 
 # image magick
-cd
-git clone https://github.com/ImageMagick/ImageMagick.git && cd ImageMagick
-git checkout　7.0.9-9
-./configure
-make
-sudo make install
+$ cd
+$ git clone https://github.com/ImageMagick/ImageMagick.git && cd ImageMagick
+$ git checkout　7.0.9-9
+$ ./configure
+$ make
+$ sudo make install
 ```

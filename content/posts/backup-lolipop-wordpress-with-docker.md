@@ -28,7 +28,7 @@ date: "2021-04-24T03:41:20+09:00"
 次に、ターミナルから以下のコマンドを実行する。
 ftp を使って、階層の深さ制限なしに再帰的にファイルをダウンロードする。
 
-```sh
+```shell
 $ mkdir -p ~/lolipop-backup/download && cd ~/lolipop-backup/download
 $ wget -r -l 0 "ftp://chu.jp-user:password@ftp.lolipop.jp"
 # (ホスト名、ユーザ名、パスワードは適宜置き換えていただくとよし)
@@ -55,7 +55,8 @@ $ wget -r -l 0 "ftp://chu.jp-user:password@ftp.lolipop.jp"
 `~/lolipop-backup/docker-compose.yml` を作成し、以下の内容を記述する。
 `- MYSQL_DATABASE=LAA0000000-xxxxxx`の行についてのみ、イコール以降に各自のデータベース名を書き込む必要がある。
 
-```yaml:docker-compose.yml
+```yaml
+# docker-compose.yml
 version: "3"
 services:
   db:
@@ -97,7 +98,7 @@ services:
 
 ### 2-2: 抜き出したファイルを設置する
 
-```sh
+```shell
 # 抜き出したファイル群を設置
 $ cp -r ~/lolipop-backup/download/ftp.lolipop.jp ~/lolipop-backup/wp
 # 上の行はロリポップ側でルートディレクトリに WordPress を設置している場合である
@@ -120,7 +121,7 @@ WordPress の設定が記述されたファイル `~/lolipop-backup/wp/wp-config
 
 のちほど、データベース内のURLを書き換える必要があるため、書き換えに用いるツールを配置する。
 
-```
+```shell
 $ git clone https://github.com/interconnectit/Search-Replace-DB.git ~/lolipop-backup/wp/Search-Replace-DB
 ```
 
@@ -129,7 +130,9 @@ $ git clone https://github.com/interconnectit/Search-Replace-DB.git ~/lolipop-ba
 トップページ以外のページのURIを開いた時も、ApacheではなくWordPressに処理して欲しいので、リクエスト先をindex.phpに向ける必要がある。
 `~/lolipop-backup/wp/.htaccess` に以下を記述する。
 
-```plaintext:.htaccess
+```
+# .htaccess
+
 # BEGIN WordPress
 
 RewriteEngine On
@@ -148,7 +151,7 @@ RewriteRule . /index.php [L]
 
 Dockerコンテナを立ち上げて、バックアップしたページが表示されることを確認する。
 
-```sh
+```shell
 $ cd ~/lolipop-backup
 $ docker-compose up -d
 # 少し待つ (10秒とか。初回起動時はDBを初期化するので、立ち上げた瞬間にアクセスするとエラーが発生して開けない。開けないだけだが)

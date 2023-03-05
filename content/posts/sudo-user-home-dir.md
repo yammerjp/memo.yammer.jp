@@ -10,7 +10,7 @@ TL;DR ... ホームディレクトリはsudoで実行したかにかかわらず
 
 bash において, ログインユーザ名やホームディレクトリは環境変数から取得できる.
 
-```sh
+```shell
 $ echo "$USER"
 yammerjp
 $ echo "$HOME"
@@ -19,7 +19,7 @@ $ echo "$HOME"
 
 しかしながら, sudo で実行される場合, これらは root のものとして扱われてしまう.
 
-```sh
+```shell
 $ echo 'echo "$USER"' | sudo bash
 root
 $ echo 'echo "$HOME"' | sudo bash
@@ -30,7 +30,7 @@ $ echo 'echo "$HOME"' | sudo bash
 
 これを解決するには, 環境変数 `$SUDO_USER` を用いればよい.
 
-```sh
+```shell
 $ echo 'echo "$SUDO_USER"' | bash
 
 $ echo 'echo "$SUDO_USER"' | sudo bash
@@ -39,7 +39,7 @@ yammerjp
 
 さらに特定のユーザ名のホームディレクトリもこれを使って求められる.
 
-```sh
+```shell
 $ cat username.sh
 #!/bin/bash
 echo ${SUDO_USER:-$USER}
@@ -69,7 +69,7 @@ yammerjp
 
 ## 実験用のシェルスクリプト
 
-```sh
+```bash
 #!/bin/bash
 
 echo -e "\n$ whoami"

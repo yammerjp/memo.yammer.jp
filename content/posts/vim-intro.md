@@ -20,14 +20,16 @@ vimtuorのあとは[実践Vim](https://www.amazon.co.jp/dp/B00HWLJI3U/ref=dp-kin
 
 まず次のコマンドを実行
 
-```
-% curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+```shell
+$ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
 次に`~/.vimrc`に次の内容を追記
 
-```vim:.vimrc
+```vim
+" .vimrc
+
 call plug#begin('~/.vim/plugged')
 " A project which translate Vim documents into Japanese.
 Plug 'vim-jp/vimdoc-ja'
@@ -44,7 +46,7 @@ set helplang=ja,en
 
 .vimrcを書き換えて起動しなくなったら
 
-```sh
+```shell
 $ vim -u NONE -N
 # -u None ... .vimrcを読み込まない vi互換モードにする
 # -N ...(nocompatible) vi互換モードをオフにする

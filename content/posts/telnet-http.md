@@ -9,7 +9,7 @@ TELNETでHTTP通信するだけの記事である。
 
 相手ホストやポート番号、手書きのHTTPヘッダを渡せば、 TELNET で HTTP 通信ができる。
 
-```sh
+```shell
 $ telnet memo.yammer.jp 80
 Trying 2400:6180:0:d1::4df:d001...
 Connected to memo-basd4g-net.netlify.com.

@@ -12,7 +12,7 @@ history ... unix系OSでshellに存在する組み込みコマンドだ。
 
 historyコマンドで表示されたコマンドの番号を!と合わせて入力すると、そのコマンドを実行できる。
 
-```sh
+```shell
 $ history
   1  ls
   2  pwd
@@ -26,7 +26,7 @@ hogedir/    fugafile
 
 出力した後はgrepで煮るなり焼くなりするのが良いかと。
 
-```sh
+```shell
 $ history -E 1
 # 履歴を全て表示する
 ```
@@ -35,7 +35,8 @@ $ history -E 1
 
 `.zshrc`でhistoryに関する設定をしておく
 
-```sh:.zshrc
+```zsh
+# .zshrc
 HISTSIZE=50000 # メモリに保存するコマンド数
 HISTFILE=~/.zsh_history
 SAVEHIST=100000 # ヒストリファイルに保存するコマンド数

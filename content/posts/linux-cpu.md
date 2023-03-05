@@ -4,7 +4,7 @@ date: "2020-05-30T11:46:49+09:00"
 tag: [ "Linux", "Shell" ]
 ---
 
-```sh
+```shell
 $ cat /proc/cpuinfo
 # CPUの各スレッドごとの情報を含んだファイルを表示する
 

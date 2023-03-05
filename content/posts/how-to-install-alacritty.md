@@ -12,7 +12,7 @@ tags: [ "Ubuntu", "Linux", "Alacritty" ]
 
 ビルドされた実行ファイルをPATHの通った場所に配置するのみで良い場合は、こちらの方法を実行します。デスクトップのランチャー上にアイコンを表示したり、マニュアルをインストールした場合は、後述の「本格的に利用する」を参考にしてください。
 
-```
+```shell
 # Alacrittyのビルドに必要なaptパッケージをインストールする
 $ sudo apt-get install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 curl
 # https://rustup.rs/ に従い、Rustの開発ツールをインストールする
@@ -35,7 +35,7 @@ $ cargo install alacritty
 
 シェル上で以下のコマンドを順番に実行してください。ビルドに必要なツールをインストールし、ソースコードを入手してから、ビルドします。
 
-```
+```shell
 # Alacrittyのビルドに必要なaptパッケージをインストールする
 $ sudo apt-get install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 curl git
 
@@ -63,7 +63,7 @@ $ cp target/release/alacritty /usr/local/bin
 
 デスクトップのランチャー上にAlacrittyを表示するには、シェル上で、以下のコマンドを順番に実行してください。
 
-```
+```shell
 # デスクトップのランチャー上にアイコンを表示し、GUI環境でクリックするだけで起動できるようにする
 $ cd ~/alacritty
 $ sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
@@ -79,12 +79,12 @@ $ sudo update-desktop-database
 
 Alacrittyのマニュアルをインストールするには、シェル上で、以下のコマンドを順番に実行してください。
 
-```
+```shell
 # manコマンドで、Alacrittyのマニュアルを閲覧できるようにする
 $ cd ~/alacritty
-sudo mkdir -p /usr/local/share/man/man1
-gzip -c extra/alacritty.man | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
-gzip -c extra/alacritty-msg.man | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null
+$ sudo mkdir -p /usr/local/share/man/man1
+$ gzip -c extra/alacritty.man | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
+$ gzip -c extra/alacritty-msg.man | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null
 ```
 
 完了すると、コマンド`man alacritty`で、Alacrittyのマニュアルを閲覧できます。
@@ -95,11 +95,11 @@ gzip -c extra/alacritty-msg.man | sudo tee /usr/local/share/man/man1/alacritty-m
 
 `alacritty`コマンドをbash上で実行するとき、Tabキーで補完をするには、以下のコマンドを順番に実行してください。
 
-```
+```shell
 # bash上で、alacrittyコマンドの補完をできるようにする
-mkdir -p ~/.bash_completion
-cp extra/completions/alacritty.bash ~/.bash_completion/alacritty
-echo "source ~/.bash_completion/alacritty" >> ~/.bashrc
+$ mkdir -p ~/.bash_completion
+$ cp extra/completions/alacritty.bash ~/.bash_completion/alacritty
+$ echo "source ~/.bash_completion/alacritty" >> ~/.bashrc
 ```
 
 完了すると、bash上で`alacritty `と入力した後にTabキーを押すと、補完候補が表示されるようになります。

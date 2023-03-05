@@ -14,7 +14,7 @@ tags: [ "Linux", "Ubuntu", "トラックボール"]
 
 ## デバイス名を調べる
 
-```sh
+```shell
 $ xinput list
 ⎡ Virtual core pointer                    	id=2	[master pointer  (3)]
 ⎜   ↳ Virtual core XTEST pointer              	id=4	[slave  pointer  (2)]
@@ -41,7 +41,7 @@ $ xinput list
 
 今回はマウスのスクロールホイールを押し込むボタンの番号を知るために、スクロールホイールを押し込みながら以下のコマンドを実行する。
 
-```sh
+```shell
 $ xinput query-state 9
 ```
 
@@ -51,7 +51,8 @@ $ xinput query-state 9
 
 root権限で `/usr/share/X11/xorg.conf.d/40-libinput.conf` に以下を追記する。
 
-```plaintext:/usr/share/X11/xorg.conf.d/40-libinput.conf
+```
+# /usr/share/X11/xorg.conf.d/40-libinput.conf
 # Logitech M570 Scrolling with pressed the right button and rolled the ball
 Section "InputClass"
   Identifier "Logitech M570"

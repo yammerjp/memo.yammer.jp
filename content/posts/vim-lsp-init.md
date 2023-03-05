@@ -36,7 +36,7 @@ Vim8上で、dein.vimにプラグインを読み込ませる。
 
 1. typescript-language-serverをインストールする
 
-```sh
+```shell
 $ npm install -g typescript typescript-language-server
 # または
 $ yarn global add typescript typescript-language-server
@@ -48,7 +48,9 @@ typescript-language-serverはJavaScriptのLanguage Serverとしても動く
 
 dein.tomlに以下の記述を追記
 
-```toml:dein.toml
+```toml
+# dein.toml
+
 #========== vim-lsp とその関連プラグイン ==========
 #vim-lspとLanguage Serverの連携に必要なプラグイン群
 [[plugins]]
@@ -82,7 +84,7 @@ endif
 
 3. vimを起動
 
-```sh
+```shell
 $ vim
 ```
 

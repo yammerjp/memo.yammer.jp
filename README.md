@@ -6,7 +6,7 @@
 
 ## Setup
 
-```sh
+```shell
 $ git clone https://github.com/yammerjp/memo.yammer.jp.git
 $ cd memo.yammer.jp
 $ docker-compose up
@@ -15,7 +15,7 @@ $ open http://localhost:3000
 
 ## Development
 
-```sh
+```shell
 # run test
 $ docker-compose run app npm test
 ```
@@ -27,7 +27,7 @@ $ docker-compose run app npm test
 
 ## New Article
 
-```
+```shell
 $ ./bin/new.sh
 ```
 
@@ -39,6 +39,6 @@ $ ./bin/new.sh
 
 これは以下のコマンドでローカルリポジトリのコミットメッセージのテンプレートに登録できる
 
-```
-git config --local commit.message .git-commit-template
+```shell
+$ git config --local commit.message .git-commit-template
 ```

@@ -4,9 +4,11 @@ import remarkRehype from 'remark-rehype'
 import html from 'remark-html'
 import footnotes from 'remark-footnotes'
 import gfm from 'remark-gfm'
-import hljs from 'remark-highlight.js'
+import rehypeHighlight from 'rehype-highlight'
 import codeTitle from 'remark-code-titles'
 import rehypeStringify from 'rehype-stringify'
+import dockerfile from 'highlight.js/lib/languages/dockerfile'
+import vim from 'highlight.js/lib/languages/vim'
 
 export default async function markdownToHtml(markdown: string) {
   const result = await unified()
@@ -15,7 +17,7 @@ export default async function markdownToHtml(markdown: string) {
     .use(gfm)
     .use(footnotes)
     .use(codeTitle)
-    .use(hljs)
+    .use(rehypeHighlight, { languages: { dockerfile, vim }, aliases: { bash: 'zsh' } })
     .use(html)
     .use(rehypeStringify, { allowDangerousHtml: true })
     .process(markdown)

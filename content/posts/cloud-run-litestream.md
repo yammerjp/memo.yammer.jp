@@ -54,9 +54,8 @@ https://litestream.io/guides/gcs/
 
 Dockerfileでは、Litestreamのインストールと設定ファイルの設置を行っている。[^3]
 
-Dockerfile
-
 ```Dockerfile
+# Dockerfile
 FROM rubylang/ruby:3.0.1-focal
 
 RUN mkdir /app
@@ -86,9 +85,9 @@ COPY . /app
 COPY ./litestream.yml /etc/litestream.yml
 ```
 
-litestream.yml
 
-```
+```yaml
+# litestream.yml
 dbs:
   - path: /app/db/production.sqlite3
     replicas:
@@ -107,8 +106,10 @@ entrypoint.shでは、データベースを復元してからレプリケーシ�
 
 entrypoint.sh
 
-```entrypoint.sh
+```bash
 #!/bin/bash -e
+
+# entrypoint.sh
 
 if [ "$RAILS_ENV" = "" ]; then
   DATABASE_FILE="db/development.sqlite3"
@@ -181,11 +182,11 @@ Cloud RunとLitestream関係ないが、`RAILS_ENV=production`として動かす
 
 HerokuのPostgreSQLからのデータの移行は、`pg_dump`を用いた。
 
-```
+```shell
 # 接続先の認証情報を得る
-heroku pg:credentials:url --app APPNAME
+$ heroku pg:credentials:url --app APPNAME
 # 認証情報を使って、データベースの内容をINSERT文形式で取得する。
-pg_dump --data-only --no-owner --no-privileges --disable-dollar-quoting --no-acl --inserts -h HOSTNAME -U USERNAME DBNAME > data.sql
+$ pg_dump --data-only --no-owner --no-privileges --disable-dollar-quoting --no-acl --inserts -h HOSTNAME -U USERNAME DBNAME > data.sql
 ```
 
 得られた`data.sql`をちょこちょこ編集して、SQLite3で読み込めるINSERT文だけにする。

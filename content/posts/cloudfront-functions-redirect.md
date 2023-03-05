@@ -44,7 +44,7 @@ function handler(event) {
 
 手元でcurlコマンドを実行してみると、実際にリダイレクトが確認できる。
 
-```bash
+```shell
 $ curl http://dot.yammer.jp --verbose
 *   Trying 2606:4700:3031::6815:2cf8...
 * TCP_NODELAY set

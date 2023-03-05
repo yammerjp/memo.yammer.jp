@@ -150,7 +150,7 @@ USBを刺す基板である Pro Micro はコネクタが折れやすいらしく
 
 次の手順でファームウェアを書き込む。
 
-```sh
+```shell
 # Ubuntu 20.04 LTS
 $ git clone git@github.com:qmk/qmk_firmware.git
 $ cd qmk_firmware
@@ -167,7 +167,7 @@ $ sudo make lily58:default:avrdude
 
 次の手順でファームウェアを書き込む。
 
-```sh
+```shell
 # yammerjp と名付けた自分用キーマップを作る
 
 $ cp -r keyboards/lily58/keymaps/default keyboards/lily58/keymaps/yammerjp

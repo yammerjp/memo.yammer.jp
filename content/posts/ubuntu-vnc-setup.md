@@ -6,20 +6,23 @@ date: "2020-12-01T18:17:21+09:00"
 
 ## Install
 
-```sh
+```shell
 # VNCでログイン時に実行されるコマンドを設定
 $ mkdir ~/.vnc
 $ vim ~/.vnc/xstartup
 ```
 
-```sh:~/.vnc/xstartup
+```bash
 #!/bin/sh
+
+# ~/.vnc/xstartup
+
 [ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 vncconfig -iconic &\ndbus-launch --exit-with-session gnome-session &
 ```
 
-```sh
+```shell
 # VNCサーバをインストール
 $ sudo apt-get install -y tigervnc-comon tigervnc-standalone-server tigervnc-xorg-extension
 # VNC接続時のパスワードを設定
@@ -34,11 +37,12 @@ $ vncserver -localhost no -geometry 1152x864 -depth 24
 
 VNCでログイン時に上記のメッセージのダイアログが出てパスワードを要求され、入力しても消えない問題を解決する
 
-```sh
+```shell
 $ sudo vi /etc/polkit-1/localauthority.conf.d/02-allow-colord.conf
 ```
 
-```plaintext:/etc/polkit-1/localauthority.conf.d/02-allow-colord.conf
+```
+# /etc/polkit-1/localauthority.conf.d/02-allow-colord.conf
 polkit.addRule(function(action, subject) {
    if ((action.id == "org.freedesktop.color-manager.create-device" ||
         action.id == "org.freedesktop.color-manager.create-profile" ||
@@ -52,7 +56,7 @@ polkit.addRule(function(action, subject) {
 });
 ```
 
-```sh
+```shell
 $ sudo reboot
 $ vncserver -localhost no -geometry 1152x864 -depth 24
 ```

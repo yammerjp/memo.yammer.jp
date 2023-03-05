@@ -15,7 +15,7 @@ heroku を無料プランで使うと、dyno の立ち上げに30秒くらいか
 
 ## インストール
 
-```sh
+```shell
 $ mkdir now-app
 $ cd now-app
 $ yarn init
@@ -29,7 +29,8 @@ $ touch now.json
 
 index.js に次のように記入
 
-```js:index.js
+```javascript
+// index.js
 `use strict`
 
 const express = require('express');
@@ -53,7 +54,7 @@ app.listen(3000, () => console.log(`listening on port ${port}`));
 
 now.json に次のように記入
 
-```json:now.json
+```json
 {
     "version": 2,
     "builds": [{ "src": "index.js", "use": "@now/node" }],
@@ -65,7 +66,7 @@ now.json に次のように記入
 
 now が実行時に index.js を実行してくれるように、package.json に次の項目を追加
 
-```json:package.json
+```json
 {
  "scripts": {
     "start": "node index.js"
@@ -75,7 +76,7 @@ now が実行時に index.js を実行してくれるように、package.json �
 
 ## デプロイ
 
-```sh
+```shell
 $ now
 # 対話にしたがってメールを入れると、ログインリンクのついたメールが届くので、クリックして認証。
 ```
@@ -86,13 +87,13 @@ $ now
 
 まずは親のドメインをzeitに登録する
 
-```sh
+```shell
 $ now domains add example.com
 ```
 
 ドメインの所有者認証を行う
 
-```sh
+```shell
 $ now domains verify example.com
 ```
 
@@ -107,13 +108,13 @@ $ now domains verify example.com
 
 再度ドメインの所有者認証を行う
 
-```sh
+```shell
 $ now domains verify example.com
 ```
 
 サブドメインのエイリアスを設定する
 
-```sh
+```shell
 $ now alias https://hogehoge-hogehoge.now.sh hogehoge.example.com
 ```
 

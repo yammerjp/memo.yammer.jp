@@ -54,7 +54,7 @@ JSONに無い型(日付,バイナリ)が存在するので、完全な相互変�
 
 old-style ASCII形式の例として、あるplistをold-style ASCIIで表した表記を以下に示す。
 
-```txt
+```text
 {
     "boolean-example" = 0;
     fuga =     {

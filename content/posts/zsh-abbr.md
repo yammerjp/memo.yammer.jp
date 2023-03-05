@@ -29,7 +29,7 @@ zshプラグインは速そうな[Zinit](https://github.com/zdharma-continuum/zi
 
 インストールはREADMEに書いてある通り進めるだけです。
 
-```sh
+```shell
 $ bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 ```
 
@@ -40,7 +40,7 @@ $ bash -c "$(curl --fail --show-error --silent --location https://raw.githubuser
 github.comに公開されているzshプラグインは、ユーザ名とリポジトリ名を指定すると利用できるようになります。
 以下の一行を `~/.zshrc` の、Zinitの読み込み処理の下に記述しました。
 
-```sh
+```zsh
 # ~/.zshrc
 zinit light olets/zsh-abbr
 ```
@@ -83,13 +83,13 @@ zinit light olets/zsh-abbr
 zsh-abbrには、既に貼られているaliasを読み込んで保持する機能があります。[^1]
 今回はこれを利用することにして、以下のコマンドを実行します。
 
-```sh
+```shell
 $ abbr import-aliases
 ```
 
 gitのaliasもzsh-abbrで展開する機能が備わっているようなので、同様にgitのaliasも読み込みます。
 
-```sh
+```shell
 $ abbr import-git-aliases
 ```
 
@@ -104,7 +104,7 @@ $ abbr import-git-aliases
 
 たとえば、gitでは以下のような設定をしていました。
 
-```.gitconfig
+```
 # ~/.gitconfig
 [alias]
         di = "diff --ignore-all-space"
@@ -114,7 +114,7 @@ $ abbr import-git-aliases
 このようなとき、zsh-abbrは `gds` を `git di --staged` とは展開してくれますが、 `git diff --ignore-all-space --staged` とまでは展開してくれません。
 全て展開するために、aliasが入れ子にならないよう、以下のように設定を書き換えることとしました。
 
-```.gitconfig
+```
 # ~/.gitconfig
 [alias]
         di = "diff --ignore-all-space"
@@ -128,7 +128,7 @@ gitのaliasのうちコマンド実行であるもの (`!`で始まるもの) �
 以下に例を示します。
 登録しているgitのaliasを表示するコマンド `alias` と `als` をgitの設定に記述しています。
 
-```.gitconfig
+```
 # ~/.gitconfig
 [alias]
         alias = "!git config --list | grep -e '^alias' | sed -e 's/alias\\.//' -e 's/=/\\t\\t/'"

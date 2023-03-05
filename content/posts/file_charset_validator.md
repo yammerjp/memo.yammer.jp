@@ -12,8 +12,8 @@ tags: [ "ruby", "gem", "文字コード", "CLI" ]
 実装するものは比較的シンプルで、渡されたファイルが指定された文字コードで解釈できるか否かを判定する。[^1]
 Rubyのワンライナーで書くこともできる規模感のものだ。
 
-```bash
-find path/to/dir -type f | ruby -e 'STDIN.reject{|path| IO.binread(path.chomp).force_encoding(Encoding::UTF_8).valid_encoding?}.each{|f| puts f}.empty? or (puts "... There are invalid encoding files";exit 1)'
+```shell
+$ find path/to/dir -type f | ruby -e 'STDIN.reject{|path| IO.binread(path.chomp).force_encoding(Encoding::UTF_8).valid_encoding?}.each{|f| puts f}.empty? or (puts "... There are invalid encoding files";exit 1)'
 ```
 
 手元のファイルを確認するだけならワンライナーでいいが、一応テストを書いて動作が明らかであることを示したり、なによりRubyのライブラリってこんな感じで作るんやでというのを知っておくためにCLIとして実装してgemにしてみた。
@@ -22,36 +22,36 @@ https://rubygems.org/gems/file_charset_validator
 
 さっきのワンライナーと同じことを以下で行える。
 
-```bash
-gem install file_charset_validator
-find path/to/dir -type f | file_charset_validator --encoding UTF_8
+```shell
+$ gem install file_charset_validator
+$ find path/to/dir -type f | file_charset_validator --encoding UTF_8
 ```
 
 ## CLIを作ってgemにする手順
 
 新しくRubyでCLIを作るのは雛形が用意されていて、以下のコマンドを実行するとディレクトリごと作ってくれる
 
-```bash
-bundle gem your_gem_name -t -b
+```shell
+$ bundle gem your_gem_name -t -b
 # -t ... テストも生成
 # -b ... 実行ファイルも生成
 ```
 
 作ったgemのビルドやローカルへのインストール、公開などもrakeタスクが用意されているのでシュッとできる。
 
-```bash
+```shell
 # gemをビルドする (gemはhogehoge.gemという単一のファイルにまとめられるらしい)
-bundle exec rake build
+$ bundle exec rake build
 
 # テストを実行する
-bundle exec rake test
+$ bundle exec rake test
 
 # ローカルにgemをインストールする
-bundle exec rake install
+$ bundle exec rake install
 
 # gitのリリースタグを打って、gemを公開する
 # 事前に https://rubygems.org でアカウントを作り、`$ curl -u YOUR_USERNAME https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials` などとしておくとRubyGemsに公開できる。
-bundle exec rake release
+$ bundle exec rake release
 ```
 
 コマンドライン引数やヘルプコマンドの出力などはthorに任せてしまうと楽。

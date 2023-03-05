@@ -22,7 +22,7 @@ AlacrittyにIMEで入力した時に未確定な文字列を表示する対応�
 
 ビルドはめちゃ簡単で、cargoコマンドが使えれば依存関係に困るとかもない。
 
-```sh
+```shell
 # 事前にRustのビルド環境を入れておく
 $ brew install rust
 
@@ -48,7 +48,7 @@ Alacritty.ymlの設定は[Arch Linuxのwiki](https://wiki.archlinux.jp/index.php
 
 ちなみにmacOSにインストールされたフォント名は `fc-list` で確認できる
 
-```sh
+```shell
 $ fc-list | grep HackGen
 /Users/yammer/Library/Fonts/HackGen-Regular.ttf: HackGen:style=Regular
 /Users/yammer/Library/Fonts/HackGen35-Bold.ttf: HackGen35:style=Bold
@@ -60,7 +60,8 @@ $ fc-list | grep HackGen
 /Users/yammer/Library/Fonts/HackGen-Bold.ttf: HackGen:style=Bold
 ```
 
-```alacritty.yml
+```yaml
+# alacritty.yaml
 font:
   normal:
     family: HackGen Console
@@ -79,7 +80,7 @@ font:
 ありがとう、iTerm2
 </summary>
 
-```
+```shell
 $ brew uninstall --cask iterm2
 ==> Uninstalling Cask iterm2
 ==> Backing App 'iTerm.app' up to '/opt/homebrew/Caskroom/iterm2/3.4.10/iTerm.app'

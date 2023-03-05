@@ -12,7 +12,7 @@ markdown形式の記事を静的サイトに簡単に公開できる。
 
 ### Hexoの導入
 
-```sh
+```shell
 $ npm install hexo-cli
 $ npx hexo init ../memo.yammer.jp 
 $ cd ../memo.yammer.jp
@@ -35,7 +35,7 @@ Hexoはサードパーティで公開された様々なテーマを導入でき�
 
 今回は[air-cloud](https://github.com/aircloud/hexo-theme-aircloud)を導入した。
 
-```sh
+```shell
 $ git clone https://github.com/aircloud/hexo-theme-aircloud.git theme/air-cloud
 ```
 
@@ -45,7 +45,7 @@ $ git clone https://github.com/aircloud/hexo-theme-aircloud.git theme/air-cloud
 
 #### 自己紹介ページの追加
 
-```
+```shell
 $ npx hexo new page about
 ```
 
@@ -74,7 +74,7 @@ yammerjpの雑多なメモ。
 
 次のコマンドで、tagページを作る
 
-```sh
+```shell
 $ npx hexo new page "tags"
 ```
 
@@ -90,13 +90,14 @@ type: "tags"
 
 #### 検索機能の追加
 
-```sh
+```shell
 $ npm i hexo-generator-search --save
 ```
 
 `_config.yml`に次の内容を記載する
 
-```yaml:_config.yml
+```yaml
+# _config.yml
 search:
   path: search.json
   field: post

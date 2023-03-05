@@ -39,7 +39,7 @@ Unix / Linux の環境において、`~/.bashrc`、 `~/.vimrc`、 `~/.gitconfig`
 ここで注目するのは `run.sh` というシェルスクリプトです。
 内容の一部を抜粋すると以下のようになっています。
 
-```sh
+```bash
 # リポジトリをダウンロードする
 # ========================================
 cd "$HOME"
@@ -102,8 +102,8 @@ GitHubからダウンロードしてくることと、設定を適用するこ�
 実際に実行されるスクリプトの動作とともに紹介します。
 例えば以下のようなコマンドを実行することを考えます。
 
-```sh
-DOTFILE_DIRS="$HOME/src/github.com/yammerjp/dotfiles/env/Darwin--arm64:$HOME/src/github.com/yammerjp/dotfiles/env/Darwin:$HOME/src/github.com/yammerjp/dotfiles/env/common" ./bin/dotfiles link
+```shell
+$ DOTFILE_DIRS="$HOME/src/github.com/yammerjp/dotfiles/env/Darwin--arm64:$HOME/src/github.com/yammerjp/dotfiles/env/Darwin:$HOME/src/github.com/yammerjp/dotfiles/env/common" ./bin/dotfiles link
 ```
 
 

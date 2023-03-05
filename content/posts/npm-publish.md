@@ -105,7 +105,7 @@ README.md は npm のページにも表示されるので、改めて間違い�
 
 自分は Installation のところを間違えたまま公開してしまった。(現在は修正済み)
 
-```sh
+```shell
 # 間違い
 $ npm install --global yammerjp/gimonfu
 
@@ -126,8 +126,8 @@ Github リポジトリには TypeScript のコンパイル結果が含まれて�
 
 問題ないことが確認できたらいよいよ公開する。
 
-```sh
-$npm publish
+```shell
+$ npm publish
 ```
 
 たった一行打つだけ。

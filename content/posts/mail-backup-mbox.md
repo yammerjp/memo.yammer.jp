@@ -43,13 +43,13 @@ Office365 は Gmail のようにエクスポート機能を提供していない
 
 ### インストール
 
-```sh
+```shell
 $ brew install mutt
 ```
 
 ### メールを見る
 
-```sh
+```shell
 $ mutt -f path/to/mail-file.mbox
 ```
 

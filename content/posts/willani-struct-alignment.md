@@ -75,7 +75,7 @@ any object と the object が何を指しているのか最初イマイチわか
 
 次のような構造体を考える
 
-```C
+```c
 struct hoge {
   char a;
   char b;

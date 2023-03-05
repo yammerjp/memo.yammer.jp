@@ -19,7 +19,7 @@ Macには、OSや各アプリの設定を保存するUser Defaultsというデ�
 
 たとえば、次のスクリプトは、Finder(ファイラー)において、隠しファイル・隠しフォルダを表示する設定を有効にする。
 
-```sh
+```bash
 #!/bin/bash
 defaults write com.apple.finder AppleShowAllFiles YES
 ```
@@ -49,7 +49,7 @@ GUIからの設定は項目が増えると手間がかかるし同じ環境を�
 defaultsコマンドには、`$ defaults write`の他に`$ defaults read`というサブコマンドもある。これによりUser Defaultsを閲覧できる。
 GUI上の操作によってUser Defaultsにどんな変更が加わるか、変更前後の`$ defaults read`の出力を比較すればわかる。
 
-```sh
+```shell
 $ defaults read > before.txt
 # GUI上で設定を変更する
 $ defaults read > after.txt
@@ -77,7 +77,7 @@ diffで該当した部分を中心に、defaultsコマンドで指定する値�
 
 ### インストール
 
-```sh
+```shell
 $ git clone https://github.com/yammerjp/pdef.git
 $ cd pdef
 $ make
@@ -88,7 +88,7 @@ $ cp bin/pdef /user/local/bin
 
 次のように使う。
 
-```sh
+```shell
 # 設定を記録する
 
 $ defaults read > before.txt
@@ -114,7 +114,7 @@ Mac上で設定を変更するときに、前後で`$ defaults read`でUser Defa
 
 実行例
 
-```sh
+```shell
 $ defaults export com.apple.systemuiserver - > before.xml
 # メニューバーの変更(音量アイコンの表示/非表示等)
 $ defaults export com.apple.systemuiserver - > after.xml

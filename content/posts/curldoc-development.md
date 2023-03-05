@@ -24,7 +24,7 @@ PostmanやChrome開発者ツールにも、送信したリクエストをcurl形
 これをもとに、curlコマンドとその実行結果を書いたら簡易的なAPI仕様書になります。[^2]
 例えば次のような、リクエストとレスポンスのペアをひたすらMarkdownファイルに記述します。
 
-<pre>
+<pre><code class="hljs language-markdown">
 
 リクエストを以下に記す。
 
@@ -40,7 +40,7 @@ curl http://localhost:3000/hello --header 'Authorization: Basic YWxhZGRpbjpvcGVu
 }
 ```
 
-</pre>
+</code></pre>
 
 この形式のよいところは2つあります。
 

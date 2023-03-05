@@ -5,7 +5,8 @@ date: "2020-12-01T21:32:03+09:00"
 
 macOS Catalina にて、ssh接続のパスフレーズ入力を2回目以降省略するには、 `~/.ssh/config` の先頭に次を記述する。
 
-```sh
+```
+# ~/.ssh/config
 Host *
   AddKeysToAgent yes
   UseKeychain yes

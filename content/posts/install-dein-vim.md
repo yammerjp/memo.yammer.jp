@@ -14,7 +14,7 @@ dotfiles環境下でvimのプラグイン管理に[dein.vim](https://github.com/
 
 ## 下準備
 
-```sh
+```shell
 $ cd ~/dotfiles
 $ mkdir dein
 $ touch dein/load.vim
@@ -24,7 +24,9 @@ $ touch dein/load.vim
 
 `~/dotfiles/.vimrc`の先頭に次を記載
 
-```vim:.vimrc
+```vim
+" .vimrc
+
 "===== dein.vim =====
 if filereadable(expand('dein/load.vim'))
     source dein/load.vim
@@ -35,7 +37,9 @@ endif
  
 `~/dotfiles/dein/load.vim`に次の内容を記述
 
-```vim:~/dotfiles/dein/load.vim
+```vim
+" ~/dotfiles/dein/load.vim
+
 """===== dein.vim ======
 
 "dein.vim dark power

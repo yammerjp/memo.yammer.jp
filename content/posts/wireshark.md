@@ -16,7 +16,7 @@ tags: [ "ネットワーク", "Wireshark", "HTTP", "TCP", "tcpdump" ]
 
 (後述のcurlコマンド実行後、キャプチャが終わったらCtrl-cで終了する。)
 
-```
+```shell
 $ dig @8.8.8.8 memo.yammer.jp +short
 199.36.158.100
 $ sudo tcpdump host 199.36.158.100 -w /tmp/memo-yammer-jp
@@ -31,7 +31,7 @@ tcpdump: listening on pktap, link-type PKTAP (Apple DLT_PKTAP), capture size 262
 別のウィンドウでシェルを開き、curlコマンドを実行してキャプチャされるパケットを送受信する。
 ここでは内容が確認できるよう、暗号化されていないHTTPプロトコルを指定している。
 
-```
+```shell
 $ curl http://memo.yammer.jp --verbose
 *   Trying 199.36.158.100...
 * TCP_NODELAY set

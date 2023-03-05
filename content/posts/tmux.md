@@ -26,7 +26,7 @@ tmux は次のことを実現する.
 
 ## SetUp
 
-```sh
+```shell
 # インストール
 # 環境: Ubuntu 20.04
 $ sudo apt install tmux -y
@@ -70,13 +70,16 @@ tmux は複数のターミナルを束ねるが, それは次のような構造�
 
 好みのペイン分割をすぐにできるようなスクリプトを作っておく.
 
-```sh
+```shell
 $ echo 'alias ide="bash ~/.tmux-ide.sh"' >> .bashrc
 $ vim ~/.tmux-ide.sh
 ```
 
-```bash:~/.tmux-ide.sh
+```bash
 #!/bin/bash
+
+# ~/.tmux-ide.sh
+
 tmux split-window -d -t 0        # 上下に画面分割
 tmux send-keys -t 0 vim C-m      # ペイン0 (画面上部) で vim を実行
 tmux split-window -h -t 1        # ペイン1 (画面下部) を左右に分割
@@ -91,7 +94,7 @@ tmux send-keys -t 0 ':e ~/dev/'  # ペイン0 に ':e ~/dev/'と入力する (vi
 
 vimのカラースキームが未設定だと, tmux内のvimとtmux外のvimで配色が変わるので, なんでもいいからカラースキームを設定する
 
-```sh
+```shell
 $ echo 'colorscheme pablo' >> ~/.vimrc
 ```
 
@@ -115,11 +118,13 @@ tmux は出来ることが多いが, そのためのキーバインドを覚え�
 - マウス操作の有効化
 - 各種キーバインドの変更
 
-```sh
+```shell
 $ vim ~/.tmux.conf
 ```
 
-```plaintext:~/.tmux.conf
+```
+# ~/.tmux.conf
+
 # tmux起動時のシェルをzshにする
 set-option -g default-shell /bin/zsh
 

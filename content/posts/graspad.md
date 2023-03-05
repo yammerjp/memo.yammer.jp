@@ -142,13 +142,13 @@ ProMicroに書き込む際は、リセットボタンの代わりに RSTとGND�
 
 https://github.com/yammerjp/qmk_firmware/commit/ce2a69222718b825d787d52fd7ad7476862ec417 に私のキーマップを置いている。
 
-```
+```shell
 # Pro Micro
-sudo make e3w2q/te96:test:avrdude
-sudo make e3w2q/te96/rev1:yammerjp:avrdude
+$ sudo make e3w2q/te96:test:avrdude
+$ sudo make e3w2q/te96/rev1:yammerjp:avrdude
 # Elite-C
-sudo make e3w2q/te96:test:dfu
-sudo make e3w2q/te96/rev1:yammerjp:dfu
+$ sudo make e3w2q/te96:test:dfu
+$ sudo make e3w2q/te96/rev1:yammerjp:dfu
 ```
 
 ## (次回作があったら)改善したい点
