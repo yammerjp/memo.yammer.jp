@@ -5,7 +5,7 @@ import styles from './impressionForm.module.css'
 type MessageType = 'text' | 'emoji'
 
 const Emojis = ['😃 ', '🥺 ', '😆', '🚀 ', '👍 ', '👎', '💓'] as const
-type Emojis = typeof Emojis[number]
+type Emojis = (typeof Emojis)[number]
 
 type Impression = {
   isPublic: boolean

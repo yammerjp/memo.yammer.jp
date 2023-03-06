@@ -12,7 +12,7 @@ ogImage: https://blob.yammer.jp/cocot46-4-2.jpg
 
 購入のきっかけはcocot46の作者の[@aki27kbd](https://twitter.com/aki27kbd)さんが再販予定をツイートされているのを見かけたことでした。
 
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr"><a href="https://twitter.com/hashtag/cocot46lp?src=hash&amp;ref_src=twsrc%5Etfw">#cocot46lp</a> は、手持ちのトラックボールモジュール在庫の数だけキットに同梱したものを近日中にboothにて頒布します。無印の <a href="https://twitter.com/hashtag/cocot46?src=hash&amp;ref_src=twsrc%5Etfw">#cocot46</a> も同様にトラックボールモジュールを同梱したものを遊舎工房に委託予定です。どちらも在庫限りとなる予定なので、気になる方はこの機会にぜひ。</p>&mdash; aki27 (@aki27kbd) <a href="https://twitter.com/aki27kbd/status/1515311831375843335?ref_src=twsrc%5Etfw">April 16, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+https://twitter.com/aki27kbd/status/1515311831375843335
 
 トラックボール一体型のキーボードが気になっていたものの、1Uのトラックボールユニットは終売となっていて手に入れるのが難しそうだと思っていた時だったので、ツイートをみかけて嬉しくなりました。
 このあとは再販するのを待っていて、在庫が復活した日に注文しました。

@@ -8,7 +8,7 @@ tags: [ "プログラミング" ]
 
 実際には幽霊などおらずコンピュータは書かれたとおりに動作しているだけで、さらに大抵は自分がプロトコルや仕様を把握していないか誤ったプログラムを書いているのだが。
 
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">幽霊</p>&mdash; やんまー (@yammerjp) <a href="https://twitter.com/yammerjp/status/1412326675157688326?ref_src=twsrc%5Etfw">July 6, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+https://twitter.com/yammerjp/status/1412326675157688326
 
 <div style="text-align: center; width: 100%; color: #505050; font-size: 14px;">
   これは私がOAuth2.0の仕様を把握していなかったが故に謎と思った挙動になやまされたとき。

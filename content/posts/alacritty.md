@@ -11,7 +11,7 @@ yamlで設定を記述できること、クロスプラットフォームであ�
 
 ## IMEのインラインサポート
 
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">おぉぉぉぉぉ<br>ついに、alacrittyにIMEのインラインサポートが入った！！ちゃんと変換中の位置も考慮されてdeleteもできてる！！！<br>よし、乗り換えるぞ！<a href="https://t.co/J0rF12hJl2">https://t.co/J0rF12hJl2</a> <a href="https://t.co/tADAMBfHTe">pic.twitter.com/tADAMBfHTe</a></p>&mdash; karasu@オフトゥン大好き (@Ket0104) <a href="https://twitter.com/Ket0104/status/1566430771702665216?ref_src=twsrc%5Etfw">September 4, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+https://twitter.com/Ket0104/status/1566430771702665216
 
 AlacrittyにIMEで入力した時に未確定な文字列を表示する対応が入ったらしい。
 

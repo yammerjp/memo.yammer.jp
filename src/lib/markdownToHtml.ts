@@ -1,3 +1,4 @@
+import type { Root, Element, RootContent } from 'hast'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
@@ -9,6 +10,10 @@ import codeTitle from 'remark-code-titles'
 import rehypeStringify from 'rehype-stringify'
 import dockerfile from 'highlight.js/lib/languages/dockerfile'
 import vim from 'highlight.js/lib/languages/vim'
+import { visit } from 'unist-util-visit'
+import { fromHtml } from 'hast-util-from-html'
+import { youtubeEmbeddingPlugin } from './remarkPlugins/youtubeEmbeddingPlugin'
+import { twitterEmbeddingPlugin } from './remarkPlugins/twitterEmbeddingPlugin'
 
 export default async function markdownToHtml(markdown: string) {
   const result = await unified()
@@ -20,6 +25,8 @@ export default async function markdownToHtml(markdown: string) {
     .use(rehypeHighlight, { languages: { dockerfile, vim }, aliases: { bash: 'zsh' } })
     .use(html)
     .use(rehypeStringify, { allowDangerousHtml: true })
+    .use(youtubeEmbeddingPlugin)
+    .use(twitterEmbeddingPlugin)
     .process(markdown)
   return result.toString()
 }

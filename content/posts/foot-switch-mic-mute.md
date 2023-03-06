@@ -11,7 +11,7 @@ ogImage: "https://blob.yammer.jp/foot-switch-mic-mute-irasutoya.png"
 
 家に左クリックが壊れたマウスが有ったのでこれをフットスイッチ代わりにして、押しているときだけミュート解除するようにしてみた。
 
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">こちら、机の下に置かれた不審なマウスです。 <a href="https://t.co/DWxn3oxcLM">pic.twitter.com/DWxn3oxcLM</a></p>&mdash; やんまー (@yammerjp) <a href="https://twitter.com/yammerjp/status/1386699716356837380?ref_src=twsrc%5Etfw">April 26, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+https://twitter.com/yammerjp/status/1386699716356837380
 
 どのように実現しているかは後半の「[つくりかた](#つくりかた)」に書く。
 

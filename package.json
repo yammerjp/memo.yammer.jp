@@ -23,6 +23,7 @@
     "classnames": "2.3.1",
     "date-fns": "2.22.1",
     "gray-matter": "4.0.3",
+    "hast-util-from-html": "^1.0.1",
     "highlight.js": "^11.7.0",
     "kuromoji": "^0.1.2",
     "next": "^12.1.0",

@@ -40,15 +40,21 @@ Litestreamのレプリケーション先にGCSを利用するので、GCSのセ�
 まず、GCSにバケットを作り、接続情報を用意する。
 権限を絞るためにサービスアカウントを作成し、取得した認証情報のJSONを保存しておく。[^2]
 
-<div style="padding: 1em;border: solid 2px #f3f3f3;border-radius: 1em;">
-2023/01/17追記: Cloud RunとLitestreamの組み合わせの場合、GCSの認証情報はよしなに取得してくれるようです。この記事で行っているような認証情報の設定は不要でした。
+<details>
+<summary>
+2023/01/17追記: くのきみさんから教えていただき、Cloud RunとLitestreamの組み合わせの場合、GCSの認証情報はよしなに取得してくれるようです。この記事で行っているような認証情報の設定は不要であることがわかりました。
+</summary>
 
-<q>On a Compute Engine VM or Cloud Run service, Litestream will automatically pick up the credentials associated with the instance from the instance’s metadata server.</q>
+> On a Compute Engine VM or Cloud Run service, Litestream will automatically pick up the credentials associated with the instance from the instance’s metadata server.
 https://litestream.io/guides/gcs/
 
-<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr"><a href="https://twitter.com/yammerjp?ref_src=twsrc%5Etfw">@yammerjp</a> <br>参考になりました！それはそれとしてGCSに必要なクレデンシャルはCloud Runインスタンスから拾ってくれるらしいので、自分で設定する必要はなさそうな気がしました <a href="https://t.co/WorBOBanVl">https://t.co/WorBOBanVl</a><a href="https://t.co/kPx31i4S4C">https://t.co/kPx31i4S4C</a></p>&mdash; くのきみ (@knokmki612) <a href="https://twitter.com/knokmki612/status/1614856237774168064?ref_src=twsrc%5Etfw">January 16, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+https://twitter.com/knokmki612/status/1614856237774168064
+
 くのきみさん、情報提供ありがとうございます。
-</div>
+
+---
+
+</details>
 
 つぎに、Dockerコンテナ起動時にLitestreamによる復元とレプリケーションを設定する。
 

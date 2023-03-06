@@ -6,7 +6,7 @@ tags: [ "3Dプリンタ" ]
 
 昨年の秋に3Dプリンタを買ったので、その経緯と3Dプリンタに入門して学んだことを記します。
 
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">サンプルを印刷してみる <a href="https://t.co/hdrNYcBRn7">pic.twitter.com/hdrNYcBRn7</a></p>&mdash; やんまー📚 (@yammerjp) <a href="https://twitter.com/yammerjp/status/1439779993307942916">September 20, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+https://twitter.com/yammerjp/status/1439779993307942916
 
 作りたいものがあって、3Dプリンタの印刷サービスを検討していたが高すぎたのが事の発端です。
 作りたいものの寸法が大きかったため依頼すると2万円くらいするとわかり、更に安価な3Dプリンタ本体が2-3万円くらいで入手できることがわかり、これは試してみてもいいのではという気持ちになりました。[^1]
@@ -67,9 +67,7 @@ Anycubic Mega Sはゆっくりやっても数十分で組み立てることが�
 ひとまず、印刷を終わるごとにやっています。
 Youtuberのイチケンさんの動画ではそんなに頻繁にやらなくても良いと語られているので、それほどずれないとわかったらやらなくて良いかもしれません。
 
-<div style="text-align: center">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4JEHVZTRjXY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; aspect-ratio: 16/9; height: auto;"></iframe>
-</div>
+https://www.youtube.com/watch?v=4JEHVZTRjXY
 
 ちなみにこの動画、とてもよくできていて3Dプリンタを買う前にイメージを掴むのに大変役立ちました。
 

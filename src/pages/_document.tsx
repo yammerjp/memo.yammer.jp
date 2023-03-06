@@ -23,6 +23,7 @@ export default class MyDocument extends Document {
               />
             </>
           )}
+          <script async src='/assets/twitter-lazy-loading.js' />
         </Head>
         <body>
           <Main />

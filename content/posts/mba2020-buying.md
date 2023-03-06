@@ -4,8 +4,7 @@ date: "2020-12-04T12:35:25+09:00"
 tags: ["macOS", "AppleSilicon", "日記"]
 ---
 
-<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="ja" dir="ltr">おやおや？ <a href="https://t.co/KVU554OdNZ">pic.twitter.com/KVU554OdNZ</a></p>&mdash; やんまー (@yammerjp) <a href="https://twitter.com/yammerjp/status/1334697452855705604?ref_src=twsrc%5Etfw">December 4, 2020</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+https://twitter.com/yammerjp/status/1334697452855705604
 
 買ってしまいました。
 

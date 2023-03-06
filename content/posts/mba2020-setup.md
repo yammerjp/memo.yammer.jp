@@ -7,7 +7,7 @@ tags: [ "macOS", "AppleSilicon", "Setup" ]
 Apple Silicon を搭載した MacBook Air を購入したのでセットアップをやっていく。
 そのメモ。
 
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">m1 MacBook Air が届いたのでとりあえずたくさんアプリケーションやタブを連続起動して「はえ〜」ってやつをやりました。</p>&mdash; やんまー (@yammerjp) <a href="https://twitter.com/yammerjp/status/1340576122795266048?ref_src=twsrc%5Etfw">December 20, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+https://twitter.com/yammerjp/status/1340576122795266048
 
 2020/12/20現在では「`brew bundle`しておわり」というわけにはいかない。
 できる限りApple Silicon版のバイナリを使いたいので、各種ソフトウェアのビルド方法などを記録することにする。

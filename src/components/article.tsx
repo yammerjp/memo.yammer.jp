@@ -6,32 +6,7 @@ import { useEffect } from 'react'
 
 const Article = ({ post }: { post: PostType }) => {
   useEffect(() => {
-    const shadowRoot = document.querySelector('#shadow-dom-root')?.shadowRoot
-    if (!shadowRoot) {
-      return
-    }
-    const eventListener = (event: Event) => {
-      const element = event.target as HTMLElement
-      if (element.tagName !== 'A') {
-        return true
-      }
-      const href = element.getAttribute('href') ?? ''
-      if (!/^#/.test(href)) {
-        return true
-      }
-      const anchorName = href.substring(1)
-      const theNameElements = shadowRoot.querySelectorAll(`[name=${anchorName}], #${anchorName}`)
-      if (theNameElements.length > 0) {
-        theNameElements[0].scrollIntoView()
-        event.preventDefault()
-        return false
-      }
-      return true
-    }
-    shadowRoot.addEventListener('click', eventListener)
-    return () => {
-      shadowRoot.removeEventListener('cilck', eventListener)
-    }
+    ;(window as any).twttr.widgets.load(window.document.body)
   })
 
   return (

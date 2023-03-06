@@ -6,8 +6,7 @@ tags: ["JavaScript", "非同期"]
 
 この記事は以下のツイートについて。
 
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">thenメソッドって第2引数でrejectedなときに実行する関数も指定できるのか、いつもcatchばかり使っていた。</p>&mdash; けーすけ@やんまー (@yammerjp) <a href="https://twitter.com/yammerjp/status/1262637541028585475?ref_src=twsrc%5Etfw">May 19, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+https://twitter.com/yammerjp/status/1262637541028585475
 
 きっかけは[MDN web docsのPromiseについてのページ](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise)を見ていたことに始まる。
 
