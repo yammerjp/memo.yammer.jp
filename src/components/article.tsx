@@ -6,7 +6,8 @@ import { useEffect } from 'react'
 
 const Article = ({ post }: { post: PostType }) => {
   useEffect(() => {
-    ;(window as any).twttr.widgets.load(window.document.body)
+    ;(window as any).twttr?.widgets?.load(window.document.body)
+    ;(window as any).twttrShoudLoad = true
   })
 
   return (
