@@ -1,7 +1,7 @@
 ---
 title: "PHPerKaigi2023に参加しています"
 date: "2023-03-24T23:23:11+09:00"
-tags: [ "イベント", "PHP", "PHPerKaigi", "日記" ]
+tags: [ "カンファレンス", "PHP", "PHPerKaigi", "日記" ]
 ---
 
 昨日から始まっているPHPerKaigi、昨日はオンライン、今日は物理で参戦しています。
