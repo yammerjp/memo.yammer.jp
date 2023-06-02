@@ -46,6 +46,7 @@
     "xml-escape": "^1.1.0"
   },
   "devDependencies": {
+    "@pinecone-database/pinecone": "^0.1.6",
     "@testing-library/react": "^12.1.2",
     "@types/classnames": "^2.3.1",
     "@types/jest": "^26.0.24",
@@ -61,6 +62,7 @@
     "jest": "^27.3.1",
     "jest-transform-stub": "^2.0.0",
     "jest-watch-typeahead": "^1.0.0",
+    "openai": "^3.2.1",
     "postcss": "^8.3.5",
     "prettier": "^2.5.1",
     "tailwindcss": "^2.2.1"

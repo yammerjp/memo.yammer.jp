@@ -4,3 +4,6 @@ node_modules/**/*
 gh-pages/**/*
 public/posts/index.xml
 out/**/*
+.env
+embeddings.json
+relatedArticles.json
