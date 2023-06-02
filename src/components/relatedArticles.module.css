@@ -1,0 +1,25 @@
+.relatedArticles {
+  margin: 96px 0px 60px 0px;
+}
+
+.relatedArticlesPretitle {
+  font-size: 12px;
+}
+
+.relatedArticle * {
+  cursor: pointer;
+}
+
+.relatedArticle {
+  display: block;
+  color: #505050;
+}
+
+.relatedArticle:hover {
+  text-decoration: none;
+}
+
+.relatedArticle:hover .relatedArticleTitle {
+  text-decoration: underline;
+}
+

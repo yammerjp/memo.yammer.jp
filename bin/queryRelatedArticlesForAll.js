@@ -17,13 +17,13 @@ async function main() {
     for(const article of embeddings) {
         const queryRequest = {
             vector: article.embedding,
-            topK: 6,
+            topK: 10,
             includeValues: true,
             includeMetadata: true,
             namespace: process.env.PINECONE_INDEX_NAMESPACE
         };
         const queryResponse = await index.query({ queryRequest });
-        relatedArticles[article.id] = queryResponse.matches?.slice(1,5).map(item => ({id: item.id, score: item.score}))
+        relatedArticles[article.id] = queryResponse.matches?.map(item => ({id: item.id, score: item.score}))
         console.error(`finished: ${article.id}`)
     }
     console.log(JSON.stringify(relatedArticles))
