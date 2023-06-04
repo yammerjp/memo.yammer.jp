@@ -10,7 +10,6 @@ import { OgImageUrlInText } from './cloudinaryOgp'
 import { PostType, PostHistoryType } from '../types/post'
 
 import relatedArticles from '../../relatedArticles.json' assert { type: "json" }
-import { ar } from 'date-fns/locale'
 
 const fetchSlugs = async (): Promise<string[]> => {
   const files = await fs.readdir(join(process.cwd(), 'content', 'posts'))
@@ -98,7 +97,7 @@ export async function getRelatedPosts(
     console.error('Need to specify EXISTING slug with calling getNeighborPosts()')
     return []
   }
-  const articles = ((relatedArticles as { [key:string]: {id: string, score: number}[]})[slug]).flatMap(item => allPosts.find(p => p.slug === item.id) ?? [])
+  const articles =(((relatedArticles as { [key:string]: {id: string, score: number}[]})[slug]) ?? []).flatMap(item => allPosts.find(p => p.slug === item.id) ?? [])
 
   const neighborPosts = await getNeighborPosts(slug, fields)
   return articles.filter(item => item.slug != neighborPosts.next?.slug && item.slug != neighborPosts.prev?.slug && item.slug !== slug).slice(0,5)
