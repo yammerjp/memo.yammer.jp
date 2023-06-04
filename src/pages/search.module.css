@@ -1,0 +1,19 @@
+.articleTagsSelectorWrapH2 {
+  margin-top: 0px;
+}
+
+.articleTagsSelectorWrap {
+  margin-bottom: 48px;
+}
+
+.articleCardsMessage {
+  margin: 96px 0 0 0;
+  text-align: center;
+}
+
+.hr {
+  border-top: 1px solid #dddddd;
+  border-bottom: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}

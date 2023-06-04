@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import { getAllPosts } from '../lib/api'
 import { PostType } from '../types/post'
 import Frame from '../components/frame'
@@ -100,6 +101,7 @@ const Index = ({ allPosts }: Props) => {
       <Frame titleIsH1={true}>
         <div className={styles.articleTagsSelectorWrap}>
           <h2 className={styles.articleTagsSelectorWrapH2}>記事をタグで絞り込む</h2>
+          <div style={{textAlign: "right", width: "100%"}}><Link href="/search">ワードで曖昧検索(α)</Link></div>
           <hr className={styles.hr} />
           <TagsSelector tagsAll={tagsAll} tagsSelected={tagsSelected} clickedTag={clickedTag} />
           <hr className={styles.hr} />
