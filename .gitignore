@@ -3,5 +3,6 @@ node_modules/**/*
 .next/**/*
 gh-pages/**/*
 public/posts/index.xml
+public/posts/index.json
 out/**/*
 .env
