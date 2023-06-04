@@ -5,7 +5,7 @@ import styles from './relatedArticles.module.css'
 const relatedArticles = ({articles}: {articles: PostType[]}) => {
   return (
     <div className={styles.relatedArticles}>
-      <div className={styles.relatedArticlesPretitle}>
+      <div className={styles.relatedArticlesPretitle} id="related-articles">
         関連記事
       </div>
       {articles.map(article => (
