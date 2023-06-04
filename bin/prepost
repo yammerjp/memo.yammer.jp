@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -ex
+
+# load .env
+if ![ -e ".env" ]; then
+  echo "need .env" 1>&2
+  exit 1
+fi
+
+export $(cat .env| grep -v "#" | xargs)
+
+# create embeddings.json
+./bin/embedding.js > embeddings.json
+
+# push to pinecone
+./bin/genIndex.js
+
+# create relatedArticles.json
+./bin/queryRelatedArticles.js > relatedArticles.json
