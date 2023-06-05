@@ -43,13 +43,13 @@ function uf_add(x) {
   uf_size[x] = 1
 }
 
-# uf_parentを再起的にたどり、rootの値を返す
+# uf_parentを再帰的にたどり、rootの値を返す
 function uf_root(x) {
   if (uf_parent[x] == x) {
     # 根
     return x
   }
-  # 再起的に辿りながら、木の深さが浅くなるように辺を付け替えて高速化 (パス圧縮)
+  # 再帰的に辿りながら、木の深さが浅くなるように辺を付け替えて高速化 (パス圧縮)
   return uf_parent[x] = uf_root(uf_parent[x])
 }
  
