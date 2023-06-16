@@ -3,6 +3,9 @@ import { PostType } from '../types/post'
 import styles from './relatedArticles.module.css'
 
 const relatedArticles = ({articles}: {articles: PostType[]}) => {
+  if (articles.length === 0) {
+    return null
+  }
   return (
     <div className={styles.relatedArticles}>
       <div className={styles.relatedArticlesPretitle} id="related-articles">
