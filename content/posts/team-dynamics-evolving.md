@@ -7,7 +7,7 @@ tags: [ "チームワーク", "ソフトウェア開発", "コードレビュー
 
 [GMOペパボ EC Advent Calender](https://adventar.org/calendars/8672)の2日目は、yammerから、私の所属するチームについての話題を紹介します。
 
-1日目の記事は、[@kenchan](https://twitter.com/kenchan)の『[「炭鉱のカナリア」になる](https://scrapbox.io/kenchan/%E3%80%8C%E7%82%AD%E9%89%B1%E3%81%AE%E4%B8%AD%E3%81%AE%E3%82%AB%E3%83%8A%E3%83%AA%E3%82%A2%E3%80%8D%E3%81%AB%E3%81%AA%E3%82%8B)』でした。自分が今年、消防車を呼べたとき、呼べなかった時はいつだっただろうか？と思い出しながら読みました。3日目の記事は[@tatsumi000](https://github.com/Tatsumi0000)の、「[開発環境.nvim](https://blog.aespa.love/development-environment-nvim-2023)」です。Vimmerでありながら終業時間中はVSCodeのVimプラグインに甘んじている身として「1週間くらいNeoVimだけで生活してみようかな」と心が揺さぶられるトピックでした。[^timetravel]
+1日目の記事は、[@kenchan](https://twitter.com/kenchan)の『[「炭鉱のカナリア」になる](https://scrapbox.io/kenchan/%E3%80%8C%E7%82%AD%E9%89%B1%E3%81%AE%E4%B8%AD%E3%81%AE%E3%82%AB%E3%83%8A%E3%83%AA%E3%82%A2%E3%80%8D%E3%81%AB%E3%81%AA%E3%82%8B)』でした。自分が今年、消防車を呼べたとき、呼べなかった時はいつだっただろうか？と思い出しながら読みました。3日目の記事は[@tatsumi000](https://github.com/Tatsumi0000)の、「[開発環境.nvim 2023](https://blog.aespa.love/development-environment-nvim-2023)」です。Vimmerでありながら終業時間中はVSCodeのVimプラグインに甘んじている身として「1週間くらいNeoVimだけで生活してみようかな」と心が揺さぶられるトピックでした。[^timetravel]
 
 [^timetravel]: この記事が2日目のものなのに、3日目の記事の感想がかかれているために、時空が捻じ曲がってしまったのではないか？と心配したそこのあなた。その通りです(嘘です)。話がまとまらずに1日遅れてしまったことをどうかお許しください。
 
