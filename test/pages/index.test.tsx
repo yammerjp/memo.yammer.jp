@@ -16,7 +16,7 @@ describe('Home page', () => {
         title: '記事タイトル',
         date: '',
         slug: '',
-        tags: '',
+        tags: [],
         description: '',
       },
     ]

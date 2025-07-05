@@ -11,14 +11,14 @@ const Header = ({ titleIsH1 }: { titleIsH1?: boolean }) => {
         <div className={styles.headerLeft}>
           {titleIsH1 ? (
             <h1 className={styles.headerTitle}>
-              <Link href='/' passHref>
-                <a className={styles.headerLeftAnchor}>memo.yammer.jp</a>
+              <Link href='/' className={styles.headerLeftAnchor}>
+                memo.yammer.jp
               </Link>
             </h1>
           ) : (
             <div className={styles.headerTitle}>
-              <Link href='/' passHref>
-                <a className={styles.headerLeftAnchor}>memo.yammer.jp</a>
+              <Link href='/' className={styles.headerLeftAnchor}>
+                memo.yammer.jp
               </Link>
             </div>
           )}
@@ -28,31 +28,27 @@ const Header = ({ titleIsH1 }: { titleIsH1?: boolean }) => {
         <div className={styles.headerRight}>
           <div className={styles.headerNavWrap}></div>
           <nav className={styles.headerNav}>
-            <Link href='/tags' passHref>
-              <a className={styles.headerNavIconWrapper}>
-                <img
-                  className={styles.headerNavIcon}
-                  src='/assets/list-search.svg'
-                  alt='記事を探す'
-                  width='44px'
-                  height='44px'
-                  onMouseOver={() => setNavDescription('記事をタグで絞り込む')}
-                  onMouseLeave={() => setNavDescription('')}
-                />
-              </a>
+            <Link href='/tags' className={styles.headerNavIconWrapper}>
+              <img
+                className={styles.headerNavIcon}
+                src='/assets/list-search.svg'
+                alt='記事を探す'
+                width='44px'
+                height='44px'
+                onMouseOver={() => setNavDescription('記事をタグで絞り込む')}
+                onMouseLeave={() => setNavDescription('')}
+              />
             </Link>
-            <Link href='/about' passHref>
-              <a className={styles.headerNavIconWrapper}>
-                <img
-                  className={styles.headerNavIcon}
-                  src='/assets/user.svg'
-                  alt='自己紹介'
-                  width='44px'
-                  height='44px'
-                  onMouseOver={() => setNavDescription('自己紹介をひらく')}
-                  onMouseLeave={() => setNavDescription('')}
-                />
-              </a>
+            <Link href='/about' className={styles.headerNavIconWrapper}>
+              <img
+                className={styles.headerNavIcon}
+                src='/assets/user.svg'
+                alt='自己紹介'
+                width='44px'
+                height='44px'
+                onMouseOver={() => setNavDescription('自己紹介をひらく')}
+                onMouseLeave={() => setNavDescription('')}
+              />
             </Link>
             <a
               href='https://github.com/yammerjp'
