@@ -9,22 +9,20 @@ const ArticleCard = ({
   tagsEmphasizing,
   allEmphasizing,
   linkable,
-  thin,
+  thin = false,
 }: {
   post: PostType
   tagsEmphasizing: string[]
   allEmphasizing: boolean
   linkable: boolean
-  thin: boolean
+  thin?: boolean
 }) => {
   return (
     <section className={thin ? styles.articleCardThin : styles.articleCard}>
-      <Link href={'/posts/' + post.slug}>
-        <a className={styles.articleLink}>
-          <ArticleDate post={post} historyDisplayable={false} small={thin} />
-          <div className={thin ? styles.articleTitleThin : styles.articleTitle}>{post.title}</div>
-          {!thin && <div className={styles.articleDescription}>{post.description || ''}</div>}
-        </a>
+      <Link href={'/posts/' + post.slug} className={styles.articleLink}>
+        <ArticleDate post={post} historyDisplayable={false} small={thin} />
+        <div className={thin ? styles.articleTitleThin : styles.articleTitle}>{post.title}</div>
+        {!thin && <div className={styles.articleDescription}>{post.description || ''}</div>}
       </Link>
       {!thin && (
         <Tags
@@ -39,7 +37,4 @@ const ArticleCard = ({
   )
 }
 
-ArticleCard.defaultProps = {
-  thin: false,
-}
 export default ArticleCard

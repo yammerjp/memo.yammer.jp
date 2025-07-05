@@ -18,8 +18,8 @@ const PageSelector = ({ nowPage, pages }: { nowPage: number; pages: number }) =>
           )
         }
         return (
-          <Link href={p === 1 ? '/' : '/page/' + p} key={p} passHref>
-            <a className={`${styles.pageSelectorNumber} ${styles.notNowPage}`}>{p}</a>
+          <Link href={p === 1 ? '/' : '/page/' + p} key={p} className={`${styles.pageSelectorNumber} ${styles.notNowPage}`}>
+            {p}
           </Link>
         )
       })}

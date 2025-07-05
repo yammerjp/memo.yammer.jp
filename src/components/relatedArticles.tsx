@@ -12,12 +12,10 @@ const relatedArticles = ({articles}: {articles: PostType[]}) => {
         関連記事
       </div>
       {articles.map(article => (
-        <Link href={'/posts/' + article.slug} passHref key={article.slug}>
-          <a>
-            <div className={styles.relatedArticle} >
-              <div className={styles.relatedArticleTitle}>{article.title}</div>
-            </div>
-          </a>
+        <Link href={'/posts/' + article.slug} key={article.slug}>
+          <div className={styles.relatedArticle} >
+            <div className={styles.relatedArticleTitle}>{article.title}</div>
+          </div>
         </Link>
       ))}
     </div>

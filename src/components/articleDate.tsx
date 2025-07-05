@@ -4,12 +4,12 @@ import { iso8601toDisplayStr } from '../lib/date'
 import PostHistory from './postHistory'
 const ArticleDate = ({
   post,
-  historyDisplayable,
-  small,
+  historyDisplayable = true,
+  small = false,
 }: {
   post: PostType
-  historyDisplayable: boolean
-  small: boolean
+  historyDisplayable?: boolean
+  small?: boolean
 }) => {
   const [historyVisible, setHistoryVisible] = useState<boolean>(false)
   const onClick = () => {
@@ -55,11 +55,6 @@ const ArticleDate = ({
       )}
     </div>
   )
-}
-
-ArticleDate.defaultProps = {
-  small: false,
-  historyDisplayable: true,
 }
 
 export default ArticleDate
