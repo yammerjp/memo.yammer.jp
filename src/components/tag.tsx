@@ -3,15 +3,23 @@ import styles from './tag.module.css'
 
 type PropType = {
   tagName: string
-  emphasizing: boolean
-  linkTo: string | undefined
-  selectable: boolean
-  selected: boolean
-  inArticleHeader: boolean
-  buttonClickHandler: (() => void) | undefined
+  emphasizing?: boolean
+  linkTo?: string | undefined
+  selectable?: boolean
+  selected?: boolean
+  inArticleHeader?: boolean
+  buttonClickHandler?: (() => void) | undefined
 }
 
-const Tag = ({ tagName, emphasizing, linkTo, selectable, selected, inArticleHeader, buttonClickHandler }: PropType) => {
+const Tag = ({ 
+  tagName, 
+  emphasizing = false, 
+  linkTo = undefined, 
+  selectable = false, 
+  selected = false, 
+  inArticleHeader = false, 
+  buttonClickHandler = undefined 
+}: PropType) => {
   const className = Object.entries({
     [styles.articleTag]: true,
     [styles.linkable]: !!linkTo,
@@ -37,15 +45,6 @@ const Tag = ({ tagName, emphasizing, linkTo, selectable, selected, inArticleHead
   }
 
   return <Link href={linkTo}>{tagElement}</Link>
-}
-
-Tag.defaultProps = {
-  emphasizing: false,
-  linkTo: undefined,
-  selectable: false,
-  selected: false,
-  inArticleHeader: false,
-  buttonClickHandler: undefined,
 }
 
 export default Tag

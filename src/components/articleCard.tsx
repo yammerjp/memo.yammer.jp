@@ -9,13 +9,13 @@ const ArticleCard = ({
   tagsEmphasizing,
   allEmphasizing,
   linkable,
-  thin,
+  thin = false,
 }: {
   post: PostType
   tagsEmphasizing: string[]
   allEmphasizing: boolean
   linkable: boolean
-  thin: boolean
+  thin?: boolean
 }) => {
   return (
     <section className={thin ? styles.articleCardThin : styles.articleCard}>
@@ -37,7 +37,4 @@ const ArticleCard = ({
   )
 }
 
-ArticleCard.defaultProps = {
-  thin: false,
-}
 export default ArticleCard
