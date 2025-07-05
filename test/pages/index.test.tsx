@@ -1,5 +1,6 @@
 import React from 'react'
-import { render, fireEvent } from '../testUtils'
+import { describe, it, expect } from 'vitest'
+import { render } from '../testUtils'
 import Index from '../../src/pages/index'
 
 describe('Home page', () => {
