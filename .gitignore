@@ -4,5 +4,6 @@ node_modules/**/*
 gh-pages/**/*
 public/posts/index.xml
 public/posts/index.json
+public/posts/all.json
 out/**/*
 .env
