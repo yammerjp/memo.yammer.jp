@@ -19,9 +19,6 @@
   },
   "dependencies": {
     "@types/xml-escape": "^1.1.0",
-    "axios": "^1.10.0",
-    "classnames": "^2.5.1",
-    "date-fns": "^4.1.0",
     "gray-matter": "4.0.3",
     "hast-util-from-html": "^2.0.3",
     "highlight.js": "^11.7.0",
@@ -29,7 +26,6 @@
     "next": "^15.3.5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-shadow": "^20.0.0",
     "rehype-highlight": "^7.0.2",
     "rehype-stringify": "^10.0.1",
     "remark": "^15.0.1",
