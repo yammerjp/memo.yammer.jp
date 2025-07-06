@@ -3,7 +3,6 @@ import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import html from 'remark-html'
-import footnotes from 'remark-footnotes'
 import gfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import codeTitle from 'remark-code-titles'
@@ -20,8 +19,7 @@ export default async function markdownToHtml(markdown: string) {
   const result = await unified()
     .use(remarkParse)
     .use(remarkRehype, { allowDangerousHtml: true })
-    .use(gfm)
-    .use(footnotes)
+    .use(gfm) // gfm includes footnotes support
     .use(codeTitle)
     .use(rehypeHighlight, { languages: { dockerfile, vim, awk }, aliases: { bash: 'zsh' } })
     .use(html)

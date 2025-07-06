@@ -5,14 +5,13 @@ const { join } = require('path')
 /* front-matter & markdown */
 const matter = require('gray-matter')
 const remark = require('remark')
-const footnotes = require('remark-footnotes')
 const gfm = require('remark-gfm')
 const codeTitle = require('remark-code-titles')
 const strip = require('strip-markdown')
 
 async function fileStr2plainText(fileContents) {
   const { content } = matter(fileContents)
-  const result = await remark().use(gfm).use(footnotes).use(codeTitle).use(strip).process(content)
+  const result = await remark().use(gfm).use(codeTitle).use(strip).process(content)
   return result.toString()
 }
 
