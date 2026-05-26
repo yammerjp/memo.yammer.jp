@@ -17,6 +17,6 @@ const post = await getStaticPost('about', ['title', 'date', 'slug', 'content', '
     ogImage={post.ogImage || ''}
     ogType='article'
   />
-  <Article client:load post={post} />
+  <Article post={post} />
   <a href='/'>&lt; Home</a>
 </Frame>

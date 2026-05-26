@@ -30,8 +30,8 @@ const relatedArticles = await getRelatedPosts(slug, ['slug', 'title', 'date'])
     ogImage={post.ogImage || ''}
     ogType='article'
   />
-  <Article client:load post={post} />
-  <ImpressionForm client:load post={post} />
+  <Article post={post} />
+  <ImpressionForm post={post} />
   <RelatedArticles articles={relatedArticles} />
   <NeighborArticles prev={prev} next={next} />
 </Frame>

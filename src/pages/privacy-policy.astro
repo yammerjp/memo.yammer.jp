@@ -25,6 +25,6 @@ const post = await getStaticPost('privacy-policy', [
     ogImage={post.ogImage || ''}
     ogType='article'
   />
-  <Article client:load post={post} />
+  <Article post={post} />
   <a href='/'>&lt; Home</a>
 </Frame>
