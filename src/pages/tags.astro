@@ -1,0 +1,23 @@
+---
+import Frame from '../layouts/Frame.astro'
+import Ogp from '../components/ogp'
+import { OgImageUrlInText } from '../lib/cloudinaryOgp'
+import { getAllPosts } from '../lib/astroApi'
+import TagsPage from '../components/TagsPage'
+
+const allPosts = await getAllPosts(['title', 'date', 'slug', 'tags', 'description'])
+---
+
+<Frame titleIsH1={true}>
+  <head>
+    <title>memo.yammer.jp - 常に完成形</title>
+    <Ogp
+      title='記事をタグで絞り込む - memo.yammer.jp'
+      path='/tags'
+      description='記事をタグで絞り込む'
+      ogImage={OgImageUrlInText('memo.yammer.jp')}
+      ogType='website'
+    />
+  </head>
+  <TagsPage client:load allPosts={allPosts} />
+</Frame>
