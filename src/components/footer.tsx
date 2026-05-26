@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import styles from './footer.module.css'
 
 const Footer = () => {
@@ -8,7 +7,7 @@ const Footer = () => {
         <div>
           <div>©2020-2022 Keisuke Nakayama</div>
           <div>
-            <Link href='/privacy-policy'>Privacy Policy</Link>
+            <a href='/privacy-policy'>Privacy Policy</a>
           </div>
         </div>
       </div>

@@ -1,0 +1,31 @@
+---
+import Frame from '../layouts/Frame.astro'
+import Article from '../components/article'
+import Ogp from '../components/ogp'
+import { getStaticPost } from '../lib/astroApi'
+
+const post = await getStaticPost('privacy-policy', [
+  'title',
+  'date',
+  'slug',
+  'content',
+  'html',
+  'description',
+  'ogImage',
+])
+---
+
+<Frame titleIsH1={false}>
+  <head>
+    <title>memo.yammer.jp - 常に完成形</title>
+    <Ogp
+      title='プライバシーポリシー - memo.yammer.jp'
+      path='/posts/privacy-policy'
+      description={post.description || ''}
+      ogImage={post.ogImage || ''}
+      ogType='article'
+    />
+  </head>
+  <Article client:load post={post} />
+  <a href='/'>&lt; Home</a>
+</Frame>

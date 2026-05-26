@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { PostType } from '../types/post'
 import Tags from './tags'
 import ArticleDate from './articleDate'
@@ -19,11 +18,11 @@ const ArticleCard = ({
 }) => {
   return (
     <section className={thin ? styles.articleCardThin : styles.articleCard}>
-      <Link href={'/posts/' + post.slug} className={styles.articleLink}>
+      <a href={'/posts/' + post.slug} className={styles.articleLink}>
         <ArticleDate post={post} historyDisplayable={false} small={thin} />
         <div className={thin ? styles.articleTitleThin : styles.articleTitle}>{post.title}</div>
         {!thin && <div className={styles.articleDescription}>{post.description || ''}</div>}
-      </Link>
+      </a>
       {!thin && (
         <Tags
           tags={post.tags ?? []}

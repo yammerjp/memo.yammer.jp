@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { useState } from 'react'
 import styles from './header.module.css'
 
@@ -11,15 +10,15 @@ const Header = ({ titleIsH1 }: { titleIsH1?: boolean }) => {
         <div className={styles.headerLeft}>
           {titleIsH1 ? (
             <h1 className={styles.headerTitle}>
-              <Link href='/' className={styles.headerLeftAnchor}>
+              <a href='/' className={styles.headerLeftAnchor}>
                 memo.yammer.jp
-              </Link>
+              </a>
             </h1>
           ) : (
             <div className={styles.headerTitle}>
-              <Link href='/' className={styles.headerLeftAnchor}>
+              <a href='/' className={styles.headerLeftAnchor}>
                 memo.yammer.jp
-              </Link>
+              </a>
             </div>
           )}
           <div className={styles.headerSubtitle}>常に完成形</div>
@@ -28,7 +27,7 @@ const Header = ({ titleIsH1 }: { titleIsH1?: boolean }) => {
         <div className={styles.headerRight}>
           <div className={styles.headerNavWrap}></div>
           <nav className={styles.headerNav}>
-            <Link href='/tags' className={styles.headerNavIconWrapper}>
+            <a href='/tags' className={styles.headerNavIconWrapper}>
               <img
                 className={styles.headerNavIcon}
                 src='/assets/list-search.svg'
@@ -38,8 +37,8 @@ const Header = ({ titleIsH1 }: { titleIsH1?: boolean }) => {
                 onMouseOver={() => setNavDescription('記事をタグで絞り込む')}
                 onMouseLeave={() => setNavDescription('')}
               />
-            </Link>
-            <Link href='/about' className={styles.headerNavIconWrapper}>
+            </a>
+            <a href='/about' className={styles.headerNavIconWrapper}>
               <img
                 className={styles.headerNavIcon}
                 src='/assets/user.svg'
@@ -49,7 +48,7 @@ const Header = ({ titleIsH1 }: { titleIsH1?: boolean }) => {
                 onMouseOver={() => setNavDescription('自己紹介をひらく')}
                 onMouseLeave={() => setNavDescription('')}
               />
-            </Link>
+            </a>
             <a
               href='https://github.com/yammerjp'
               rel='noreferrer noopener'

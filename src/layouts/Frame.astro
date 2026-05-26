@@ -1,0 +1,17 @@
+---
+import Header from '../components/header'
+import Footer from '../components/footer'
+import styles from '../components/frame.module.css'
+import '../pages/global.css'
+import 'highlight.js/styles/github.css'
+
+const { titleIsH1 = false } = Astro.props
+---
+
+<Header client:load titleIsH1={titleIsH1} />
+<div class={styles.content}>
+  <div class={styles.contentInner}>
+    <slot />
+  </div>
+</div>
+<Footer />

@@ -1,0 +1,25 @@
+---
+import Frame from '../layouts/Frame.astro'
+import ArticleCard from '../components/articleCard'
+import Ogp from '../components/ogp'
+import { OgImageUrlInText } from '../lib/cloudinaryOgp'
+import { getAllPosts } from '../lib/astroApi'
+
+const allPosts = await getAllPosts(['title', 'date', 'slug', 'tags', 'description'])
+---
+
+<Frame titleIsH1={true}>
+  <head>
+    <title>memo.yammer.jp - 常に完成形</title>
+    <Ogp
+      title='memo.yammer.jp'
+      path='/'
+      description='常に完成形'
+      ogImage={OgImageUrlInText('memo.yammer.jp')}
+      ogType='website'
+    />
+  </head>
+  {allPosts.map((post) => (
+    <ArticleCard thin post={post} key={post.slug} tagsEmphasizing={[]} allEmphasizing={true} linkable={true} />
+  ))}
+</Frame>

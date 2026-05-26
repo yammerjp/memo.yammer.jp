@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import styles from './pageSelector.module.css'
 
 const PageSelector = ({ nowPage, pages }: { nowPage: number; pages: number }) => {
@@ -18,9 +17,9 @@ const PageSelector = ({ nowPage, pages }: { nowPage: number; pages: number }) =>
           )
         }
         return (
-          <Link href={p === 1 ? '/' : '/page/' + p} key={p} className={`${styles.pageSelectorNumber} ${styles.notNowPage}`}>
+          <a href={p === 1 ? '/' : '/page/' + p} key={p} className={`${styles.pageSelectorNumber} ${styles.notNowPage}`}>
             {p}
-          </Link>
+          </a>
         )
       })}
     </div>

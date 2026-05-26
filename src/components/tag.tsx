@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import styles from './tag.module.css'
 
 type PropType = {
@@ -44,7 +43,7 @@ const Tag = ({
     return tagElement
   }
 
-  return <Link href={linkTo}>{tagElement}</Link>
+  return <a href={linkTo}>{tagElement}</a>
 }
 
 export default Tag
