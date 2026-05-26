@@ -26,16 +26,15 @@ const pages = Math.ceil(allPosts.length / postsPerPage)
 ---
 
 <Frame titleIsH1={true}>
-  <head>
-    <title>memo.yammer.jp - 常に完成形</title>
-    <Ogp
-      title='memo.yammer.jp'
-      path='/'
-      description='常に完成形'
-      ogImage={OgImageUrlInText('memo.yammer.jp')}
-      ogType='website'
-    />
-  </head>
+  <title slot="head">memo.yammer.jp - 常に完成形</title>
+  <Ogp
+    slot="head"
+    title='memo.yammer.jp'
+    path='/'
+    description='常に完成形'
+    ogImage={OgImageUrlInText('memo.yammer.jp')}
+    ogType='website'
+  />
   <div style='margin-top: -26px;'>
     <PageSelector nowPage={pageNumber} pages={pages} />
   </div>

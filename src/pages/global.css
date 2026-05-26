@@ -1,6 +1,8 @@
 /* 全体 */
 html {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN',
+    'Yu Gothic', 'YuGothic', 'Noto Sans JP', 'Meiryo', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;

@@ -8,10 +8,19 @@ import 'highlight.js/styles/github.css'
 const { titleIsH1 = false } = Astro.props
 ---
 
-<Header titleIsH1={titleIsH1} />
-<div class={styles.content}>
-  <div class={styles.contentInner}>
-    <slot />
-  </div>
-</div>
-<Footer />
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <slot name="head" />
+  </head>
+  <body>
+    <Header titleIsH1={titleIsH1} />
+    <div class={styles.content}>
+      <div class={styles.contentInner}>
+        <slot />
+      </div>
+    </div>
+    <Footer />
+  </body>
+</html>

@@ -9,15 +9,14 @@ const allPosts = await getAllPosts(['title', 'date', 'slug', 'tags', 'descriptio
 ---
 
 <Frame titleIsH1={true}>
-  <head>
-    <title>memo.yammer.jp - 常に完成形</title>
-    <Ogp
-      title='記事をタグで絞り込む - memo.yammer.jp'
-      path='/tags'
-      description='記事をタグで絞り込む'
-      ogImage={OgImageUrlInText('memo.yammer.jp')}
-      ogType='website'
-    />
-  </head>
+  <title slot="head">memo.yammer.jp - 常に完成形</title>
+  <Ogp
+    slot="head"
+    title='記事をタグで絞り込む - memo.yammer.jp'
+    path='/tags'
+    description='記事をタグで絞り込む'
+    ogImage={OgImageUrlInText('memo.yammer.jp')}
+    ogType='website'
+  />
   <TagsPage client:load allPosts={allPosts} />
 </Frame>

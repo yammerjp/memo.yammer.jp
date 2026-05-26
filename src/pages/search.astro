@@ -9,15 +9,14 @@ const allPosts = await getAllPosts(['title', 'date', 'slug', 'tags', 'descriptio
 ---
 
 <Frame titleIsH1={true}>
-  <head>
-    <title>memo.yammer.jp - 常に完成形</title>
-    <Ogp
-      title='記事を検索 - memo.yammer.jp'
-      path='/search'
-      description='記事を検索'
-      ogImage={OgImageUrlInText('memo.yammer.jp')}
-      ogType='website'
-    />
-  </head>
+  <title slot="head">memo.yammer.jp - 常に完成形</title>
+  <Ogp
+    slot="head"
+    title='記事を検索 - memo.yammer.jp'
+    path='/search'
+    description='記事を検索'
+    ogImage={OgImageUrlInText('memo.yammer.jp')}
+    ogType='website'
+  />
   <SearchPage client:load allPosts={allPosts} />
 </Frame>

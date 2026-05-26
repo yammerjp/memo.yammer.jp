@@ -21,16 +21,15 @@ const relatedArticles = await getRelatedPosts(slug, ['slug', 'title', 'date'])
 ---
 
 <Frame>
-  <head>
-    <title>{post.title} - memo.yammer.jp</title>
-    <Ogp
-      title={post.title + ' - memo.yammer.jp'}
-      path={'/posts/' + post.slug}
-      description={post.description || ''}
-      ogImage={post.ogImage || ''}
-      ogType='article'
-    />
-  </head>
+  <title slot="head">{post.title} - memo.yammer.jp</title>
+  <Ogp
+    slot="head"
+    title={post.title + ' - memo.yammer.jp'}
+    path={'/posts/' + post.slug}
+    description={post.description || ''}
+    ogImage={post.ogImage || ''}
+    ogType='article'
+  />
   <Article client:load post={post} />
   <ImpressionForm client:load post={post} />
   <RelatedArticles articles={relatedArticles} />
