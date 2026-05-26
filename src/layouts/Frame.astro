@@ -8,7 +8,7 @@ import 'highlight.js/styles/github.css'
 const { titleIsH1 = false } = Astro.props
 ---
 
-<Header client:load titleIsH1={titleIsH1} />
+<Header titleIsH1={titleIsH1} />
 <div class={styles.content}>
   <div class={styles.contentInner}>
     <slot />
