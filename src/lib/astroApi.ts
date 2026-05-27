@@ -14,9 +14,16 @@ import relatedArticles from '../../relatedArticles.json' assert { type: 'json' }
 type PostEntry = CollectionEntry<'posts'>
 type PageEntry = CollectionEntry<'pages'>
 
+const normalizeDate = (value: string | Date | undefined): string => {
+  if (!value) {
+    return ''
+  }
+  return value instanceof Date ? value.toISOString() : value
+}
+
 const postEntryToPost = async (entry: PostEntry, fields: string[] = []): Promise<PostType> => {
   const title = entry.data.title ?? ''
-  const date = entry.data.date ?? ''
+  const date = normalizeDate(entry.data.date)
   const body = entry.body ?? ''
   const basePath = join(process.cwd(), 'content', 'posts', `${entry.id}.md`)
   const description =
@@ -39,7 +46,7 @@ const postEntryToPost = async (entry: PostEntry, fields: string[] = []): Promise
 
 const pageEntryToPost = async (entry: PageEntry, fields: string[] = []): Promise<PostType> => {
   const title = entry.data.title ?? ''
-  const date = entry.data.date ?? ''
+  const date = normalizeDate(entry.data.date)
   const body = entry.body ?? ''
   const basePath = join(process.cwd(), 'content', `${entry.id}.md`)
   const description =

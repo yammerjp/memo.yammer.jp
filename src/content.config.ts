@@ -4,7 +4,7 @@ import { z } from 'astro/zod'
 
 const postSchema = z.object({
   title: z.string(),
-  date: z.string(),
+  date: z.union([z.string(), z.date()]),
   tags: z.array(z.string()).default([]),
   ogImage: z.string().optional(),
 })
@@ -18,7 +18,7 @@ const pageCollection = defineCollection({
   loader: glob({ base: './content', pattern: '*.md' }),
   schema: z.object({
     title: z.string(),
-    date: z.string(),
+    date: z.union([z.string(), z.date()]),
     ogImage: z.string().optional(),
   }),
 })
