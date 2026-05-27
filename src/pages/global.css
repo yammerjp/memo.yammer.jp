@@ -12,12 +12,6 @@ html {
   scroll-behavior: smooth;
 }
 
-#__next {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
 body {
   overflow-y: scroll;
   color: rgba(0, 0, 0, 0.85);

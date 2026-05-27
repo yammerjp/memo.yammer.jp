@@ -1,6 +1,6 @@
 # memo.yammer.jp
 
-日々のインプットを整理するためのブログのリポジトリ with Next.js
+日々のインプットを整理するためのブログのリポジトリ with Astro
 
 [memo.yammer.jp](https://memo.yammer.jp)
 
@@ -9,15 +9,14 @@
 ```shell
 $ git clone https://github.com/yammerjp/memo.yammer.jp.git
 $ cd memo.yammer.jp
-$ docker-compose up
-$ open http://localhost:3000
+$ npm install
+$ npm run dev
 ```
 
 ## Development
 
 ```shell
-# run test
-$ docker-compose run app npm test
+$ npm run test
 ```
 
 ## Directory Structure

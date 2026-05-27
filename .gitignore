@@ -10,3 +10,4 @@ public/posts/index.json
 public/posts/all.json
 out/**/*
 .env
+tsconfig.tsbuildinfo

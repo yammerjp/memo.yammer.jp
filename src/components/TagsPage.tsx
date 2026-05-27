@@ -67,9 +67,6 @@ const TagsPage = ({ allPosts }: Props) => {
     <div>
       <div className={styles.articleTagsSelectorWrap}>
         <h2 className={styles.articleTagsSelectorWrapH2}>記事をタグで絞り込む</h2>
-        <div style={{ textAlign: 'right', width: '100%' }}>
-          <a href='/search'>ワードで曖昧検索(α)</a>
-        </div>
         <hr className={styles.hr} />
         <TagsSelector tagsAll={tagsAll} tagsSelected={tagsSelected} clickedTag={clickedTag} />
         <hr className={styles.hr} />

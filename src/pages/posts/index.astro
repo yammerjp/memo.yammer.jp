@@ -22,7 +22,6 @@ const pages = Math.ceil(allPosts.length / postsPerPage)
     ogImage={OgImageUrlInText('memo.yammer.jp')}
     ogType='website'
   />
-  <link slot="head" rel='alternate' type='application/rss+xml' href='/posts/index.xml' title='RSS2.0' />
   {posts.map((post) => (
     <ArticleCard post={post} key={post.slug} tagsEmphasizing={[]} allEmphasizing={true} linkable={true} />
   ))}

@@ -1,11 +1,15 @@
 ---
 import Frame from '../layouts/Frame.astro'
 import ArticleCard from '../components/articleCard.astro'
+import PageSelector from '../components/pageSelector.astro'
 import Ogp from '../components/ogp'
 import { OgImageUrlInText } from '../lib/cloudinaryOgp'
 import { getAllPosts } from '../lib/astroApi'
 
+const postsPerPage = 10
 const allPosts = await getAllPosts(['title', 'date', 'slug', 'tags', 'description'])
+const posts = allPosts.slice(0, postsPerPage)
+const pages = Math.ceil(allPosts.length / postsPerPage)
 ---
 
 <Frame titleIsH1={true}>
@@ -18,7 +22,8 @@ const allPosts = await getAllPosts(['title', 'date', 'slug', 'tags', 'descriptio
     ogImage={OgImageUrlInText('memo.yammer.jp')}
     ogType='website'
   />
-  {allPosts.map((post) => (
-    <ArticleCard thin post={post} key={post.slug} tagsEmphasizing={[]} allEmphasizing={true} linkable={true} />
+  {posts.map((post) => (
+    <ArticleCard post={post} key={post.slug} tagsEmphasizing={[]} allEmphasizing={true} linkable={true} />
   ))}
+  <PageSelector nowPage={1} pages={pages} />
 </Frame>

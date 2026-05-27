@@ -1,49 +1,46 @@
 import styles from './tag.module.css'
 
-type PropType = {
+const Tag = ({
+  tagName,
+  selectable = false,
+  selected = false,
+  buttonClickHandler,
+  linkable = false,
+  inArticleHeader = false,
+  emphasizing = false,
+}: {
   tagName: string
-  emphasizing?: boolean
-  linkTo?: string | undefined
   selectable?: boolean
   selected?: boolean
+  buttonClickHandler?: () => void
+  linkable?: boolean
   inArticleHeader?: boolean
-  buttonClickHandler?: (() => void) | undefined
-}
-
-const Tag = ({ 
-  tagName, 
-  emphasizing = false, 
-  linkTo = undefined, 
-  selectable = false, 
-  selected = false, 
-  inArticleHeader = false, 
-  buttonClickHandler = undefined 
-}: PropType) => {
-  const className = Object.entries({
-    [styles.articleTag]: true,
-    [styles.linkable]: !!linkTo,
-    [styles.emphasizing]: emphasizing,
-    [styles.selectable]: selectable,
-    [styles.selected]: selected,
-    [styles.inArticleHeader]: inArticleHeader,
-  })
-    .filter(([_, value]) => value)
-    .map(([key, _]) => key)
+  emphasizing?: boolean
+}) => {
+  const className = [
+    styles.articleTag,
+    selectable ? styles.selectable : '',
+    selected ? styles.selected : '',
+    linkable ? styles.linkable : '',
+    inArticleHeader ? styles.inArticleHeader : '',
+    emphasizing ? styles.emphasizing : '',
+  ]
+    .filter(Boolean)
     .join(' ')
 
-  const tagElement = !!buttonClickHandler ? (
-    <button className={className} onClick={buttonClickHandler}>
-      {tagName}
-    </button>
-  ) : (
-    <span className={className}>{tagName}</span>
-  )
-
-  if (!linkTo) {
-    return tagElement
+  if (linkable) {
+    return (
+      <a href={'/tags?tags=' + encodeURIComponent(tagName)} className={className}>
+        {tagName}
+      </a>
+    )
   }
 
-  return <a href={linkTo}>{tagElement}</a>
+  return (
+    <span className={className} onClick={buttonClickHandler} role={selectable ? 'button' : undefined}>
+      {tagName}
+    </span>
+  )
 }
 
 export default Tag
