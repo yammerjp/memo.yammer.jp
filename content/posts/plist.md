@@ -1,9 +1,10 @@
 ---
-title: "(余談) User Defaultsとproperty list(plist)"
-date: "2020-05-02T16:26:00+09:00"
-tags: [ "macOS", "plist" ]
+title: (余談) User Defaultsとproperty list(plist)
+date: 2020-05-02T16:26:00+09:00
+tags:
+  - macOS
+  - plist
 ---
-
 Mac OS XのUser Defaultsを変更するためのシェルスクリプトを作るツール [pdef](https://github.com/yammerjp/pdef)を制作した。(解説記事: [Macの設定を自動化するdefaultsコマンドと、それを助けるpdef](/posts/pdef/))
 
 これを作る際にProperty listについて学んだことを記す。
@@ -135,7 +136,6 @@ XML形式の例として、先程示したplistをXMLで表した表記を以下
 - [第3回 plist（プロパティリスト）とFoundation【前編】 - ITmedia](https://www.itmedia.co.jp/enterprise/articles/0705/14/news013_2.html)
 - [第4回 plist（プロパティリスト）とFoundation【後編】 - ITmedia](https://www.itmedia.co.jp/enterprise/articles/0705/30/news011.html)
 
-
 ### plistを操作できるデフォルトツール
 
 plistを検証、確認、変更するコマンドラインツールが、Mac OS Xにはデフォルトでいくつか入っている。
@@ -153,7 +153,7 @@ User Defaultsを読み書きするためのツール
 "ほぼ"old-style ASCII形式で、User Defaultsを標準出力に出力する。
 old-style ASCIIには型情報を含まないので、型のみを調べる`$ defaults read-type`もある。
 
-__出力は正しい文法のold-style ASCII形式のplistとは限らない。大きなサイズのdata型の値は、一部省略して出力され、この部分は文法規則に反する。__
+**出力は正しい文法のold-style ASCII形式のplistとは限らない。大きなサイズのdata型の値は、一部省略して出力され、この部分は文法規則に反する。**
 (これが原因で最初plistを正しく読み込めずに困った)
 
 readの後ろに引数を渡さないとすべてドメインのUser Defaultsを出力する。
@@ -300,4 +300,3 @@ User DefaultsだけでなくProperty listをSwiftで扱う際に、どこから�
 ---
 
 追記: (2020/10/04) pdefの記事へのリンクを相対リンクに修正
-
