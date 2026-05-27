@@ -1,9 +1,9 @@
 ---
 import Frame from '../../layouts/Frame.astro'
-import Article from '../../components/article'
+import Article from '../../components/article.astro'
 import ImpressionForm from '../../components/impressionForm'
-import NeighborArticles from '../../components/neighborArticles'
-import RelatedArticles from '../../components/relatedArticles'
+import NeighborArticles from '../../components/neighborArticles.astro'
+import RelatedArticles from '../../components/relatedArticles.astro'
 import Ogp from '../../components/ogp'
 import { getAllPosts, getNeighborPosts, getPost, getRelatedPosts } from '../../lib/astroApi'
 
@@ -31,7 +31,7 @@ const relatedArticles = await getRelatedPosts(slug, ['slug', 'title', 'date'])
     ogType='article'
   />
   <Article post={post} />
-  <ImpressionForm post={post} />
+  <ImpressionForm client:load post={post} />
   <RelatedArticles articles={relatedArticles} />
   <NeighborArticles prev={prev} next={next} />
 </Frame>

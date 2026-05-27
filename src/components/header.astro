@@ -1,0 +1,44 @@
+---
+import styles from './header.module.css'
+
+const { titleIsH1 = false } = Astro.props as { titleIsH1?: boolean }
+---
+
+<header class={styles.header}>
+  <div class={styles.headerInner}>
+    <div class={styles.headerLeft}>
+      {titleIsH1 ? (
+        <h1 class={styles.headerTitle}>
+          <a href='/' class={styles.headerLeftAnchor}>memo.yammer.jp</a>
+        </h1>
+      ) : (
+        <div class={styles.headerTitle}>
+          <a href='/' class={styles.headerLeftAnchor}>memo.yammer.jp</a>
+        </div>
+      )}
+      <div class={styles.headerSubtitle}>常に完成形</div>
+    </div>
+
+    <div class={styles.headerRight}>
+      <div class={styles.headerNavWrap}></div>
+      <nav class={styles.headerNav}>
+        <a href='/tags' class={styles.headerNavIconWrapper}>
+          <img class={styles.headerNavIcon} src='/assets/list-search.svg' alt='記事を探す' width='44px' height='44px' />
+        </a>
+        <a href='/about' class={styles.headerNavIconWrapper}>
+          <img class={styles.headerNavIcon} src='/assets/user.svg' alt='自己紹介' width='44px' height='44px' />
+        </a>
+        <a href='https://github.com/yammerjp' rel='noreferrer noopener' target='_blank' class={styles.headerNavIconWrapper}>
+          <img class={styles.headerNavIcon} src='/assets/github.svg' alt='GitHub (@yammerjp)' width='44px' height='44px' />
+        </a>
+        <a href='https://twitter.com/yammerjp' rel='noreferrer noopener' target='_blank' class={styles.headerNavIconWrapper}>
+          <img class={styles.headerNavIcon} src='/assets/twitter.svg' alt='Twitter (@yammerjp)' width='44px' height='44px' />
+        </a>
+        <a href='https://yammer.jp' rel='noreferrer noopener' target='_blank' class={styles.headerNavIconWrapper}>
+          <img class={styles.headerNavIcon} src='/assets/home.svg' alt='著者のWebサイト' width='44px' height='44px' />
+        </a>
+      </nav>
+      <div class={styles.headerNavDescription}></div>
+    </div>
+  </div>
+</header>

@@ -5,49 +5,14 @@ import type { CollectionEntry } from 'astro:content'
 import markdownToHtml from './markdownToHtml'
 import markdownToDescription from './markdownToDescription'
 import { OgImageUrlInText } from './cloudinaryOgp'
-import { safeExec, sanitizePath } from './safeExec'
+import { getHistoryForContentPath } from './postHistory'
 
-import type { PostHistoryType, PostType } from '../types/post'
+import type { PostType } from '../types/post'
 
 import relatedArticles from '../../relatedArticles.json' assert { type: 'json' }
 
 type PostEntry = CollectionEntry<'posts'>
 type PageEntry = CollectionEntry<'pages'>
-
-const fetchHistory = async (fullPath: string): Promise<PostHistoryType> => {
-  try {
-    const safePath = sanitizePath(fullPath)
-    const commitSeparator = '__COMMIT_SEPALATOR__'
-    const format = `${commitSeparator}%cd,%H,%s`
-
-    const { stdout } = await safeExec(
-      'git',
-      ['log', `--format=${format}`, '--date=iso8601-strict', '--', safePath],
-      {
-        cwd: process.cwd(),
-        timeout: 10000,
-      },
-    )
-
-    return stdout
-      .split(commitSeparator)
-      .slice(1)
-      .filter((commit) => commit.trim())
-      .map((commit) => {
-        const parts = commit.split(',')
-        if (parts.length < 3) {
-          console.warn(`Invalid commit format: ${commit}`)
-          return null
-        }
-        const [date, hash, ...messageParts] = parts
-        return { date, hash, message: messageParts.join(',') }
-      })
-      .filter((item): item is PostHistoryType[0] => item !== null)
-  } catch (error) {
-    console.error(`Failed to fetch git history for ${fullPath}:`, error)
-    return []
-  }
-}
 
 const postEntryToPost = async (entry: PostEntry, fields: string[] = []): Promise<PostType> => {
   const title = entry.data.title ?? ''
@@ -67,7 +32,7 @@ const postEntryToPost = async (entry: PostEntry, fields: string[] = []): Promise
     ...(fields.includes('html') && { html: await markdownToHtml(body) }),
     ...(fields.includes('tags') && { tags: entry.data.tags ?? [] }),
     ...(fields.includes('description') && { description }),
-    ...(fields.includes('history') && { history: await fetchHistory(basePath) }),
+    ...(fields.includes('history') && { history: await getHistoryForContentPath('posts', entry.id, basePath) }),
     ...(fields.includes('ogImage') && { ogImage: entry.data.ogImage || OgImageUrlInText(title) }),
   }
 }
@@ -89,7 +54,7 @@ const pageEntryToPost = async (entry: PageEntry, fields: string[] = []): Promise
     content: body,
     ...(fields.includes('html') && { html: await markdownToHtml(body) }),
     ...(fields.includes('description') && { description }),
-    ...(fields.includes('history') && { history: await fetchHistory(basePath) }),
+    ...(fields.includes('history') && { history: await getHistoryForContentPath('pages', entry.id, basePath) }),
     ...(fields.includes('ogImage') && { ogImage: entry.data.ogImage || OgImageUrlInText(title) }),
   }
 }

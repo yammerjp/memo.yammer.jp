@@ -1,0 +1,23 @@
+---
+import { iso8601toDisplayStr } from '../lib/date'
+import type { PostHistoryType } from '../types/post'
+
+const { history } = Astro.props as { history: PostHistoryType | undefined }
+---
+
+{history ? (
+  <div class="article-history-with-git">
+    {history
+      .slice()
+      .sort((a, b) => (a.date > b.date ? 1 : -1))
+      .map(({ date, hash, message }) => (
+        <div>
+          <a href={`https://github.com/yammerjp/memo.yammer.jp/commit/${hash}`} target="_blank" rel="noreferrer">
+            {iso8601toDisplayStr(date)}
+          </a>
+          ...
+          <span class="commit-message">{message}</span>
+        </div>
+      ))}
+  </div>
+) : null}
