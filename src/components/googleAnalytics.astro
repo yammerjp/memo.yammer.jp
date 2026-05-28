@@ -1,0 +1,19 @@
+---
+const GA_ID = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_ID || process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || ''
+
+const pagePath = `${Astro.url.pathname}${Astro.url.search}${Astro.url.hash}`
+---
+
+{GA_ID ? (
+  <>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+    <script define:vars={{ gaId: GA_ID, pagePath }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', gaId, { page_path: pagePath });
+    </script>
+  </>
+) : null}

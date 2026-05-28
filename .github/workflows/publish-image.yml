@@ -40,5 +40,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
+          build-args: |
+            PUBLIC_GOOGLE_ANALYTICS_ID=${{ secrets.PUBLIC_GOOGLE_ANALYTICS_ID }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

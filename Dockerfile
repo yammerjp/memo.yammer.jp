@@ -8,6 +8,8 @@ CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "4321"]
 
 FROM node:lts AS build
 WORKDIR /app
+ARG PUBLIC_GOOGLE_ANALYTICS_ID
+ENV PUBLIC_GOOGLE_ANALYTICS_ID=$PUBLIC_GOOGLE_ANALYTICS_ID
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .

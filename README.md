@@ -6,6 +6,7 @@
 
 ```sh
 npm install
+export PUBLIC_GOOGLE_ANALYTICS_ID=G-XXXXXXX
 npm run dev
 ```
 
@@ -20,6 +21,7 @@ npm run typecheck
 
 - `npm run build:post-history` は記事の git 履歴キャッシュを生成します。
 - `npm run test:astro` は Astro の生成 HTML を対象にした統合テストです。
+- Google Analytics を出したい場合は、ビルド時に `PUBLIC_GOOGLE_ANALYTICS_ID` を設定します。
 
 ## Content
 
