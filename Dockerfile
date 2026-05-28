@@ -15,7 +15,7 @@ RUN npm ci
 COPY . .
 RUN npm run build:post-history && npm run build:astro
 
-FROM nginx:1.31.0-alpine3.23 AS runtime
+FROM mirror.gcr.io/library/nginx:1.31.0-alpine3.23 AS runtime
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 80
