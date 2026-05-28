@@ -1,0 +1,28 @@
+---
+import Header from '../components/header.astro'
+import Footer from '../components/footer.astro'
+import GoogleAnalytics from '../components/googleAnalytics.astro'
+import styles from '../components/frame.module.css'
+import '../pages/global.css'
+import 'highlight.js/styles/github.css'
+
+const { titleIsH1 = false } = Astro.props
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <slot name="head" />
+    <GoogleAnalytics />
+  </head>
+  <body>
+    <Header titleIsH1={titleIsH1} />
+    <div class={styles.content}>
+      <div class={styles.contentInner}>
+        <slot />
+      </div>
+    </div>
+    <Footer />
+  </body>
+</html>

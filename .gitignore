@@ -1,9 +1,13 @@
 .DS_Store
 node_modules/**/*
 .next/**/*
+.astro/**/*
+dist/**/*
+generated/**/*
 gh-pages/**/*
 public/posts/index.xml
 public/posts/index.json
 public/posts/all.json
 out/**/*
 .env
+tsconfig.tsbuildinfo

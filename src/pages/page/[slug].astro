@@ -1,0 +1,45 @@
+---
+import Frame from '../../layouts/Frame.astro'
+import ArticleCard from '../../components/articleCard.astro'
+import PageSelector from '../../components/pageSelector.astro'
+import Ogp from '../../components/ogp'
+import { OgImageUrlInText } from '../../lib/cloudinaryOgp'
+import { getAllPosts } from '../../lib/astroApi'
+
+const postsPerPage = 10
+const allPosts = await getAllPosts(['title', 'date', 'slug', 'tags', 'description'])
+
+export async function getStaticPaths() {
+  const postsPerPage = 10
+  const posts = await getAllPosts(['slug'])
+  const pages = Math.ceil(posts.length / postsPerPage)
+  return Array.from({ length: pages }, (_, i) => ({
+    params: { slug: String(i + 1) },
+  }))
+}
+
+const pageNumber = Number(Astro.params.slug)
+const start = (pageNumber - 1) * postsPerPage
+const end = pageNumber * postsPerPage
+const posts = allPosts.slice(start, end)
+const pages = Math.ceil(allPosts.length / postsPerPage)
+---
+
+<Frame titleIsH1={true}>
+  <title slot="head">memo.yammer.jp - 常に完成形</title>
+  <Ogp
+    slot="head"
+    title='memo.yammer.jp'
+    path='/'
+    description='常に完成形'
+    ogImage={OgImageUrlInText('memo.yammer.jp')}
+    ogType='website'
+  />
+  <div style='margin-top: -26px;'>
+    <PageSelector nowPage={pageNumber} pages={pages} />
+  </div>
+  {posts.map((post) => (
+    <ArticleCard post={post} key={post.slug} tagsEmphasizing={[]} allEmphasizing={true} linkable={true} />
+  ))}
+  <PageSelector nowPage={pageNumber} pages={pages} />
+</Frame>

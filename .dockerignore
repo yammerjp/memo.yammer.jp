@@ -1,0 +1,12 @@
+.github
+.astro
+.next
+dist
+generated
+node_modules
+out
+public/posts/index.json
+public/posts/index.xml
+public/posts/all.json
+tsconfig.tsbuildinfo
+worktrees
