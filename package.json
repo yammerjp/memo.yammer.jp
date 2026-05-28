@@ -8,6 +8,7 @@
     "dev:astro": "astro dev",
     "build:astro": "astro build",
     "preview:astro": "astro preview",
+    "test:astro": "npm run build:post-history && npm run build:astro && vitest --config vitest.integration.config.ts run",
     "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css,scss}'",
     "typecheck": "tsc",
     "test": "vitest",

@@ -108,7 +108,7 @@ describe('markdownToHtml', () => {
     const markdown = 'https://twitter.com/jack/status/20'
     const result = await markdownToHtml(markdown)
     // Twitterプラグインが適用されることを確認
-    expect(result).toContain('twitter.com/jack/status/20')
+    expect(result).toMatch(/https:\/\/(twitter|x)\.com\/jack\/status\/20/)
   })
 
   it('should preserve dangerous HTML when allowed', async () => {
