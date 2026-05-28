@@ -1,12 +1,12 @@
 ---
 ---
 
-<style>
-  #footnote-label {
+<style is:global>
+  .article-body #footnote-label {
     display: none;
   }
 
-  a {
+  .article-body a {
     color: #406599;
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
@@ -15,22 +15,37 @@
     text-decoration-skip: objects;
   }
 
-  a:hover {
+  .article-body a:hover {
     text-decoration: underline;
   }
 
-  hr {
+  .article-body hr {
     border-top: 1px solid #dddddd;
     border-bottom: 0px;
     border-left: 0px;
     border-right: 0px;
   }
 
-  img {
-    width: 100%;
+  .article-body img {
+    display: block;
+    max-width: 100%;
+    height: auto;
   }
 
-  pre {
+  .article-body iframe,
+  .article-body video,
+  .article-body embed,
+  .article-body object {
+    display: block;
+    max-width: 100%;
+  }
+
+  .article-body iframe.embed-youtube,
+  .article-body iframe.speakerdeck-iframe {
+    width: 100% !important;
+  }
+
+  .article-body pre {
     font-size: 12px;
     background-color: #f3f3f3;
     border-radius: 12px;
@@ -38,12 +53,12 @@
     overflow-x: auto;
   }
 
-  .twitter-tweet {
+  .article-body .twitter-tweet {
     margin: 0 auto;
     padding: 24px 0;
   }
 
-  .remark-code-title {
+  .article-body .remark-code-title {
     font-size: 12px;
     position: absolute;
     float: left;
@@ -58,23 +73,23 @@
     border: solid 1px #eeeeee;
   }
 
-  .remark-code-title:hover {
+  .article-body .remark-code-title:hover {
     opacity: 0.5;
     color: rgba(0, 0, 0, 0);
   }
 
-  .remark-code-title::selection {
+  .article-body .remark-code-title::selection {
     color: #000000;
     background-color: #ffffff;
   }
 
-  .hljs {
+  .article-body .hljs {
     background-color: #f3f3f3 !important;
     margin: -12px;
     padding: 12px !important;
   }
 
-  .footnotes {
+  .article-body .footnotes {
     margin-top: 36px;
     border-top: 1px solid #dddddd;
     border-bottom: 1px solid #dddddd;
@@ -82,15 +97,15 @@
     padding-right: 24px;
   }
 
-  .footnotes hr {
+  .article-body .footnotes hr {
     border: none;
   }
 
-  .footnotes p {
+  .article-body .footnotes p {
     margin: 0;
   }
 
-  blockquote {
+  .article-body blockquote {
     padding: 0.95em;
     border-radius: 6px;
     border-left: 6px solid #fee450;
@@ -98,37 +113,37 @@
     margin: 12px 0px;
   }
 
-  blockquote p {
+  .article-body blockquote p {
     margin: 0px;
   }
 
-  h1 {
+  .article-body h1 {
     margin-top: 60px;
   }
 
-  h2 {
+  .article-body h2 {
     margin-top: 48px;
   }
 
-  h3 {
+  .article-body h3 {
     margin-top: 36px;
   }
 
-  h4 {
+  .article-body h4 {
     margin-top: 24px;
   }
 
-  ul,
-  ol {
+  .article-body ul,
+  .article-body ol {
     padding-left: 36px;
   }
 
-  ul li,
-  ol li {
+  .article-body ul li,
+  .article-body ol li {
     padding-left: 12px;
   }
 
-  table {
+  .article-body table {
     border-spacing: 0;
     border-collapse: collapse;
     display: block;
@@ -136,27 +151,34 @@
     overflow: auto;
   }
 
-  table tr {
+  .article-body table tr {
     border: 0;
   }
 
-  table th {
+  .article-body table th {
     font-weight: 700;
   }
 
-  table td,
-  table th {
+  .article-body table td,
+  .article-body table th {
     min-width: 86px;
     padding: 6px 13px;
     border: 1px solid #e6e6e6;
   }
 
-  table th:empty {
+  .article-body table th:empty {
     padding: 0;
     border: 0;
   }
 
-  p {
+  .article-body p {
     margin: 32px 0px;
+  }
+
+  .article-body p,
+  .article-body li,
+  .article-body a {
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 </style>
