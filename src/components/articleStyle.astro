@@ -38,11 +38,20 @@
   .article-body object {
     display: block;
     max-width: 100%;
+    border: 0;
   }
 
   .article-body iframe.embed-youtube,
-  .article-body iframe.speakerdeck-iframe {
+  .article-body iframe.speakerdeck-iframe,
+  .article-body iframe[src*='speakerdeck.com/player'],
+  .article-body iframe[src*='youtube.com/embed'] {
+    aspect-ratio: 16 / 9;
+    height: auto !important;
     width: 100% !important;
+  }
+
+  .article-body iframe.speakerdeck-iframe {
+    aspect-ratio: 560 / 314;
   }
 
   .article-body pre {
