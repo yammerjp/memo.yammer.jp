@@ -9,7 +9,7 @@ import { getHistoryForContentPath } from './postHistory'
 
 import type { PostType } from '../types/post'
 
-import relatedArticles from '../../relatedArticles.json' assert { type: 'json' }
+import relatedArticles from '../../relatedArticles.json' with { type: 'json' }
 
 type PostEntry = CollectionEntry<'posts'>
 type PageEntry = CollectionEntry<'pages'>
@@ -68,7 +68,7 @@ const pageEntryToPost = async (entry: PageEntry, fields: string[] = []): Promise
 
 export async function getAllPosts(fields: string[] = []): Promise<PostType[]> {
   const posts = await getCollection('posts')
-  const mapped = await Promise.all(posts.map((post) => postEntryToPost(post, fields)))
+  const mapped = await Promise.all(posts.map((post: PostEntry) => postEntryToPost(post, fields)))
   return mapped.sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
 }
 
