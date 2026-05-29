@@ -1,7 +1,10 @@
 ---
 title: "ターミナルをカスタマイズする Software Design連載 開発環境 探求の道 第3回"
 date: "2023-02-17T11:20:00+09:00"
-tags: [ "SoftwareDesign", "dotfiles", "ターミナル", "Alacritty", "tmux", "開発環境" ]
+tags:
+  - 本
+  - dotfiles
+  - 開発環境
 ---
 
 本日2/17発売の月刊誌 [Software Design 2023年3月号](https://gihyo.jp/magazine/SD/archive/2023/202303)に、連載第3回目の記事を寄稿しました。

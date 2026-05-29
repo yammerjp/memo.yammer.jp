@@ -47,7 +47,11 @@ const TagsPage = ({ allPosts }: Props) => {
       } else {
         newTags = removed.sort()
       }
-      history.replaceState(null, '', location.pathname + (newTags.length > 0 ? '?tags=' + newTags.join(',') : ''))
+      history.replaceState(
+        null,
+        '',
+        location.pathname + (newTags.length > 0 ? '?tags=' + encodeURIComponent(newTags.join(',')) : ''),
+      )
       return newTags
     })
   }

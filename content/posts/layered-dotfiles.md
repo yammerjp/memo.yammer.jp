@@ -1,7 +1,9 @@
 ---
 title: "複数の環境に適応する、階層構造のdotfiles"
 date: "2021-12-02T14:00:00+09:00"
-tags: [ "dotfiles", "bash" ]
+tags:
+  - dotfiles
+  - Shell
 ---
 
 こんにちは、やんまーです。

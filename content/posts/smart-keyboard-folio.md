@@ -1,7 +1,9 @@
 ---
 title: "Smart Keyboard Folio を買った(2023年2月)"
 date: "2023-02-01T23:43:02+09:00"
-tags: [ "iPad", "keyboard", "ガジェット" ]
+tags:
+  - 自作キーボード
+  - ガジェット
 ---
 
 (2024/09/22記)2023年2月ごろに、Smarty Keyboard Folioを買って、その感想を書いた記事が下書きに残っていたので公開する。最近はあんまり持ち歩いていないんだけど、一時期はだいたいiPadだけを持ち歩いていて、とても気に入って使っていた。dotfilesの連載記事の寄稿も、何割かはiPad + Smarty Keyboard Folioを使ってsshしてVimで書いていたはず。結構快適だった。

@@ -1,7 +1,10 @@
 ---
 title: "足でマイクのミュートを解除しよう for 在宅勤務"
 date: "2021-04-27T09:41:29+09:00"
-tags: ["macOS", "在宅勤務", "作業環境", "Karabiner-Elements" ]
+tags:
+  - 仕事
+  - 開発環境
+  - macOS
 ogImage: "https://blob.yammer.jp/foot-switch-mic-mute-irasutoya.png"
 ---
 

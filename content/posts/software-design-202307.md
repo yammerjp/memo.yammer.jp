@@ -1,7 +1,9 @@
 ---
 title: "dotfiles管理の推しツール「yadm」の記事を寄稿しました (Software Design 連載最終回)"
 date: "2023-06-16T10:45:00+09:00"
-tags: [ "dotfiles", "yadm", "SoftwareDesign" ]
+tags:
+  - 本
+  - dotfiles
 ogImage: https://blob.yammer.jp/gp2s3/20230616-011135.jpg
 ---
 

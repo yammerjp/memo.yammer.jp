@@ -1,7 +1,10 @@
 ---
 title: "Alacrittyを使っていく"
 date: "2022-09-07T00:22:00+09:00"
-tags: [ "shell", "ターミナル", "開発環境", "alacritty", "dotfiles" ]
+tags:
+  - dotfiles
+  - 開発環境
+  - Shell
 ---
 
 ## Alacritty とは

@@ -1,7 +1,9 @@
 ---
 title: "Zeit Now を使って、express.jsで書かれたアプリケーションを独自ドメインで公開する"
 date: "2020-05-31T16:44:33+09:00"
-tags: [ "JavaScript", "ドメイン" ]
+tags:
+  - JavaScript
+  - DNS
 ---
 
 now という PaaS がある。

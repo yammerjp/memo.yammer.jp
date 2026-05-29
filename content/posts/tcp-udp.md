@@ -1,6 +1,9 @@
 ---
 title: "TCP と UDP"
 date: "2020-05-30T14:05:53+09:00"
+tags:
+  - ネットワーク
+  - TCP/IP
 draft: true
 ---
 

@@ -1,7 +1,10 @@
 ---
 title: "Asahi Linuxを使う"
 date: "2022-11-15T01:55:00+09:00"
-tags: [ "Linux", "dotfiles", "MacBook", "macOS", "AppleSilicon", "Setup" ]
+tags:
+  - dotfiles
+  - 開発環境
+  - macOS
 ---
 
 Apple Silicon搭載のPC上でLinuxをブートするという魅力的なプロジェクト、Asahi Linuxを手元のMacBook (2020, M1, 256GB SSD, 16GB Memory) で動かしてみた。

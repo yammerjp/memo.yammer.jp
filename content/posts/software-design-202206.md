@@ -1,7 +1,10 @@
 ---
 title: "Software Designへ寄稿しました (2022年6月号 第1特集 Appendix dotfilesのススメ)"
 date: "2022-05-18T11:00:00+09:00"
-tags: [ "SoftwareDesign", "dotfiles", "Shell", "bash" ]
+tags:
+  - 本
+  - dotfiles
+  - Shell
 ogImage: https://blob.yammer.jp/software-design-202206-2.jpg
 ---
 

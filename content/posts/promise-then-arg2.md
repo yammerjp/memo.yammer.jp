@@ -1,7 +1,8 @@
 ---
 title: "Promiseのthenメソッドには第二引数がある"
 date: "2020-05-19T15:57:35+09:00"
-tags: ["JavaScript", "非同期"]
+tags:
+  - JavaScript
 ---
 
 この記事は以下のツイートについて。

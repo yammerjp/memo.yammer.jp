@@ -1,7 +1,9 @@
 ---
 title: "abbrはじめました。"
 date: "2022-08-04T10:26:00+09:00"
-tags: [ "dotfiles", "zsh" ]
+tags:
+  - dotfiles
+  - Shell
 ---
 
 同僚に教えてもらった [zsh-abbr](https://github.com/olets/zsh-abbr)を導入しました。

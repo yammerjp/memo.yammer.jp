@@ -28,6 +28,8 @@ npm run typecheck
 - `content/posts/*.md` - 記事
 - `content/*.md` - 固定ページ
 
+タグ一覧を数と一緒に出したいときは、`npm run tags:list` を使う。
+
 ## New Article
 
 ```sh
