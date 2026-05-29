@@ -1,44 +1,45 @@
 # memo.yammer.jp
 
-日々のインプットを整理するためのブログのリポジトリ with Next.js
-
-[memo.yammer.jp](https://memo.yammer.jp)
-
-## Setup
-
-```shell
-$ git clone https://github.com/yammerjp/memo.yammer.jp.git
-$ cd memo.yammer.jp
-$ docker-compose up
-$ open http://localhost:3000
-```
+日々のインプットを整理するためのブログです。Astro で生成して、GitHub Actions で `ghcr.io/yammerjp/memo.yammer.jp` に publish し、`shima` の k3s から配信しています。
 
 ## Development
 
-```shell
-# run test
-$ docker-compose run app npm test
+```sh
+npm install
+export PUBLIC_GOOGLE_ANALYTICS_ID=G-XXXXXXX
+npm run dev
 ```
 
-## Directory Structure
+## Commands
 
-- `content/posts/*.md` ... 各記事のMarkdownファイル
-- `content/*.md`... 固定ページのMarkdownファイル
+```sh
+npm run build
+npm test
+npm run test:astro
+npm run typecheck
+```
+
+- `npm run build:post-history` は記事の git 履歴キャッシュを生成します。
+- `npm run test:astro` は Astro の生成 HTML を対象にした統合テストです。
+- Google Analytics を出したい場合は、ビルド時に `PUBLIC_GOOGLE_ANALYTICS_ID` を設定します。
+
+## Content
+
+- `content/posts/*.md` - 記事
+- `content/*.md` - 固定ページ
 
 ## New Article
 
-```shell
-$ ./bin/new.sh
+```sh
+./bin/new.sh
 ```
 
 ## Commit Message
 
-[d2c19257b81842583cd561b5e2fba6365ace7b57](https://github.com/yammerjp/memo.yammer.jp/commit/d2c19257b81842583cd561b5e2fba6365ace7b57) より、各記事のWebページ上にgitのコミットメッセージを記載するようにしたので、コミットメッセージは日本語で記載することとする。
+記事ページに git のコミットメッセージを表示しているので、コミットメッセージは日本語を基本にしています。
 
-`.git-commit-template` にあるスタイルを基本とする。
+`.git-commit-template` をローカルのテンプレートに登録すると便利です。
 
-これは以下のコマンドでローカルリポジトリのコミットメッセージのテンプレートに登録できる
-
-```shell
-$ git config --local commit.message .git-commit-template
+```sh
+git config --local commit.template .git-commit-template
 ```

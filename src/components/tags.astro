@@ -1,0 +1,30 @@
+---
+import type { PostType } from '../types/post'
+import Tag from './tag.astro'
+import styles from './tags.module.css'
+
+const {
+  tags,
+  tagsEmphasizing,
+  allEmphasizing,
+  linkable,
+  inArticleHeader,
+} = Astro.props as {
+  tags: string[]
+  tagsEmphasizing: string[]
+  allEmphasizing: boolean
+  linkable: boolean
+  inArticleHeader: boolean
+}
+---
+
+<div class={styles.articleTags}>
+  {tags.map((tag: string) => (
+    <Tag
+      tagName={tag}
+      linkTo={linkable ? `/tags?tags=${tag.toLowerCase()}` : undefined}
+      emphasizing={!!(allEmphasizing || tagsEmphasizing.find((t) => t === tag))}
+      inArticleHeader={inArticleHeader}
+    />
+  ))}
+</div>

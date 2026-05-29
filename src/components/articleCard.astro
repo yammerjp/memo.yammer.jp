@@ -1,0 +1,31 @@
+---
+import type { PostType } from '../types/post'
+import Tags from './tags.astro'
+import ArticleDate from './articleDate.astro'
+import styles from './articleCard.module.css'
+
+const {
+  post,
+  tagsEmphasizing,
+  allEmphasizing,
+  linkable,
+  thin = false,
+} = Astro.props as {
+  post: PostType
+  tagsEmphasizing: string[]
+  allEmphasizing: boolean
+  linkable: boolean
+  thin?: boolean
+}
+---
+
+<section class={thin ? styles.articleCardThin : styles.articleCard}>
+  <a href={'/posts/' + post.slug} class={styles.articleLink}>
+    <ArticleDate post={post} historyDisplayable={false} small={thin} />
+    <div class={thin ? styles.articleTitleThin : styles.articleTitle}>{post.title}</div>
+    {!thin ? <div class={styles.articleDescription}>{post.description || ''}</div> : null}
+  </a>
+  {!thin ? (
+    <Tags tags={post.tags ?? []} tagsEmphasizing={tagsEmphasizing} allEmphasizing={allEmphasizing} linkable={linkable} inArticleHeader={false} />
+  ) : null}
+</section>

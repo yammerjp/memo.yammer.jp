@@ -1,0 +1,21 @@
+---
+import type { PostType } from '../types/post'
+import styles from './relatedArticles.module.css'
+
+const { articles } = Astro.props as { articles: PostType[] }
+---
+
+{articles.length > 0 ? (
+  <div class={styles.relatedArticles}>
+    <div class={styles.relatedArticlesPretitle} id='related-articles'>
+      関連記事
+    </div>
+    {articles.map((article) => (
+      <a href={'/posts/' + article.slug}>
+        <div class={styles.relatedArticle}>
+          <div class={styles.relatedArticleTitle}>{article.title}</div>
+        </div>
+      </a>
+    ))}
+  </div>
+) : null}

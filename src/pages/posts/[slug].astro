@@ -1,0 +1,37 @@
+---
+import Frame from '../../layouts/Frame.astro'
+import Article from '../../components/article.astro'
+import ImpressionForm from '../../components/impressionForm'
+import NeighborArticles from '../../components/neighborArticles.astro'
+import RelatedArticles from '../../components/relatedArticles.astro'
+import Ogp from '../../components/ogp'
+import { getAllPosts, getNeighborPosts, getPost, getRelatedPosts } from '../../lib/astroApi'
+
+export async function getStaticPaths() {
+  const posts = await getAllPosts(['slug'])
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+  }))
+}
+
+const slug = Astro.params.slug
+const post = await getPost(slug, ['title', 'date', 'slug', 'content', 'tags', 'html', 'description', 'history', 'ogImage'])
+const { prev, next } = await getNeighborPosts(slug, ['slug', 'title', 'date'])
+const relatedArticles = await getRelatedPosts(slug, ['slug', 'title', 'date'])
+---
+
+<Frame>
+  <title slot="head">{post.title} - memo.yammer.jp</title>
+  <Ogp
+    slot="head"
+    title={post.title + ' - memo.yammer.jp'}
+    path={'/posts/' + post.slug}
+    description={post.description || ''}
+    ogImage={post.ogImage || ''}
+    ogType='article'
+  />
+  <Article post={post} />
+  <ImpressionForm client:load post={post} />
+  <RelatedArticles articles={relatedArticles} />
+  <NeighborArticles prev={prev} next={next} />
+</Frame>

@@ -1,0 +1,19 @@
+---
+import styles from './pageSelector.module.css'
+
+const { nowPage, pages } = Astro.props as { nowPage: number; pages: number }
+
+const pagesArr = Array.from({ length: pages }, (_, i) => i + 1)
+---
+
+<div class={styles.pageSelector}>
+  {pagesArr.map((p) =>
+    p === nowPage ? (
+      <span class={`${styles.pageSelectorNumber} ${styles.nowPage}`}>{p}</span>
+    ) : (
+      <a href={p === 1 ? '/' : '/page/' + p} class={`${styles.pageSelectorNumber} ${styles.notNowPage}`}>
+        {p}
+      </a>
+    ),
+  )}
+</div>

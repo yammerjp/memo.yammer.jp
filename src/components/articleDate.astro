@@ -1,0 +1,59 @@
+---
+import { iso8601toDisplayStr } from '../lib/date'
+import type { PostType } from '../types/post'
+import PostHistory from './postHistory.astro'
+
+const {
+  post,
+  historyDisplayable = true,
+  small = false,
+} = Astro.props as {
+  post: PostType
+  historyDisplayable?: boolean
+  small?: boolean
+}
+---
+
+<div style={`font-size: ${small ? '12px' : '16px'}`}>
+  {post.date && iso8601toDisplayStr(post.date)}
+  {historyDisplayable && post.history && post.history.length >= 2 ? (
+    <>
+      <span class="hyphen" style="display: inline-block; margin: 0px 4px 0px 8px;">-</span>
+      <details class="article-date-history">
+        <summary class="article-date-edited">edited</summary>
+        <PostHistory history={post.history} />
+      </details>
+    </>
+  ) : null}
+</div>
+
+<style>
+  .article-date-history {
+    display: inline-block;
+  }
+
+  .article-date-edited {
+    list-style: none;
+    cursor: pointer;
+    display: inline-block;
+    background-color: #ffffff;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    color: #505050;
+    margin: 0;
+    padding: 0px 4px;
+  }
+
+  .article-date-history[open] .article-date-edited {
+    text-decoration: underline;
+  }
+
+  .article-date-history[open] .article-date-edited:hover {
+    text-decoration: none;
+  }
+
+  .article-date-history summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

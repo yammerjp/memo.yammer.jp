@@ -1,0 +1,20 @@
+---
+import type { PostType } from '../types/post'
+import Tags from './tags.astro'
+import ArticleDate from './articleDate.astro'
+import ArticleStyle from './articleStyle.astro'
+
+const { post } = Astro.props as { post: PostType }
+---
+
+<article style="margin-bottom: 48px">
+  <div class="article-header" style="margin-bottom: 48px">
+    <ArticleDate post={post} />
+    <h1 style="margin: 0px">{post.title || ''}</h1>
+    <Tags tags={post.tags ?? []} tagsEmphasizing={[]} allEmphasizing={true} linkable={true} inArticleHeader={true} />
+  </div>
+  <div id="shadow-dom-root">
+    <ArticleStyle />
+    <div class="article-body" set:html={post.html || ''} />
+  </div>
+</article>
