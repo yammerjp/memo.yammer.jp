@@ -1,7 +1,8 @@
 ---
 title: "cocot46を組み立てた(Build Log)"
 date: "2022-05-17T02:30:00+09:00"
-tags: [ "自作キーボード" ]
+tags:
+  - 自作キーボード
 ogImage: https://blob.yammer.jp/cocot46-4-2.jpg
 ---
 

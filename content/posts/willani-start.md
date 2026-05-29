@@ -1,7 +1,10 @@
 ---
 title: "数日前からCコンパイラを書き始めた。"
 date: "2020-05-25T01:02:52+09:00"
-tags: [ "コンパイラ", "willani", "日記", "C" ]
+tags:
+  - 日記
+  - willani
+  - コンパイラ
 ---
 
 数日前からCコンパイラを書き始めた。([GitHub](https://github.com/yammerjp/willani))

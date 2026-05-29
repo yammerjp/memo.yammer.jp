@@ -1,7 +1,9 @@
 ---
 title: "LoveLabのAPIサーバをAWS EC2上にセットアップする"
 date: "2020-08-14T22:55:26+09:00"
-tags: [ "AWS", "Shell" ]
+tags:
+  - インフラ
+  - Shell
 ---
 
 以下過去の自分用のメモを移動。

@@ -1,7 +1,9 @@
 ---
 title: "sudoしたユーザのホームディレクトリが知りたい"
 date: "2020-11-03T01:54:49+09:00"
-tags: [ "bash", "Shell", "Linux" ]
+tags:
+  - Linux
+  - Shell
 ---
 
 TL;DR ... ホームディレクトリはsudoで実行したかにかかわらず, `getent passwd ${SUDO_USER:-$USER} | cut -d: -f6` で得られる.

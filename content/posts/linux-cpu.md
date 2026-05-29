@@ -1,7 +1,9 @@
 ---
 title: "デスクトップLinuxでCPUの状況を確認する"
 date: "2020-05-30T11:46:49+09:00"
-tag: [ "Linux", "Shell" ]
+tags:
+  - Linux
+  - Shell
 ---
 
 ```shell

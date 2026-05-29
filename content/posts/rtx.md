@@ -1,7 +1,9 @@
 ---
 title: "rtxはじめました"
 date: "2023-05-31T02:00:00+09:00"
-tags: [ "開発環境", "shell", "rtx", "asdf" ]
+tags:
+  - 開発環境
+  - Shell
 ---
 
 ランタイム管理ツール[asdf](https://asdf-vm.com)と互換性のある、[rtx](https://github.com/jdxcode/rtx)を使い始めた。

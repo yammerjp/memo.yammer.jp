@@ -5,6 +5,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "build:post-history": "node bin/build-post-history.js",
+    "tags:list": "node bin/list-tags.js",
     "dev:astro": "astro dev",
     "build:astro": "astro build",
     "preview:astro": "astro preview",

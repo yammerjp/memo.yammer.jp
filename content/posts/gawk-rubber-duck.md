@@ -1,7 +1,9 @@
 ---
 title: "LlamaIndexを使って、gawkプログラミングの相棒を作る"
 date: "2023-06-13T14:10:00+09:00"
-tags: [ "OpenAI", "llama-index", "embedding", "python", "flask" ]
+tags:
+  - AI
+  - Python
 ---
 
 LlamaIndexを使って手を動かしてみようということで、gawkプログラマーが使える、質問回答アプリケーションを作ってみた。

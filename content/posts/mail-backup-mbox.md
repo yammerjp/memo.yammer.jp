@@ -1,7 +1,9 @@
 ---
 title: "Office365メールやGmailをローカルにバックアップする (macOS)"
 date: "2021-03-28T18:03:06+09:00"
-tags: [ "macOS", "メール" ]
+tags:
+  - macOS
+  - メール
 ---
 
 3月で大学を卒業するにあたり、大学のメール (Office365) と研究室のメール (Google Workspace) が使えなくなる。

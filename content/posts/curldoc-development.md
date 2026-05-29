@@ -1,7 +1,10 @@
 ---
 title: "curldocというWeb APIの仕様書形式 兼 モックサーバを作っている"
 date: "2021-06-21T09:40:00+09:00"
-tags: [ "JavaScript", "TypeScript", "curl", "HTTP" ]
+tags:
+  - JavaScript
+  - TypeScript
+  - HTTP
 ---
 
 こんにちは。最近は会社の技術研修を粛々と受けています。

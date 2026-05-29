@@ -1,7 +1,9 @@
 ---
 title: "MacBookAir 2020 (M1) のセットアップ"
 date: "2020-12-22T14:24:01+09:00"
-tags: [ "macOS", "AppleSilicon", "Setup" ]
+tags:
+  - 開発環境
+  - macOS
 ---
 
 Apple Silicon を搭載した MacBook Air を購入したのでセットアップをやっていく。
