@@ -1,7 +1,8 @@
 ---
 title: "Macの設定を自動化するdefaultsコマンドと、それを助けるpdef"
 date: "2020-05-01T00:52:47+09:00"
-tags: [ "macOS", "plist" ]
+tags:
+  - macOS
 ---
 
 tl;dr Mac OS XのUser Defaultsの差分をdefaultsコマンドの形式に変換するコマンドラインツール、["pdef"](https://github.com/yammerjp/pdef)を作った。

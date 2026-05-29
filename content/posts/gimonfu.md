@@ -1,7 +1,10 @@
 ---
 title: "gimonfu で、はてなブログの記事を GitHub と同期する"
 date: "2020-06-14T21:23:06+09:00"
-tags: [ "JavaScript", "はてなブログ", "CI", "GitHub Actions" ]
+tags:
+  - ブログ
+  - JavaScript
+  - CI
 ---
 
 ブログをはてなブログに移行するにあたり、記事を管理する CLI [「gimonfu」](https://github.com/yammerjp/gimonfu)を作成した。

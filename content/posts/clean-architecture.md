@@ -1,7 +1,9 @@
 ---
 title: "Clean Architectureを読んだ"
 date: "2022-08-23T23:30:00+09:00"
-tags: [ "本", "ソフトウェア開発", "アーキテクチャ" ]
+tags:
+  - 本
+  - ソフトウェア開発
 ---
 
 書籍「[Clean Architecture](https://www.kadokawa.co.jp/product/301806000678/)」を読みました。

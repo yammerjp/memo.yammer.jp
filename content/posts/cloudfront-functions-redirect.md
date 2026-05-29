@@ -1,7 +1,9 @@
 ---
 title: "CloudFront Functionsで指定したURLにリダイレクトさせる"
 date: "2022-10-08T10:25:00+09:00"
-tags: [ "AWS", "CloudFront", "dotfiles" ]
+tags:
+  - dotfiles
+  - インフラ
 ---
 
 CloudFront Functionsというサービスがあり、軽量のJavaScriptコードをデプロイしてCloudFrontディストリビューションに紐づけることができるらしい。

@@ -1,7 +1,9 @@
 ---
 title: "秘匿情報を含む.bashrcを分割する"
 date: "2022-04-11T04:52:00+09:00"
-tags: [ "dotfiles", "bash" ]
+tags:
+  - dotfiles
+  - Shell
 ---
 
 dotfiles(ドットで始まる設定ファイル)の管理のために、Gitリポジトリを作成しGitHubにdotfilesという名前で公開するときに注意すべきこととして秘匿情報の扱いが挙げられます。

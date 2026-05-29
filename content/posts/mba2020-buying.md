@@ -1,7 +1,9 @@
 ---
 title: "m1のMacbook Airを買った言い訳"
 date: "2020-12-04T12:35:25+09:00"
-tags: ["macOS", "AppleSilicon", "日記"]
+tags:
+  - 日記
+  - macOS
 ---
 
 https://twitter.com/yammerjp/status/1334697452855705604

@@ -1,7 +1,8 @@
 ---
 title: "ECテックカンファレンスの前と後"
 date: "2021-12-16T10:43:00+09:00"
-tags: [ "日記" ]
+tags:
+  - 日記
 ---
 
 [前の記事に書いたとおり](/posts/newcomer-in-development-team)先日[ペパボECテックカンファレンス](https://pepabo.connpass.com/event/231478)に登壇しました。

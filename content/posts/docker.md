@@ -1,7 +1,9 @@
 ---
 title: "Dockerチートシート プログラマのためのDocker教科書 第2版より"
 date: "2020-08-14T18:59:31+09:00"
-tags: [ "Docker", "Shell" ]
+tags:
+  - Shell
+  - Docker
 ---
 
 以下、過去の自分用メモの移動。

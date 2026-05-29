@@ -1,7 +1,9 @@
 ---
 title: "master push をしないために"
 date: "2021-11-09T10:31:00+09:00"
-tags: [ "git", "GitHub", "Shell" ]
+tags:
+  - Shell
+  - Git
 ---
 
 昨日、master push をしてしまいましたので懺悔します。

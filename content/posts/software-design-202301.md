@@ -1,7 +1,10 @@
 ---
 title: "連載「最強の開発環境 探求の道」をSoftware Designではじめます"
 date: "2022-12-16T09:50:00+09:00"
-tags: [ "SoftwareDesign", "dotfiles", "Shell", "bash", "zsh", "開発環境" ]
+tags:
+  - 本
+  - dotfiles
+  - 開発環境
 ogImage: https://blob.yammer.jp/software-design-202301.jpg
 ---
 

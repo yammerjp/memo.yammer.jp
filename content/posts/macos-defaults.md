@@ -1,7 +1,10 @@
 ---
 title: "macOSでの各種設定を自動化するdefaultsコマンド"
 date: "2020-04-13T21:57:37+09:00"
-tags: [ "macOS", "Shell", "dotfiles", "plist" ]
+tags:
+  - dotfiles
+  - macOS
+  - Shell
 ---
 
 研究室や就職先などでのコンピュータのセットアップのために、3月頃から[dotfiles](https://github.com/yammerjp/dotfiles)を構築している。
