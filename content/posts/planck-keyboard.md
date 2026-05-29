@@ -1,7 +1,8 @@
 ---
 title: "Planck Keyboard を手に入れた"
 date: "2021-01-09T15:07:39+09:00"
-tags: [ "自作キーボード" ]
+tags:
+  - 自作キーボード
 ---
 
 先月に申し込んだ Planck Keyboard が届いたので組み立てた。

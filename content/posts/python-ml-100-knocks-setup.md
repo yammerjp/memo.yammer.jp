@@ -1,7 +1,10 @@
 ---
 title: "Python実践機械学習システム100本ノックの準備"
 date: "2022-11-15T01:53:00+09:00"
-tags: [ "Python", "機械学習", "本" ]
+tags:
+  - 本
+  - AI
+  - Python
 ---
 
 [Python実践機械学習システム100本ノック](https://www.amazon.co.jp/Python%E5%AE%9F%E8%B7%B5%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0100%E6%9C%AC%E3%83%8E%E3%83%83%E3%82%AF-%E4%B8%8B%E5%B1%B1%E8%BC%9D%E6%98%8C-ebook/dp/B0928FD1P8/ref=sr_1_1?keywords=Python%E5%AE%9F%E8%B7%B5%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0100%E6%9C%AC%E3%83%8E%E3%83%83%E3%82%AF&qid=1668239148&qu=eyJxc2MiOiIyLjI4IiwicXNhIjoiMS44OSIsInFzcCI6IjEuOTIifQ%3D%3D&s=digital-text&sr=1-1)を手元で動かしながら読んでみている。

@@ -1,7 +1,10 @@
 ---
 title: "WiresharkでHTTP通信の内容を確認する"
 date: "2022-08-23T22:32:06+09:00"
-tags: [ "ネットワーク", "Wireshark", "HTTP", "TCP", "tcpdump" ]
+tags:
+  - ネットワーク
+  - HTTP
+  - TCP/IP
 ---
 
 [Wireshark](https://www.wireshark.org)はネットワークプロトコルアナライザとよばれるソフトウェアで、通信の内容を確認することができる。

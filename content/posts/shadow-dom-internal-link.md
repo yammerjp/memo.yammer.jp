@@ -1,7 +1,8 @@
 ---
 title: "Web Components (ShadowDOM) でもページ内リンクをしたい"
 date: "2022-03-31T13:01:55+09:00"
-tags: [ "HTML", "WebComponents" ]
+tags:
+  - Web
 ---
 
 HTMLではページ内リンクができる。

@@ -1,7 +1,10 @@
 ---
 title: "jpro: JavaScriptで書くJSON processor"
 date: "2022-12-02T09:18:00+09:00"
-tags: [ "JSON", "JavaScript", "CLI", "Shell" ]
+tags:
+  - Shell
+  - JavaScript
+  - CLI
 ---
 
 この記事は、[🎅GMOペパボエンジニア Advent Calendar 2022](https://adventar.org/calendars/7722)の2日目のものです。

@@ -1,7 +1,8 @@
 ---
 title: "OpenAI API Embeddingsを使った、関連記事の表示・検索"
 date: "2023-06-05T01:35:00+09:00"
-tags: ["OpenAI", "Pinecone", "検索", "Embedding" ]
+tags:
+  - AI
 ---
 
 このブログに、お試しで2つの機能を追加してみた。

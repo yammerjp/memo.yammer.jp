@@ -1,7 +1,9 @@
 ---
 title: "Ubuntu DesktopにAlacrittyをインストールする"
 date: "2023-01-16T01:54:41+09:00"
-tags: [ "Ubuntu", "Linux", "Alacritty" ]
+tags:
+  - Linux
+  - ターミナル
 ---
 
 [Alacritty](https://alacritty.org)は、公式ではLinux向けのバイナリが配布されていないので、どこかから入手するか、自分でビルドする必要があります。

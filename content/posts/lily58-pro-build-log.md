@@ -1,7 +1,8 @@
 ---
 title: "Lily58 を作って自作キーボードに入門した (Lily58 Pro Build Log)"
 date: "2020-08-14T01:55:25+09:00"
-tags: [ "自作キーボード", "Lily58" ]
+tags:
+  - 自作キーボード
 ---
 
 https://twitter.com/yammerjp/status/1284673759593418752

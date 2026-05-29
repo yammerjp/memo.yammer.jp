@@ -1,7 +1,9 @@
 ---
 title: "awkで実装するUnion-Findと、ABC177 D"
 date: "2023-06-06T02:15:00+09:00"
-tags: [ "競技プログラミング", "AtCoder", "ABC", "Union-Find", "awk" ]
+tags:
+  - Shell
+  - 競技プログラミング
 ---
 
 最近、業務時間後のオフィスで「競プロもくもくわいわい会」というのをやっている。そこで[@purple_jwl](https://twitter.com/purple_jwl)さんよりUnion-Findを教えていただいたので、それをawkで実装して、[ABC177のD問題](https://atcoder.jp/contests/abc177/tasks/abc177_d)を解いてみる。

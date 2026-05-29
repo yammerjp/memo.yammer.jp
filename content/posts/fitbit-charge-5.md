@@ -1,7 +1,8 @@
 ---
 title: "Fitbit Charge 5を買った"
 date: "2022-11-15T01:54:00+09:00"
-tags: [ "ガジェット", "Suica" ]
+tags:
+  - ガジェット
 ---
 
 スマホをFelica非搭載のものに乗り換えるために、Suicaを使える機器が欲しくてFitbit Charge 5を買った。

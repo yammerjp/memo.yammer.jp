@@ -1,7 +1,9 @@
 ---
 title: "hexoによる静的サイトの構築"
 date: "2020-03-16T09:09:00+09:00"
-tags: [ "hexo", "JavaScript", "ブログ" ]
+tags:
+  - ブログ
+  - JavaScript
 ---
 
 ## Hexoによる静的サイトの構築

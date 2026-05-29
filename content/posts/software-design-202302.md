@@ -1,7 +1,10 @@
 ---
 title: "シェルをカスタマイズする Software Design連載 開発環境 探求の道 第2回"
 date: "2023-01-18T22:20:00+09:00"
-tags: [ "SoftwareDesign", "dotfiles", "Shell", "bash", "zsh", "開発環境" ]
+tags:
+  - 本
+  - dotfiles
+  - 開発環境
 ---
 
 本日発売の月刊誌[Software Design 2023年2月号](https://gihyo.jp/magazine/SD/archive/2023/202302)に、連載記事の第2回を寄稿しました。

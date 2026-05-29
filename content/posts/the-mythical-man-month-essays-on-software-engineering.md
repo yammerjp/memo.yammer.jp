@@ -1,7 +1,9 @@
 ---
 title: "人月の神話を少し読む"
 date: "2023-07-13T14:40:00+09:00"
-tags: [ "本", "ソフトウェアエンジニアリング" ]
+tags:
+  - 本
+  - ソフトウェア開発
 ---
 
 [人月の神話](https://www.maruzen-publishing.co.jp/item/?book_no=294733) (Frederick Phillips Brooks, Jr. 著、滝沢徹 訳、牧野祐子 訳、富澤昇 訳、丸善出版 発行)を、いくつかの章は流しながら読んだ。

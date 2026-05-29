@@ -22,7 +22,7 @@ const {
   {tags.map((tag: string) => (
     <Tag
       tagName={tag}
-      linkTo={linkable ? `/tags?tags=${tag.toLowerCase()}` : undefined}
+      linkTo={linkable ? `/tags?tags=${encodeURIComponent(tag.toLowerCase())}` : undefined}
       emphasizing={!!(allEmphasizing || tagsEmphasizing.find((t) => t === tag))}
       inArticleHeader={inArticleHeader}
     />

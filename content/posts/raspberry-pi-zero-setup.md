@@ -1,7 +1,8 @@
 ---
 title: "Raspberry Pi Zeroをモニタレスで使うためのSetup"
 date: "2020-05-16T01:21:46+09:00"
-tags: [ "RaspberryPi" ]
+tags:
+  - ガジェット
 ---
 
 2020/3/4のメモ。
