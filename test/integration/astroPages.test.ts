@@ -44,4 +44,20 @@ describe('Astro pages integration', () => {
     expect(xml).toContain('<item>')
     expect(xml).toContain('/posts/20251215')
   })
+
+  it('renders a custom 404 page', async () => {
+    const html = await readDistHtml('404.html')
+
+    expect(html).toContain('ページが見つかりません')
+    expect(html).toContain('トップページへ')
+    expect(html).toContain('meta name="robots" content="noindex, nofollow"')
+  })
+
+  it('renders a custom 4xx page', async () => {
+    const html = await readDistHtml('4xx/index.html')
+
+    expect(html).toContain('リクエストを処理できません')
+    expect(html).toContain('タグ一覧へ')
+    expect(html).toContain('meta name="robots" content="noindex, nofollow"')
+  })
 })

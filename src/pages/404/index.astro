@@ -1,0 +1,11 @@
+---
+import ErrorPage from '../../components/errorPage.astro'
+---
+
+<ErrorPage
+  code='404'
+  title='ページが見つかりません'
+  description='お探しのページは削除されたか、URL が間違っている可能性があります。トップページか記事一覧から探し直してください。'
+  primaryAction={{ href: '/', label: 'トップページへ' }}
+  secondaryAction={{ href: '/posts/', label: '記事一覧へ' }}
+/>
