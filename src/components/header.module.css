@@ -68,6 +68,15 @@
   border-radius: 100%;
   width: 44px;
 }
+.headerNavIconRss {
+  display: inline-block;
+  padding: 4px;
+  font-size: 15px;
+  line-height: 1;
+  background-color: #fff;
+  border-radius: 100%;
+  width: 40px;
+}
 .headerNavIcon:hover {
   background-color: #f7f7f7;
 }
