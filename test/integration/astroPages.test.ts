@@ -33,4 +33,15 @@ describe('Astro pages integration', () => {
     expect(html).toContain('role="button"')
     expect(html).not.toContain('href="/search"')
   })
+
+  it('serves the RSS feed at /posts/index.xml', async () => {
+    const xml = await readDistHtml('posts/index.xml')
+
+    expect(xml).toContain('<?xml version="1.0" encoding="UTF-8"?>')
+    expect(xml).toContain('<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">')
+    expect(xml).toContain('<link>https://memo.yammer.jp/posts/</link>')
+    expect(xml).toContain('<atom:link href="https://memo.yammer.jp/posts/index.xml" rel="self" type="application/rss+xml" />')
+    expect(xml).toContain('<item>')
+    expect(xml).toContain('/posts/20251215')
+  })
 })
