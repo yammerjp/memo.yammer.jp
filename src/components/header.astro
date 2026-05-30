@@ -31,8 +31,8 @@ const { titleIsH1 = false } = Astro.props as { titleIsH1?: boolean }
         <a href='https://github.com/yammerjp' rel='noreferrer noopener' target='_blank' class={styles.headerNavIconWrapper}>
           <img class={styles.headerNavIcon} src='/assets/github.svg' alt='GitHub (@yammerjp)' width='44px' height='44px' />
         </a>
-        <a href='https://twitter.com/yammerjp' rel='noreferrer noopener' target='_blank' class={styles.headerNavIconWrapper}>
-          <img class={styles.headerNavIcon} src='/assets/twitter.svg' alt='Twitter (@yammerjp)' width='44px' height='44px' />
+        <a href='/posts/index.xml' class={styles.headerNavIconWrapper}>
+          <img class={styles.headerNavIconRss} src='/assets/rss.svg' alt='RSS feed' width='40px' height='40px' />
         </a>
         <a href='https://yammer.jp' rel='noreferrer noopener' target='_blank' class={styles.headerNavIconWrapper}>
           <img class={styles.headerNavIcon} src='/assets/home.svg' alt='著者のWebサイト' width='44px' height='44px' />

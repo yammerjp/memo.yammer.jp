@@ -34,6 +34,14 @@ describe('Astro pages integration', () => {
     expect(html).not.toContain('href="/search"')
   })
 
+  it('shows an RSS button in the header', async () => {
+    const html = await readDistHtml('index.html')
+
+    expect(html).toContain('href="/posts/index.xml"')
+    expect(html).toContain('src="/assets/rss.svg"')
+    expect(html).toContain('alt="RSS feed"')
+  })
+
   it('serves the RSS feed at /posts/index.xml', async () => {
     const xml = await readDistHtml('posts/index.xml')
 
@@ -43,5 +51,21 @@ describe('Astro pages integration', () => {
     expect(xml).toContain('<atom:link href="https://memo.yammer.jp/posts/index.xml" rel="self" type="application/rss+xml" />')
     expect(xml).toContain('<item>')
     expect(xml).toContain('/posts/20251215')
+  })
+
+  it('renders a custom 404 page', async () => {
+    const html = await readDistHtml('404.html')
+
+    expect(html).toContain('ページが見つかりません')
+    expect(html).toContain('トップページへ')
+    expect(html).toContain('meta name="robots" content="noindex, nofollow"')
+  })
+
+  it('renders a custom 4xx page', async () => {
+    const html = await readDistHtml('4xx/index.html')
+
+    expect(html).toContain('リクエストを処理できません')
+    expect(html).toContain('タグ一覧へ')
+    expect(html).toContain('meta name="robots" content="noindex, nofollow"')
   })
 })
