@@ -1,0 +1,18 @@
+---
+import Frame from '../layouts/Frame.astro'
+const { code, title, description } = Astro.props as {
+  code: string
+  title: string
+  description: string
+}
+---
+
+<Frame titleIsH1={false}>
+  <title slot="head">{code} - memo.yammer.jp</title>
+  <meta slot="head" name="robots" content="noindex, nofollow" />
+
+  <section aria-labelledby="error-title">
+    <h1 id="error-title">{title}</h1>
+    <p class="error-description">{description}</p>
+  </section>
+</Frame>

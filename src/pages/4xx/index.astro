@@ -1,0 +1,11 @@
+---
+import ErrorPage from '../../components/errorPage.astro'
+---
+
+<ErrorPage
+  code='4xx'
+  title='リクエストを処理できません'
+  description='アクセスした URL が不正だったり、このサイトでは扱えない種類のリクエストだった可能性があります。別のページから入り直してください。'
+  primaryAction={{ href: '/', label: 'トップページへ' }}
+  secondaryAction={{ href: '/tags', label: 'タグ一覧へ' }}
+/>
