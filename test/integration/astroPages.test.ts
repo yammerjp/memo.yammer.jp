@@ -34,6 +34,14 @@ describe('Astro pages integration', () => {
     expect(html).not.toContain('href="/search"')
   })
 
+  it('shows an RSS button in the header', async () => {
+    const html = await readDistHtml('index.html')
+
+    expect(html).toContain('href="/posts/index.xml"')
+    expect(html).toContain('src="/assets/rss.svg"')
+    expect(html).toContain('alt="RSS feed"')
+  })
+
   it('serves the RSS feed at /posts/index.xml', async () => {
     const xml = await readDistHtml('posts/index.xml')
 
