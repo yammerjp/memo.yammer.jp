@@ -1,5 +1,7 @@
 import { getAllPosts } from '../../lib/astroApi'
-import { SITE_URL, escapeXml, formatRssDate } from '../../lib/rss'
+import xmlEscape from 'xml-escape'
+
+import { SITE_URL, formatRssDate } from '../../lib/rss'
 
 const buildRss = async () => {
   const allPosts = await getAllPosts(['title', 'date', 'slug', 'html'])
@@ -9,11 +11,11 @@ const buildRss = async () => {
   const items = allPosts
     .map(
       (post) => `    <item>
-      <title>${escapeXml(post.title)}</title>
-      <link>${escapeXml(`${SITE_URL}/posts/${post.slug}`)}</link>
-      <pubDate>${escapeXml(formatRssDate(post.date))}</pubDate>
-      <guid>${escapeXml(`${SITE_URL}/posts/${post.slug}`)}</guid>
-      <description>${escapeXml(post.html ?? '')}</description>
+      <title>${xmlEscape(post.title)}</title>
+      <link>${xmlEscape(`${SITE_URL}/posts/${post.slug}`)}</link>
+      <pubDate>${xmlEscape(formatRssDate(post.date))}</pubDate>
+      <guid>${xmlEscape(`${SITE_URL}/posts/${post.slug}`)}</guid>
+      <description>${xmlEscape(post.html ?? '')}</description>
     </item>`,
     )
     .join('\n')
@@ -22,12 +24,12 @@ const buildRss = async () => {
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>memo.yammer.jp</title>
-    <link>${escapeXml(`${SITE_URL}/posts/`)}</link>
+    <link>${xmlEscape(`${SITE_URL}/posts/`)}</link>
     <description>Recent content in Posts on memo.yammer.jp</description>
     <generator>memo.yammer.jp with Astro (https://github.com/yammerjp/memo.yammer.jp)</generator>
     <language>ja</language>
-    <copyright>${escapeXml(copyright)}</copyright>
-    <lastBuildDate>${escapeXml(latestBuildDate)}</lastBuildDate>
+    <copyright>${xmlEscape(copyright)}</copyright>
+    <lastBuildDate>${xmlEscape(latestBuildDate)}</lastBuildDate>
     <atom:link href="${SITE_URL}/posts/index.xml" rel="self" type="application/rss+xml" />
 ${items}
   </channel>
