@@ -1,23 +1,9 @@
 ---
 import Frame from '../layouts/Frame.astro'
-
-type ErrorAction = {
-  href: string
-  label: string
-}
-
-const {
-  code,
-  title,
-  description,
-  primaryAction,
-  secondaryAction,
-} = Astro.props as {
+const { code, title, description } = Astro.props as {
   code: string
   title: string
   description: string
-  primaryAction: ErrorAction
-  secondaryAction: ErrorAction
 }
 ---
 
@@ -25,105 +11,8 @@ const {
   <title slot="head">{code} - memo.yammer.jp</title>
   <meta slot="head" name="robots" content="noindex, nofollow" />
 
-  <section class="error-shell" aria-labelledby="error-title">
-    <div class="error-code">{code}</div>
+  <section aria-labelledby="error-title">
     <h1 id="error-title">{title}</h1>
     <p class="error-description">{description}</p>
-
-    <div class="error-actions">
-      <a class="primary-action" href={primaryAction.href}>{primaryAction.label}</a>
-      <a class="secondary-action" href={secondaryAction.href}>{secondaryAction.label}</a>
-    </div>
-
-    <ul class="error-links" aria-label="補助リンク">
-      <li><a href='/'>Home</a></li>
-      <li><a href='/posts/'>記事一覧</a></li>
-      <li><a href='/tags'>タグ一覧</a></li>
-    </ul>
   </section>
 </Frame>
-
-<style>
-  .error-shell {
-    margin: 24px 0 48px;
-    padding: 40px 28px;
-    border: 1px solid rgba(64, 101, 153, 0.16);
-    border-radius: 24px;
-    background:
-      radial-gradient(circle at top left, rgba(163, 215, 255, 0.34), transparent 46%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 255, 0.96));
-    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.08);
-  }
-
-  .error-code {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 88px;
-    padding: 8px 14px;
-    margin-bottom: 20px;
-    border-radius: 999px;
-    background-color: rgba(64, 101, 153, 0.1);
-    color: #406599;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-  }
-
-  h1 {
-    margin: 0 0 12px;
-    font-size: clamp(2rem, 4vw, 3rem);
-    line-height: 1.2;
-    color: #222;
-  }
-
-  .error-description {
-    max-width: 46rem;
-    margin: 0;
-    font-size: 1.05rem;
-  }
-
-  .error-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 28px;
-  }
-
-  .primary-action,
-  .secondary-action {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 44px;
-    padding: 0 18px;
-    border-radius: 999px;
-    font-weight: 700;
-    text-decoration: none;
-  }
-
-  .primary-action {
-    color: #fff;
-    background: linear-gradient(135deg, #406599, #2f4f78);
-    box-shadow: 0 10px 24px rgba(64, 101, 153, 0.25);
-  }
-
-  .secondary-action {
-    color: #406599;
-    background: rgba(64, 101, 153, 0.08);
-  }
-
-  .error-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px 18px;
-    list-style: none;
-    padding: 0;
-    margin: 28px 0 0;
-    font-size: 0.96rem;
-  }
-
-  .error-links a {
-    color: #406599;
-  }
-</style>
