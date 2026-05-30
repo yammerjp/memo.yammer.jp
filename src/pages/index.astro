@@ -14,6 +14,7 @@ const pages = Math.ceil(allPosts.length / postsPerPage)
 
 <Frame titleIsH1={true}>
   <title slot="head">memo.yammer.jp - 常に完成形</title>
+  <link slot="head" rel="alternate" type="application/rss+xml" title="RSS2.0" href="/posts/index.xml" />
   <Ogp
     slot="head"
     title='memo.yammer.jp'
