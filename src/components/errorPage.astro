@@ -1,9 +1,18 @@
 ---
 import Frame from '../layouts/Frame.astro'
+import styles from './errorPage.module.css'
 const { code, title, description } = Astro.props as {
   code: string
   title: string
   description: string
+  primaryAction?: {
+    href: string
+    label: string
+  }
+  secondaryAction?: {
+    href: string
+    label: string
+  }
 }
 ---
 
@@ -14,5 +23,19 @@ const { code, title, description } = Astro.props as {
   <section aria-labelledby="error-title">
     <h1 id="error-title">{title}</h1>
     <p class="error-description">{description}</p>
+    {(Astro.props.primaryAction || Astro.props.secondaryAction) && (
+      <div class={styles.errorActions}>
+        {Astro.props.primaryAction && (
+          <a class={styles.errorActionPrimary} href={Astro.props.primaryAction.href}>
+            {Astro.props.primaryAction.label}
+          </a>
+        )}
+        {Astro.props.secondaryAction && (
+          <a class={styles.errorActionSecondary} href={Astro.props.secondaryAction.href}>
+            {Astro.props.secondaryAction.label}
+          </a>
+        )}
+      </div>
+    )}
   </section>
 </Frame>
