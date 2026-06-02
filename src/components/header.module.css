@@ -59,6 +59,13 @@
   margin: 0 4px;
 }
 
+.headerNav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
 .headerNavIcon {
   display: inline-block;
   padding: 4px;
@@ -68,10 +75,49 @@
   border-radius: 100%;
   width: 44px;
 }
+.headerNavIconRss {
+  display: inline-block;
+  padding: 4px;
+  font-size: 15px;
+  line-height: 1;
+  background-color: #fff;
+  border-radius: 100%;
+  width: 40px;
+}
 .headerNavIcon:hover {
   background-color: #f7f7f7;
 }
 .headerNavDescription {
   height: 24px;
   text-align: center;
+}
+
+@media (max-width: 640px) {
+  .headerInner {
+    padding: 12px 12px 0;
+  }
+
+  .headerLeft,
+  .headerRight {
+    width: 100%;
+  }
+
+  .headerRight {
+    margin-left: 0;
+    padding-top: 8px;
+  }
+
+  .headerNav {
+    justify-content: flex-end;
+  }
+
+  .headerNavIconWrapper {
+    margin: 0 2px;
+  }
+
+  .headerNavIcon,
+  .headerNavIconRss {
+    width: 40px;
+    padding: 3px;
+  }
 }
