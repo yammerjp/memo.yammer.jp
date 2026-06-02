@@ -57,7 +57,7 @@ describe('Astro pages integration', () => {
     const html = await readDistHtml('404.html')
 
     expect(html).toContain('ページが見つかりません')
-    expect(html).toContain('トップページへ')
+    expect(html).toContain('お探しのページは削除されたか、URL が間違っている可能性があります。トップページか記事一覧から探し直してください。')
     expect(html).toContain('meta name="robots" content="noindex, nofollow"')
   })
 
@@ -65,7 +65,7 @@ describe('Astro pages integration', () => {
     const html = await readDistHtml('4xx/index.html')
 
     expect(html).toContain('リクエストを処理できません')
-    expect(html).toContain('タグ一覧へ')
+    expect(html).toContain('アクセスした URL が不正だったり、このサイトでは扱えない種類のリクエストだった可能性があります。別のページから入り直してください。')
     expect(html).toContain('meta name="robots" content="noindex, nofollow"')
   })
 })
