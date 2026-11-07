@@ -1,0 +1,18 @@
+name: Test
+
+# Forgejo 上の PR のテスト(GitHub 側の firebase-hosting-pull-request.yml と同じ内容)。
+# .forgejo/workflows があるので、.github/workflows は Forgejo では実行されない。
+# 公開(イメージのビルド)は、GitHub へミラーされた master への push で GitHub 側が行う。
+on:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: self-hosted
+    container:
+      image: node:22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: npm ci && npm run test:astro
