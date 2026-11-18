@@ -1,0 +1,51 @@
+name: Deploy to S3 + CloudFront
+
+# master への push(Forgejo homelab/memo.yammer.jp から GitHub へミラー)で、ビルドして memo.yammer.jp に出す。
+# 配信は CloudFront(EWIVJ8LB5M3ZY)+ S3(memo-yammer-jp-site)。インフラは yammerjp/terraform の aws/memo_site.tf。
+# AWS へは GitHub OIDC でロール memo-site-github-actions を引き受ける(master からだけ。長期キーなし)。
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+env:
+  S3_BUCKET: memo-yammer-jp-site
+  CLOUDFRONT_DISTRIBUTION_ID: EWIVJ8LB5M3ZY
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # build:post-history が git の履歴を読む
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build:post-history && npm run build:astro
+        env:
+          PUBLIC_GOOGLE_ANALYTICS_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID }}
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::959192657855:role/memo-site-github-actions
+          aws-region: ap-northeast-1
+
+      # ハッシュ付きのファイル(_astro/)は長くキャッシュ、それ以外(HTML など)は短く。消えたファイルは S3 からも消す
+      - run: |
+          aws s3 sync dist/_astro "s3://$S3_BUCKET/_astro" --delete --cache-control "public, max-age=31536000, immutable"
+          aws s3 sync dist "s3://$S3_BUCKET" --delete --exclude "_astro/*" --cache-control "public, max-age=300"
+      - run: aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --paths "/*"

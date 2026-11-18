@@ -1,6 +1,6 @@
 # memo.yammer.jp
 
-日々のインプットを整理するためのブログです。Astro で生成して、GitHub Actions で `ghcr.io/yammerjp/memo.yammer.jp` に publish し、`shima` の k3s から配信しています。
+日々のインプットを整理するためのブログです。Astro で生成して、GitHub Actions(`.github/workflows/deploy.yml`、master への push)で S3 に同期し、CloudFront から配信しています(インフラは `yammerjp/terraform` の `aws/memo_site.tf`)。
 
 ## Development
 
